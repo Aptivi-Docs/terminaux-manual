@@ -13,6 +13,7 @@
   * [🎨 Color Sequences](usage/how-to-use/color-sequences.md)
   * [🎨 Color Wheel](usage/how-to-use/color-wheel.md)
   * [🖊 Console Writers](usage/how-to-use/console-writers.md)
+  * [🖊 Figlet Font Selector](usage/how-to-use/figlet-font-selector.md)
   * [🗑 VT Sequences](usage/how-to-use/vt-sequences.md)
 * [⚒ How it works](usage/how-it-works/README.md)
   * [🪛 Input Reader Internals](usage/how-it-works/input-reader-internals.md)
