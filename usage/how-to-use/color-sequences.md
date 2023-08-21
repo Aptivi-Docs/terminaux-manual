@@ -4,6 +4,10 @@ description: We need colors!
 
 # 🎨 Color Sequences
 
+{% hint style="info" %}
+This feature is available on 1.0.0 or higher.
+{% endhint %}
+
 Terminaux provides a functionality to generate color sequences with the help of the VT sequences. It allows you to generate a color with three modes:
 
 * 16 colors

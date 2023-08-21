@@ -4,6 +4,10 @@ description: May I read what you've written, please?
 
 # 🖱 Input Reader
 
+{% hint style="info" %}
+This feature is available on 1.0.0 or higher.
+{% endhint %}
+
 This functionality is an important part of any interactive console application, because it gives users a chance to input what they want to write to the console.
 
 You can easily use this feature in any interactive console application that uses Terminaux. Just use the `Terminaux.Reader` class that contains:

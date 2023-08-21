@@ -4,6 +4,10 @@ description: We need to filter and build the VT sequences.
 
 # 🗑 VT Sequences
 
+{% hint style="info" %}
+This feature is available on 1.0.0 or higher.
+{% endhint %}
+
 Alongside all the Terminaux features, VT sequences are the power of any terminal emulator found in literally every PC.
 
 This feature provides several filtering and manipulation tools which allow you to perform these operations on strings that contain escape sequences under the `Terminaux.Sequences.Tools` namespace. Currently, these tools are provided:

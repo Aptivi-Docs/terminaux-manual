@@ -4,6 +4,10 @@ description: Here's how you can let the users choose their own colors
 
 # 🎨 Color Wheel
 
+{% hint style="info" %}
+This feature is available on 1.0.0 or higher.
+{% endhint %}
+
 This feature of Terminaux allows you to select a color from the color code (16 and 255 colors) or from the RGB levels (true color). It also allows you to get information about any color, similar to the color wheel function found in various web applications, including the built-in color blindness simulator located right in front of you.
 
 {% hint style="info" %}

@@ -44,3 +44,15 @@ Any key will append the selected characters to the current text input, and `RETU
 {% content-ref url="vt-sequences.md" %}
 [vt-sequences.md](vt-sequences.md)
 {% endcontent-ref %}
+
+{% content-ref url="color-wheel.md" %}
+[color-wheel.md](color-wheel.md)
+{% endcontent-ref %}
+
+{% content-ref url="console-writers.md" %}
+[console-writers.md](console-writers.md)
+{% endcontent-ref %}
+
+{% content-ref url="figlet-font-selector.md" %}
+[figlet-font-selector.md](figlet-font-selector.md)
+{% endcontent-ref %}

@@ -4,6 +4,10 @@ description: We need to write to the console
 
 # 🖊 Console Writers
 
+{% hint style="info" %}
+This feature is available on 1.0.0 or higher.
+{% endhint %}
+
 Terminaux provides a vast amount of console writers for different purposes, like the progress bar writer, writing console output in color, etc.
 
 ### Normal console writers
