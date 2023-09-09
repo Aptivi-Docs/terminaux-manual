@@ -10,6 +10,7 @@
     * [⌨ Keybindings](usage/how-to-use/input-reader/keybindings.md)
     * [🔌 Custom bindings](usage/how-to-use/input-reader/custom-bindings.md)
     * [⚙ Reader Settings](usage/how-to-use/input-reader/reader-settings.md)
+  * [⌨ Interactive TUI](usage/how-to-use/interactive-tui.md)
   * [🎨 Color Sequences](usage/how-to-use/color-sequences.md)
   * [🎨 Color Wheel](usage/how-to-use/color-wheel.md)
   * [🖊 Console Writers](usage/how-to-use/console-writers.md)

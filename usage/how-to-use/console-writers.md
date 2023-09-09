@@ -50,7 +50,7 @@ Alongside these writers, there are also writers that are categorized as "fancy" 
 * `FigletWhereColor`
   * Provides you with the necessary functions to allow you to render a string using the provided Figlet font to the console at any position you want.
 * `InfoBoxColor`
-  * Provides you with the necessary functions to allow you to render an information box containing text inside it in the middle of the console.
+  * Provides you with the necessary functions to allow you to render an information box containing text inside it in the middle of the console. You can make it either modal (having a user press any key to exit) or informational (not waiting for any user input) on Terminaux 1.3.0 or higher.
 * `PowerLineColor`
   * Provides you with the necessary functions to allow you to build PowerLine segments and display them to the console.
 * `ProgressBarColor`

@@ -130,3 +130,16 @@ Terminaux also provides a function that gets the correct color mapping for the s
 ```csharp
 public static ConsoleColor CorrectStandardColor(ConsoleColor color)
 ```
+
+### Resetting the colors and the console
+
+Since 1.3.0, Terminaux provides a console extension that allows you to perform a hard reset using the two VT sequences. When invoked, the terminal will perform two resets:
+
+* Full reset (ESC sequence)
+* Soft reset (CSI sequence)
+
+After the reset is done, the screen will be cleared with all the colors reverted to their initial state. The signature is defined below:
+
+```csharp
+public static void ResetAll()
+```

@@ -27,3 +27,33 @@ We advice you to add a new `usings` clause in the beginning of the code file tha
 using Terminaux.Figlet
 ```
 {% endhint %}
+
+## From 1.1.x to 1.4.x
+
+Between the 1.1.x and 1.4.x version range, we've made the following breaking changes:
+
+### Added the signing key (a.k.a. strong name) <a href="#added-the-signing-key-a.k.a.-strong-name" id="added-the-signing-key-a.k.a.-strong-name"></a>
+
+Nitrocid KS launched without any signing key. Originally, it was planned to come signed by us, but it didn't work. However, we used the strong naming tool to give Nitrocid KS a unique identity to avoid dependency hell.
+
+{% hint style="info" %}
+It's not necessary to strong name your mods, but we recommend you to do so using the strong naming utility (`sn.exe`) that comes with Visual Studio.
+
+Most of the time, you don't have to do anything to your mods, since the signing key change doesn't break any API functions. If you found that your mods no longer worked, try to update to the latest version of Nitrocid, or contact the mod vendor.
+{% endhint %}
+
+### Enhanced console wrapper
+
+{% code title="ConsoleWrapperTools.cs" lineNumbers="true" %}
+```csharp
+public static class ConsoleTools
+```
+{% endcode %}
+
+When Terminaux shipped its first version, it had a console wrapper that was exclusive to the console reader. We've decided to make this wrapper broader, causing Terminaux to ddepend on this wrapper to call the Console functions, hence increasing its flexibility.
+
+{% hint style="info" %}
+`ConsoleTools` has been renamed to `ConsoleWrappers`, and it has been moved to the `Terminaux.Base` namespace.
+
+None of the actions are affected.
+{% endhint %}
