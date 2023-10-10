@@ -143,3 +143,44 @@ After the reset is done, the screen will be cleared with all the colors reverted
 ```csharp
 public static void ResetAll()
 ```
+
+### Conversions of Color Models
+
+In addition to Terminaux supporting RGB color model, you can also use the CMYK and HSL color models when creating the color instances, provided that their specifiers that you must use are:
+
+* CMYK's specifier is `cmyk:ccc;mmm;yyy;kkk`
+* HSL's specifier is `hsl:hhh;sss;lll`
+
+For CMYK specifiers, all the variables are from 0 to 100
+
+For HSL specifiers, the `h` variable is from 0 to 360 degrees (not radians) and the `s` and the `l` variables are from 0 to 100.
+
+To convert from RGB to CMYK or HSL, you need an instance of the `Color` class first with the color of your choice. Afterwards, you can use the `RGB` property of the `Color` class to obtain conversion functions, which are:
+
+* `ConvertToCmyk()`
+* `ConvertToHsl()`
+
+The conversion is done to their separate classes that are appropriate for the following color models:
+
+#### CMYK (Cyan, Magenta, Yellow, and Black Key)
+
+This color model contains two separate classes: the Cyan Magenta Yellow, and the wrapper class with the black key value.
+
+* `CyanMagentaYellow`
+  * This is the class that stores the Cyan, the Magenta, and the Yellow values in both the fractional and the whole formats.
+* `CyanMagentaYellowKey`
+  * This is the class that is a wrapper of the `CyanMagentaYellow` class along with the black key in both the fractional and the whole formats.
+
+To convert from CMYK to RGB or HSL, you can use the following functions:
+
+* `ConvertToRgb()`
+* `ConvertToHsl()`
+
+#### HSL (Hue, Saturation, and Lumiance (Lightness))
+
+This color model contains a single color model class that contains the necessary variables to represent the color hue, the color saturation, and the color lumiance (or lightness).
+
+To convert from HSL to RGB or CMYK, you can use the following functions:
+
+* `ConvertToRgb()`
+* `ConvertToCmyk()`

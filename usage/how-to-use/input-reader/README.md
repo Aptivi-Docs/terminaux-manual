@@ -38,3 +38,16 @@ Any key will append the selected characters to the current text input, and `RETU
 {% content-ref url="keybindings.md" %}
 [keybindings.md](keybindings.md)
 {% endcontent-ref %}
+
+### History tools
+
+{% hint style="info" %}
+This feature is available on 1.6.0 or higher.
+{% endhint %}
+
+You can now set the history entry list with your array of history entries or clear the history list using the following functions:
+
+* `SetHistory(List<string> History)`
+  * Sets the history to the chosen history list
+* `ClearHistory()`
+  * Clears all history entries

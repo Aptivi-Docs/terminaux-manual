@@ -31,6 +31,14 @@ Consult the below page to find out how to use these functions.
 
 {% embed url="https://aptivi.github.io/Terminaux/api/Terminaux.Writer.ConsoleWriters.html" %}
 
+{% hint style="info" %}
+The console writers have three variants of writing functions as of 1.8.0:
+
+* `Write()`: Default colors
+* `WriteColor()`: Foreground colors
+* `WriteColorBack()`: Foreground and background colors
+{% endhint %}
+
 ### Fancy writers
 
 Alongside these writers, there are also writers that are categorized as "fancy" because they either print so awesome or they print graphics. They can be found in the `FancyWriters` namespace that provides the below classes:
@@ -70,12 +78,26 @@ The tools for fancy writers can also be found here:
 
 {% embed url="https://aptivi.github.io/Terminaux/api/Terminaux.Writer.FancyWriters.Tools.html" %}
 
+{% hint style="info" %}
+Starting from 1.6.0, the legacy Figlet font renderers are still available under a separate library, `Terminaux.Figlet`. The following classes are available:
+
+* `CenteredFigletTextColorLegacy`
+* `FigletColorLegacy`
+* `FigletWhereColorLegacy`
+{% endhint %}
+
 ### Miscellaneous writers
 
 FInally, the miscellaneous writers are the writers that don't have any meaningful category. That's when MiscWriters comes in. This namespace contains these classes:
 
 * `LineHandleWriter`
   * Provides you with the necessary functions to allow you to render a line of a text file with the compiler-like line handle using the specified line and column to the console.
+* `LineHandleRangedWriter`
+  * Provides you with the necessary functions to allow you to render a line of a text file with the compiler-like line handle using the specified line and column range to the console. This is used to highlight relevant parts of the entire line
+
+{% hint style="info" %}
+`LineHandleRangedWriter` is available starting from 1.7.0.
+{% endhint %}
 
 Consult the below page to find out how to use these functions:
 
