@@ -48,6 +48,11 @@ The `ColorSpecifier` can be of the syntax:
   * `<num>` should be of the range between 0 and 255
 * `<rrr>;<ggg>;<bbb>`
   * `<rrr>`, `<ggg>`, and `<bbb>` should be of the range between 0 and 255
+* `cmyk:<ccc>;<mmm>;<yyy>;<kkk>`
+  * `<ccc>`, `<mmm>`, `<yyy>`, and `<kkk>` should be of the range between 0 and 100
+* `hsl:<hhh>;<sss>;<lll>`
+  * `<hhh>` should be of the range between 0 and 360 in degrees and not radians
+  * `<sss>` and `<lll>` should be of the range between 0 and 100
 * `#000000`
   * Hexadecimal representation of the color for HTML fans
 * `<ColorName>`
@@ -146,14 +151,10 @@ public static void ResetAll()
 
 ### Conversions of Color Models
 
-In addition to Terminaux supporting RGB color model, you can also use the CMYK and HSL color models when creating the color instances, provided that their specifiers that you must use are:
+In addition to Terminaux supporting RGB color model, you can also use the CMYK and HSL color models when creating the color instances, provided that their specifiers that you must use are: (for quick reference)
 
 * CMYK's specifier is `cmyk:ccc;mmm;yyy;kkk`
 * HSL's specifier is `hsl:hhh;sss;lll`
-
-For CMYK specifiers, all the variables are from 0 to 100
-
-For HSL specifiers, the `h` variable is from 0 to 360 degrees (not radians) and the `s` and the `l` variables are from 0 to 100.
 
 To convert from RGB to CMYK or HSL, you need an instance of the `Color` class first with the color of your choice. Afterwards, you can use the `RGB` property of the `Color` class to obtain conversion functions, which are:
 
