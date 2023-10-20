@@ -98,6 +98,10 @@ In the `ColorTools` static class, it contains several color blindness simulation
 
 After you change these values, the next time you make a new instance of `Color`, you'll notice that the resulting color is shifted to adjust to color-blindness.
 
+{% hint style="info" %}
+Starting from 1.9.0, you can easily make a new Color instance using the brand new API function, `RenderColorBlindnessAware()`.
+{% endhint %}
+
 ### Translate from X11 to ConsoleColor and back
 
 ConsoleColor enumeration has an order of colors that is slightly different from the X11 colormap definitions for the first 16 colors. The following colors differ from each other:
@@ -185,3 +189,11 @@ To convert from HSL to RGB or CMYK, you can use the following functions:
 
 * `ConvertToRgb()`
 * `ConvertToCmyk()`
+
+### Resetting colors
+
+{% hint style="info" %}
+This feature is available in 1.9.0 or higher.
+{% endhint %}
+
+You can reset all the colors once you're done writing text with color using the `ResetColors()` method.

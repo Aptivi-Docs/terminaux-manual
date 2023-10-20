@@ -4,8 +4,36 @@ description: Here's how you can let the users choose their own colors
 
 # 🎨 Color Wheel
 
+## New Color Wheel
+
+Starting from 1.9.0, the new color wheel, `ColorSelector`, is now available. You can use this brand new color selector to get information about your selected color visually. You can call the `OpenColorSelector()` function in your code to get the new color selector.
+
+The color selector allows you to change the color in the following modes:
+
+* In true color mode, you can change the hue, the lighting, and the saturation by pressing the appropriate key shortcuts to change the colors.
+* In 256 and 16 colors mode, you can select a color using the right and the left arrow keys. It shows you color information, including the CMYK and HSL values.
+
+The following controls are available:
+
+| Key            | Action                                                    |
+| -------------- | --------------------------------------------------------- |
+| `ENTER`        | Accept color selection                                    |
+| `ESC`          | DIscard changes                                           |
+| `H`            | Help page                                                 |
+| `LEFT`         | Reduce hue (for true color)                               |
+|                | Previous color (for 256 and 16 colors)                    |
+| `CTRL + LEFT`  | Reduce lightness (true color only)                        |
+| `RIGHT`        | Increase hue (for true color)                             |
+|                | Next color (for 256 and 16 colors)                        |
+| `CTRL + RIGHT` | Increase lightness (true color only)                      |
+| `DOWN`         | Reduce saturation (true color only)                       |
+| `UP`           | Increase saturation (true color only)                     |
+| `TAB`          | Change color mode (true color, 256 colors, and 16 colors) |
+
+## Old Color Wheel
+
 {% hint style="info" %}
-This feature is available on 1.0.0 or higher.
+This feature is available on 1.0.0 or higher. It's advisable to use the new color wheel if possible.
 {% endhint %}
 
 This feature of Terminaux allows you to select a color from the color code (16 and 255 colors) or from the RGB levels (true color). It also allows you to get information about any color, similar to the color wheel function found in various web applications, including the built-in color blindness simulator located right in front of you.
