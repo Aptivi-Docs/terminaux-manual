@@ -92,9 +92,13 @@ In the `ColorTools` static class, it contains several color blindness simulation
 * `EnableSimpleColorTransformation`
   * Enables the simple color transformation. This changes formula from Brettel 1997 (value is false) to Vienot 1999 (value is true)
 * `ColorDeficiency`
-  * Specifies the type of color blindness (Protan, Deutan, and Tritan)
+  * Specifies the type of color blindness (Protan, Deutan, Tritan, and Monochromacy)
 * `ColorDeficiencySeverity`
   * Specifies the severity of the color deficiency ranging between 0.0 and 1.0 from lowest to highest
+
+{% hint style="info" %}
+Both the severity and the simple color transformation formula flags don't affect the monochromacy color transformer, which is available starting from 1.10.0.
+{% endhint %}
 
 After you change these values, the next time you make a new instance of `Color`, you'll notice that the resulting color is shifted to adjust to color-blindness.
 

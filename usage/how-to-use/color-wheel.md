@@ -11,7 +11,7 @@ Starting from 1.9.0, the new color wheel, `ColorSelector`, is now available. You
 The color selector allows you to change the color in the following modes:
 
 * In true color mode, you can change the hue, the lighting, and the saturation by pressing the appropriate key shortcuts to change the colors.
-* In 256 and 16 colors mode, you can select a color using the right and the left arrow keys. It shows you color information, including the CMYK and HSL values.
+* In 256 and 16 colors mode, you can select a color using the right and the left arrow keys. It shows you color information, including the CMYK, HSL, and grayscale values.
 
 The following controls are available:
 

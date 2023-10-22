@@ -112,3 +112,23 @@ So, we've decided to rename function names that take colors to these variants:
 {% hint style="info" %}
 You no longer need to override the vars value using the above method. Instead, you can replace these calls with one of the above functions, based on the color type.
 {% endhint %}
+
+## From 1.8.x to 1.10.x
+
+Between the 1.8.x and 1.10.x version range, we've made the following breaking changes:
+
+### Replaced `Color255` with deserialized colors data
+
+{% code title="Color255.cs" lineNumbers="true" %}
+```csharp
+public static class Color255
+```
+{% endcode %}
+
+`Color255` used to host a single variable containing the 256 console colors and their information in a single object class. However, the way it was implemented was more complicated and uses the JSON LINQ feature, which is complex.
+
+As a result, we've decided to reduce complexity by removing the `ColorDataJson` variable from the class, ultimately resulting in the removal of this entire class.
+
+{% hint style="info" %}
+The list of all 256 console colors and their info can be accessed using the `GetColorData()` function from the `ConsoleColorData` class.
+{% endhint %}
