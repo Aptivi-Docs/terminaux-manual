@@ -50,16 +50,21 @@ The `ColorSpecifier` can be of the syntax:
   * `<rrr>`, `<ggg>`, and `<bbb>` should be of the range between 0 and 255
 * `cmyk:<ccc>;<mmm>;<yyy>;<kkk>`
   * `<ccc>`, `<mmm>`, `<yyy>`, and `<kkk>` should be of the range between 0 and 100
+* `cmy:<ccc>;<mmm>;<yyy>`
+  * `<ccc>`, `<mmm>`, and `<yyy>` should be of the range between 0 and 100
 * `hsl:<hhh>;<sss>;<lll>`
   * `<hhh>` should be of the range between 0 and 360 in degrees and not radians
   * `<sss>` and `<lll>` should be of the range between 0 and 100
+* `hsv:<hhh>;<sss>;<vvv>`
+  * `<hhh>` should be of the range between 0 and 360 in degrees and not radians
+  * `<sss>` and `<vvv>` should be of the range between 0 and 100
 * `#000000`
   * Hexadecimal representation of the color for HTML fans
 * `<ColorName>`
   * Color name from `ConsoleColors` enumeration
 
 {% hint style="info" %}
-You can also specify just a string, an integer, a ConsoleColor, or a ConsoleColor enumeration value when making a variable that holds the Color class like the following:
+You can also specify just a string, an integer, a `ConsoleColor`, or a `ConsoleColor` enumeration value when making a variable that holds the `Color` class like the following:
 
 ```csharp
 Color ColorInstance = 18;
@@ -70,6 +75,8 @@ Color ColorInstance = ConsoleColors.Magenta;
 Color ColorInstance = ConsoleColor.Magenta;
 ```
 {% endhint %}
+
+Additionally, you can choose whether to use your terminal emulator's color palette or to use the real colors that come from the true colors. By default, Terminaux chooses to use the terminal emulator's color palette to maintain consistency.
 
 ## Getting console color information
 
@@ -159,40 +166,70 @@ public static void ResetAll()
 
 ### Conversions of Color Models
 
-In addition to Terminaux supporting RGB color model, you can also use the CMYK and HSL color models when creating the color instances, provided that their specifiers that you must use are: (for quick reference)
+In addition to Terminaux supporting RGB color model, you can also use the CMYK and other color models when creating the color instances, provided that their specifiers that you must use are: (for quick reference)
 
 * CMYK's specifier is `cmyk:ccc;mmm;yyy;kkk`
+* CMY's specifier is `cmy:ccc;mmm;yyy`
 * HSL's specifier is `hsl:hhh;sss;lll`
+* HSV's specifier is `hsv:hhh;sss;vvv`
 
-To convert from RGB to CMYK or HSL, you need an instance of the `Color` class first with the color of your choice. Afterwards, you can use the `RGB` property of the `Color` class to obtain conversion functions, which are:
+To convert from RGB to CMYK or to any other color model, you need an instance of the `Color` class first with the color of your choice. Afterwards, you can use the `RGB` property of the `Color` class to obtain conversion functions, which are:
 
 * `ConvertToCmyk()`
 * `ConvertToHsl()`
+* `ConvertToCmy()`
+* `ConvertToHsv()`
 
 The conversion is done to their separate classes that are appropriate for the following color models:
 
 #### CMYK (Cyan, Magenta, Yellow, and Black Key)
 
-This color model contains two separate classes: the Cyan Magenta Yellow, and the wrapper class with the black key value.
+This color model contains two separate classes: the Cyan Magenta Yellow class, and the wrapper class with the black key value.
 
 * `CyanMagentaYellow`
   * This is the class that stores the Cyan, the Magenta, and the Yellow values in both the fractional and the whole formats.
 * `CyanMagentaYellowKey`
   * This is the class that is a wrapper of the `CyanMagentaYellow` class along with the black key in both the fractional and the whole formats.
 
-To convert from CMYK to RGB or HSL, you can use the following functions:
+To convert from CMYK to other color models, you can use the following functions:
 
 * `ConvertToRgb()`
 * `ConvertToHsl()`
+* `ConvertToCmy()`
+* `ConvertToHsv()`
 
-#### HSL (Hue, Saturation, and Lumiance (Lightness))
+#### CMY (Cyan, Magenta, and Yellow)
 
-This color model contains a single color model class that contains the necessary variables to represent the color hue, the color saturation, and the color lumiance (or lightness).
+This color model contains a single color model class that contains the necessary variables to represent the cyan color level, the magenta color level, and the yellow color level.
 
-To convert from HSL to RGB or CMYK, you can use the following functions:
+To convert from CMY to other color models, you can use the following functions:
 
 * `ConvertToRgb()`
 * `ConvertToCmyk()`
+* `ConvertToHsl()`
+* `ConvertToHsv()`
+
+#### HSL (Hue, Saturation, and Luminance (Lightness))
+
+This color model contains a single color model class that contains the necessary variables to represent the color hue, the color saturation, and the color luminance (or lightness).
+
+To convert from HSL to other color models, you can use the following functions:
+
+* `ConvertToRgb()`
+* `ConvertToCmyk()`
+* `ConvertToCmy()`
+* `ConvertToHsv()`
+
+#### HSV (Hue, Saturation, and Value)
+
+This color model contains a single color model class that contains the necessary variables to represent the color hue, the color saturation, and the color value.
+
+To convert from HSV to other color models, you can use the following functions:
+
+* `ConvertToRgb()`
+* `ConvertToCmyk()`
+* `ConvertToCmy()`
+* `ConvertToHsl()`
 
 ### Resetting colors
 
