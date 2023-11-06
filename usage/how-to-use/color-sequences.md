@@ -58,6 +58,8 @@ The `ColorSpecifier` can be of the syntax:
 * `hsv:<hhh>;<sss>;<vvv>`
   * `<hhh>` should be of the range between 0 and 360 in degrees and not radians
   * `<sss>` and `<vvv>` should be of the range between 0 and 100
+* `ryb:<rrr>;<yyy>;<bbb>`
+  * `<rrr>`, `<yyy>`, and `<bbb>` should be of the range between 0 and 255, just like RGB.
 * `#000000`
   * Hexadecimal representation of the color for HTML fans
 * `<ColorName>`
@@ -77,6 +79,14 @@ Color ColorInstance = ConsoleColor.Magenta;
 {% endhint %}
 
 Additionally, you can choose whether to use your terminal emulator's color palette or to use the real colors that come from the true colors. By default, Terminaux chooses to use the terminal emulator's color palette to maintain consistency.
+
+{% hint style="info" %}
+In addition to the `PlainSequence` property, you can also use the `ToString()` function to get the same value from that property. This allows easier string interpolation, such as:
+
+```csharp
+BoxFrameTextColor.WriteBoxFrame($"Red, Green, and Blue: {selectedColor}", hueBarX, rgbRampBarY, boxWidth, boxHeight + 2);
+```
+{% endhint %}
 
 ## Getting console color information
 
@@ -172,6 +182,7 @@ In addition to Terminaux supporting RGB color model, you can also use the CMYK a
 * CMY's specifier is `cmy:ccc;mmm;yyy`
 * HSL's specifier is `hsl:hhh;sss;lll`
 * HSV's specifier is `hsv:hhh;sss;vvv`
+* RYB's specifier is `ryb:rrr;yyy;bbb`
 
 To convert from RGB to CMYK or to any other color model, you need an instance of the `Color` class first with the color of your choice. Afterwards, you can use the `RGB` property of the `Color` class to obtain conversion functions, which are:
 
@@ -179,6 +190,7 @@ To convert from RGB to CMYK or to any other color model, you need an instance of
 * `ConvertToHsl()`
 * `ConvertToCmy()`
 * `ConvertToHsv()`
+* `ConvertToRyb()`
 
 The conversion is done to their separate classes that are appropriate for the following color models:
 
@@ -197,6 +209,7 @@ To convert from CMYK to other color models, you can use the following functions:
 * `ConvertToHsl()`
 * `ConvertToCmy()`
 * `ConvertToHsv()`
+* `ConvertToRyb()`
 
 #### CMY (Cyan, Magenta, and Yellow)
 
@@ -208,6 +221,7 @@ To convert from CMY to other color models, you can use the following functions:
 * `ConvertToCmyk()`
 * `ConvertToHsl()`
 * `ConvertToHsv()`
+* `ConvertToRyb()`
 
 #### HSL (Hue, Saturation, and Luminance (Lightness))
 
@@ -219,6 +233,7 @@ To convert from HSL to other color models, you can use the following functions:
 * `ConvertToCmyk()`
 * `ConvertToCmy()`
 * `ConvertToHsv()`
+* `ConvertToRyb()`
 
 #### HSV (Hue, Saturation, and Value)
 
@@ -230,6 +245,19 @@ To convert from HSV to other color models, you can use the following functions:
 * `ConvertToCmyk()`
 * `ConvertToCmy()`
 * `ConvertToHsl()`
+* `ConvertToRyb()`
+
+#### RYB (Red, Yellow, and Blue)
+
+This color model contains three variables that represent the red, the yellow, and the blue color levels ranging from 0 to 255.
+
+To convert from RYB to other color models, you can use the following functions:
+
+* `ConvertToRgb()`
+* `ConvertToCmyk()`
+* `ConvertToCmy()`
+* `ConvertToHsl()`
+* `ConvertToHsv()`
 
 ### Resetting colors
 
