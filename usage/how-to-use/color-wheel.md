@@ -33,8 +33,8 @@ The following controls are available:
 
 ## Old Color Wheel
 
-{% hint style="info" %}
-This feature is available on 1.0.0 or higher. It's advisable to use the new color wheel if possible.
+{% hint style="warning" %}
+This feature is available on 1.0.0 or higher. However, we discourage using it because it's obsolete and will be **removed** in the next Terminaux release. Obsoletion warnings were added in the last 1.x version series to guide developers to use the new color wheel.
 {% endhint %}
 
 This feature of Terminaux allows you to select a color from the color code (16 and 255 colors) or from the RGB levels (true color). It also allows you to get information about any color, similar to the color wheel function found in various web applications, including the built-in color blindness simulator located right in front of you.

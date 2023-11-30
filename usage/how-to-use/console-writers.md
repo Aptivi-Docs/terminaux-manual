@@ -80,17 +80,19 @@ The tools for fancy writers can also be found here:
 
 {% embed url="https://aptivi.github.io/Terminaux/api/Terminaux.Writer.FancyWriters.Tools.html" %}
 
-{% hint style="info" %}
+{% hint style="warning" %}
 Starting from 1.6.0, the legacy Figlet font renderers are still available under a separate library, `Terminaux.Figlet`. The following classes are available:
 
 * `CenteredFigletTextColorLegacy`
 * `FigletColorLegacy`
 * `FigletWhereColorLegacy`
+
+However, we discourage using them because they're obsolete and will be **removed** in the next Terminaux release. Obsoletion warnings were added in the last 1.x version series to guide developers to use the latest Figletize-based functions.
 {% endhint %}
 
 ### Miscellaneous writers
 
-FInally, the miscellaneous writers are the writers that don't have any meaningful category. That's when MiscWriters comes in. This namespace contains these classes:
+Finally, the miscellaneous writers are the writers that don't have any meaningful category. That's when `MiscWriters` comes in. This namespace contains these classes:
 
 * `LineHandleWriter`
   * Provides you with the necessary functions to allow you to render a line of a text file with the compiler-like line handle using the specified line and column to the console.
