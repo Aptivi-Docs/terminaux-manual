@@ -16,6 +16,7 @@
   * [🖊 Console Writers](usage/how-to-use/console-writers.md)
   * [🖊 Figlet Font Selector](usage/how-to-use/figlet-font-selector.md)
   * [🗑 VT Sequences](usage/how-to-use/vt-sequences.md)
+  * [🖥 Console Size Requirements](usage/how-to-use/console-size-requirements.md)
 * [⚒ How it works](usage/how-it-works/README.md)
   * [🪛 Input Reader Internals](usage/how-it-works/input-reader-internals.md)
   * [🔧 Color Sequences Internals](usage/how-it-works/color-sequences-internals.md)

@@ -56,3 +56,7 @@ Any key will append the selected characters to the current text input, and `RETU
 {% content-ref url="figlet-font-selector.md" %}
 [figlet-font-selector.md](figlet-font-selector.md)
 {% endcontent-ref %}
+
+{% content-ref url="console-size-requirements.md" %}
+[console-size-requirements.md](console-size-requirements.md)
+{% endcontent-ref %}
