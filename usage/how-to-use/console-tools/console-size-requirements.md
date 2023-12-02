@@ -4,7 +4,7 @@ description: Size requirements for the console can be customized
 
 # 🖥 Console Size Requirements
 
-The console size requirement checking has been recently added to the v1.12.3 version of Terminaux. This assists your application in determining your minimum console size requirements, with the default being the standard [80x24](https://softwareengineering.stackexchange.com/a/148765) console size for historical reasons.
+The console size requirement checking has been recently added to the latest version of Terminaux. This assists your application in determining your minimum console size requirements, with the default being the standard [80x24](https://softwareengineering.stackexchange.com/a/148765) console size for historical reasons.
 
 For console applications which require a specific console size, such as Nitrocid KS which requires the above console size, you can call the `CheckConsoleSize()` function. You can also make it check for sizes other than 80x24, such as 120x30, by passing the width and the height to the same function.
 

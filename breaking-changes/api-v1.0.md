@@ -1,10 +1,10 @@
 ---
-description: We have breaking changes here...
+description: Breaking changes for API v1.0
 ---
 
-# 🥛 Breaking changes
+# ⬆ API v1.0
 
-As new Terminaux versions are being made, we've documented all the breaking changes when upgrading to newer versions of Terminaux. Here are the list of all the breaking changes that happened, starting from the oldest version to the latest.
+Here is a list of breaking changes that happened during the API v1.0 period when differing versions of Terminaux introduced breaking changes.
 
 ## From 1.0.x to 1.1.x
 

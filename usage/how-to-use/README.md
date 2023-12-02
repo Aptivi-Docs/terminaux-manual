@@ -41,22 +41,18 @@ Any key will append the selected characters to the current text input, and `RETU
 [color-sequences.md](color-sequences.md)
 {% endcontent-ref %}
 
-{% content-ref url="vt-sequences.md" %}
-[vt-sequences.md](vt-sequences.md)
-{% endcontent-ref %}
-
 {% content-ref url="color-wheel.md" %}
 [color-wheel.md](color-wheel.md)
-{% endcontent-ref %}
-
-{% content-ref url="console-writers.md" %}
-[console-writers.md](console-writers.md)
 {% endcontent-ref %}
 
 {% content-ref url="figlet-font-selector.md" %}
 [figlet-font-selector.md](figlet-font-selector.md)
 {% endcontent-ref %}
 
-{% content-ref url="console-size-requirements.md" %}
-[console-size-requirements.md](console-size-requirements.md)
+### Other console tools
+
+For other console tools that Terminaux provides, you can access the below page:
+
+{% content-ref url="console-tools/" %}
+[console-tools](console-tools/)
 {% endcontent-ref %}

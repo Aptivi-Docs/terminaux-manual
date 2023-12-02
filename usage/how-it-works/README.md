@@ -21,7 +21,3 @@ To read more, visit these pages:
 {% content-ref url="vt-sequences-internals.md" %}
 [vt-sequences-internals.md](vt-sequences-internals.md)
 {% endcontent-ref %}
-
-{% content-ref url="color-wheel-internals.md" %}
-[color-wheel-internals.md](color-wheel-internals.md)
-{% endcontent-ref %}

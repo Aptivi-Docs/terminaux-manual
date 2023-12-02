@@ -4,10 +4,6 @@ description: We need colors!
 
 # 🎨 Color Sequences
 
-{% hint style="info" %}
-This feature is available on 1.0.0 or higher.
-{% endhint %}
-
 Terminaux provides a functionality to generate color sequences with the help of the VT sequences. It allows you to generate a color with three modes:
 
 * 16 colors
@@ -98,10 +94,6 @@ public ConsoleColorsInfo(ConsoleColors ColorValue)
 
 ## Simulating color-blindness
 
-{% hint style="info" %}
-This feature is not available in the Rust port of ColorSeq.
-{% endhint %}
-
 In the `ColorTools` static class, it contains several color blindness simulation tools that you can use:
 
 * `EnableColorTransformation`
@@ -114,18 +106,18 @@ In the `ColorTools` static class, it contains several color blindness simulation
   * Specifies the severity of the color deficiency ranging between 0.0 and 1.0 from lowest to highest
 
 {% hint style="info" %}
-Both the severity and the simple color transformation formula flags don't affect the monochromacy color transformer, which is available starting from 1.10.0.
+Both the severity and the simple color transformation formula flags don't affect the monochromacy color transformer.
 {% endhint %}
 
 After you change these values, the next time you make a new instance of `Color`, you'll notice that the resulting color is shifted to adjust to color-blindness.
 
 {% hint style="info" %}
-Starting from 1.9.0, you can easily make a new Color instance using the brand new API function, `RenderColorBlindnessAware()`.
+You can easily make a new `Color` instance using the brand new API function, `RenderColorBlindnessAware()`.
 {% endhint %}
 
 ### Translate from X11 to ConsoleColor and back
 
-ConsoleColor enumeration has an order of colors that is slightly different from the X11 colormap definitions for the first 16 colors. The following colors differ from each other:
+`ConsoleColor` enumeration has an order of colors that is slightly different from the X11 colormap definitions for the first 16 colors. The following colors differ from each other:
 
 | ConsoleColor              | X11                        |
 | ------------------------- | -------------------------- |
@@ -163,7 +155,7 @@ public static ConsoleColor CorrectStandardColor(ConsoleColor color)
 
 ### Resetting the colors and the console
 
-Since 1.3.0, Terminaux provides a console extension that allows you to perform a hard reset using the two VT sequences. When invoked, the terminal will perform two resets:
+Terminaux provides a console extension that allows you to perform a hard reset using the two VT sequences. When invoked, the terminal will perform two resets:
 
 * Full reset (ESC sequence)
 * Soft reset (CSI sequence)
@@ -260,9 +252,5 @@ To convert from RYB to other color models, you can use the following functions:
 * `ConvertToHsv()`
 
 ### Resetting colors
-
-{% hint style="info" %}
-This feature is available in 1.9.0 or higher.
-{% endhint %}
 
 You can reset all the colors once you're done writing text with color using the `ResetColors()` method.
