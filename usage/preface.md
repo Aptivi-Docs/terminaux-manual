@@ -2,7 +2,7 @@
 description: How do you use it?
 ---
 
-# 🖥 How to use
+# 💡 Preface
 
 To use this library, you first need to know exactly why do you need to install Terminaux into your console application. If your application is intended to be an interactive one, or if your application shows graphics (text, info box, ...), then Terminaux is the right library for you.
 
@@ -37,8 +37,8 @@ Any key will append the selected characters to the current text input, and `RETU
 [keybindings.md](input-reader/keybindings.md)
 {% endcontent-ref %}
 
-{% content-ref url="color-sequences.md" %}
-[color-sequences.md](color-sequences.md)
+{% content-ref url="color-sequences/" %}
+[color-sequences](color-sequences/)
 {% endcontent-ref %}
 
 {% content-ref url="color-wheel.md" %}

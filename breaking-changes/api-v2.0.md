@@ -91,3 +91,19 @@ Terminaux will pull Textify as a dependency when you install the 2.0 version, so
 
 If you're impatient for the next version of Terminaux, you can install Textify manually and use these functions. Be aware that you may need to resolve the conflicts.
 {% endhint %}
+
+### Moved `Inputs` to the root namespace
+
+{% code title="Affected files" lineNumbers="true" %}
+```csharp
+namespace Terminaux.Reader.Inputs
+```
+{% endcode %}
+
+`Inputs` hosted several of the input tools to allow you to ask users a question in several of the forms, including the selection choices, the modal infoboxes, and so on.
+
+However, we've moved the entire `Inputs` namespace to `Terminaux.Inputs` as it just uses the console reader that Terminaux implements and not modifies it.
+
+{% hint style="info" %}
+None of the classes and their functions have changed. You just have to update the imports to use `Terminaux.Inputs` instead of the old namespace shown above.
+{% endhint %}

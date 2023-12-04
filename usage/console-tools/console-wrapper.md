@@ -17,6 +17,7 @@ To use this console wrapper, just replace all the calls to `Console` with our re
 * `BufferHeight` (get)
 * `CursorVisible` (get and set)
 * `KeyAvailable` (get)
+* `TreatCtrlCAsInput` (get and set)
 * `Clear()`
 * `SetCursorPosition()`
 * `Beep()`
