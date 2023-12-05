@@ -19,9 +19,7 @@
   * [⌨ Keybindings](usage/input-reader/keybindings.md)
   * [🔌 Custom bindings](usage/input-reader/custom-bindings.md)
   * [⚙ Reader Settings](usage/input-reader/reader-settings.md)
-  * [🪛 Input Reader Internals](usage/input-reader/input-reader-internals.md)
-* [🎨 Color Sequences](usage/color-sequences/README.md)
-  * [🔧 Color Sequences Internals](usage/color-sequences/color-sequences-internals.md)
+* [🎨 Color Sequences](usage/color-sequences.md)
 * [🎨 Color Wheel](usage/color-wheel.md)
 * [🖊 Figlet Font Selector](usage/figlet-font-selector.md)
 

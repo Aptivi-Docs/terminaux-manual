@@ -76,3 +76,40 @@ CustomBindings.Bind(new MyBinding());
 {% endhint %}
 
 To remove binding, you must use the `Unbind(ConsoleKeyInfo)` command.
+
+## Reader State
+
+When the input reader is invoked by your console application, it creates a state class that is applicable to the current input read. The reader state contains variables that are building blocks for your custom bindings. You can also manipulate with the text positioning using the `PositioningTools` class.
+
+### Variable-based States
+
+The terminal reader state class contains the below most important variables that are documented here, alongside the less important ones.
+
+* `InputPromptLeft`: Specifies the zero-based X position that indicates the first character of the input text in the first line of the input. It includes the left margin and the length of the last input prompt line.
+* `LeftMargin` and `RightMargin`: Specifies the left margin and the right margin.
+* `MaximumInputPositionLeft`: Specifies the maximum zero-based X position of the input that indicates the boundary of the input according to the right margin.
+* `LongestSentenceLengthFromLeft`: Specifies the longest sentence length from the leftmost position with respect to the right margin.
+* `LongestSentenceLengthFromLeftForFirstLine`: Specifies the longest sentence length from the leftmost position, subtracted from `InputPromptLeft`, in order to get the length for the first line.
+* `LongestSentenceLengthFromLeftForGeneralLine`: Specifies the longest sentence length from the leftmost position, subtracted from `LeftMargin`, in order to get the length for a general input line.
+* `CurrentTextPos`: Specifies the current text position as a one-based number.
+* `InputPromptLastLineLength`: Specifies the last line length from the input prompt text.
+
+You can access the reader settings from the state, whether it's a general settings that Terminaux makes use of or it's an overridden settings instance, using the `Settings` property.
+
+### Positioning tools
+
+Your custom bindings can now change the cursor positioning when manipulating with text so that it becomes easier to make your custom bindings that use positioning tools.
+
+Here are the functions you can use:
+
+* `GoLeftmost()`: Changes the word position to the leftmost position, that is, the first letter.
+* `GoRightmost()`: Changes the word position to the rightmost position, that is, the last letter.
+* `GoForward()`: Changes the word position a step or a specified number of steps closer to the end of the text.
+* `GoBack()`: Changes the word position a step or a specified number of steps closer to the beginning of the text.
+* `SeekTo()`: Changes the word position to the selected zero-based position
+
+Once you're done changing positions, if you need to verify that you've changed the position to the correct position, you can use the `Commit()` function.
+
+{% hint style="info" %}
+It's not necessary to use the `Commit()` function at the end of each custom binding, because the reader uses this function automatically based on whether to update the position or not.
+{% endhint %}

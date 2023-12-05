@@ -31,6 +31,6 @@ The following controls are available:
 
 This function returns a `Color` instance containing necessary information. To know more about the structure of the `Color` class, visit the page below to learn more.
 
-{% content-ref url="color-sequences/" %}
-[color-sequences](color-sequences/)
+{% content-ref url="color-sequences.md" %}
+[color-sequences.md](color-sequences.md)
 {% endcontent-ref %}

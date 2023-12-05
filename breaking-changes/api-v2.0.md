@@ -107,3 +107,17 @@ However, we've moved the entire `Inputs` namespace to `Terminaux.Inputs` as it j
 {% hint style="info" %}
 None of the classes and their functions have changed. You just have to update the imports to use `Terminaux.Inputs` instead of the old namespace shown above.
 {% endhint %}
+
+### Figlet selector moved to `Inputs.Styles`
+
+{% code title="FigletSelector.cs" lineNumbers="true" %}
+```csharp
+namespace Terminaux.Figlet
+```
+{% endcode %}
+
+Since the legacy FIglet code has been removed from Terminaux and the figlet selector was considered as an input method to select a Figlet font, we've decided to move the figlet selector to `Inputs.Styles`. This is to allow better organization.
+
+{% hint style="info" %}
+None of the functions have changed during this movement. You need to update your imports to point to `Terminaux.Inputs.Styles`.
+{% endhint %}

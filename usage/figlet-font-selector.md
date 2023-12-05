@@ -4,7 +4,7 @@ description: Select your favorite font from here!
 
 # 🖊 Figlet Font Selector
 
-The figlet font selector allows you to flexibly select a Figlet font provided by the external Figgle library not maintained by us. It shows you a live preview of the font to show you how your selected font looks like prior to submission.
+The figlet font selector allows you to flexibly select a Figlet font provided by our own Figlet library, Figletize. It shows you a live preview of the font to show you how your selected font looks like prior to submission.
 
 You can simply invoke the selector on your interactive console application by calling the below function like so:
 
