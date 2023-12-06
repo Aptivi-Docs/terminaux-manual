@@ -43,3 +43,7 @@ You can now set the history entry list with your array of history entries or cle
   * Sets the history to the chosen history list
 * `ClearHistory()`
   * Clears all history entries
+
+### State tools
+
+You can also check to see if the console reader facility is busy getting input or not. The property, `Busy`, indicates this by returning true if there is input to be entered by the user.

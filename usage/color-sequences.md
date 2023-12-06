@@ -84,6 +84,13 @@ BoxFrameTextColor.WriteBoxFrame($"Red, Green, and Blue: {selectedColor}", hueBar
 ```
 {% endhint %}
 
+## Determining color brightness
+
+You can check to see if a color is a light or a dark color using the `Brightness` property, which returns either of the following:
+
+* Dark
+* Light
+
 ## Getting console color information
 
 You can get detailed information about the console color ranging from 0 to 255 by making a new instance of the `ConsoleColorsInfo` class:

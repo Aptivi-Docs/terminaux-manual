@@ -113,3 +113,7 @@ Once you're done changing positions, if you need to verify that you've changed t
 {% hint style="info" %}
 It's not necessary to use the `Commit()` function at the end of each custom binding, because the reader uses this function automatically based on whether to update the position or not.
 {% endhint %}
+
+## Writers
+
+You can use the text writers with the current reader settings by using `TextWriterColor`'s `WriteForReader()` and its siblings, passing it the reader settings to take care of the margins.
