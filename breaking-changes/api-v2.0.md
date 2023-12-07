@@ -14,8 +14,8 @@ Between the 1.12.x and 2.0.x version range, we've made the following breaking ch
 
 Figgle was not maintained by the original developer for a long time, so we've forked this library to create Figletize, and its documentation can be found here:
 
-{% content-ref url="http://127.0.0.1:5000/o/fj052nYlsxW9IdL3bsZj/s/ImPNBShiE2aqA6pDyeiZ/" %}
-[Figletize - Manual](http://127.0.0.1:5000/o/fj052nYlsxW9IdL3bsZj/s/ImPNBShiE2aqA6pDyeiZ/)
+{% content-ref url="https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/ImPNBShiE2aqA6pDyeiZ/" %}
+[Figletize - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/ImPNBShiE2aqA6pDyeiZ/)
 {% endcontent-ref %}
 
 {% hint style="info" %}
@@ -116,7 +116,7 @@ namespace Terminaux.Figlet
 ```
 {% endcode %}
 
-Since the legacy FIglet code has been removed from Terminaux and the figlet selector was considered as an input method to select a Figlet font, we've decided to move the figlet selector to `Inputs.Styles`. This is to allow better organization.
+Since the legacy Figlet code has been removed from Terminaux and the figlet selector was considered as an input method to select a Figlet font, we've decided to move the figlet selector to `Inputs.Styles`. This is to allow better organization.
 
 {% hint style="info" %}
 None of the functions have changed during this movement. You need to update your imports to point to `Terminaux.Inputs.Styles`.

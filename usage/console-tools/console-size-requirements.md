@@ -9,7 +9,7 @@ The console size requirement checking has been recently added to the latest vers
 For console applications which require a specific console size, such as Nitrocid KS which requires the above console size, you can call the `CheckConsoleSize()` function. You can also make it check for sizes other than 80x24, such as 120x30, by passing the width and the height to the same function.
 
 ```csharp
-public static void CheckConsoleSize(int minimumWidth = 80, int minimumHeight = 24)
+public static bool CheckConsoleSize(int minimumWidth = 80, int minimumHeight = 24)
 ```
 
 This function is found in the `ConsoleChecker` public class so that you can access this function easily.
@@ -20,4 +20,6 @@ If you call this function, it first checks to see if there are edge cases regard
 * If you're running your console application on GNU Screen, it subtracts the minimum height by one, since it doesn't use more than one line to print its status if enabled.
 * If you're running your console application without a terminal multiplexer, it doesn't subtract the minimum height and stays as-is.
 
-Once the terminal multiplexer check is done, it queries the current window width and the window height and compares them to the required width and height. If the requirement is not satisfied, the application tells you to resize your console window to have a better experience and to press `ENTER` when resized to the required size.
+Once the terminal multiplexer check is done, it queries the current window width and the window height and compares them to the required width and height. If the requirement is not satisfied, the function returns false. Otherwise, it returns true as the requirements have been satisfied.
+
+The `CheckConsoleSizePrompt()` function checks to see if the console size requirements have been satisfied. If the requirements aren't satisfied, the application tells you to resize your console window to have a better experience and to press `ENTER` when resized to the required size.
