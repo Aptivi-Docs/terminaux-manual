@@ -37,8 +37,8 @@ Any key will append the selected characters to the current text input, and `RETU
 [keybindings.md](input-reader/keybindings.md)
 {% endcontent-ref %}
 
-{% content-ref url="color-sequences.md" %}
-[color-sequences.md](color-sequences.md)
+{% content-ref url="color-sequences/" %}
+[color-sequences](color-sequences/)
 {% endcontent-ref %}
 
 {% content-ref url="color-wheel.md" %}

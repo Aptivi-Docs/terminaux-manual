@@ -121,3 +121,51 @@ Since the legacy Figlet code has been removed from Terminaux and the figlet sele
 {% hint style="info" %}
 None of the functions have changed during this movement. You need to update your imports to point to `Terminaux.Inputs.Styles`.
 {% endhint %}
+
+### Removed `ColorSeqException`
+
+{% code title="ColorSeqException.cs" lineNumbers="true" %}
+```csharp
+internal class ColorSeqException
+```
+{% endcode %}
+
+ColorSeq was replaced by Terminaux, because the latter library works on managing your terminal applications by providing you several of the nice terminal tools, such as the efficient management of colors, input reading, and much more.
+
+We've removed `ColorSeqException` as an internal class, but we need to put this change here to tell the developers that they can finally handle the `Color` errors easily by catching all `TerminauxException` errors.
+
+{% hint style="info" %}
+You no longer need to use reflection to find out the type name of the removed exception, because you can catch `TerminauxException`, which the color management system now uses.
+{% endhint %}
+
+### `ConsolePlatform`'s `NewLine`
+
+{% code title="ConsolePlatform.cs" lineNumbers="true" %}
+```csharp
+public static string NewLine
+```
+{% endcode %}
+
+From now on, this property has been removed as it isn't used except the console checker. Also, the usage of Textify in the v2.0 version of Terminaux means that you need not to resort to cryptic hacks to get the new lines working properly.
+
+{% hint style="info" %}
+If you still make use of this property, replace its call with either the `\n` string literal (which represents a new line and is platform-agnostic), or use `Environment.NewLine` if you want to use platform-specific newlines.
+{% endhint %}
+
+### Relocated color model conversion tools
+
+{% code title="Color.cs" lineNumbers="true" %}
+```csharp
+public CyanMagentaYellowKey CMYK =>
+    RGB.ConvertToCmyk();
+(...)
+```
+{% endcode %}
+
+The color model conversion tools have been reworked to become easier to use than the Terminaux v1.x version series, which use constructors that do the conversion. It was discovered that it was not so easy to maintain, so we've decided to relocate these to their own dedicated classes, such as CMY conversion tools (`CmyConversionTools`), so that they can be used by Terminaux v2.0 applications.
+
+They are also titled appropriately so that you can better understand what is the source and what is the target unit being used to convert the source color model to. More documentation is found in its appropriate page.
+
+{% hint style="info" %}
+Change all the calls to the color model-specific properties to refer to the conversion tools that focus on a target that you want. For example, converting RGB to CMY requires usage of the `CmyConversionTools` class.
+{% endhint %}

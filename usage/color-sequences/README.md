@@ -26,6 +26,8 @@ This functionality contains several functions that you can make use of in your c
 * Getting console color information from the 255-color mode
 * Simulating color-blindness during compilation
 
+More functionality is available in the right pane for conversion, parsing, and more.
+
 ## Building a `Color` instance
 
 You can build your own `Color` instance for usage in your console application. There are various ways to build it:
@@ -173,91 +175,6 @@ After the reset is done, the screen will be cleared with all the colors reverted
 public static void ResetAll()
 ```
 
-### Conversions of Color Models
-
-In addition to Terminaux supporting RGB color model, you can also use the CMYK and other color models when creating the color instances, provided that their specifiers that you must use are: (for quick reference)
-
-* CMYK's specifier is `cmyk:ccc;mmm;yyy;kkk`
-* CMY's specifier is `cmy:ccc;mmm;yyy`
-* HSL's specifier is `hsl:hhh;sss;lll`
-* HSV's specifier is `hsv:hhh;sss;vvv`
-* RYB's specifier is `ryb:rrr;yyy;bbb`
-
-To convert from RGB to CMYK or to any other color model, you need an instance of the `Color` class first with the color of your choice. Afterwards, you can use the `RGB` property of the `Color` class to obtain conversion functions, which are:
-
-* `ConvertToCmyk()`
-* `ConvertToHsl()`
-* `ConvertToCmy()`
-* `ConvertToHsv()`
-* `ConvertToRyb()`
-
-The conversion is done to their separate classes that are appropriate for the following color models:
-
-#### CMYK (Cyan, Magenta, Yellow, and Black Key)
-
-This color model contains two separate classes: the Cyan Magenta Yellow class, and the wrapper class with the black key value.
-
-* `CyanMagentaYellow`
-  * This is the class that stores the Cyan, the Magenta, and the Yellow values in both the fractional and the whole formats.
-* `CyanMagentaYellowKey`
-  * This is the class that is a wrapper of the `CyanMagentaYellow` class along with the black key in both the fractional and the whole formats.
-
-To convert from CMYK to other color models, you can use the following functions:
-
-* `ConvertToRgb()`
-* `ConvertToHsl()`
-* `ConvertToCmy()`
-* `ConvertToHsv()`
-* `ConvertToRyb()`
-
-#### CMY (Cyan, Magenta, and Yellow)
-
-This color model contains a single color model class that contains the necessary variables to represent the cyan color level, the magenta color level, and the yellow color level.
-
-To convert from CMY to other color models, you can use the following functions:
-
-* `ConvertToRgb()`
-* `ConvertToCmyk()`
-* `ConvertToHsl()`
-* `ConvertToHsv()`
-* `ConvertToRyb()`
-
-#### HSL (Hue, Saturation, and Luminance (Lightness))
-
-This color model contains a single color model class that contains the necessary variables to represent the color hue, the color saturation, and the color luminance (or lightness).
-
-To convert from HSL to other color models, you can use the following functions:
-
-* `ConvertToRgb()`
-* `ConvertToCmyk()`
-* `ConvertToCmy()`
-* `ConvertToHsv()`
-* `ConvertToRyb()`
-
-#### HSV (Hue, Saturation, and Value)
-
-This color model contains a single color model class that contains the necessary variables to represent the color hue, the color saturation, and the color value.
-
-To convert from HSV to other color models, you can use the following functions:
-
-* `ConvertToRgb()`
-* `ConvertToCmyk()`
-* `ConvertToCmy()`
-* `ConvertToHsl()`
-* `ConvertToRyb()`
-
-#### RYB (Red, Yellow, and Blue)
-
-This color model contains three variables that represent the red, the yellow, and the blue color levels ranging from 0 to 255.
-
-To convert from RYB to other color models, you can use the following functions:
-
-* `ConvertToRgb()`
-* `ConvertToCmyk()`
-* `ConvertToCmy()`
-* `ConvertToHsl()`
-* `ConvertToHsv()`
-
-### Resetting colors
+#### Resetting colors
 
 You can reset all the colors once you're done writing text with color using the `ResetColors()` method.
