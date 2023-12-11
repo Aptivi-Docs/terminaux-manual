@@ -35,6 +35,8 @@ Any key will append the selected characters to the current text input, and `RETU
 [keybindings.md](keybindings.md)
 {% endcontent-ref %}
 
+You can access the global reader settings by referencing the `GlobalReaderSettings` found in the `Inputs` class.
+
 ### History tools
 
 You can now set the history entry list with your array of history entries or clear the history list using the following functions:
@@ -46,4 +48,4 @@ You can now set the history entry list with your array of history entries or cle
 
 ### State tools
 
-You can also check to see if the console reader facility is busy getting input or not. The property, `Busy`, indicates this by returning true if there is input to be entered by the user.
+You can also check to see if the console reader facility is busy getting input or not. The property, `Busy`, indicates this by returning `true` if there is input to be entered by the user.
