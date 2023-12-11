@@ -169,3 +169,38 @@ They are also titled appropriately so that you can better understand what is the
 {% hint style="info" %}
 Change all the calls to the color model-specific properties to refer to the conversion tools that focus on a target that you want. For example, converting RGB to CMY requires usage of the `CmyConversionTools` class.
 {% endhint %}
+
+### Reworked transformation method switch
+
+{% code title="ColorTools.cs" lineNumbers="true" %}
+```csharp
+public static bool EnableSimpleColorTransformation { get; set; } = false;
+```
+{% endcode %}
+
+The above switch doesn't explain the motive of enabling or disabling except "simple," which means a simple way of transforming the color. However, it doesn't explain what formula does Terminaux use unless you use the API documentation.
+
+So, we've decided to remove this and replace it with the `TransformationMethod` enumeration to make things more clear.
+
+{% hint style="info" %}
+Replace all calls to the above boolean property with the `ColorTransformationMethod` property.
+
+```csharp
+public static TransformationMethod ColorTransformationMethod { get; set; } = TransformationMethod.Brettel1997;
+```
+{% endhint %}
+
+### Removed `IsDark/Bright` for `ConsoleColorsInfo`
+
+{% code title="ConsoleColorsInfo.cs" lineNumbers="true" %}
+```csharp
+public bool IsBright { get; }
+public bool IsDark { get; }
+```
+{% endcode %}
+
+We've removed `IsDark/Bright` for the above class because they are just repeat properties for the color brightness that the `Color` instance would have exposed properly, so we've decided to replace it with a `Color` property to get access to such flag.
+
+{% hint style="info" %}
+In order to get access to this data, you need to access the `Color` property and get the value of `Brightness`.
+{% endhint %}
