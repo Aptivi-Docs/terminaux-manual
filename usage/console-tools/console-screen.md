@@ -93,6 +93,13 @@ You can also clear the entire buffered parts queue using the `RemoveBufferedPart
 
 The screen part hosts a list of dynamic buffers to generate a working text sequence for the console plain writer to write it to the terminal to show you its contents. You can also call the screen parts as "layers" to more easily understand the motive behind these "layers."
 
+You can order them using the `Order` property when creating them. However, TermRead renders all the screen parts from the least important (the smallest `Order` values) to the most important (the largest `Order` values). This is useful for layering if you don't feel comfortable adding dynamic texts that represent layers.
+
+```csharp
+var orderedPart = new ScreenPart() { Order = 1 };
+var importantPart = new ScreenPart() { Order = 100 };
+```
+
 You can use the following functions to add simple or dynamic text to the buffer queue:
 
 * `AddText()`: Adds a simple text without the newline.

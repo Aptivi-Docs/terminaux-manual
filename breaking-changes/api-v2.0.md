@@ -204,3 +204,22 @@ We've removed `IsDark/Bright` for the above class because they are just repeat p
 {% hint style="info" %}
 In order to get access to this data, you need to access the `Color` property and get the value of `Brightness`.
 {% endhint %}
+
+### Renamed color blindness type
+
+{% code title="Deficiency.cs" lineNumbers="true" %}
+```csharp
+public enum Deficiency
+```
+{% endcode %}
+
+We've renamed the color blindness deficiency type enumeration to better represent the type of formula that is going to be used. This is to allow more formulas to be more accurately represented.
+
+Initially, it was touted to be a color deficiency type of either protan, deutan, or tritan. However, more color transformation formulas were added, such as monochromacy and inverted, which is why we've renamed the color blindness type to `TransformationFormula`.
+
+{% hint style="info" %}
+The color blindness type enumeration name has been changed, along with its namespace. You need to update the following:
+
+* Imports: `Terminaux.Colors.Accessibility` -> `Transformation`
+* References: `Deficiency` -> `TransformationFormula`
+{% endhint %}

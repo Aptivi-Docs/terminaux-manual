@@ -59,7 +59,10 @@ The `ColorSpecifier` can be of the syntax:
 * `ryb:<rrr>;<yyy>;<bbb>`
   * `<rrr>`, `<yyy>`, and `<bbb>` should be of the range between 0 and 255, just like RGB.
 * `#000000`
-  * Hexadecimal representation of the color for HTML fans
+  * Hexadecimal representation of the color for HTML fans. You can also use the `#RGB` format, implying that the three digits represent:
+    * R: Red color level converted to RR (F becomes FF)
+    * G: Green color level converted to GG (F becomes FF)
+    * B: Blue color level converted to BB (F becomes FF)
 * `<ColorName>`
   * Color name from `ConsoleColors` enumeration
 
@@ -70,11 +73,14 @@ You can also specify just a string, an integer, a `ConsoleColor`, or a `ConsoleC
 Color ColorInstance = 18;
 Color ColorInstance = "94;0;63";
 Color ColorInstance = "#0F0F0F";
+Color ColorInstance = "#F0F";
 Color ColorInstance = "Magenta";
 Color ColorInstance = ConsoleColors.Magenta;
 Color ColorInstance = ConsoleColor.Magenta;
 ```
 {% endhint %}
+
+You can also get the color ID if you used color number from 0 to 255 by referencing the `ColorId` property. This property returns `-1` for true color.
 
 Additionally, you can choose whether to use your terminal emulator's color palette or to use the real colors that come from the true colors. By default, Terminaux chooses to use the terminal emulator's color palette to maintain consistency.
 
@@ -90,8 +96,8 @@ BoxFrameTextColor.WriteBoxFrame($"Red, Green, and Blue: {selectedColor}", hueBar
 
 You can check to see if a color is a light or a dark color using the `Brightness` property, which returns either of the following:
 
-* Dark
-* Light
+* `Dark`
+* `Light`
 
 ## Getting console color information
 
@@ -111,8 +117,8 @@ In the `ColorTools` static class, it contains several color blindness simulation
   * Enables the color transformation to adjust to color blindness upon making a new instance of color
 * `ColorTransformationMethod`
   * Chooses the color transformation method. This only applies to some of the color-blindness transformations, such as Protan.
-* `ColorDeficiency`
-  * Specifies the type of color blindness (Protan, Deutan, Tritan, and Monochromacy)
+* `ColorTransformationFormula`
+  * Specifies the type of color transformation (Protan, Deutan, Tritan, Monochromacy, Inverse, and more...)
 * `ColorDeficiencySeverity`
   * Specifies the severity of the color deficiency ranging between 0.0 and 1.0 from lowest to highest
 

@@ -19,7 +19,7 @@ var figlet = FigletTools.GetFigletFont(font);
 FigletColor.WriteFiglet("Hello!", figlet, ConsoleColors.Green);
 ```
 
-Additionally, you can press `S` to write the desired font name and quickly switch to that font.
+Additionally, you can press `S` to write the desired font name and quickly switch to that font. If you want to cancel, you can press `ESC`.
 
 More details about `WriteFiglet()` can be found in the below link:
 
