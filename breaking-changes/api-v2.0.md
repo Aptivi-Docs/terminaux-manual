@@ -223,3 +223,30 @@ The color blindness type enumeration name has been changed, along with its names
 * Imports: `Terminaux.Colors.Accessibility` -> `Transformation`
 * References: `Deficiency` -> `TransformationFormula`
 {% endhint %}
+
+## From 2.0.x to 2.1.x
+
+Between the 2.0.x and 2.1.x version range, we've made the following breaking changes:
+
+### Titled variants of infoboxes merged
+
+```csharp
+public static class InfoBoxTitledButtonsColor
+public static class InfoBoxTitledColor
+public static class InfoBoxTitledInputColor
+public static class InfoBoxTitledProgressColor
+public static class InfoBoxTitledSelectionColor
+public static class InfoBoxTitledSelectionMultipleColor
+```
+
+The titled variants of all informational box types have been moved to a completely different place, which is their parent class, like `InfoBoxColor`. This ensures that maintenance is not a burden when it comes to maintaining them.
+
+We've also done a refactor so that the infobox code occurs only once to reduce the amount of bugs and regressions that may emerge when updating related code.
+
+{% hint style="info" %}
+To continue using the titled variants, you'll have to remove the "Titled" word from both the class reference and the function reference, like this:
+
+* `InfoBoxTitledButtonsColor.WriteInfoBoxTitledButtons()` -> `InfoBoxButtonsColor.WriteInfoBoxButtons()`
+
+You'll have to replace `Terminaux.Inputs.Styles.InfoboxTitled` in your usings with `Terminaux.Inputs.Styles.Infobox`.
+{% endhint %}
