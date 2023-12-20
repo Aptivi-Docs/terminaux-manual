@@ -26,3 +26,12 @@ The below parsing tools can be used:
 * `ParsingTools`: Parses the general specifiers
 
 Alternatively, if you want to get an RGB instance from any specifier other than RGB, you can use the `ParseSpecifierToRgb()` function in all the parsing tools, except the RGB one, to get an RGB instance derived from the resulting source color model.
+
+{% hint style="info" %}
+You have two options if you don't want to rely on exceptions:
+
+* For boolean-based checks, you can rely on the output of the `IsSpecifierValidRgbHash()`, `IsSpecifierConsoleColors()`, and `IsSpecifierValid()` on `ParsingTools`.
+* If you want to also check the values, you can consult the `...AndValueValid()` sibling functions.
+
+You can also use the color-model-specific `IsSpecifierValid()` function, such as `RybParsingTools`.
+{% endhint %}

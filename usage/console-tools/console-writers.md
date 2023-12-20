@@ -45,8 +45,6 @@ Alongside these writers, there are also writers that are categorized as "fancy" 
   * Provides you with the necessary functions to allow you to draw a box somewhere in the console.
 * `BoxFrameColor`
   * Provides you with the necessary functions to allow you to draw a box frame somewhere in the console.
-* `BoxFrameTextColor`
-  * Provides you with the necessary functions to allow you to draw a box frame with the title somewhere in the console.
 * `CenteredFigletTextColor`
   * Provides you with the necessary functions to allow you to render a string using the provided Figlet font in the middle of the console.
 * `CenteredTextColor`

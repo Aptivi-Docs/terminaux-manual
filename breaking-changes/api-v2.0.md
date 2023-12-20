@@ -250,3 +250,58 @@ To continue using the titled variants, you'll have to remove the "Titled" word f
 
 You'll have to replace `Terminaux.Inputs.Styles.InfoboxTitled` in your usings with `Terminaux.Inputs.Styles.Infobox`.
 {% endhint %}
+
+### Border and box frame color writers refactored
+
+```csharp
+public static class BorderTextColor
+public static class BoxFrameTextColor
+```
+
+When we wanted to make the titled borders and box frames, we wanted to make titled informational boxes. However, after making several types of informational boxes and their titled variants, we've discovered that there were a lot of repeated code for different situations.
+
+So, we've decided to do the same thing to the two classes as we've done to the infoboxes in the past release; condense them to a single class and refactor them to reduce the maintenance burden.
+
+{% hint style="info" %}
+Usually, you'll only have to change all references to the two above classes to their normal classes:
+
+* `BorderTextColor` -> `BorderColor`
+* `BoxFrameTextColor` -> `BoxFrameColor`
+
+In case you see unexpected rendering behavior, adjust the parameters as necessary.
+{% endhint %}
+
+### Specifier parser function signature changed
+
+{% code title="ParsingTools.cs" lineNumbers="true" %}
+```csharp
+public static RedGreenBlue ParseSpecifier(string specifier)
+```
+{% endcode %}
+
+In completion of the specifier parser implementation and refactoring, we've decided to change the signature of this function to satisfy the recent changes done to various parsing functions, thus further simplifying the `Color` constructor to its bare minimum.
+
+{% hint style="info" %}
+You don't have to change the parameters. However, you'll need to get the two values, depending on your stance:
+
+* `rgb`: For the RGB component of the parsed color
+* `cci`: For color information for 256 and 16 color modes
+{% endhint %}
+
+### Implemented color settings class
+
+```csharp
+public static bool EnableColorTransformation { get; set; } = false;
+public static bool UseTerminalPalette { get; set; } = true;
+public static TransformationFormula ColorTransformationFormula { get; set; } = TransformationFormula.Protan;
+public static TransformationMethod ColorTransformationMethod { get; set; } = TransformationMethod.Brettel1997;
+public static double ColorBlindnessSeverity (...)
+```
+
+For simplification of the color management code, instead of using the color tools as a state machine, we need to actually make this part of Terminaux settings-agnostic to reduce complications related to this part.
+
+As a result, we had to spray the settings argument everywhere to allow Terminaux programs to either set their own settings for colors when making a new color instance or to use the global settings that can be manipulated with by the user program.
+
+{% hint style="info" %}
+You'll have to either use the global settings property from `ColorTools`, `GlobalSettings`, or make a new `ColorSettings` instance with your own settings. If you use the latter, pass it with your settings instance when creating a new `Color` instance.
+{% endhint %}

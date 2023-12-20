@@ -186,3 +186,15 @@ public static void ResetAll()
 #### Resetting colors
 
 You can reset all the colors once you're done writing text with color using the `ResetColors()` method.
+
+### Using settings
+
+You can also generate colors with your specific settings, such as color transformation formula, by making a new instance of `ColorSettings` to store your own color settings.
+
+However, by passing in your new instance of `ColorSettings`, you're affecting this color generation only once. To make it affect all generations, you'll have to change the global color settings, which can be found on `ColorTools.GlobalSettings`.
+
+{% hint style="info" %}
+Any change to a value in the global settings affects all color generations. Use your instance of `ColorSettings`, if possible.
+{% endhint %}
+
+You can also use your `ColorSettings` instance when parsing your color specifier.
