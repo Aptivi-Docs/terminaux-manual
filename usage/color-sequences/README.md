@@ -34,10 +34,15 @@ You can build your own `Color` instance for usage in your console application. T
 
 ```csharp
 public Color(int R, int G, int B)
+public Color(int R, int G, int B, ColorSettings settings)
 public Color(ConsoleColors ColorDef)
+public Color(ConsoleColors ColorDef, ColorSettings settings)
 public Color(ConsoleColor ColorDef)
+public Color(ConsoleColor ColorDef, ColorSettings settings)
 public Color(int ColorNum)
+public Color(int ColorNum, ColorSettings settings)
 public Color(string ColorSpecifier)
+public Color(string ColorSpecifier, ColorSettings settings)
 ```
 
 The `ColorSpecifier` can be of the syntax:
