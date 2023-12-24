@@ -16,6 +16,10 @@ Here are the available settings that you can set:
   * Sets the left margin of the input.
 * `RightMargin`
   * Sets the right margin of the input.
+* `InputForegroundColor`
+  * The foreground color for the input text, as well as the input prompt.
+* `InputBackgroundColor`
+  * The background color for the input text, as well as the input prompt.
 * `Suggestions`
   * Sets a function that you could use to return an array of strings containing auto completion data.
 * `SuggestionsDelimiters`

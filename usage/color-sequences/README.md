@@ -190,7 +190,22 @@ public static void ResetAll()
 
 #### Resetting colors
 
-You can reset all the colors once you're done writing text with color using the `ResetColors()` method.
+You can reset all the colors once you're done writing text with color using the `ResetColors()` method. This resets the foreground and the background colors without resetting the whole console.
+
+{% code title="ConsoleExtensions.cs" lineNumbers="true" %}
+```csharp
+public static void ResetColors()
+```
+{% endcode %}
+
+If you want to reset only the foreground or the background color, you can use the following two functions:
+
+{% code title="ConsoleExtensions.cs" lineNumbers="true" %}
+```csharp
+public static void ResetForeground()
+public static void ResetBackground()
+```
+{% endcode %}
 
 ### Using settings
 

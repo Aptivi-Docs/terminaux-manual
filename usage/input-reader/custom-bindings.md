@@ -17,6 +17,8 @@ You can also override these:
   * If `true`, causes TermRead to assume that the input is done after executing the action that this binding implements.
 * `BindMatched(ConsoleKeyInfo)`
   * Specify your own method on how to check to see if the input key matched all the bound keys (`BoundKeys`) in your custom key binding.
+* `ResetSuggestionsTextPos`
+  * Specifies whether to reset the text position saved for the suggestions. This is usually enabled for custom bindings that have to do with the suggestions.
 
 ## Principles
 

@@ -24,7 +24,9 @@ The screen part instance allows you to add text in different ways:
 * `TopPosition()`: Adds a VT sequence that changes the cursor top position. Works for static text addition.
 * `ForegroundColor()`: Adds a VT sequence that changes the foreground color. Works for static text addition.
 * `BackgroundColor()`: Adds a VT sequence that changes the background color. Works for static text addition.
-* `ResetColor()`: Adds a VT sequence that resets the colors.
+* `ResetColors()`: Adds a VT sequence that resets the background and the foreground colors.
+* `ResetForegroundColor()`: Adds a VT sequence that resets the foreground color.
+* `ResetBackgroundColor()`: Adds a VT sequence that resets the background color.
 * `Clear()`: Clears the whole buffer.
 * `GetBuffer()`: Gets the resulting buffer.
 
