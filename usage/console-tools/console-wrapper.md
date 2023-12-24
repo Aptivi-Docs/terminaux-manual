@@ -52,7 +52,6 @@ You can customize the console wrappers so that applications that call the Termin
 * `Beep()`
 * `ReadKey()`
 * `WriteChar()`
-* `WriteCharNonStandalone()`
 * `WriteStringNonStandalone()`
 * `WriteString()`
 * `WriteParameterized()`

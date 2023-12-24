@@ -305,3 +305,51 @@ As a result, we had to spray the settings argument everywhere to allow Terminaux
 {% hint style="info" %}
 You'll have to either use the global settings property from `ColorTools`, `GlobalSettings`, or make a new `ColorSettings` instance with your own settings. If you use the latter, pass it with your settings instance when creating a new `Color` instance.
 {% endhint %}
+
+## From 2.1.x to 2.2.x
+
+Between the 2.1.x and 2.2.x version range, we've made the following breaking changes:
+
+### Removed non-standalone char write wrapper
+
+{% code title="ConsoleWrapperTools.cs" lineNumbers="true" %}
+```csharp
+public static Action<char, TermReaderSettings> ActionWriteCharNonStandalone
+```
+{% endcode %}
+
+The non-standalone character writer wrapper has been removed because the terminal reader doesn't make any use of it as part of the recent refactors that were done in the 2.0.0 development cycle. This resulted in this character writer being useless.
+
+So, we've removed this wrapper as a result to reduce complexity.
+
+{% hint style="info" %}
+You can no longer set up a wrapper for this kind of writer.
+{% endhint %}
+
+### Highlighted text writer moved
+
+{% code title="TextWriterColor.cs" lineNumbers="true" %}
+```csharp
+public static void Write(string Text, bool Line, bool Highlight, params object[] vars)
+public static void WriteColor(string Text, bool Line, bool Highlight, ConsoleColors color, params object[] vars)
+public static void WriteColorBack(string Text, bool Line, bool Highlight, ConsoleColors ForegroundColor, ConsoleColors BackgroundColor, params object[] vars)
+public static void WriteColor(string Text, bool Line, bool Highlight, Color color, params object[] vars)
+public static void WriteColorBack(string Text, bool Line, bool Highlight, Color ForegroundColor, Color BackgroundColor, params object[] vars)
+public static void WriteForReaderPlain(string Text, TermReaderSettings settings, params object[] vars)
+public static void WriteForReaderPlain(string Text, TermReaderSettings settings, bool Line, params object[] vars)
+public static void WriteForReader(string Text, TermReaderSettings settings, bool Line, bool Highlight, params object[] vars)
+public static void WriteForReaderColor(string Text, TermReaderSettings settings, bool Line, bool Highlight, ConsoleColors color, params object[] vars)
+public static void WriteForReaderColorBack(string Text, TermReaderSettings settings, bool Line, bool Highlight, ConsoleColors ForegroundColor, ConsoleColors BackgroundColor, params object[] vars)
+public static void WriteForReaderColor(string Text, TermReaderSettings settings, bool Line, bool Highlight, Color color, params object[] vars)
+public static void WriteForReaderColorBack(string Text, TermReaderSettings settings, bool Line, Color ForegroundColor, Color BackgroundColor, params object[] vars)
+public static void WriteForReaderColorBack(string Text, TermReaderSettings settings, bool Line, bool Highlight, Color ForegroundColor, Color BackgroundColor, params object[] vars)
+```
+{% endcode %}
+
+The highlighted text writer has been moved to its own class to reduce complexity and allow for simplicity. This reduces the maintenance burden for future Terminaux releases.
+
+Also, we've made changes as to how to handle color resetting at the end of the write so that your app doesn't have to manually call the `ResetColors()` function.
+
+{% hint style="info" %}
+If you want to use the highlighted writer, you can use the brand new class, `TextWriterHighlightedColor`.
+{% endhint %}

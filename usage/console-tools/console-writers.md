@@ -14,6 +14,8 @@ Starting from `ConsoleWriters`, this namespace provides the following classes:
   * Provides you with the necessary functions to let you write the list entries to the console easily.
 * `TextWriterColor`
   * Provides you with the necessary functions to allow you to write the text to the console with and without color.
+* `TextWriterHighlightedColor`
+  * Provides you with the necessary functions to allow you to write the highlighted text to the console with and without color.
 * `TextWriterSlowColor`
   * Provides you with the necessary functions to simulate a typewriter writing a requested string to the console with and without color.
 * `TextWriterWhereColor`
