@@ -104,6 +104,19 @@ You can check to see if a color is a light or a dark color using the `Brightness
 * `Dark`
 * `Light`
 
+There is a usage of this feature to determine the appropriate gray color, which contains a function found in the same class.
+
+### Getting a gray color
+
+You can get a gray color either for the current background color or for your custom background color using the `GetGray()` function. This allows you to easily get an appropriate color if you want to write something in it and you don't know what color to choose.
+
+{% code title="ColorTools.cs" lineNumbers="true" %}
+```csharp
+public static Color GetGray()
+public static Color GetGray(Color color)
+```
+{% endcode %}
+
 ## Getting console color information
 
 You can get detailed information about the console color ranging from 0 to 255 by making a new instance of the `ConsoleColorsInfo` class:
