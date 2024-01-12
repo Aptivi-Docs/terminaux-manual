@@ -136,7 +136,7 @@ In the `ColorTools` static class, it contains several color blindness simulation
 * `ColorTransformationMethod`
   * Chooses the color transformation method. This only applies to some of the color-blindness transformations, such as Protan.
 * `ColorTransformationFormula`
-  * Specifies the type of color transformation (Protan, Deutan, Tritan, Monochromacy, Inverse, and more...)
+  * Specifies the type of color transformation (Protan, Deutan, Tritan, Monochromacy, Inverse, BlueScale, and more...)
 * `ColorDeficiencySeverity`
   * Specifies the severity of the color deficiency ranging between 0.0 and 1.0 from lowest to highest
 
@@ -231,3 +231,20 @@ Any change to a value in the global settings affects all color generations. Use 
 {% endhint %}
 
 You can also use your `ColorSettings` instance when parsing your color specifier.
+
+### Determining the "seeability"
+
+{% code title="ColorTools.cs" lineNumbers="true" %}
+```csharp
+public static bool IsSeeable(ColorType type, int colorLevel, int colorR, int colorG, int colorB)
+```
+{% endcode %}
+
+You can determine the color "seeability" using this function. The color can be considered "seeable" if it meets the following conditions:
+
+* The color type is either a 256- or a 16-color and not one of the following colors:
+  * ConsoleColors.Black
+  * ConsoleColors.Grey0
+  * ConsoleColors.Grey3
+  * ConsoleColors.Grey7
+* The color type is a true color and all the RGB levels are above 30 out of 255.

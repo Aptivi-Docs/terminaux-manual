@@ -16,8 +16,8 @@ Terminaux provides you with a plethora of console tools, such as a console wrapp
 [console-writers.md](console-writers.md)
 {% endcontent-ref %}
 
-{% content-ref url="console-size-requirements.md" %}
-[console-size-requirements.md](console-size-requirements.md)
+{% content-ref url="console-checker/" %}
+[console-checker](console-checker/)
 {% endcontent-ref %}
 
 {% content-ref url="console-wrapper.md" %}

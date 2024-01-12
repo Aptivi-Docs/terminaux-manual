@@ -13,21 +13,22 @@ The color selector allows you to change the color in the following modes:
 
 The following controls are available:
 
-| Key            | Action                                                                         |
-| -------------- | ------------------------------------------------------------------------------ |
-| `ENTER`        | Accept color selection                                                         |
-| `ESC`          | DIscard changes                                                                |
-| `H`            | Help page                                                                      |
-| `LEFT`         | Reduce hue (for true color)                                                    |
-|                | Previous color (for 256 and 16 colors)                                         |
-| `CTRL + LEFT`  | Reduce lightness (true color only)                                             |
-| `RIGHT`        | Increase hue (for true color)                                                  |
-|                | Next color (for 256 and 16 colors)                                             |
-| `CTRL + RIGHT` | Increase lightness (true color only)                                           |
-| `DOWN`         | Reduce saturation (true color only)                                            |
-| `UP`           | Increase saturation (true color only)                                          |
-| `TAB`          | Change color mode (true color, 256 colors, and 16 colors)                      |
-| `I`            | Shows the extended color information, including info about color deficiencies. |
+| Key            | Action                                                                                           |
+| -------------- | ------------------------------------------------------------------------------------------------ |
+| `ENTER`        | Accept color selection                                                                           |
+| `ESC`          | DIscard changes                                                                                  |
+| `H`            | Help page                                                                                        |
+| `LEFT`         | Reduce hue (for true color)                                                                      |
+|                | Previous color (for 256 and 16 colors)                                                           |
+| `CTRL + LEFT`  | Reduce lightness (true color only)                                                               |
+| `RIGHT`        | Increase hue (for true color)                                                                    |
+|                | Next color (for 256 and 16 colors)                                                               |
+| `CTRL + RIGHT` | Increase lightness (true color only)                                                             |
+| `DOWN`         | Reduce saturation (true color only)                                                              |
+| `UP`           | Increase saturation (true color only)                                                            |
+| `TAB`          | Change color mode (true color, 256 colors, and 16 colors)                                        |
+| `I`            | Shows the extended color information, including info about color deficiencies.                   |
+| `V`            | Shows an info box that visually demonstrates the selected color with all the color deficiencies. |
 
 This function returns a `Color` instance containing necessary information. To know more about the structure of the `Color` class, visit the page below to learn more.
 
