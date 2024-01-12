@@ -18,11 +18,11 @@ For complete overview of functionality, consult the below pages:
 
 Just use the `Terminaux.Reader` class that contains:
 
-* `Read()`
-* `Read(string)`
-* `Read(string, string, bool, bool)`
-* `ReadPassword()`
-* `ReadPassword(string)`
+* `Read(bool interruptible = false)`
+* `Read(string, bool interruptible = false)`
+* `Read(string, string, bool, bool, bool interruptible = false)`
+* `ReadPassword(bool interruptible = false)`
+* `ReadPassword(string, bool interruptible = false)`
 
 Each one of these functions creates a reader state, `TermReaderState`, that contains essential information about the current reader state, including, but not limited to:
 

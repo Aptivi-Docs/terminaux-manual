@@ -353,3 +353,37 @@ Also, we've made changes as to how to handle color resetting at the end of the w
 {% hint style="info" %}
 If you want to use the highlighted writer, you can use the brand new class, `TextWriterHighlightedColor`.
 {% endhint %}
+
+## From 2.2.x to 2.4.x
+
+Between the 2.2.x and 2.4.x version range, we've made the following breaking changes:
+
+### Color contrast class added
+
+{% code title="ColorTools.cs" lineNumbers="true" %}
+```csharp
+public static bool IsSeeable(ColorType type, int colorLevel, int colorR, int colorG, int colorB)
+```
+{% endcode %}
+
+We've moved the `IsSeeable` function as part of the addition of the color contrast tools to the `ColorContrast` static class so that it becomes part of the color contrast tools.
+
+{% hint style="info" %}
+The functionality of the function hasn't changed. You just need to change the reference to this function from `ColorTools` to `ColorContrast`.
+{% endhint %}
+
+### Moved ConsoleColors\[Info] to Colors.Data
+
+{% code title="ConsoleColors.cs" lineNumbers="true" %}
+```csharp
+namespace Terminaux.Colors
+```
+{% endcode %}
+
+{% code title="ConsoleColorsInfo.cs" lineNumbers="true" %}
+```csharp
+namespace Terminaux.Colors
+```
+{% endcode %}
+
+We've moved the two classes, `ConsoleColors` and its associated `Info` class, to `Terminaux.Colors.Data` as they're part of the console colors information gathering for both 16-color and 256-color information.

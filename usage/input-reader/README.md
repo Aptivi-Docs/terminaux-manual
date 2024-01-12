@@ -9,14 +9,14 @@ This functionality is an important part of any interactive console application, 
 You can easily use this feature in any interactive console application that uses Terminaux. Just use the `Terminaux.Reader` class that contains:
 
 ```csharp
-public static string Read()
-public static string Read(TermReaderSettings settings)
-public static string Read(string inputPrompt)
-public static string Read(string inputPrompt, TermReaderSettings settings)
-public static string ReadPassword()
-public static string ReadPassword(TermReaderSettings settings)
-public static string ReadPassword(string inputPrompt)
-public static string ReadPassword(string inputPrompt, TermReaderSettings settings)
+public static string Read(bool interruptible = false)
+public static string Read(TermReaderSettings settings, bool interruptible = false)
+public static string Read(string inputPrompt, bool interruptible = false)
+public static string Read(string inputPrompt, TermReaderSettings settings, bool interruptible = false)
+public static string ReadPassword(bool interruptible = false)
+public static string ReadPassword(TermReaderSettings settings, bool interruptible = false)
+public static string ReadPassword(string inputPrompt, bool interruptible = false)
+public static string ReadPassword(string inputPrompt, TermReaderSettings settings, bool interruptible = false)
 public static string Read(string inputPrompt, string defaultValue, bool password = false, bool oneLineWrap = false, bool interruptible = false)
 public static string Read(string inputPrompt, string defaultValue, TermReaderSettings settings, bool password = false, bool oneLineWrap = false, bool interruptible = false)
 ```

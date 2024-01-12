@@ -12,6 +12,8 @@ Terminaux provides several color models that you can convert from/to using the `
 * `HsvConversionTools`: Converts your color model instance to HSV
 * `RgbConversionTools`: Converts your color model instance to RGB
 * `RybConversionTools`: Converts your color model instance to RYB
+* `YiqConversionTools`: Converts your color model instance to YIQ
+* `YuvConversionTools`: Converts your color model instance to YUV
 
 These classes were made to facilitate the color model conversion, such as from RGB to CMY, from CMY to HSL, from HSL to RYB, and so on. This means that it's easier than before.
 

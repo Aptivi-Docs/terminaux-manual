@@ -12,6 +12,7 @@
   * [🔌 Console Wrapper](usage/console-tools/console-wrapper.md)
   * [⌨ Interactive TUI](usage/console-tools/interactive-tui.md)
   * [🖊 Console Writers](usage/console-tools/console-writers.md)
+  * [🌈 Console Colors](usage/console-tools/console-colors.md)
   * [✅ Console Checker](usage/console-tools/console-checker/README.md)
     * [☑ Console Size Requirements](usage/console-tools/console-checker/console-size-requirements.md)
   * [📺 Console Screen](usage/console-tools/console-screen.md)

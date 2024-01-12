@@ -4,7 +4,13 @@ description: We're listening for any size changes!
 
 # ☎ Console Resize Listener
 
-Terminaux also provides you with a polling-based console resize listener that allows your console application, especially the interactive ones, to listen to every single console resize event for all the platforms. It works on Windows, macOS, Linux, and Android.
+Terminaux also provides you with either a polling-based console resize listener for non-Unix systems or a SIGWINCH-based listener for Unix systems that allows your console application, especially the interactive ones, to listen to every single console resize event for all the platforms. It works on Windows, macOS, Linux, and Android.
+
+{% hint style="warning" %}
+If you want to use the resize listener functionality, make sure that your application uses .NET Framework 4.8 or .NET 8.0 or higher and install the `Terminaux.ResizeListener` package due to the changes to the resize listener functionality.
+
+If you can't upgrade your application, stay on 2.3.0 as it provides polling-based listener that works on Linux.
+{% endhint %}
 
 {% hint style="info" %}
 This listener can be started upon request with `StartResizeListener()`, but can't be stopped until the application is exited either gracefully or ungracefully.
@@ -48,4 +54,10 @@ Your custom handler should satisfy these conditions:
         ScreenTools.Render();
     ```
 * The handler should be fast in the order of milliseconds (minimum) or microseconds (recommended) in response to the resize.
+{% endhint %}
+
+You can also enable or disable the essential handler to be able to control if Terminaux is allowed to run the essential handler that contains the screen refresh code or not. This is useful for situations where you might not want to refresh the screen unless a specific condition is met. `RunEssentialHandler` provides you with this kind of control.
+
+{% hint style="info" %}
+You might still want to put code that refreshes the current screen with `ScreenTools.Render()` in your custom resize handler if you've turned off `RunEssentialHandler`. For this very reason, it's turned **on** by default.
 {% endhint %}

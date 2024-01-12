@@ -63,6 +63,12 @@ The `ColorSpecifier` can be of the syntax:
   * `<sss>` and `<vvv>` should be of the range between 0 and 100
 * `ryb:<rrr>;<yyy>;<bbb>`
   * `<rrr>`, `<yyy>`, and `<bbb>` should be of the range between 0 and 255, just like RGB.
+* `yiq:<y>;<i>;<q>`
+  * `<y>` should be of the range between 0.0 and 1.0
+  * `<i>` should be of the range between -0.5957 and 0.5957
+  * `<q>` should be of the range between -0.5226 and 0.5226
+* `yuv:<y>;<u>;<v>`
+  * `<y>`, `<u>`, and `<v>` should be of the range between 0 and 255
 * `#000000`
   * Hexadecimal representation of the color for HTML fans. You can also use the `#RGB` format, implying that the three digits represent:
     * R: Red color level converted to RR (F becomes FF)
@@ -86,6 +92,12 @@ Color ColorInstance = ConsoleColor.Magenta;
 {% endhint %}
 
 You can also get the color ID if you used color number from 0 to 255 by referencing the `ColorId` property. This property returns `-1` for true color.
+
+You can also get the normalized values for the RGB components by calling the instance's Normalized properties, which consist of:
+
+* `RNormalized`
+* `GNormalized`
+* `BNormalized`
 
 Additionally, you can choose whether to use your terminal emulator's color palette or to use the real colors that come from the true colors. By default, Terminaux chooses to use the terminal emulator's color palette to maintain consistency.
 
@@ -232,9 +244,13 @@ Any change to a value in the global settings affects all color generations. Use 
 
 You can also use your `ColorSettings` instance when parsing your color specifier.
 
-### Determining the "seeability"
+### Color contrast
 
-{% code title="ColorTools.cs" lineNumbers="true" %}
+The color contrast tools provides you with various tools for color contrast and its manipulation functions.
+
+#### Determining the "seeability"
+
+{% code title="ColorContrast.cs" lineNumbers="true" %}
 ```csharp
 public static bool IsSeeable(ColorType type, int colorLevel, int colorR, int colorG, int colorB)
 ```
@@ -243,8 +259,36 @@ public static bool IsSeeable(ColorType type, int colorLevel, int colorR, int col
 You can determine the color "seeability" using this function. The color can be considered "seeable" if it meets the following conditions:
 
 * The color type is either a 256- or a 16-color and not one of the following colors:
-  * ConsoleColors.Black
-  * ConsoleColors.Grey0
-  * ConsoleColors.Grey3
-  * ConsoleColors.Grey7
+  * `ConsoleColors.Black`
+  * `ConsoleColors.Grey0`
+  * `ConsoleColors.Grey3`
+  * `ConsoleColors.Grey7`
 * The color type is a true color and all the RGB levels are above 30 out of 255.
+
+#### Determining the color contrast with NTSC
+
+You can get the color contrast (either black or white) using the `Y` (luma) component of the YIQ color model used by NTSC 1953 by calling the below function:
+
+{% code title="ColorContrast.cs" lineNumbers="true" %}
+```csharp
+public static Color GetContrastColorNtsc(this Color color)
+```
+{% endcode %}
+
+It returns either black or white, depending on the luma part of the color calculated using this formula:
+
+$$Y = ((r * (0.299 * 1000)) + (g * (0.587 * 1000)) + (b * (0.114 * 1000))) / 1000$$
+
+If the color luma is bigger than 128, it returns the black color for high contrast. Otherwise, white.
+
+#### Determining the color contrast using half-white color number
+
+You can also get the color contrast using the half-white color number method by consulting the below function:
+
+{% code title="ColorContrast.cs" lineNumbers="true" %}
+```csharp
+public static Color GetContrastColorHalf(this Color color)
+```
+{% endcode %}
+
+This function makes use of a formula that divides the number (`0xffffff`)  by 2, making a color number of half white. It takes a decimal version of the RGB color and compares it to that of the half-white number. If the RGB decimal is bigger than the half-white color, it gives you the black color for high contrast. Otherwise, white.

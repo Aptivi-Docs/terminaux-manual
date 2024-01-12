@@ -37,6 +37,19 @@ The console writers have three variants of writing functions:
 * `WriteColorBack()`: Foreground and background colors
 {% endhint %}
 
+#### Wrapped pager controls
+
+The below wrapped pager controls are available when wrapping is enabled:
+
+* `ESC`: Exits the pager
+* `Page Up`: Moves the output by one page backward, but stops at the beginning of the output.
+* `Page Down`: Moves the output by one page forward, but stops at the end of the output.
+* `Up Arrow`: Moves up by one line
+* `Down Arrow`: Moves down by one line
+* `Home`: Goes to the first page
+* `End`: Goes to the last page
+* `Any key`: Moves the output by one page forward and exits if it reaches end of line
+
 ### Fancy writers
 
 Alongside these writers, there are also writers that are categorized as "fancy" because they either print so awesome or they print graphics. They can be found in the `FancyWriters` namespace that provides the below classes:

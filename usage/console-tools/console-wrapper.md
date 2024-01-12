@@ -18,7 +18,7 @@ To use this console wrapper, just replace all the calls to `Console` with our re
 * `CursorVisible` (get and set)
 * `KeyAvailable` (get)
 * `TreatCtrlCAsInput` (get and set)
-* `Clear()`
+* `Clear()` (with and without background)
 * `SetCursorPosition()`
 * `Beep()`
 * `ReadKey()`
@@ -47,7 +47,8 @@ You can customize the console wrappers so that applications that call the Termin
 * `GetCursorVisible`
 * `TreatCtrlCAsInput`
 * `KeyAvailable`
-* `Clear()`
+* `Clear()` (without background)
+* `ClearLoadBack()` (with background)
 * `SetCursorPosition()`
 * `Beep()`
 * `ReadKey()`
