@@ -387,3 +387,86 @@ namespace Terminaux.Colors
 {% endcode %}
 
 We've moved the two classes, `ConsoleColors` and its associated `Info` class, to `Terminaux.Colors.Data` as they're part of the console colors information gathering for both 16-color and 256-color information.
+
+## From 2.4.x to 2.5.x
+
+Between the 2.4.x and 2.5.x version range, we've made the following breaking changes:
+
+### YIQ values changed
+
+{% code title="LumaChromaUv.cs" lineNumbers="true" %}
+```csharp
+public double Luma { get; private set; }
+public double ChromaU { get; private set; }
+public double ChromaV { get; private set; }
+```
+{% endcode %}
+
+{% code title="LumaInPhaseQuadrature.cs" lineNumbers="true" %}
+```csharp
+public double Luma { get; private set; }
+public double InPhase { get; private set; }
+public double Quadrature { get; private set; }
+```
+{% endcode %}
+
+The values in the YIQ color model have been changed to store natural integer numbers that range from 0 to 255 instead of the more-accurate double-precision floating system. This is to shorten the specifiers for the YIQ values. The three values used to hold the following ranges:
+
+* Luma: 0.0 -> 0.1
+* In-phase: -0.5957 -> 0.5957
+* Quadrature: -0.5226 -> 0.5226
+
+{% hint style="info" %}
+You'll have to re-write the specifiers so that all the components range from 0 to 255. In-phase and quadrature values of 0 are 128 in the new range implemented in Terminaux 2.5.0.
+{% endhint %}
+
+### Moved X11-related functions to `ConversionTools`
+
+{% code title="ColorTools.cs" lineNumbers="true" %}
+```csharp
+public static ConsoleColors TranslateToX11ColorMap(ConsoleColor color)
+public static ConsoleColor TranslateToStandardColorMap(ConsoleColors color)
+public static ConsoleColor CorrectStandardColor(ConsoleColor color)
+```
+{% endcode %}
+
+These functions used to reside on `ColorTools` before they're moved to `ConversionTools`, which is a new class that Terminaux 2.5.0 introduced. `ConversionTools` was meant to hold general color conversion tools.
+
+{% hint style="info" %}
+The functionality for these functions has not changed. You'll have to update the references to `ConversionTools`.
+{% endhint %}
+
+### Moved `RenderColorBlindnessAware()`
+
+{% code title="ColorTools.cs" lineNumbers="true" %}
+```csharp
+public static Color RenderColorBlindnessAware(Color color, TransformationFormula formula, double severity, TransformationMethod method = TransformationMethod.Brettel1997)
+```
+{% endcode %}
+
+The `RenderColorBlindnessAware` function got implemented during Terminaux 1.x to simplify making new `Color` instances with the color blindness (or transformation) applied according to the manually-selected color transformation formula and their options.
+
+This function, however, has been moved to `TransformationTools` instead of `ColorTools` to more accurately describe the purpose of this function.
+
+{% hint style="info" %}
+The functionality for this function has not changed. You'll have to update the references to `TransformationTools`.
+{% endhint %}
+
+### Removed obsolete functions
+
+{% code title="ColorTools.cs" lineNumbers="true" %}
+```csharp
+public static string ConvertFromHexToRGB(string Hex)
+public static string ConvertFromRGBToHex(string RGBSequence)
+public static string ConvertFromRGBToHex(int R, int G, int B)
+```
+{% endcode %}
+
+These three obsolete functions became obsolete when better solutions were implemented during the whole Terminaux development lifetime, which resulted in properties like Color's `Hex` and `PlainSequence` dynamically returning appropriate values according to the specified specifier.
+
+{% hint style="info" %}
+To migrate away from the three functions, you'll have to follow the migration steps:
+
+* For the first function, create a new `Color` instance with the specified `Hex` value and call this instance's `PlainSequence` property.
+* For the second and the third functions, create a new `Color` instance with either the specified `RGBSequence` value or the three RGB values and call this instance's `Hex` property.
+{% endhint %}

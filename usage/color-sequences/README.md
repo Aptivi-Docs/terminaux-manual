@@ -64,9 +64,7 @@ The `ColorSpecifier` can be of the syntax:
 * `ryb:<rrr>;<yyy>;<bbb>`
   * `<rrr>`, `<yyy>`, and `<bbb>` should be of the range between 0 and 255, just like RGB.
 * `yiq:<y>;<i>;<q>`
-  * `<y>` should be of the range between 0.0 and 1.0
-  * `<i>` should be of the range between -0.5957 and 0.5957
-  * `<q>` should be of the range between -0.5226 and 0.5226
+  * `<y>`, `<i>`, and `<q>` should be of the range between 0 and 255
 * `yuv:<y>;<u>;<v>`
   * `<y>`, `<u>`, and `<v>` should be of the range between 0 and 255
 * `#000000`
