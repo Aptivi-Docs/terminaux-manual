@@ -17,6 +17,7 @@
     * [☑ Console Size Requirements](usage/console-tools/console-checker/console-size-requirements.md)
   * [📺 Console Screen](usage/console-tools/console-screen.md)
   * [☎ Console Resize Listener](usage/console-tools/console-resize-listener.md)
+  * [📽 Presentation System](usage/console-tools/presentation-system.md)
 * [🖱 Input Reader](usage/input-reader/README.md)
   * [⌨ Keybindings](usage/input-reader/keybindings.md)
   * [🔌 Custom bindings](usage/input-reader/custom-bindings.md)
@@ -24,6 +25,7 @@
 * [🎨 Color Sequences](usage/color-sequences/README.md)
   * [⛱ Color Model Conversions](usage/color-sequences/color-model-conversions.md)
   * [🧭 Color Model Parsing](usage/color-sequences/color-model-parsing.md)
+  * [🖌 Interop with System.Drawing.Color](usage/color-sequences/interop-with-system.drawing.color.md)
 * [🎨 Color Wheel](usage/color-wheel.md)
 * [🖊 Figlet Font Selector](usage/figlet-font-selector.md)
 
