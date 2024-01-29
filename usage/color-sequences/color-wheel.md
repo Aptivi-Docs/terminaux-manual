@@ -29,9 +29,11 @@ The following controls are available:
 | `TAB`          | Change color mode (true color, 256 colors, and 16 colors)                                        |
 | `I`            | Shows the extended color information, including info about color deficiencies.                   |
 | `V`            | Shows an info box that visually demonstrates the selected color with all the color deficiencies. |
+| `O`            | Increases the opacity                                                                            |
+| `P`            | Decreases the opacity                                                                            |
 
 This function returns a `Color` instance containing necessary information. To know more about the structure of the `Color` class, visit the page below to learn more.
 
-{% content-ref url="color-sequences/" %}
-[color-sequences](color-sequences/)
+{% content-ref url="./" %}
+[.](./)
 {% endcontent-ref %}

@@ -25,6 +25,7 @@ This functionality contains several functions that you can make use of in your c
 * Building a `Color` instance that supports RGB and 255-color modes
 * Getting console color information from the 255-color mode
 * Simulating color-blindness during compilation
+* Applying transparency using the `Opacity` settings in the `ColorSettings` instance
 
 More functionality is available in the right pane for conversion, parsing, and more.
 
@@ -91,12 +92,6 @@ Color ColorInstance = ConsoleColor.Magenta;
 
 You can also get the color ID if you used color number from 0 to 255 by referencing the `ColorId` property. This property returns `-1` for true color.
 
-You can also get the normalized values for the RGB components by calling the instance's Normalized properties, which consist of:
-
-* `RNormalized`
-* `GNormalized`
-* `BNormalized`
-
 Additionally, you can choose whether to use your terminal emulator's color palette or to use the real colors that come from the true colors. By default, Terminaux chooses to use the terminal emulator's color palette to maintain consistency.
 
 {% hint style="info" %}
@@ -106,6 +101,16 @@ In addition to the `PlainSequence` property, you can also use the `ToString()` f
 BoxFrameTextColor.WriteBoxFrame($"Red, Green, and Blue: {selectedColor}", hueBarX, rgbRampBarY, boxWidth, boxHeight + 2);
 ```
 {% endhint %}
+
+### Getting RGB information
+
+You can get the RGB information by simply calling the `RGB` property in the `Color` class. From there, you'll get an instance of `RedGreenBlue` that contains the `R`, `G`, `B`, and their normalized properties.
+
+You can also convert this color model instance to various color models, such as `RYB`, `CMY`, `YUV`, and `HSV`. In order to do this, consult the below page:
+
+{% content-ref url="color-model-conversions.md" %}
+[color-model-conversions.md](color-model-conversions.md)
+{% endcontent-ref %}
 
 ## Determining color brightness
 
@@ -290,3 +295,31 @@ public static Color GetContrastColorHalf(this Color color)
 {% endcode %}
 
 This function makes use of a formula that divides the number (`0xffffff`)  by 2, making a color number of half white. It takes a decimal version of the RGB color and compares it to that of the half-white number. If the RGB decimal is bigger than the half-white color, it gives you the black color for high contrast. Otherwise, white.
+
+### Opacity
+
+Whenever it comes to opacity, Terminaux attempts to simulate the transparency using your current background color of the console. However, you can override that by selecting a color that would be faded to when transparency is applied.
+
+{% code title="ColorSettings.cs" lineNumbers="true" %}
+```csharp
+public int Opacity
+{
+    (...)
+}
+
+public Color OpacityColor
+{
+    (...)
+}
+```
+{% endcode %}
+
+When the opacity is set to 255, you're making a completely opaque color that holds just the color that you've chosen. However, when you choose any other opacity, such as 50% transparent (128), you're mixing 50% of your color with 50% of either the current console background color or your selected opacity blending color. If you choose 0%, you're essentially getting the opacity color that is opaque.
+
+{% hint style="info" %}
+Generally, it's recommended to set these two properties in a separate `ColorSettings` instance, unless you're making experiments. The color selector allows you to select the global transparency, but it may affect all the colors, even if closed.
+{% endhint %}
+
+{% hint style="warning" %}
+This is not a real transparency, but a simulated one. That doesn't make text and elements rendered on top of the elements visible for the opacity that you choose. For example, you don't get to see text that is over-written by another text if you set the opacity.
+{% endhint %}

@@ -412,12 +412,12 @@ public double Quadrature { get; private set; }
 
 The values in the YIQ color model have been changed to store natural integer numbers that range from 0 to 255 instead of the more-accurate double-precision floating system. This is to shorten the specifiers for the YIQ values. The three values used to hold the following ranges:
 
-* Luma: 0.0 -> 0.1
-* In-phase: -0.5957 -> 0.5957
-* Quadrature: -0.5226 -> 0.5226
+* Luma: `0.0` -> `0.1`
+* In-phase: `-0.5957` -> `0.5957`
+* Quadrature: `-0.5226` -> `0.5226`
 
 {% hint style="info" %}
-You'll have to re-write the specifiers so that all the components range from 0 to 255. In-phase and quadrature values of 0 are 128 in the new range implemented in Terminaux 2.5.0.
+You'll have to re-write the specifiers so that all the components range from `0` to `255`. In-phase and quadrature values of `0` are `128` in the new range implemented in Terminaux 2.5.0 and higher.
 {% endhint %}
 
 ### Moved X11-related functions to `ConversionTools`
@@ -469,4 +469,84 @@ To migrate away from the three functions, you'll have to follow the migration st
 
 * For the first function, create a new `Color` instance with the specified `Hex` value and call this instance's `PlainSequence` property.
 * For the second and the third functions, create a new `Color` instance with either the specified `RGBSequence` value or the three RGB values and call this instance's `Hex` property.
+{% endhint %}
+
+## From 2.5.x to 2.6.x
+
+Between the 2.5.x and 2.6.x version range, we've made the following breaking changes:
+
+### Removed R, G, and B properties (and normalized) from `Color`
+
+{% code title="Color.cs" lineNumbers="true" %}
+```csharp
+public int R =>
+    RGB.R;
+public int G =>
+    RGB.G;
+public int B =>
+    RGB.B;
+public double RNormalized =>
+    RGB.RNormalized;
+public double GNormalized =>
+    RGB.GNormalized;
+public double BNormalized =>
+    RGB.BNormalized;
+```
+{% endcode %}
+
+To simplify the `Color` class, we've removed the above properties as they wrap against the `RGB` property, which contains the above properties. This is also done to achieve consistency.
+
+{% hint style="info" %}
+All you have to do is to change all the references to these properties so that they point to the `RGB` property instead of directly.
+
+```diff
+-int gray = (int)(mono.R * width);
++int gray = (int)(mono.RGB.R * width);
+```
+{% endhint %}
+
+## From 2.6.x to 2.7.x
+
+Between the 2.6.x and 2.7.x version range, we've made the following breaking changes:
+
+### `ReadKeyTimeout()` no longer throws a removed exception
+
+{% code title="Input.cs" lineNumbers="true" %}
+```csharp
+public static ConsoleKeyInfo ReadKeyTimeout(bool Intercept, TimeSpan Timeout)
+```
+{% endcode %}
+
+{% code title="TerminauxContinuableException.cs" lineNumbers="true" %}
+```csharp
+public class TerminauxContinuableException
+```
+{% endcode %}
+
+`ReadKeyTimeout()` no longer throws above exception when the user didn't press any key in the timely manner. Instead, it returns a default `ConsoleKeyInfo` instance (that indicates that there is no key to be pressed) with a boolean variable in the same return type as a tuple that indicates whether a key has been pressed or not.
+
+However, as the above exception wasn't used anymore by Terminaux itself, we've decided to remove it, leaving only the `TerminauxException` class being used.
+
+{% hint style="info" %}
+You'll have to change the variable in which will hold the value of `ReadKeyTimeout()`. As a bonus, you'll get two variables in one function:
+
+* The resulting key (`ConsoleKeyInfo`)
+* Key has been pressed or not (`boolean`)
+{% endhint %}
+
+### Button infoboxes now handle choice info
+
+{% code title="InfoBoxButtonsColor.cs" lineNumbers="true" %}
+```csharp
+public static int WriteInfoBoxButtonsPlain(string[] buttons, string text, params object[] vars)
+public static int WriteInfoBoxButtonsPlain(string[] buttons, string text, char UpperLeftCornerChar, char LowerLeftCornerChar, char UpperRightCornerChar, char LowerRightCornerChar, char UpperFrameChar, char LowerFrameChar, char LeftFrameChar, char RightFrameChar, params object[] vars)
+(...)
+public static int WriteInfoBoxButtonsColorBack(string title, string[] buttons, string text, char UpperLeftCornerChar, char LowerLeftCornerChar, char UpperRightCornerChar, char LowerRightCornerChar, char UpperFrameChar, char LowerFrameChar, char LeftFrameChar, char RightFrameChar, Color InfoBoxTitledButtonsColor, Color BackgroundColor, params object[] vars)
+```
+{% endcode %}
+
+The button infoboxes now handle the choice info instead of simple string array of buttons, making these infoboxes more flexible than before. On the contrary, we had to change the signature of all the functions found inside `InfoBoxButtonsColor` to hold the `InputChoiceInfo` array that stores all the possible choices.
+
+{% hint style="info" %}
+You'll have to change how to define the buttons from passing it a simple array of strings to an array of `InputChoiceInfo` instances that contain info about your choices.
 {% endhint %}

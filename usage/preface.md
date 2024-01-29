@@ -41,8 +41,8 @@ Any key will append the selected characters to the current text input, and `RETU
 [color-sequences](color-sequences/)
 {% endcontent-ref %}
 
-{% content-ref url="color-wheel.md" %}
-[color-wheel.md](color-wheel.md)
+{% content-ref url="color-sequences/color-wheel.md" %}
+[color-wheel.md](color-sequences/color-wheel.md)
 {% endcontent-ref %}
 
 {% content-ref url="figlet-font-selector.md" %}

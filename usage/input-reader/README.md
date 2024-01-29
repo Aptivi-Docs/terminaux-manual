@@ -29,6 +29,12 @@ Each one of these functions creates a reader state, `TermReaderState`, that cont
 * Kill buffer
 * Reader settings
 
+Alternatively, you can access the `Input` class, which contains almost all the functions that wrap against the reader, but with some extra input-related functions.
+
+{% hint style="info" %}
+If you're making your own mod in Nitrocid KS, it's best to use its own Input class rather than Terminaux's, as the class there actually deals with the screensaver in most circumstances.
+{% endhint %}
+
 Any key will append the selected characters to the current text input, and `RETURN` will accept the input. For more information about key bindings, go to the below page.
 
 {% content-ref url="keybindings.md" %}

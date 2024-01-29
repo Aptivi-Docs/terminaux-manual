@@ -8,7 +8,7 @@ The reader currently has a global settings instance session-wide. However, it ca
 
 Here are the available settings that you can set:
 
-* `PasswordMaskChar`
+* `PasswordMaskChar` (`CurrentMask` in `Inputs`)
   * Sets the password masking character.
 * `HistoryEnabled`
   * Whether the history is enabled or not.

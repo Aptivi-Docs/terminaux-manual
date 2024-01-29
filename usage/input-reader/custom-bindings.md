@@ -25,9 +25,10 @@ You can also override these:
 Your keybinding must follow the below principles:
 
 * For text positioning, you must use any function in the `PositioningTools` class.
-* For manual console manipulation, you must use any function in the `ConsoleWrapperTools` class.
+* For manual console manipulation, you must use any function in the `ConsoleWrapper` class.
 * Your bound key must not be already bound to a key that was already bound by either a base or another custom binding, or two bindings execute at the same time, potentially causing conflict.
-* To manipulate with text, you must use the `state.CurrentText` property.
+* To manipulate with text, you must use the `state.CurrentText` property. You must refresh the prompt thereafter.
+* To refresh the prompt, you must use the `TermReaderTools.Refresh()` function.
 
 At the end, your base class must look like this at minimum:
 
@@ -49,6 +50,7 @@ namespace MyApp
         public override void DoAction(TermReaderState state)
         {
             // Your action.
+            TermReaderTools.Refresh();
         }
     }
 }
@@ -87,14 +89,24 @@ When the input reader is invoked by your console application, it creates a state
 
 The terminal reader state class contains the below most important variables that are documented here, alongside the less important ones.
 
-* `InputPromptLeft`: Specifies the zero-based X position that indicates the first character of the input text in the first line of the input. It includes the left margin and the length of the last input prompt line.
+* `InputPromptLeftBegin` and `InputPromptTopBegin`: Specifies the zero-based X and Y position that indicates the first character of where the first line of the input prompt is being written.
+* `InputPromptLeft` and `InputPromptTop`: Specifies the zero-based X and Y position that indicates the first character of the input text in the first line of the input. It includes the left margin and the length of the last input prompt line.
 * `LeftMargin` and `RightMargin`: Specifies the left margin and the right margin.
+* `CurrentCursorPosLeft` and `CurrentCursorPosTop`: Specifies the current console cursor position relative to the current text position.
 * `MaximumInputPositionLeft`: Specifies the maximum zero-based X position of the input that indicates the boundary of the input according to the right margin.
 * `LongestSentenceLengthFromLeft`: Specifies the longest sentence length from the leftmost position with respect to the right margin.
 * `LongestSentenceLengthFromLeftForFirstLine`: Specifies the longest sentence length from the leftmost position, subtracted from `InputPromptLeft`, in order to get the length for the first line.
 * `LongestSentenceLengthFromLeftForGeneralLine`: Specifies the longest sentence length from the leftmost position, subtracted from `LeftMargin`, in order to get the length for a general input line.
 * `CurrentTextPos`: Specifies the current text position as a one-based number.
-* `InputPromptLastLineLength`: Specifies the last line length from the input prompt text.
+* `InputPromptLastLineLength`: Specifies the last line length from the input prompt text relative to the current console width.
+* `InputPromptText`: Specifies the input prompt text.
+* `InputPromptHeight`: Specifies the height of the input prompt as simulated by the wrapped line splitter relative to the current console width.
+* `CurrentText`: Specifies the current input text being written.
+* `PasswordMode`: Specifies whether the reader is in the password mode or not.
+* `PressedKey`: Specifies the currently-pressed key.
+* `KillBuffer`: Specifies the kill-buffer for use with clipboard-related keybindings, such as Yank and Kill.
+* `Settings`: Specifies the reader settings being passed to the reader.
+* `CanInsert`: Specifies whether the user can insert a character or not.
 
 You can access the reader settings from the state, whether it's a general settings that Terminaux makes use of or it's an overridden settings instance, using the `Settings` property.
 

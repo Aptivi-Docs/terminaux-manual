@@ -17,6 +17,8 @@ Terminaux provides several color models that you can convert from/to using the `
 
 These classes were made to facilitate the color model conversion, such as from RGB to CMY, from CMY to HSL, from HSL to RYB, and so on. This means that it's easier than before.
 
+Color models also contain their normalized properties. Some of these models have the `Normalized` (floating point numbers) variants of the components, while some others have the `Whole` (integers) variants.
+
 To convert your source color model, you first need to select the conversion tools according to the color model that you want to convert the source model to (a.k.a. the target color model). For example, if you want to convert RGB to HSV, you can use the `HsvConversionTools` and call the function, `ConvertFrom(RedGreenBlue)`, to run the conversion.
 
 Here's how the conversion is run:

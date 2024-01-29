@@ -58,3 +58,11 @@ The non-dry `LoadBack()` functions allow you to load the background color and pe
 {% hint style="info" %}
 If you want to dryly set the background color, you must either use the plain writers, or use the background `Color` instances to apply them to all the background color-related parameters.
 {% endhint %}
+
+## Sequence Initialization
+
+If you have a Windows system, you can call a function that allows you to initialize the VT sequences. This function in the `ConsoleExtensions` class is called `InitializeSequences()`.
+
+{% hint style="info" %}
+If you have already set the VT sequence processing using a registry key found in `HKEY_CURRENT_USER\Console\VirtualTerminalLevel`, this function does nothing.
+{% endhint %}

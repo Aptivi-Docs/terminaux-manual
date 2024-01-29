@@ -52,10 +52,12 @@ The below wrapped pager controls are available when wrapping is enabled:
 
 ### Fancy writers
 
-Alongside these writers, there are also writers that are categorized as "fancy" because they either print so awesome or they print graphics. They can be found in the `FancyWriters` namespace that provides the below classes:
+Alongside these writers, there are also writers that are categorized as "fancy" because they either print so awesome or they print graphics. Some of these writers allow you to supply text and/or a title. They can be found in the `FancyWriters` namespace that provides the below classes:
 
 * `BorderColor`
   * Provides you with the necessary functions to allow you to draw a border somewhere in the console.
+* `BorderTextColor`
+  * Provides you with the necessary functions to allow you to draw a border somewhere in the console with text inside the box.
 * `BoxColor`
   * Provides you with the necessary functions to allow you to draw a box somewhere in the console.
 * `BoxFrameColor`
