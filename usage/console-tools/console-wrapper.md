@@ -51,6 +51,7 @@ You can customize the console wrappers so that applications that call the Termin
 * `ClearLoadBack()` (with background)
 * `SetCursorPosition()`
 * `Beep()`
+* `BeepSeq()`
 * `ReadKey()`
 * `WriteChar()`
 * `WriteStringNonStandalone()`
