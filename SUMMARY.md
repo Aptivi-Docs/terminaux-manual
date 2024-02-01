@@ -4,6 +4,7 @@
 * [🥛 Breaking changes](breaking-changes/README.md)
   * [⬆ API v1.0](breaking-changes/api-v1.0.md)
   * [⬆ API v2.0](breaking-changes/api-v2.0.md)
+  * [⬆ API v3.0](breaking-changes/api-v3.0.md)
 
 ## Usage
 

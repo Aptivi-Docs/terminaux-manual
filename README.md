@@ -5,9 +5,11 @@ description: Welcome to Terminaux!
 # 👋 Welcome!
 
 {% hint style="info" %}
-Terminaux 2.0 is currently under active development. Give us your feedback by testing it!
+Terminaux 3.x is currently under active development. Give us your feedback by testing it!
 
-If you still use Terminaux 1.x in your projects, go to the below link:
+If you still use old versions of Terminaux in your projects, go to the below links:
+
+[Terminaux 2.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/BAbXedIZJ6HPa9EGmSYt/ "mention")
 
 [Terminaux 1.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/IcD1aLc5jxHMwvslhJIP/ "mention")
 {% endhint %}
