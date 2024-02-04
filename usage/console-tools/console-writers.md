@@ -4,7 +4,11 @@ description: We need to write to the console
 
 # 🖊 Console Writers
 
-Terminaux provides a vast amount of console writers for different purposes, like the progress bar writer, writing console output in color, etc.
+Terminaux provides a vast amount of console writers for different purposes, like the progress bar writer, writing console output in color, etc. Also, you can use their `Render()` functions found in basically every static writer (not those that are dynamic, such as wrapped writers).
+
+{% hint style="info" %}
+The Render() functions are made primarily for plain writing operations. You can use them with `TextWriterRaw` writers.
+{% endhint %}
 
 ### Normal console writers
 
@@ -12,6 +16,8 @@ Starting from `ConsoleWriters`, this namespace provides the following classes:
 
 * `ListWriterColor`
   * Provides you with the necessary functions to let you write the list entries to the console easily.
+* `TextWriterRaw`
+  * Provides you with the necessary functions to allow you to write the raw text to the console.
 * `TextWriterColor`
   * Provides you with the necessary functions to allow you to write the text to the console with and without color.
 * `TextWriterHighlightedColor`
@@ -55,13 +61,13 @@ The below wrapped pager controls are available when wrapping is enabled:
 Alongside these writers, there are also writers that are categorized as "fancy" because they either print so awesome or they print graphics. Some of these writers allow you to supply text and/or a title. They can be found in the `FancyWriters` namespace that provides the below classes:
 
 * `BorderColor`
-  * Provides you with the necessary functions to allow you to draw a border somewhere in the console.
+  * Provides you with the necessary functions to allow you to draw a border somewhere in the console and with colors (border, background, and text).
 * `BorderTextColor`
-  * Provides you with the necessary functions to allow you to draw a border somewhere in the console with text inside the box.
+  * Provides you with the necessary functions to allow you to draw a border somewhere in the console with text inside the box and with colors (border, background, and text).
 * `BoxColor`
   * Provides you with the necessary functions to allow you to draw a box somewhere in the console.
 * `BoxFrameColor`
-  * Provides you with the necessary functions to allow you to draw a box frame somewhere in the console.
+  * Provides you with the necessary functions to allow you to draw a box frame somewhere in the console and with colors (border, background, and text).
 * `CenteredFigletTextColor`
   * Provides you with the necessary functions to allow you to render a string using the provided Figlet font in the middle of the console.
 * `CenteredTextColor`

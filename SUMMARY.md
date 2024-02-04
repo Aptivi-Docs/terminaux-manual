@@ -19,6 +19,7 @@
   * [📺 Console Screen](usage/console-tools/console-screen.md)
   * [☎ Console Resize Listener](usage/console-tools/console-resize-listener.md)
   * [📽 Presentation System](usage/console-tools/presentation-system.md)
+  * [➕ Console Extensions](usage/console-tools/console-extensions.md)
 * [🖱 Input Reader](usage/input-reader/README.md)
   * [⌨ Keybindings](usage/input-reader/keybindings.md)
   * [🔌 Custom bindings](usage/input-reader/custom-bindings.md)
@@ -32,10 +33,10 @@
 
 ***
 
-* [Report an issue](https://github.com/Aptivi/TermRead/issues/new)
-* [Source code](https://github.com/Aptivi/TermRead)
+* [Report an issue](https://github.com/Aptivi/Terminaux/issues/new)
+* [Source code](https://github.com/Aptivi/Terminaux)
 * [Our projects](https://github.com/Aptivi)
-* [API Reference](https://aptivi.github.io/TermRead/)
+* [API Reference](https://aptivi.github.io/Terminaux/)
 * [Report an issue (ColorSeq Rust)](https://github.com/Aptivi/colorseq-rust/issues/new)
 * [Source code (ColorSeq Rust)](https://github.com/Aptivi/colorseq-rust/)
 * [API Reference (ColorSeq Rust)](https://docs.rs/colorseq/)

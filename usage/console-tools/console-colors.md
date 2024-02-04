@@ -10,6 +10,12 @@ In addition to all of the Terminaux's features, we also provide you with a rich 
 * Setting the console color dryly
 * ...and more
 
+For more color functions and to get started making the color sequences, you can consult the below page:
+
+{% content-ref url="../color-sequences/" %}
+[color-sequences](../color-sequences/)
+{% endcontent-ref %}
+
 ## Current colors
 
 The console tools class provides you with two properties that allow you to get the current foreground and the background color.
@@ -38,6 +44,14 @@ The second function, however, only runs dryly and doesn't set any of the aboveme
 
 {% hint style="info" %}
 If you want to dryly set the console color, you must either use the plain writers, or use the `Color` instances to apply them to all the `Color`-related parameters.
+
+Additionally, if you wish to dryly set the colors on plain writers, you can use the `RenderSetConsoleColor()` function, but you'll have to append one of the following:
+
+* `RenderResetColors()`
+* `RenderResetForeground()`
+* `RenderResetBackground()`
+
+if you don't want the color to leak.
 {% endhint %}
 
 ## Background loading
@@ -66,3 +80,11 @@ If you have a Windows system, you can call a function that allows you to initial
 {% hint style="info" %}
 If you have already set the VT sequence processing using a registry key found in `HKEY_CURRENT_USER\Console\VirtualTerminalLevel`, this function does nothing.
 {% endhint %}
+
+## Resetting the colors
+
+You can also reset the colors either fully or selectively (foreground or background) by calling one of the following functions:
+
+* `ResetColors()`: Resets both the foreground and the background colors.
+* `ResetForeground()`: Resets the foreground color.
+* `ResetBackground()`: Resets the background color.
