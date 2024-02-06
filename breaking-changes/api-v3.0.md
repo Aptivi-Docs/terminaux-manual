@@ -108,3 +108,18 @@ All of its functions have been moved to SpecProbe's Software, so this entire cla
 {% hint style="info" %}
 As Terminaux already makes use of SpecProbe's Software, you should only change the reference to `ConsolePlatform` to point to `PlatformHelper`.
 {% endhint %}
+
+### Moved RGB value conversion tools
+
+{% code title="ColorTools.cs" lineNumbers="true" %}
+```csharp
+public static double SRGBToLinearRGB(int colorNum)
+public static int LinearRGBTosRGB(double linear)
+```
+{% endcode %}
+
+The sRGB and the linear RGB conversion tools have been moved to the transformation tools as they were used for color transformation. They used to be in the `ColorTools` class, but they were used for color transformation formulas, such as color blindness simulation.
+
+{% hint style="info" %}
+These functions are not affected. You just have to update your references to `ColorTools` for these functions to point to `TransformationTools`.
+{% endhint %}

@@ -28,6 +28,7 @@ The `ConsoleCursor` class contains extensions that allow you to change the curso
 * `ClearLineToRight()`: Allows you to clear the line to the right using the current background color in the current position.
 * `GetClearLineToRightSequence()`: Gets a sequence that clears the line to the right using the current background color in the current position.
 * `ResetAll()`: Resets the entire console.
+* `GetClearWholeScreenSequence()`: Gets a sequence that clears the whole display, including the scrollback buffer.
 
 ## Console positioning
 
