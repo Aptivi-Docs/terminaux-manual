@@ -107,8 +107,19 @@ The terminal reader state class contains the below most important variables that
 * `KillBuffer`: Specifies the kill-buffer for use with clipboard-related keybindings, such as Yank and Kill.
 * `Settings`: Specifies the reader settings being passed to the reader.
 * `CanInsert`: Specifies whether the user can insert a character or not.
+* `OperationWasInvalid`: Whether an invalid key was pressed, or an invalid operation was performed, or not.
 
 You can access the reader settings from the state, whether it's a general settings that Terminaux makes use of or it's an overridden settings instance, using the `Settings` property.
+
+{% hint style="info" %}
+In order to set `OperationWasInvalid` to true, you must put a conditional return by referring to the `ConditionalTools` and negating the `ShouldNot` condition like this:
+
+```csharp
+// If we're at the start of the text, bail.
+if (!ConditionalTools.ShouldNot(state.CurrentTextPos == 0, state))
+    return;
+```
+{% endhint %}
 
 ### Positioning tools
 

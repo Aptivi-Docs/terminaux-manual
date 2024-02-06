@@ -7,7 +7,7 @@ description: We need to write to the console
 Terminaux provides a vast amount of console writers for different purposes, like the progress bar writer, writing console output in color, etc. Also, you can use their `Render()` functions found in basically every static writer (not those that are dynamic, such as wrapped writers).
 
 {% hint style="info" %}
-The Render() functions are made primarily for plain writing operations. You can use them with `TextWriterRaw` writers.
+The `Render()` functions are made primarily for plain writing operations. You can use them with `TextWriterRaw` writers.
 {% endhint %}
 
 ### Normal console writers
@@ -15,13 +15,14 @@ The Render() functions are made primarily for plain writing operations. You can 
 Starting from `ConsoleWriters`, this namespace provides the following classes:
 
 * `ListWriterColor`
-  * Provides you with the necessary functions to let you write the list entries to the console easily.
+  * Provides you with the necessary functions to let you write the list entries to the console easily. It supports both non-generic and generic enumerables and dictionaries.
 * `TextWriterRaw`
   * Provides you with the necessary functions to allow you to write the raw text to the console.
 * `TextWriterColor`
   * Provides you with the necessary functions to allow you to write the text to the console with and without color.
 * `TextWriterHighlightedColor`
   * Provides you with the necessary functions to allow you to write the highlighted text to the console with and without color.
+  * By default, the modern way of highlighting specific text is enabled by using a VT sequence intended to reverse the colors. If you still want to use the legacy way, you'll have to set the `legacy` argument to `true` before passing in all the usual parameters.
 * `TextWriterSlowColor`
   * Provides you with the necessary functions to simulate a typewriter writing a requested string to the console with and without color.
 * `TextWriterWhereColor`

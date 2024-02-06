@@ -65,3 +65,46 @@ We've made a breaking change that moves all the raw writing to its own class to 
 {% hint style="info" %}
 Their names have not been changed, but they have been moved to `TextWriterRaw`, so you'll need to update the references to these functions to point to that class instead of the `TextWriterColor` class.
 {% endhint %}
+
+### Migrated input functions to `TermReader`
+
+{% code title="Input.cs" lineNumbers="true" %}
+```csharp
+public static TermReaderSettings GlobalReaderSettings
+public static string CurrentMask
+public static string ReadLine(bool interruptible = true)
+public static string ReadLine(string InputText, bool interruptible = true)
+public static string ReadLine(string InputText, string DefaultValue, bool interruptible = true)
+public static string ReadLine(string InputText, string DefaultValue, TermReaderSettings settings, bool interruptible = true)
+public static string ReadLineWrapped(bool interruptible = true)
+public static string ReadLineWrapped(string InputText, bool interruptible = true)
+public static string ReadLineWrapped(string InputText, string DefaultValue, bool interruptible = true)
+public static string ReadLineWrapped(string InputText, string DefaultValue, TermReaderSettings settings, bool interruptible = true)
+public static string ReadLine(string InputText, string DefaultValue, bool OneLineWrap = false, bool interruptible = true)
+public static string ReadLine(string InputText, string DefaultValue, bool OneLineWrap = false, TermReaderSettings settings = null, bool interruptible = true)
+public static string ReadLineNoInput(bool interruptible = true)
+public static string ReadLineNoInput(TermReaderSettings settings, bool interruptible = true)
+public static string ReadLineNoInput(char MaskChar, bool interruptible = true)
+public static string ReadLineNoInput(char MaskChar, TermReaderSettings settings, bool interruptible = true)
+```
+{% endcode %}
+
+We've discovered that all the `ReadLine()` functions and their associated properties and function overloads were duplicates of the TermReader's `Read()` function, so we've decided to migrate them to the `TermReader` class to avoid inconsistencies for both the application developer and the future versions of Terminaux.
+
+{% hint style="info" %}
+You'll have to refer to the `Read()` functions found in the `TermReader` class. You may have to change how to call the function by changing the signatures.
+{% endhint %}
+
+### Removed `ConsolePlatform`
+
+{% code title="ConsolePlatform.cs" lineNumbers="true" %}
+```csharp
+public static class ConsolePlatform
+```
+{% endcode %}
+
+All of its functions have been moved to SpecProbe's Software, so this entire class has been removed.
+
+{% hint style="info" %}
+As Terminaux already makes use of SpecProbe's Software, you should only change the reference to `ConsolePlatform` to point to `PlatformHelper`.
+{% endhint %}
