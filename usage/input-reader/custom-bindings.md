@@ -99,6 +99,14 @@ Once you're done changing positions, if you need to verify that you've changed t
 It's not necessary to use the `Commit()` function at the end of each custom binding, because the reader uses this function automatically based on whether to update the position or not.
 {% endhint %}
 
+### Writing tools
+
+You can also append or remove a string in the `TermReaderTools` class. This means that you can either append text to the end of the input, insert text to the current position, or remove text from either the current position or from a specific character index from the input string. These are the functions that you can use:
+
+* `GetMaximumInputLength()`
+* `InsertNewText()`
+* `RemoveText()`
+
 ## Writers
 
 You can use the text writers with the current reader settings by using `TextWriterColor`'s `WriteForReader()` and its siblings, passing it the reader settings to take care of the margins.
