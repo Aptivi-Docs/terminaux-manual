@@ -22,6 +22,7 @@
   * [📽 Presentation System](usage/console-tools/presentation-system.md)
   * [🎚 VT Sequences](usage/console-tools/vt-sequences.md)
   * [➕ Console Extensions](usage/console-tools/console-extensions.md)
+  * [🖊 Figlet Font Selector](usage/console-tools/figlet-font-selector.md)
 * [🖱 Input Reader](usage/input-reader/README.md)
   * [⌨ Keybindings](usage/input-reader/keybindings.md)
   * [🔌 Custom bindings](usage/input-reader/custom-bindings.md)
@@ -33,7 +34,6 @@
   * [🧭 Color Model Parsing](usage/color-sequences/color-model-parsing.md)
   * [🖌 Interop with System.Drawing.Color](usage/color-sequences/interop-with-system.drawing.color.md)
   * [🎨 Color Wheel](usage/color-sequences/color-wheel.md)
-* [🖊 Figlet Font Selector](usage/figlet-font-selector.md)
 
 ***
 

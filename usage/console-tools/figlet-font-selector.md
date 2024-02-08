@@ -23,6 +23,6 @@ Additionally, you can press `S` to write the desired font name and quickly switc
 
 More details about `WriteFiglet()` can be found in the below link:
 
-{% content-ref url="console-tools/console-writers.md" %}
-[console-writers.md](console-tools/console-writers.md)
+{% content-ref url="console-writers.md" %}
+[console-writers.md](console-writers.md)
 {% endcontent-ref %}

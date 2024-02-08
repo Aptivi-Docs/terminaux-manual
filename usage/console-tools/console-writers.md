@@ -10,6 +10,14 @@ Terminaux provides a vast amount of console writers for different purposes, like
 The `Render()` functions are made primarily for plain writing operations. You can use them with `TextWriterRaw` writers.
 {% endhint %}
 
+## Standard console writers
+
+The standard console writers provide you with non-moving parts of the text. They have their own writers and renderers to allow you to use them in two ways. The writer writes directly to the console, while the renderers are more suitable for the screen feature that you can check out at:
+
+{% content-ref url="console-screen.md" %}
+[console-screen.md](console-screen.md)
+{% endcontent-ref %}
+
 ### Normal console writers
 
 Starting from `ConsoleWriters`, this namespace provides the following classes:
@@ -23,14 +31,8 @@ Starting from `ConsoleWriters`, this namespace provides the following classes:
 * `TextWriterHighlightedColor`
   * Provides you with the necessary functions to allow you to write the highlighted text to the console with and without color.
   * By default, the modern way of highlighting specific text is enabled by using a VT sequence intended to reverse the colors. If you still want to use the legacy way, you'll have to set the `legacy` argument to `true` before passing in all the usual parameters.
-* `TextWriterSlowColor`
-  * Provides you with the necessary functions to simulate a typewriter writing a requested string to the console with and without color.
 * `TextWriterWhereColor`
   * Provides you with the necessary functions to write the text in a specific position to the console with and without color.
-* `TextWriterWhereSlowColor`
-  * Provides you with the necessary functions to simulate a typewriter that writes a text in a specific position to the console with and without color.
-* `TextWriterWrappedColor`
-  * Provides you with the necessary functions to allow you to wrap long outputs to pages, also called a pager.
 
 Consult the below page to find out how to use these functions.
 
@@ -89,6 +91,10 @@ Alongside these writers, there are also writers that are categorized as "fancy" 
   * Provides you with the necessary functions to allow you to render a separator including text to the console.
 * `TableColor`
   * Provides you with the necessary functions to allow you to render a table to the console.
+* `SliderVerticalColor`
+  * Provides you with the necessary functions to allow you to render a vertical slider to the console.
+* `SliderColor`
+  * Provides you with the necessary functions to allow you to render a horizontal slider to the console.
 
 Consult the below page to find out how to use these functions.
 
@@ -102,6 +108,23 @@ The tools for fancy writers can also be found here:
 
 Finally, the miscellaneous writers are the writers that don't have any meaningful category. That's when `MiscWriters` comes in. This namespace contains these classes:
 
+* `TextWriterSlowColor`
+  * Provides you with the necessary functions to simulate a typewriter writing a requested string to the console with and without color.
+* `TextWriterWhereSlowColor`
+  * Provides you with the necessary functions to simulate a typewriter that writes a text in a specific position to the console with and without color.
+* `TextWriterWrappedColor`
+  * Provides you with the necessary functions to allow you to wrap long outputs to pages, also called a pager.
+
+Consult the below page to find out how to use these functions:
+
+{% embed url="https://aptivi.github.io/Terminaux/api/Terminaux.Writer.MiscWriters.html" %}
+
+## Dynamic writers
+
+In addition to the standard writers, there exists dynamic writers that allow you to render moving parts of text to the console. This type of writers are usable only when writing to the console directly.
+
+This namespace contains these classes:
+
 * `LineHandleWriter`
   * Provides you with the necessary functions to allow you to render a line of a text file with the compiler-like line handle using the specified line and column to the console.
 * `LineHandleRangedWriter`
@@ -109,4 +132,4 @@ Finally, the miscellaneous writers are the writers that don't have any meaningfu
 
 Consult the below page to find out how to use these functions:
 
-{% embed url="https://aptivi.github.io/Terminaux/api/Terminaux.Writer.MiscWriters.html" %}
+{% embed url="https://aptivi.github.io/Terminaux/api/Terminaux.Writer.DynamicWriters.html" %}

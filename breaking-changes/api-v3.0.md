@@ -123,3 +123,43 @@ The sRGB and the linear RGB conversion tools have been moved to the transformati
 {% hint style="info" %}
 These functions are not affected. You just have to update your references to `ColorTools` for these functions to point to `TransformationTools`.
 {% endhint %}
+
+### Moved animated writers to `DynamicWriters`
+
+{% code title="All affected classes" lineNumbers="true" %}
+```csharp
+namespace Terminaux.Writer.ConsoleWriters
+```
+{% endcode %}
+
+The following animated writers have been moved to their own category, `DynamicWriters`:
+
+* `TextWriterSlowColor`
+* `TextWriterWhereSlowColor`
+* `TextWriterWrappedColor`
+
+{% hint style="info" %}
+You must update the usings clause to `Terminaux.Writer.DynamicWriters` to continue using the three above functions.
+{% endhint %}
+
+### Removed the `Input` class
+
+{% code title="Input.cs" lineNumbers="true" %}
+```csharp
+public static class Input
+{
+    public static (ConsoleKeyInfo result, bool provided) ReadKeyTimeout(bool Intercept, TimeSpan Timeout)
+    public static ConsoleKeyInfo DetectKeypress()
+}
+```
+{% endcode %}
+
+As the legacy Input class was made empty by the moving the associated `Read*()` functions to `TermReader`, we've decided to remove the entire class and move all of the functions to that class.
+
+During the migration, we've renamed `DetectKeypress()` to `ReadKey()` and added an overload to determine whether we're intercepting the pressed key. The default value is still `true`.
+
+{% hint style="info" %}
+If you want to continue using these functions, you'll have to follow the upgrade paths:
+
+*
+{% endhint %}

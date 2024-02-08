@@ -30,7 +30,7 @@ Any key will append the selected characters to the current text input, and `RETU
 [keybindings.md](keybindings.md)
 {% endcontent-ref %}
 
-You can access the global reader settings by referencing the `GlobalReaderSettings` found in the `Inputs` class.
+You can access the global reader settings by referencing the `GlobalReaderSettings` found in the `TermReader` class.
 
 ### History tools
 
