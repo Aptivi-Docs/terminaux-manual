@@ -26,3 +26,5 @@ Here are the available settings that you can set:
   * Delimiters to split the current input within a function that returns a list of suggestions.
 * `TreatCtrlCAsInput`
   * Whether to treat `Ctrl` + `C` as input or not. If enabled, TermRead will process this keybinding as aborting the current input.
+* `PlaceholderText`
+  * This is the text that the terminal reader shows when there is no input text. This is used to give users hints on what they should write to the prompt.

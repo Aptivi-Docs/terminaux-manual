@@ -161,5 +161,20 @@ During the migration, we've renamed `DetectKeypress()` to `ReadKey()` and added 
 {% hint style="info" %}
 If you want to continue using these functions, you'll have to follow the upgrade paths:
 
-*
+* `Input.ReadKeyTimeout()` -> `TermReader.ReadKeyTimeout()`
+* `Input.DetectKeypress()` -> `TermReader.ReadKey()`
+{% endhint %}
+
+### Moved the color selector to `Inputs`
+
+{% code title="ColorSelector.cs" lineNumbers="true" %}
+```csharp
+namespace Terminaux.Colors.Selector
+```
+{% endcode %}
+
+The color selector class, `ColorSelector`, has been moved from `Colors.Selector` to `Inputs.Styles` as it has been considered to be one of the input styles. This makes it for easier organization of the input styles, such as selection and infoboxes.
+
+{% hint style="info" %}
+The class wasn't renamed. You'll have to update the usings clause to use the new namespace.
 {% endhint %}
