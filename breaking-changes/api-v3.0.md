@@ -178,3 +178,68 @@ The color selector class, `ColorSelector`, has been moved from `Colors.Selector`
 {% hint style="info" %}
 The class wasn't renamed. You'll have to update the usings clause to use the new namespace.
 {% endhint %}
+
+### Interactive TUIs are now generic
+
+{% code title="BaseInteractiveTui.cs" lineNumbers="true" %}
+```csharp
+public class BaseInteractiveTui : IInteractiveTui
+public virtual IEnumerable PrimaryDataSource => Array.Empty<string>();
+public virtual IEnumerable SecondaryDataSource => Array.Empty<string>();
+public static BaseInteractiveTui Instance
+```
+{% endcode %}
+
+{% code title="IInteractiveTui.cs" lineNumbers="true" %}
+```csharp
+public interface IInteractiveTui
+public IEnumerable PrimaryDataSource { get; }
+public IEnumerable SecondaryDataSource { get; }
+```
+{% endcode %}
+
+{% code title="InteractiveTuiTools.cs" lineNumbers="true" %}
+```csharp
+public static void OpenInteractiveTui(BaseInteractiveTui interactiveTui)
+public static void SelectionMovement(BaseInteractiveTui interactiveTui, int pos)
+```
+{% endcode %}
+
+Non-generic IEnumerables tend to be more difficult to work with than the generic ones. Therefore, we've decided to switch to using generic IEnumerables. This means that the interactive TUI interface and the base class have become generic.
+
+As a consequence, you'll have to either provide an exact type that your interactive TUI will work with, such as `string` or `int`, or you'll have to use `object`.
+
+{% hint style="info" %}
+In order to migrate to the new definition, just place a type in both the `BaseInteractiveTui` and the `IInteractiveTui` clauses in the beginning of your TUI class. Additionally, place a type in your `IEnumerable` definition.
+{% endhint %}
+
+### Removed `InputStyle`
+
+{% code title="InputStyle.cs" lineNumbers="true" %}
+```csharp
+public static class InputStyle
+```
+{% endcode %}
+
+To maintain consistency, we've decided to remove the entire class. This is because this class was considered legacy.
+
+{% hint style="info" %}
+You should use printing functions that Terminaux implements with a call to `TermReader.Read()` instead.
+{% endhint %}
+
+### Screen now handles clearing the console
+
+{% code title="ScreenTools.cs" lineNumbers="true" %}
+```csharp
+public static void Render(bool clearScreen = false)
+public static void Render(Screen screen, bool clearScreen = false)
+```
+{% endcode %}
+
+Starting from Terminaux 3.0, the `clearScreen` variable is no longer needed as the screen feature can now figure out when to or not to clear the screen without your screen instance handling it yourself.
+
+However, both local and global configuration will allow you to control whether to enable or to disable automatic handling of clearing the console in some situations where the default clear handler is not feasible enough.
+
+{% hint style="info" %}
+Just remove the clearScreen argument when calling `Render()`.
+{% endhint %}

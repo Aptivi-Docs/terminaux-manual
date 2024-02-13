@@ -48,6 +48,10 @@ The terminal type and emulator blacklist and greylist checkers contain adding an
 
 Each of these checkers contain a function for adding the query (`AddToBlacklist` and `AddToGreylist`), removing the query (`RemoveFromBlacklist` and `RemoveFromGreylist`), and checking the current console type or emulator (`IsTypeBlacklisted` and `IsTypeGreylisted`). These are the essential functions.
 
+{% hint style="info" %}
+The default terminal type blacklist contains `dumb` and `unknown` terminal types.
+{% endhint %}
+
 ### 256-color support checker
 
 This checker is a very simple checker, because it only queries the terminal type for a string containing `-256col`. Any terminal type that doesn't have this string is assumed to be not supporting 256-color feature, but that doesn't necessarily mean that the console doesn't support this feature, depending on your console application.

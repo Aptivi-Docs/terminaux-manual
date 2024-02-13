@@ -29,6 +29,7 @@ The screen part instance allows you to add text in different ways:
 * `ResetBackgroundColor()`: Adds a VT sequence that resets the background color.
 * `Clear()`: Clears the whole buffer.
 * `GetBuffer()`: Gets the resulting buffer.
+* `RequireRefresh()`: Tells the screen system to require a refresh.
 
 {% hint style="info" %}
 `AddDynamicText()` is needed if you want to display anything that changes, including a box that changes when the console is resized.
@@ -42,7 +43,7 @@ The screen management tools allow you to manipulate with the screen rendering, s
 * `Render(Screen)` renders the specified screen.
 
 {% hint style="info" %}
-In the `Render()` functions, you can also tell the renderer to clear the screen by passing true to the optional argument, `clearScreen`.
+Starting from Terminaux 3.0, the screen feature automatically clears your screen when needed. In case this is not feasible, a configuration entry (global and local) will allow you to control this behavior.
 {% endhint %}
 
 However, for `Render()` to work, you need to add your screen instance to the list of tracked screens in the screen manager. This can be done by calling the `SetCurrent()` function on your screen instance.

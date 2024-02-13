@@ -27,7 +27,7 @@ Additionally, you can press `S` to write the desired font name and quickly switc
 
 The following controls are available for the normal figlet font selector:
 
-<table><thead><tr><th width="175">Key</th><th>Action</th></tr></thead><tbody><tr><td><code>ENTER</code></td><td>Accept font selection</td></tr><tr><td><code>ESC</code></td><td>Discard changes</td></tr><tr><td><code>H</code></td><td>Help page</td></tr><tr><td><code>LEFT</code></td><td>Previous font</td></tr><tr><td><code>RIGHT</code></td><td>Next font</td></tr><tr><td><code>S</code></td><td>Write font name</td></tr><tr><td><code>C</code></td><td>Shows the individual characters with the selected font</td></tr></tbody></table>
+<table><thead><tr><th width="175">Key</th><th>Action</th></tr></thead><tbody><tr><td><code>ENTER</code></td><td>Accept font selection</td></tr><tr><td><code>ESC</code></td><td>Discard changes</td></tr><tr><td><code>H</code></td><td>Help page</td></tr><tr><td><code>LEFT</code></td><td>Previous font</td></tr><tr><td><code>RIGHT</code></td><td>Next font</td></tr><tr><td><code>S</code></td><td>Select font from the infobox</td></tr><tr><td><code>SHIFT</code> + <code>S</code></td><td>Write font name</td></tr><tr><td><code>C</code></td><td>Shows the individual characters with the selected font</td></tr></tbody></table>
 
 The following controls are available for the character showcase:
 

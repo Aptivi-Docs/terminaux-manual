@@ -8,15 +8,20 @@ In your own terminal emulator, VT sequences are the power of any terminal emulat
 
 This feature provides several filtering and manipulation tools which allow you to perform these operations on strings that contain escape sequences under the `Terminaux.Sequences` namespace. Currently, these tools are provided:
 
-| Function                           | Description                                                                            |
-| ---------------------------------- | -------------------------------------------------------------------------------------- |
-| `FilterVTSequences()`              | Filters all of the VT sequences                                                        |
-| `MatchVTSequences()`               | Matches all of the VT sequences                                                        |
-| `IsMatchVTSequences()`             | Does the string contain all of the VT sequences or a VT sequence of any type?          |
-| `IsMatchVTSequencesSpecific()`     | Does the string contain all of the VT sequences or a VT sequence of any specific type? |
-| `SplitVTSequences()`               | Splits all of the VT sequences                                                         |
-| `DetermineTypeFromText()`          | Determines the VT sequence type from the given text                                    |
-| `GetSequenceFilterRegexFromType()` | Gets the sequence filter regular expression from the provided VT sequence type         |
+| Function                            | Description                                                                                        |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `FilterVTSequences()`               | Filters all of the VT sequences                                                                    |
+| `FilterVTSequencesMultiple()`       | Filters all of the VT sequences that are of multiple types                                         |
+| `MatchVTSequences()`                | Matches all of the VT sequences                                                                    |
+| `MatchVTSequencesMultiple()`        | Matches all of the VT sequences that are of multiple types                                         |
+| `IsMatchVTSequences()`              | Does the string contain all of the VT sequences or a VT sequence of any type?                      |
+| `IsMatchVTSequencesMultiple()`      | Does the string contain all of the VT sequences or a VT sequence of one or more types?             |
+| `IsMatchVTSequencesSpecific()`      | Does the string contain all of the VT sequences or a VT sequence of any specific type?             |
+| `SplitVTSequences()`                | Splits all of the VT sequences                                                                     |
+| `SplitVTSequencesMultiple()`        | Splits all of the VT sequences that are of multiple types                                          |
+| `DetermineTypeFromText()`           | Determines the VT sequence type from the given text                                                |
+| `GetSequenceFilterRegexFromType()`  | Gets the sequence filter regular expression from the provided VT sequence type                     |
+| `GetSequenceFilterRegexFromTypes()` | Gets the sequence filter regular expression list from the provided VT sequence types (one or more) |
 
 ## Usage
 

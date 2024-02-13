@@ -22,14 +22,14 @@ For each application, you must make a class that would implement both the `BaseI
 
 {% code title="MyTui.cs" lineNumbers="true" %}
 ```csharp
-internal class MyTui : BaseInteractiveTui, IInteractiveTui
+internal class MyTui : BaseInteractiveTui<string>, IInteractiveTui<string>
 {
     public override List<InteractiveTuiBinding> Bindings { get; set; } = new()
     {
         new InteractiveTuiBinding("Action", ConsoleKey.F1, (data, _) => Proceed(data))
     };
 
-    public override IEnumerable PrimaryDataSource =>
+    public override IEnumerable<string> PrimaryDataSource =>
         new string[] { "One", "Two", "Three", "Four" };
 
     public override void RenderStatus(object item)
@@ -73,7 +73,7 @@ And if you press your key binding, you'll get this:
 
 For multiple panes, you'll have to modify your class to take two data sources and adapt it to interact with the second pane, like below: (note the highlighted parts, they are added)
 
-<pre class="language-csharp" data-title="MyTui.cs" data-line-numbers><code class="lang-csharp">internal class MyTui : BaseInteractiveTui, IInteractiveTui
+<pre class="language-csharp" data-title="MyTui.cs" data-line-numbers><code class="lang-csharp">internal class MyTui : BaseInteractiveTui&#x3C;string>, IInteractiveTui&#x3C;string>
 {
     public override List&#x3C;InteractiveTuiBinding> Bindings { get; set; } = new()
     {
@@ -84,10 +84,10 @@ For multiple panes, you'll have to modify your class to take two data sources an
 <strong>    public override bool SecondPaneInteractable =>
 </strong><strong>        true;
 </strong>
-    public override IEnumerable PrimaryDataSource =>
+    public override IEnumerable&#x3C;string> PrimaryDataSource =>
         new string[] { "One", "Two", "Three", "Four" };
 
-<strong>    public override IEnumerable SecondaryDataSource =>
+<strong>    public override IEnumerable&#x3C;string> SecondaryDataSource =>
 </strong><strong>        new string[] { "Five", "Six", "Seven", "Eight", "Nine", "Ten" };
 </strong>
     public override void RenderStatus(object item)
@@ -141,13 +141,13 @@ For example, to use the Namer library to make a single-paned TUI application tha
 
 The code that would do this would look like this:
 
-<pre class="language-csharp" data-title="MyTui.cs" data-line-numbers><code class="lang-csharp">internal class MyTui : BaseInteractiveTui, IInteractiveTui
+<pre class="language-csharp" data-title="MyTui.cs" data-line-numbers><code class="lang-csharp">internal class MyTui : BaseInteractiveTui&#x3C;string>, IInteractiveTui&#x3C;string>
 {
     public override List&#x3C;InteractiveTuiBinding> Bindings { get; set; } = new();
 
     public override int RefreshInterval => 15000;
 
-    public override IEnumerable PrimaryDataSource =>
+    public override IEnumerable&#x3C;string> PrimaryDataSource =>
         new string[] { "Test" };
 
     public override void RenderStatus(object item)
