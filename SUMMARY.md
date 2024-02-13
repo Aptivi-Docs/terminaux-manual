@@ -22,18 +22,19 @@
   * [📽 Presentation System](usage/console-tools/presentation-system.md)
   * [🎚 VT Sequences](usage/console-tools/vt-sequences.md)
   * [➕ Console Extensions](usage/console-tools/console-extensions.md)
-  * [🖊 Figlet Font Selector](usage/console-tools/figlet-font-selector.md)
 * [🖱 Input Reader](usage/input-reader/README.md)
   * [⌨ Keybindings](usage/input-reader/keybindings.md)
   * [🔌 Custom bindings](usage/input-reader/custom-bindings.md)
   * [✔ Reader State](usage/input-reader/reader-state.md)
   * [⚙ Reader Settings](usage/input-reader/reader-settings.md)
   * [🔦 Syntax Highlighting](usage/input-reader/syntax-highlighting.md)
+  * [🖱 Other Input](usage/input-reader/other-input/README.md)
+    * [🖊 Figlet Font Selector](usage/input-reader/other-input/figlet-font-selector.md)
+    * [🎨 Color Wheel](usage/input-reader/other-input/color-wheel.md)
 * [🎨 Color Sequences](usage/color-sequences/README.md)
   * [⛱ Color Model Conversions](usage/color-sequences/color-model-conversions.md)
   * [🧭 Color Model Parsing](usage/color-sequences/color-model-parsing.md)
   * [🖌 Interop with System.Drawing.Color](usage/color-sequences/interop-with-system.drawing.color.md)
-  * [🎨 Color Wheel](usage/color-sequences/color-wheel.md)
 
 ***
 

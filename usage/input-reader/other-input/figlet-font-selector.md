@@ -35,6 +35,6 @@ The following controls are available for the character showcase:
 
 More details about `WriteFiglet()` can be found in the below link:
 
-{% content-ref url="console-writers.md" %}
-[console-writers.md](console-writers.md)
+{% content-ref url="../../console-tools/console-writers.md" %}
+[console-writers.md](../../console-tools/console-writers.md)
 {% endcontent-ref %}
