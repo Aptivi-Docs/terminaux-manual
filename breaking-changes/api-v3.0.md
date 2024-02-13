@@ -243,3 +243,18 @@ However, both local and global configuration will allow you to control whether t
 {% hint style="info" %}
 Just remove the clearScreen argument when calling `Render()`.
 {% endhint %}
+
+### `InputChoiceTools` now returns an array of `InputChoiceInfo`
+
+{% code title="InputChoiceTools.cs" lineNumbers="true" %}
+```csharp
+public static List<InputChoiceInfo> GetInputChoices(string AnswersStr, string[] AnswersTitles)
+public static List<InputChoiceInfo> GetInputChoices(string[] Answers, string[] AnswersTitles)
+```
+{% endcode %}
+
+All of the `InputChoiceTools`, as well as all the input style class functions that use a list of `InputChoiceInfo`, have their signatures changed to return an array of `InputChoiceInfo` as this return value is not meant to be modified.
+
+{% hint style="info" %}
+Change all the `InputChoiceInfo` lists to arrays before using them in the input functions, such as the selection style.
+{% endhint %}
