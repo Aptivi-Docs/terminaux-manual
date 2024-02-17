@@ -14,7 +14,7 @@ If you still use old versions of Terminaux in your projects, go to the below lin
 [Terminaux 1.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/IcD1aLc5jxHMwvslhJIP/ "mention")
 {% endhint %}
 
-Welcome to Terminaux! It's a library that allows you to manipulate with the console. It includes features incorporated with the libraries that manipulated with the console.
+Terminaux is a library that contains all the common and the extra console tools that allow you to build productive console applications. Terminaux also provides a powerful color feature that lets you get an RGB color, convert color models, and so on.
 
 To use this library, go to any page in the left side of the screen.
 
