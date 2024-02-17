@@ -258,3 +258,76 @@ All of the `InputChoiceTools`, as well as all the input style class functions th
 {% hint style="info" %}
 Change all the `InputChoiceInfo` lists to arrays before using them in the input functions, such as the selection style.
 {% endhint %}
+
+### Merged four console blacklists/graylists
+
+{% code title="TerminalEmulatorBlacklist.cs" lineNumbers="true" %}
+```csharp
+public static class TerminalEmulatorBlacklist
+```
+{% endcode %}
+
+{% code title="TerminalEmulatorGreylist.cs" lineNumbers="true" %}
+```csharp
+public static class TerminalEmulatorGreylist
+```
+{% endcode %}
+
+{% code title="TerminalTypeBlacklist.cs" lineNumbers="true" %}
+```csharp
+public static class TerminalTypeBlacklist
+```
+{% endcode %}
+
+{% code title="TerminalTypeGreylist.cs" lineNumbers="true" %}
+```csharp
+public static class TerminalTypeGreylist
+```
+{% endcode %}
+
+We have previously made the blacklist and the graylist for both the terminal types and the terminal emulators. However, each time we need to solve a bug or make an improvement in one of them, we'll have to update all of them to follow suit to avoid inconsistencies in behavior.
+
+As a result, we've merged them to a single class, called `ConsoleFilter`, that allows you to manage your console filters without any hitch. We've introduced two enums that will be listed in the console checker page.
+
+{% hint style="info" %}
+You'll have to update your references to point to the above class and to make use of both the enums.
+{% endhint %}
+
+### Merged TermInfo to the main library
+
+{% code title="All TermInfo sources" lineNumbers="true" %}
+```csharp
+namespace Terminaux.TermInfo
+```
+{% endcode %}
+
+All TermInfo source code has been moved to the main library to make it more powerful. The reasons will be listed under a non-ordered list. This changes all  TermInfo classes to the `Terminaux.Base.TermInfo` namespace.
+
+* The main Terminaux library originally included the TermInfo library as a separate NuGet package before being moved to the Terminaux source code. This caused conflicts as we're trying to move all the TermInfo sources to the main library under `Terminaux.Base`. We've removed this dependency to maintain consistency and to reduce conflicts.
+* The idea that using an original TermInfo.Cli application in a script intended to download an NCurses library source code to extract a single file, called `Caps`, and to generate source code files under the same application for use with Terminaux's TermInfo is absurd, as users will have to turn on PowerShell script execution manually. Luckily, you can turn on the PowerShell script execution for the process's lifetime. There are Roslyn source generators for this very reason.
+* We've maintained the `Caps` file unmodified from the [NCurses 6.4 source code](https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.4.tar.gz) for use with our source generator that generates these files without downloading anything off the Internet except NuGet packages. This ensures faster generation (in case NCurses developers decided to modify the Caps file), especially if your build server is disconnected from the Internet. We're trying to cater to the most general and the most simple build methods possible.
+* We've moved the Inspect feature from the original TermInfo.Cli application to our demo application to be able to use it in the form of an interactive TUI. We've also imported all workable terminfo files from the minimal installation of Ubuntu as embedded resources.
+* This required us to change the whole Terminaux library to be more nullable-friendly, but we don't currently have plans to make all our libraries nullable-friendly.
+
+However, with respect to the original authors from Spectre.Console's [TermInfo](https://github.com/spectreconsole/terminfo), we've decided to preserve the original license file from that project.
+
+{% hint style="info" %}
+None of the functions have been changed. You'll just have to update the namespace imports to point to `Terminaux.Base.TermInfo`.
+
+As for NCurses, you can consult [this page](https://ftp.gnu.org/pub/gnu/ncurses/) to check to see if there are any newer releases. NCurses doesn't get updated too frequently, and _may_ or _may not_ be updated either annually or bi-annually.
+{% endhint %}
+
+### Progress infobox's `waitForInput` removed
+
+{% code title="InfoBoxProgressColor.cs" lineNumbers="true" %}
+```csharp
+public static void WriteInfoBoxProgress(double progress, string text, bool waitForInput, params object[] vars)
+(...)
+```
+{% endcode %}
+
+waitForInput was accidentally added to almost all the progress information box functions. This variable was possibly a leftover from the regular infobox that provides this variable, which tells the informational box to wait for the user input to make it a modal dialog box.
+
+{% hint style="info" %}
+You may have to remove boolean values for this argument. Otherwise, none of the functions have been functionally affected by this change.
+{% endhint %}

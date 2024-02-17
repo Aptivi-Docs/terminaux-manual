@@ -23,3 +23,13 @@ For other console tools that Terminaux provides, you can access the below page:
 {% content-ref url="console-tools/" %}
 [console-tools](console-tools/)
 {% endcontent-ref %}
+
+## Trying Terminaux out
+
+Each version of Terminaux contains their own release page that allows you to download a demo zip file from GitHub. This allows you access to the interactive demo, which allows you to try almost all Terminaux features out, including the interactive TUI, the terminal reader, and so on.
+
+This demo can be used as a test to verify that your console works as expected and that it supports all the features that Terminaux requires.
+
+{% hint style="info" %}
+Any call to any function that require VT sequences, such as fancy writers, will cause Terminaux to check your console.
+{% endhint %}

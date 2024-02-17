@@ -39,14 +39,19 @@ If the blacklist checker raised some of the red flags by matching the console ty
 
 #### Registering console filters
 
-The terminal type and emulator blacklist and greylist checkers contain adding and removing console regular expression patterns to/from the blacklist or the greylist. The following checkers are available:
+The terminal type and emulator blacklist and greylist checkers contain adding and removing console regular expression patterns to/from the blacklist or the greylist. You can use them by calling any function in the `ConsoleFilter` class.
 
-* `TerminalEmulatorBlacklist`
-* `TerminalEmulatorGreylist`
-* `TerminalTypeBlacklist`
-* `TerminalTypeGreylist`
+The console filter severities (`ConsoleFilterSeverity`) are available:
 
-Each of these checkers contain a function for adding the query (`AddToBlacklist` and `AddToGreylist`), removing the query (`RemoveFromBlacklist` and `RemoveFromGreylist`), and checking the current console type or emulator (`IsTypeBlacklisted` and `IsTypeGreylisted`). These are the essential functions.
+* `Blacklist`
+* `Graylist`
+
+The console filter types (`ConsoleFilterType`) are available:
+
+* `Type`
+* `Emulator`
+
+Each of these checkers contain a function for adding the query (`AddToFilter`), removing the query (`RemoveFromFilter`), and checking the current console type or emulator (`IsConsoleFiltered`). These are the essential functions.
 
 {% hint style="info" %}
 The default terminal type blacklist contains `dumb` and `unknown` terminal types.

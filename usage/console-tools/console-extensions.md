@@ -47,3 +47,15 @@ The `ConsoleFormatting` class provides you with text formatting tools, including
 {% hint style="info" %}
 Your terminal emulator may not support all the formatting modes, so consult your terminal's manual to verify that all the formats supported by Terminaux are supported. Additionally, the Terminaux demo app provides a test facade, `TestFormatting`, that allows you to test your console for support of all the text formatting options.
 {% endhint %}
+
+## Miscellaneous console extensions
+
+The following extensions that don't fit in any of the categories can be used in your applications:
+
+* `SetTitle()`
+* `PercentRepeat()`
+* `PercentRepeatTargeted()`
+* `FilterVTSequences()`
+* `GetWrappedSentences()`
+* `GetWrappedSentencesByWords()`
+* `Truncate()`
