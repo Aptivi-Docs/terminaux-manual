@@ -331,3 +331,71 @@ waitForInput was accidentally added to almost all the progress information box f
 {% hint style="info" %}
 You may have to remove boolean values for this argument. Otherwise, none of the functions have been functionally affected by this change.
 {% endhint %}
+
+### Interactive TUI functions now made generic
+
+{% code title="IInteractiveTUI.cs" lineNumbers="true" %}
+```csharp
+public string GetEntryFromItem(object item);
+public string GetInfoFromItem(object item);
+public void RenderStatus(object item);
+```
+{% endcode %}
+
+{% code title="BaseInteractiveTui.cs" lineNumbers="true" %}
+```csharp
+public virtual string GetEntryFromItem(object item)
+public virtual string GetInfoFromItem(object item)
+public virtual void RenderStatus(object item)
+```
+{% endcode %}
+
+As a followup to the interactive TUI interface and its associated base class, we've made further modifications to the interactive TUI class by making the three above functions use the generic type instead of relying on the `object` type. This eliminates all the necessary casting before being able to use the value directly.
+
+{% hint style="info" %}
+You'll have to update your overrides to point to your interactive TUI's data type specified in the beginning of its own class file.
+{% endhint %}
+
+### Console color enumeration auto-generated
+
+{% code title="ConsoleColors.cs" lineNumbers="true" %}
+```csharp
+public enum ConsoleColors
+```
+{% endcode %}
+
+To follow-up the migration of the console color data class generation with the internal generator that parses the console color data JSON file from the resources and makes a data class based on it, we've decided to include the `ConsoleColors` enumeration to the generation process. This causes some of the names to be changed.
+
+{% hint style="info" %}
+The following 4-bit color names have been changed:
+
+* `ConsoleColors.DarkYellow` -> `Olive`
+* `ConsoleColors.Gray` -> `Silver`
+* `ConsoleColors.DarkGray` -> `Grey`
+* `ConsoleColors.Magenta` -> `Fuchsia`
+* `ConsoleColors.Cyan` -> `Aqua`
+
+The rest of the colors that have their names changed now have their own `-Alt` suffix instead of the color hex as the suffix.
+{% endhint %}
+
+### Renamed the color types
+
+{% code title="ColorType.cs" lineNumbers="true" %}
+```csharp
+public enum ColorType
+{
+    (...)
+    _255Color,
+    _16Color,
+}
+```
+{% endcode %}
+
+To align with our goals for Terminaux 3.0 and to make user experience less confusing, we've decided to rename the two color types to their new names listed below in the hint box.
+
+{% hint style="info" %}
+The following color types have been renamed:
+
+* `ColorType._255Color` -> `EightBitColor`
+* `ColorType._16Color` -> `FourBitColor`
+{% endhint %}

@@ -169,16 +169,16 @@ You can easily make a new `Color` instance using the brand new API function, `Re
 
 `ConsoleColor` enumeration has an order of colors that is slightly different from the X11 colormap definitions for the first 16 colors. The following colors differ from each other:
 
-| ConsoleColor              | X11                        |
-| ------------------------- | -------------------------- |
-| `ConsoleColor.DarkBlue`   | `ConsoleColors.DarkRed`    |
-| `ConsoleColor.DarkCyan`   | `ConsoleColors.DarkYellow` |
-| `ConsoleColor.DarkRed`    | `ConsoleColors.DarkBlue`   |
-| `ConsoleColor.DarkYellow` | `ConsoleColors.DarkCyan`   |
-| `ConsoleColor.Blue`       | `ConsoleColors.Red`        |
-| `ConsoleColor.Cyan`       | `ConsoleColors.Yellow`     |
-| `ConsoleColor.Red`        | `ConsoleColors.Blue`       |
-| `ConsoleColor.Yellow`     | `ConsoleColors.Cyan`       |
+| ConsoleColor              | X11                      |
+| ------------------------- | ------------------------ |
+| `ConsoleColor.DarkBlue`   | `ConsoleColors.DarkRed`  |
+| `ConsoleColor.DarkCyan`   | `ConsoleColors.Olive`    |
+| `ConsoleColor.DarkRed`    | `ConsoleColors.DarkBlue` |
+| `ConsoleColor.DarkYellow` | `ConsoleColors.DarkCyan` |
+| `ConsoleColor.Blue`       | `ConsoleColors.Red`      |
+| `ConsoleColor.Cyan`       | `ConsoleColors.Yellow`   |
+| `ConsoleColor.Red`        | `ConsoleColors.Blue`     |
+| `ConsoleColor.Yellow`     | `ConsoleColors.Aqua`     |
 
 In the `ColorTools` class, you can find two functions that translate between the two color mappings:
 
@@ -195,7 +195,7 @@ In the `ColorTools` class, you can find two functions that translate between the
     public static ConsoleColor TranslateToStandardColorMap(ConsoleColors color)
     ```
 
-### Correcting the ConsoleColor map for X11
+### Correcting the `ConsoleColor` map for X11
 
 Terminaux also provides a function that gets the correct color mapping for the specified color. The function is found under `ColorTools`, called `CorrectStandardColor()`. The signature is defined below:
 
@@ -323,3 +323,11 @@ Generally, it's recommended to set these two properties in a separate `ColorSett
 {% hint style="warning" %}
 This is not a real transparency, but a simulated one. That doesn't make text and elements rendered on top of the elements visible for the opacity that you choose. For example, you don't get to see text that is over-written by another text if you set the opacity.
 {% endhint %}
+
+### Gradients
+
+Terminaux also supports creating a list of intermediate colors that would transition from the source color to the target color. This is called gradients. This feature aims to make implementing the gradients easier than before.
+
+Just specify the source color that you want to transition from, the target color that you want to transition to, and the number of steps needed, and call `ColorGradients`'s `GetGradients()`. You will need to assign a variable to hold an instance of `ColorGradients`.
+
+You can enumerate through all the gradients either with the for-loop or the foreach-loop to get all their intermediate color. This ensures that it covers all the intermediate colors in exactly the number of steps that you've specified.

@@ -33,6 +33,10 @@ Starting from `ConsoleWriters`, this namespace provides the following classes:
   * By default, the modern way of highlighting specific text is enabled by using a VT sequence intended to reverse the colors. If you still want to use the legacy way, you'll have to set the `legacy` argument to `true` before passing in all the usual parameters.
 * `TextWriterWhereColor`
   * Provides you with the necessary functions to write the text in a specific position to the console with and without color.
+* `RainbowTextWriterColor`
+  * Provides you with the necessary functions to write the text with a rainbow colors spread around the text as foreground color.
+* `RainbowBackTextWriterColor`
+  * Provides you with the necessary functions to write the text with a rainbow colors spread around the text as background color.
 
 Consult the below page to find out how to use these functions.
 

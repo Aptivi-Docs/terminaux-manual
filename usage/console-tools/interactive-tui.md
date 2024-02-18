@@ -32,16 +32,14 @@ internal class MyTui : BaseInteractiveTui<string>, IInteractiveTui<string>
     public override IEnumerable<string> PrimaryDataSource =>
         new string[] { "One", "Two", "Three", "Four" };
 
-    public override void RenderStatus(object item)
+    public override void RenderStatus(string item)
     {
-        string currentItem = (string)item;
-        Status = currentItem;
+        Status = item;
     }
 
-    public override string GetEntryFromItem(object item)
+    public override string GetEntryFromItem(string item)
     {
-        string currentItem = (string)item;
-        return $" [{currentItem}]";
+        return $" [{item}]";
     }
 
     private static void Proceed(object data)
@@ -77,8 +75,7 @@ For multiple panes, you'll have to modify your class to take two data sources an
 {
     public override List&#x3C;InteractiveTuiBinding> Bindings { get; set; } = new()
     {
-<strong>        new InteractiveTuiBinding("Switch", ConsoleKey.Tab, (_, _) => SwitchPanes()),
-</strong>        new InteractiveTuiBinding("Action", ConsoleKey.F1, (data, _) => Proceed(data)),
+        new InteractiveTuiBinding("Action", ConsoleKey.F1, (data, _) => Proceed(data)),
     };
 
 <strong>    public override bool SecondPaneInteractable =>
@@ -90,16 +87,14 @@ For multiple panes, you'll have to modify your class to take two data sources an
 <strong>    public override IEnumerable&#x3C;string> SecondaryDataSource =>
 </strong><strong>        new string[] { "Five", "Six", "Seven", "Eight", "Nine", "Ten" };
 </strong>
-    public override void RenderStatus(object item)
+    public override void RenderStatus(string item)
     {
-        string currentItem = (string)item;
-        Status = currentItem;
+        Status = item;
     }
 
-    public override string GetEntryFromItem(object item)
+    public override string GetEntryFromItem(string item)
     {
-        string currentItem = (string)item;
-        return $" [{currentItem}]";
+        return $" [{item}]";
     }
 
     private static void Proceed(object data)
@@ -108,15 +103,7 @@ For multiple panes, you'll have to modify your class to take two data sources an
         InfoBoxColor.WriteInfoBox(currentItem);
         InteractiveTuiStatus.RedrawRequired = true;
     }
-
-<strong>    private static void SwitchPanes()
-</strong><strong>    {
-</strong><strong>        InteractiveTuiStatus.CurrentPane++;
-</strong><strong>        if (InteractiveTuiStatus.CurrentPane > 2)
-</strong><strong>            InteractiveTuiStatus.CurrentPane = 1;
-</strong><strong>        InteractiveTuiStatus.RedrawRequired = true;
-</strong><strong>    }
-</strong>}
+}
 </code></pre>
 
 If everything goes well, you should be able to switch to the second pane, causing you to be able to select items from the second pane:
@@ -150,18 +137,16 @@ The code that would do this would look like this:
     public override IEnumerable&#x3C;string> PrimaryDataSource =>
         new string[] { "Test" };
 
-    public override void RenderStatus(object item)
+    public override void RenderStatus(string item)
     {
-        string currentItem = (string)item;
-        Status = currentItem;
+        Status = item;
     }
 
-    public override string GetEntryFromItem(object item)
+    public override string GetEntryFromItem(string item)
     {
-        string currentItem = (string)item;
-        return $" [{currentItem}]";
+        return $" [{item}]";
     }
-<strong>    public override string GetInfoFromItem(object item)
+<strong>    public override string GetInfoFromItem(string item)
 </strong><strong>    {
 </strong><strong>        var namesBuilder = new StringBuilder();
 </strong><strong>

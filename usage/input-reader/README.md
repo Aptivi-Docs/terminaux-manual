@@ -50,3 +50,7 @@ You can now set the history entry list with your array of history entries or cle
 ### State tools
 
 You can also check to see if the console reader facility is busy getting input or not. The property, `Busy`, indicates this by returning `true` if there is input to be entered by the user.
+
+{% hint style="info" %}
+If you want to wait for user input to finish, you can call the `WaitForInput()` function in the `TermReaderTools` class.
+{% endhint %}
