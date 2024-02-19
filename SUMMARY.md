@@ -42,6 +42,3 @@
 * [Source code](https://github.com/Aptivi/Terminaux)
 * [Our projects](https://github.com/Aptivi)
 * [API Reference](https://aptivi.github.io/Terminaux/)
-* [Report an issue (ColorSeq Rust)](https://github.com/Aptivi/colorseq-rust/issues/new)
-* [Source code (ColorSeq Rust)](https://github.com/Aptivi/colorseq-rust/)
-* [API Reference (ColorSeq Rust)](https://docs.rs/colorseq/)
