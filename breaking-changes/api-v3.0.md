@@ -372,6 +372,7 @@ The following 4-bit color names have been changed:
 * `ConsoleColors.DarkYellow` -> `Olive`
 * `ConsoleColors.Gray` -> `Silver`
 * `ConsoleColors.DarkGray` -> `Grey`
+* `ConsoleColors.DarkGreen` -> `Lime`
 * `ConsoleColors.Magenta` -> `Fuchsia`
 * `ConsoleColors.Cyan` -> `Aqua`
 
