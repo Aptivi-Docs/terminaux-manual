@@ -331,3 +331,13 @@ Terminaux also supports creating a list of intermediate colors that would transi
 Just specify the source color that you want to transition from, the target color that you want to transition to, and the number of steps needed, and call `ColorGradients`'s `GetGradients()`. You will need to assign a variable to hold an instance of `ColorGradients`.
 
 You can enumerate through all the gradients either with the for-loop or the foreach-loop to get all their intermediate color. This ensures that it covers all the intermediate colors in exactly the number of steps that you've specified.
+
+### Color templates
+
+Terminaux also provides a minimal theming system to allow you to categorize a color easily. The color templates allow you to use the category names to get a specified color, which you can then use it for several purposes, such as writing text with that color without having to provide the RGB specifier again.
+
+Think of these templates as a group of shortcuts. The template management system allows you to set a template as a default one, which allows you to get a color using just a name without having to specify a template to use.
+
+The color template management class can be found in the `TemplateTools` class, and an example code to demonstrate this feature can be found here:
+
+{% @github-files/github-code-block url="https://github.com/Aptivi/Terminaux/blob/main/Terminaux.Console/Fixtures/Cases/Writer/PrintTemplate.cs" %}
