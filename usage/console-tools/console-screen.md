@@ -4,10 +4,10 @@ description: Your screen in front of you.
 
 # 📺 Console Screen
 
-Nitrocid KS offers the console screen feature, which allows you to define a screen for your interactive console application. This guarantees you a dynamic terminal sequence generation that you can print to the console. Usage of the VT sequences, as seen in the Terminaux manual, can be found here:
+Terminaux offers the console screen feature, which allows you to define a screen for your interactive console application. This guarantees you a dynamic terminal sequence generation that you can print to the console. Usage of the VT sequences can be found here:
 
-{% content-ref url="https://app.gitbook.com/s/NaUWjRlaBR1k5rO42Zy8/usage/how-to-use/vt-sequences" %}
-[VT Sequences](https://app.gitbook.com/s/NaUWjRlaBR1k5rO42Zy8/usage/how-to-use/vt-sequences)
+{% content-ref url="vt-sequences.md" %}
+[vt-sequences.md](vt-sequences.md)
 {% endcontent-ref %}
 
 ## `Screen` Instance
@@ -91,6 +91,10 @@ You can use either the buffered part index number or the part name when using an
 * `CheckBufferedPart()`
 
 You can also clear the entire buffered parts queue using the `RemoveBufferedParts()` function.
+
+{% hint style="info" %}
+By default, when the screen feature detects a resize, it'll re-render the current screen. It will, by default, reset the resize state, causing some programs to behave incorrectly. If you want Terminaux not to reset the resize state when the screen is resized, use the `ResetResize` property to set it to `false`.
+{% endhint %}
 
 #### Screen Part
 
