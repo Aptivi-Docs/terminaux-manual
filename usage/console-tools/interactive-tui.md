@@ -2,7 +2,7 @@
 description: Your apps are now interactive
 ---
 
-# ⌨ Interactive TUI
+# ⌨️ Interactive TUI
 
 The interactive TUI allows you to make your apps interactive if they provide one or two data sources, which consist of a list of strings, integers, and even class instances, to make getting information about them easier. The interactive TUI renders the screen in two panes, the top being a status bar, and the bottom being a list of key bindings. For clarification, the `ifm` command uses the double pane interactive TUI and the `taskman` command uses the single pane interactive TUI with info in the second pane:
 
@@ -174,9 +174,9 @@ You can also specify the colors for your TUI application, too! Currently, your i
 In the upcoming version, you'll be able to change the color. Please stay tuned for any updates.
 {% endhint %}
 
-### `LastOnOverflow()`
+### `LastOnOverflow() and FirstOnUnderflow()`
 
-You usually don't need to override this function, as it works by checking both panes for out of bounds and, if overflown, fixing their values so that they don't overflow.
+You usually don't need to override these functions, as they work by checking both panes for out of bounds and, if overflown or underflown, fixing their values.
 
 ### `AcceptsEmptyData`
 

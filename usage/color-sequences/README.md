@@ -50,6 +50,7 @@ The `ColorSpecifier` can be of the syntax:
 
 * `<num>`
   * `<num>` should be of the range between 0 and 255
+  * If `<num>` is positive and larger than 255, it describes the color code from 256 up to 16777215 for true color instances, and anything higher than it will be wrapped to `0;0;0` and counting.
 * `<rrr>;<ggg>;<bbb>`
   * `<rrr>`, `<ggg>`, and `<bbb>` should be of the range between 0 and 255
 * `cmyk:<ccc>;<mmm>;<yyy>;<kkk>`
@@ -112,6 +113,14 @@ You can also convert this color model instance to various color models, such as 
 [color-model-conversions.md](color-model-conversions.md)
 {% endcontent-ref %}
 
+### Getting color name
+
+You can get the color name for all the color types according to the nearest color that is selected in accordance to the X11 color map. Just use the `Name` property in a `Color` instance to get the color name.
+
+{% hint style="info" %}
+You can also get the nearest color information using just the `Color` instance using `GetNearestColor()` found in `ConsoleColorData`. Then, you can get this information to return the equivalent `Color` instance using the `Color` property.
+{% endhint %}
+
 ## Determining color brightness
 
 You can check to see if a color is a light or a dark color using the `Brightness` property, which returns either of the following:
@@ -164,6 +173,10 @@ After you change these values, the next time you make a new instance of `Color`,
 {% hint style="info" %}
 You can easily make a new `Color` instance using the brand new API function, `RenderColorBlindnessAware()`.
 {% endhint %}
+
+## Other tools
+
+In addition to the above features, you can also make use of the other tools below:
 
 ### Translate from X11 to ConsoleColor and back
 
@@ -255,7 +268,8 @@ The color contrast tools provides you with various tools for color contrast and 
 
 {% code title="ColorContrast.cs" lineNumbers="true" %}
 ```csharp
-public static bool IsSeeable(ColorType type, int colorLevel, int colorR, int colorG, int colorB)
+public static bool IsSeeable(Color color)
+public static bool IsSeeable(ColorType type, int colorLevel, int colorR, int colorG, int colorB, ColorSettings? settings = null)
 ```
 {% endcode %}
 

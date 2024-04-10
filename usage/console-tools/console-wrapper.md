@@ -14,6 +14,7 @@ To use this console wrapper, just replace all the calls to `Console` with our re
 * `CursorTop` (get and set)
 * `WindowWidth` (get)
 * `WindowHeight` (get)
+* `BufferWidth` (get)
 * `BufferHeight` (get)
 * `CursorVisible` (get and set)
 * `KeyAvailable` (get)
@@ -42,6 +43,7 @@ You can customize the console wrappers so that applications that call the Termin
 * `SetCursorTop`
 * `WindowWidth`
 * `WindowHeight`
+* `BufferWidth`
 * `BufferHeight`
 * `CursorVisible`
 * `GetCursorVisible`

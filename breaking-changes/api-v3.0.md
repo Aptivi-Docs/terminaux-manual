@@ -2,7 +2,7 @@
 description: Breaking changes for API v3.0
 ---
 
-# ⬆ API v3.0
+# ⬆️ API v3.0
 
 Here is a list of breaking changes that happened during the API v3.0 period when differing versions of Terminaux introduced breaking changes.
 
@@ -399,4 +399,81 @@ The following color types have been renamed:
 
 * `ColorType._255Color` -> `EightBitColor`
 * `ColorType._16Color` -> `FourBitColor`
+{% endhint %}
+
+## From 3.0.x to 3.2.x
+
+Between the 3.0.x and 3.2.x version range, we've made the following breaking changes:
+
+### Reduced input choice complexity
+
+{% code title="InputChoiceTools.cs" lineNumbers="true" %}
+```csharp
+public static InputChoiceInfo[] GetInputChoices(string AnswersStr, string[] AnswersTitles)
+public static InputChoiceInfo[] GetInputChoices(string[] Answers, string[] AnswersTitles)
+```
+{% endcode %}
+
+We've reduced the input choice complexity by replacing a string of answers with input choice tuples to make it easier to specify the choices and to reduce the ambiguity with the slash character.
+
+{% hint style="info" %}
+You can fuse the answers and their titles into one tuple array using this function:
+
+```csharp
+public static InputChoiceInfo[] GetInputChoices((string, string)[] Answers)
+```
+
+This is a simple example of how to change the calls to this function:
+
+```diff
+-var choices = InputChoiceTools.GetInputChoices(["Y", "N", "C"], ["Yes", "No"]);
++var choices = InputChoiceTools.GetInputChoices([("Y", "Yes"), ("N", null), ("C", "Cancel")]);
+```
+{% endhint %}
+
+### Removed `ConsoleColorsInfo`
+
+{% code title="ConsoleColorsInfo.cs" lineNumbers="true" %}
+```csharp
+public class ConsoleColorsInfo : IEquatable<ConsoleColorsInfo>
+```
+{% endcode %}
+
+We've removed this class because it's making things more complicated that it's supposed to be. It's really just a dumbed-down duplicate of `ConsoleColorsData` which has more than just the RGB values and a property to return the `Color` instance using this data.
+
+{% code title="ParsingTools.cs" lineNumbers="true" %}
+```csharp
+public static (RedGreenBlue? rgb, ConsoleColorsInfo? cci) ParseSpecifier(string specifier, ColorSettings? settings = null)
+public static bool TryParseSpecifier(string specifier, out (RedGreenBlue? rgb, ConsoleColorsInfo? cci) output)
+public static (RedGreenBlue rgb, ConsoleColorsInfo cci) ParseSpecifierRgbName(string specifier, ColorSettings? settings = null)
+public static bool TryParseSpecifierRgbName(string specifier, out (RedGreenBlue? rgb, ConsoleColorsInfo? cci) output)
+```
+{% endcode %}
+
+As a consequence, the above functions have been changed to no longer return or use this class.
+
+{% hint style="info" %}
+You can no longer use this removed class. If you still rely on it, you'll have to get an instance of `ConsoleColorsData` for a specific color that you want to analyze.
+{% endhint %}
+
+### Obsoleted the length properties for the presentation system
+
+{% code title="PresentationTools.cs" lineNumbers="true" %}
+```csharp
+public static int PresentationUpperBorderLeft
+public static int PresentationUpperBorderTop
+public static int PresentationUpperInnerBorderLeft
+public static int PresentationUpperInnerBorderTop
+public static int PresentationLowerInnerBorderLeft
+public static int PresentationLowerInnerBorderTop
+public static int PresentationInformationalTop
+```
+{% endcode %}
+
+The following presentation properties shown above have been marked as obsolete, because they were initially meant not to be publicly accessible. Due to how the presentation system was implemented, we've made plans to undergo a revamp in a future Terminaux release.
+
+{% hint style="info" %}
+It's recommended to either use the available functions to make your own TUI, or use the built-in interactive TUI functionality as mentioned in [its own page](../usage/console-tools/interactive-tui.md) until this revamp is done.
+
+The compiler, once you use one of these properties for your custom elements, will issue a warning that says: `These were initially reserved for internal use. Also, the presentation system will be revamped in the next few releases.`
 {% endhint %}

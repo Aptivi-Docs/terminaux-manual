@@ -59,4 +59,8 @@ The default terminal type blacklist contains `dumb` and `unknown` terminal types
 
 ### 256-color support checker
 
-This checker is a very simple checker, because it only queries the terminal type for a string containing `-256col`. Any terminal type that doesn't have this string is assumed to be not supporting 256-color feature, but that doesn't necessarily mean that the console doesn't support this feature, depending on your console application.
+This checker is a very simple checker, because it only queries the terminal type for a string containing `-256col`. Any terminal type that doesn't have this string is assumed to be not supporting 256-color feature, but that doesn't necessarily mean that the console doesn't support this feature, depending on your console application. Use `IsConsole256Colors()` to use this checker.
+
+### ConHost checker
+
+This checker is a very simple checker that checks to see if your Terminaux application is being run in a Windows console that uses ConHost as the console rendering backend. Note that it always returns false on non-Windows systems. Use `IsConHost()` to use this checker.

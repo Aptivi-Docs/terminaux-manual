@@ -2,7 +2,11 @@
 description: Presenting your things to the kernel!
 ---
 
-# 📽 Presentation System
+# 📽️ Presentation System
+
+{% hint style="info" %}
+This feature will undergo a revamp in a future Terminaux release. It's recommended to either use the available functions to make your own TUI, or use the built-in interactive TUI functionality as mentioned in [its own page](interactive-tui.md) until this revamp is done.
+{% endhint %}
 
 This API provides you the presentation system used for presenting something to your users in the full-screen view. It's like a presentation in steroids.
 
