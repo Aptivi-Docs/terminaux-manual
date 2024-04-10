@@ -2,7 +2,7 @@
 description: Other input...
 ---
 
-# 🖱️ Other Input
+# ✍️ Other Input
 
 Terminaux not only provides the normal input reader with its custom bindings and its customizability, but you can also use its other input functions, such as informational boxes.
 

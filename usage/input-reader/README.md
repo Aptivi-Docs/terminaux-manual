@@ -2,9 +2,15 @@
 description: May I read what you've written, please?
 ---
 
-# 🖱 Input Reader
+# 📖 Input Reader
 
 This functionality is an important part of any interactive console application, because it gives users a chance to input what they want to write to the console.
+
+In case you want to listen to mouse events, you can consult the below page:
+
+{% content-ref url="pointer-events.md" %}
+[pointer-events.md](pointer-events.md)
+{% endcontent-ref %}
 
 In case you want to use something other than the reader, you can consult the other input tools defined in the below page:
 

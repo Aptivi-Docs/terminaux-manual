@@ -61,7 +61,7 @@ You can also make your custom `IElement` in your mod code, and no registration i
 
 The presentation viewer has the following controls:
 
-* `ENTER`
+* `ENTER` / `Left-click (mouse)`
   * Advances to the next page
 * `ESC`
   * Bails out from the presentation

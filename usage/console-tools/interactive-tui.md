@@ -118,6 +118,10 @@ And if you try to execute your key binding on an item found in the second pane, 
 You **must** make a keybinding called `Switch` so that your users can choose items for the second pane in double-paned TUI applications, or they won't be able to switch to the second pane!
 {% endhint %}
 
+{% hint style="warning" %}
+Currently, you can't assign mouse events to a keybinding, but we'll add support for that soon. For now, you can select items by moving your mouse and using your mouse wheel. Left-clicking an item is like pressing ENTER on a selected item.
+{% endhint %}
+
 Additionally, you can make your TUI app refresh every set millisecond so that your app can update itself based on the **selected** data, like weather for the selected city. For this, you need an information source that is dynamic and self-updating (from the `GetInfoFromItem()` function), like stopwatches, random data, or even self-updating data gathered from the Internet, based on the selected item in the first pane, assuming that you know how to process them correctly.
 
 For example, to use the Namer library to make a single-paned TUI application that gathers random names to list 10 names in the info pane, you must add a NuGet package, Namer, to your mod's dependencies. To learn more about how to use this library, consult the below page:

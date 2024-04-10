@@ -31,5 +31,5 @@ Each version of Terminaux contains their own release page that allows you to dow
 This demo can be used as a test to verify that your console works as expected and that it supports all the features that Terminaux requires.
 
 {% hint style="info" %}
-Any call to any function that require VT sequences, such as fancy writers, will cause Terminaux to check your console.
+Any call to any function that require VT sequences and advanced console features, such as fancy writers and mouse pointer events, will cause Terminaux to check your console.
 {% endhint %}
