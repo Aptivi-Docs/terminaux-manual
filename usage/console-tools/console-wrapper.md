@@ -25,11 +25,11 @@ To use this console wrapper, just replace all the calls to `Console` with our re
 * `ReadKey()`
 * `Write()`
 * `WriteLine()`
+* `Error.Write()`
+* `Error.WriteLine()`
 
 {% hint style="info" %}
-We'll expand the list of available wrappers soon upon evaluation of the rest of the `System.Console` functions.
-
-**Note that properties and functions that work only for Windows, such as `MoveBufferArea`, and have no good alternative workarounds for macOS and Linux are not going to be wrapped.**
+**Note that properties and functions that work only for Windows, such as `MoveBufferArea`, and have no good alternative alternatives for macOS and Linux are not going to be wrapped.**
 {% endhint %}
 
 ## Setting the Wrappers
@@ -65,6 +65,8 @@ You can customize the console wrappers so that applications that call the Termin
 * `WriteLineStringNonStandalone()`
 * `WriteLineParameterized()`
 * `WriteLineParameterizedNonStandalone()`
+* `WriteError()`
+* `WriteErrorLine()`
 
 {% hint style="info" %}
 In order for your console wrapper to be usable, all your custom wrapper functions must be fast, as interactive TUIs rely on performance.

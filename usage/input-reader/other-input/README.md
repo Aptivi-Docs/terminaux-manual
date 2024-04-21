@@ -38,6 +38,10 @@ The selection style contains a settings argument that you can easily make a clas
 The overloads that contain a settings argument let you pass your custom settings to the current selection style invocation, while the overloads that don't contain this parameter use the global settings.
 {% endhint %}
 
+{% hint style="info" %}
+In multiple choice selections, you can press `A` to select all the choices. You can also press `F` to initiate a case-insensitive search for long choice selections to point you quickly to the desired choice.
+{% endhint %}
+
 All input choices use the `InputChoiceInfo` array to define the choices. Not only do they indicate choices, but they also contain some settings, such as the default selection position, default selection indicator (like a checkbox, checked or not), and disabled option.
 
 * `ChoiceDefault`: Indicates whether the choice instance is a default choice or not. All input handlers should select the first instance with this variable set to true as a default choice. Disabled choices can't be a default choice at the same time.

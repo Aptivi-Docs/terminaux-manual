@@ -2,7 +2,7 @@
 description: We need to write to the console
 ---
 
-# 🖊 Console Writers
+# 🖊️ Console Writers
 
 Terminaux provides a vast amount of console writers for different purposes, like the progress bar writer, writing console output in color, etc. Also, you can use their `Render()` functions found in basically every static writer (not those that are dynamic, such as wrapped writers).
 
@@ -25,7 +25,7 @@ Starting from `ConsoleWriters`, this namespace provides the following classes:
 * `ListWriterColor`
   * Provides you with the necessary functions to let you write the list entries to the console easily. It supports both non-generic and generic enumerables and dictionaries.
 * `TextWriterRaw`
-  * Provides you with the necessary functions to allow you to write the raw text to the console.
+  * Provides you with the necessary functions to allow you to write the raw text to the console either to the standard output or the standard error.
 * `TextWriterColor`
   * Provides you with the necessary functions to allow you to write the text to the console with and without color.
 * `TextWriterHighlightedColor`

@@ -477,3 +477,86 @@ It's recommended to either use the available functions to make your own TUI, or 
 
 The compiler, once you use one of these properties for your custom elements, will issue a warning that says: `These were initially reserved for internal use. Also, the presentation system will be revamped in the next few releases.`
 {% endhint %}
+
+## From 3.2.x to 3.3.x
+
+Between the 3.2.x and 3.3.x version range, we've made the following breaking changes:
+
+### Removed overflow check functions from the interactive TUI interface
+
+{% code title="IInteractiveTui.cs" lineNumbers="true" %}
+```csharp
+public List<InteractiveTuiBinding> Bindings { get; set; }
+/// <summary>
+/// Goes down to the last element upon overflow (caused by remove operation, ...). This applies to the first and the second pane.
+/// </summary>
+public void LastOnOverflow();
+/// <summary>
+/// Goes up to the first element upon underflow (caused by remove operation, ...). This applies to the first and the second pane.
+/// </summary>
+public void FirstOnUnderflow();
+```
+{% endcode %}
+
+We've removed the `LastOnOverflow()` and the `FirstOnUnderflow()` functions from the interface so that they can't be overridden anymore. The reason was that because both of these functions usually didn't need to be modified, and the implementation of them was stable. You can still use these functions, but you can't override them.
+
+As an aside, the `Bindings` property's type has been changed from the generic `List` of `InteractiveTuiBinding` objects to the array of these bindings. This ensures that this property can't be modified once declared.
+
+{% hint style="danger" %}
+You can no longer override the two above functions. You can also no longer add key bindings on-demand, but we're working to restore it soon once we find ways to better implement it.
+{% endhint %}
+
+### Simplified status population
+
+{% code title="IInteractiveTui.cs" lineNumbers="true" %}
+```csharp
+public void RenderStatus(T item);
+```
+{% endcode %}
+
+We've reworked this function to return a string instance that indicates the status. This ensures that you can simplify the status population without manually setting the `InteractiveTuiStatus.Status` property, which we've internalized its setter as a result of this change.
+
+{% hint style="info" %}
+You need to change the override statement so that it points to `GetStatusFromItem()`, which is a new function that was implemented as part of this change. You also need to change all the statements that set the `InteractiveTuiStatus.Status` property so that it returns that status instead, for example:
+
+```csharp
+public override string GetStatusFromItem(string item) =>
+    string.IsNullOrEmpty(item) ? "No info." : item;
+```
+{% endhint %}
+
+### Internalized some TUI status property setters
+
+{% code title="InteractiveTuiStatus.cs" lineNumbers="true" %}
+```csharp
+public static int FirstPaneCurrentSelection { get; set; } = 1;
+public static int SecondPaneCurrentSelection { get; set; } = 1;
+public static int CurrentPane { get; set; } = 1;
+```
+{% endcode %}
+
+Before the introduction of `SelectionMovement()` and `SwitchSides()`, we've allowed you to set the above three properties that described:
+
+* the one-based first pane current selection,
+* the one-based second pane current selection, and
+* the one-based current pane
+
+However, setting these properties didn't contain sanity checks, so you had to be cautious when setting these properties.
+
+{% hint style="info" %}
+Starting from Terminaux 3.3.0, we require that you use both `SelectionMovement()` and `SwitchSides()` to be able to set these properties as they contain sanity checks. You can no longer use the properties to set them. The `SelectionMovement()` function, however, requires that you have passed the TUI instance as the first argument, so the easiest way to use it is to just call it with the Instance property inside your interactive TUI code.
+{% endhint %}
+
+### Used global password mask settings
+
+{% code title="TermReader.cs" lineNumbers="true" %}
+```csharp
+public static char CurrentMask
+```
+{% endcode %}
+
+This property shown above used to hold the current password mask to pass to the simple password-enabled terminal reader functions so that that mask was used to read the password input. However, the terminal reader settings already declares the current mask character, `PasswordMaskChar`, so we felt that this property was redundant.
+
+{% hint style="info" %}
+You can no longer use this property, but you can still use the simple password-enabled terminal reader functions. They use the global settings starting from Terminaux 3.3.0 to avoid inconsistency.
+{% endhint %}

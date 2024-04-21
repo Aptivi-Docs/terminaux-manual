@@ -12,6 +12,8 @@ The interactive TUI allows you to make your apps interactive if they provide one
 
 {% hint style="info" %}
 You can exit out of any interactive TUI application by pressing the `ESC` key on your keyboard.
+
+You can also press `F` to initiate a case-insensitive search for long choice selections to point you quickly to the desired choice.
 {% endhint %}
 
 ## Can I make one, too?
@@ -24,18 +26,16 @@ For each application, you must make a class that would implement both the `BaseI
 ```csharp
 internal class MyTui : BaseInteractiveTui<string>, IInteractiveTui<string>
 {
-    public override List<InteractiveTuiBinding> Bindings { get; set; } = new()
-    {
+    public override InteractiveTuiBinding[] Bindings { get; } =
+    [
         new InteractiveTuiBinding("Action", ConsoleKey.F1, (data, _) => Proceed(data))
-    };
+    ];
 
     public override IEnumerable<string> PrimaryDataSource =>
         new string[] { "One", "Two", "Three", "Four" };
 
-    public override void RenderStatus(string item)
-    {
-        Status = item;
-    }
+    public override string GetStatusFromItem(string item) =>
+        item;
 
     public override string GetEntryFromItem(string item)
     {
@@ -73,10 +73,10 @@ For multiple panes, you'll have to modify your class to take two data sources an
 
 <pre class="language-csharp" data-title="MyTui.cs" data-line-numbers><code class="lang-csharp">internal class MyTui : BaseInteractiveTui&#x3C;string>, IInteractiveTui&#x3C;string>
 {
-    public override List&#x3C;InteractiveTuiBinding> Bindings { get; set; } = new()
-    {
+    public override InteractiveTuiBinding[] Bindings { get; } =
+    [
         new InteractiveTuiBinding("Action", ConsoleKey.F1, (data, _) => Proceed(data)),
-    };
+    ];
 
 <strong>    public override bool SecondPaneInteractable =>
 </strong><strong>        true;
@@ -87,10 +87,8 @@ For multiple panes, you'll have to modify your class to take two data sources an
 <strong>    public override IEnumerable&#x3C;string> SecondaryDataSource =>
 </strong><strong>        new string[] { "Five", "Six", "Seven", "Eight", "Nine", "Ten" };
 </strong>
-    public override void RenderStatus(string item)
-    {
-        Status = item;
-    }
+    public override string GetStatusFromItem(string item) =>
+        item;
 
     public override string GetEntryFromItem(string item)
     {
@@ -124,27 +122,25 @@ Currently, you can't assign mouse events to a keybinding, but we'll add support 
 
 Additionally, you can make your TUI app refresh every set millisecond so that your app can update itself based on the **selected** data, like weather for the selected city. For this, you need an information source that is dynamic and self-updating (from the `GetInfoFromItem()` function), like stopwatches, random data, or even self-updating data gathered from the Internet, based on the selected item in the first pane, assuming that you know how to process them correctly.
 
-For example, to use the Namer library to make a single-paned TUI application that gathers random names to list 10 names in the info pane, you must add a NuGet package, Namer, to your mod's dependencies. To learn more about how to use this library, consult the below page:
+For example, to use the Textify library to make a single-paned TUI application that gathers random names to list 10 names in the info pane, you must add a NuGet package, Textify, to your mod's dependencies. To learn more about how to use this library, consult the below page:
 
-{% content-ref url="https://app.gitbook.com/s/gmP2CdmfwirIpCISUoX8/usage/how-to-use" %}
-[How to use](https://app.gitbook.com/s/gmP2CdmfwirIpCISUoX8/usage/how-to-use)
+{% content-ref url="https://app.gitbook.com/s/NaUWjRlaBR1k5rO42Zy8/usage/how-to-use" %}
+[How to use](https://app.gitbook.com/s/NaUWjRlaBR1k5rO42Zy8/usage/how-to-use)
 {% endcontent-ref %}
 
 The code that would do this would look like this:
 
 <pre class="language-csharp" data-title="MyTui.cs" data-line-numbers><code class="lang-csharp">internal class MyTui : BaseInteractiveTui&#x3C;string>, IInteractiveTui&#x3C;string>
 {
-    public override List&#x3C;InteractiveTuiBinding> Bindings { get; set; } = new();
+    public override InteractiveTuiBinding[] Bindings { get; } = [];
 
     public override int RefreshInterval => 15000;
 
     public override IEnumerable&#x3C;string> PrimaryDataSource =>
         new string[] { "Test" };
 
-    public override void RenderStatus(string item)
-    {
-        Status = item;
-    }
+    public override string GetStatusFromItem(string item) =>
+        item;
 
     public override string GetEntryFromItem(string item)
     {
@@ -174,14 +170,6 @@ If everything goes well, you should see your TUI app refresh every 15 seconds:
 
 You can also specify the colors for your TUI application, too! Currently, your interactive TUI uses the regular colors defined under `InteractiveTuiStatus`.
 
-{% hint style="info" %}
-In the upcoming version, you'll be able to change the color. Please stay tuned for any updates.
-{% endhint %}
-
-### `LastOnOverflow() and FirstOnUnderflow()`
-
-You usually don't need to override these functions, as they work by checking both panes for out of bounds and, if overflown or underflown, fixing their values.
-
 ### `AcceptsEmptyData`
 
 You can specify if your interactive TUI accepts empty data. The interactive TUI, by default, checks for the data source in both panes and, if not found or are empty, exits.
@@ -199,5 +187,15 @@ You can also access the `Screen` instance that the interactive TUI uses by acces
 {% code title="BaseInteractiveTui.cs" lineNumbers="true" %}
 ```csharp
 public Screen Screen
+```
+{% endcode %}
+
+### `Instance`
+
+Some of the interactive TUI tools require that you provide the base interactive TUI instance. Inside your interactive TUI class, you can use this property to get the current interactive TUI instance that is currently on display. The below example shows the `SelectionMovement()` function being called with this property:
+
+{% code title="FileManagerCli.cs (Nitrocid 0.1.0.3+)" lineNumbers="true" %}
+```csharp
+InteractiveTuiTools.SelectionMovement(Instance, 1);
 ```
 {% endcode %}

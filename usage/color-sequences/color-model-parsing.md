@@ -6,7 +6,7 @@ description: Getting a color from a text-based color representation.
 
 In addition to Terminaux supporting RGB color model, you can also use the CMYK and other color models when creating the color instances, provided that their specifiers that you must use are:
 
-* RGB's specifier is `rrr;ggg;bbb`, `#RRGGBB`, `#RGB`, `0-255`, or `0-15`
+* RGB's specifier is `rrr;ggg;bbb`, `#RRGGBB`, `#RGB`, `0-16777215`, `0-255`, or `0-15`
 * CMYK's specifier is `cmyk:ccc;mmm;yyy;kkk`
 * CMY's specifier is `cmy:ccc;mmm;yyy`
 * HSL's specifier is `hsl:hhh;sss;lll`

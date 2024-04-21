@@ -91,7 +91,7 @@ Color ColorInstance = ConsoleColor.Magenta;
 ```
 {% endhint %}
 
-You can also get the color ID if you used color number from 0 to 255 by referencing the `ColorId` property. This property returns `-1` for true color.
+You can also get the color ID if you used color number from 0 to 255 by referencing the `ColorId` property. This property returns the nearest color ID for true color.
 
 Additionally, you can choose whether to use your terminal emulator's color palette or to use the real colors that come from the true colors. By default, Terminaux chooses to use the terminal emulator's color palette to maintain consistency.
 
@@ -107,6 +107,10 @@ BoxFrameTextColor.WriteBoxFrame($"Red, Green, and Blue: {selectedColor}", hueBar
 
 You can get the RGB information by simply calling the `RGB` property in the `Color` class. From there, you'll get an instance of `RedGreenBlue` that contains the `R`, `G`, `B`, and their normalized properties.
 
+{% hint style="info" %}
+You can also get this information from the color code using the `GetRgbFromColorCode()` function. The string representation can also be get using the `GetRgbSpecifierFromColorCode()` function.
+{% endhint %}
+
 You can also convert this color model instance to various color models, such as `RYB`, `CMY`, `YUV`, and `HSV`. In order to do this, consult the below page:
 
 {% content-ref url="color-model-conversions.md" %}
@@ -118,7 +122,7 @@ You can also convert this color model instance to various color models, such as 
 You can get the color name for all the color types according to the nearest color that is selected in accordance to the X11 color map. Just use the `Name` property in a `Color` instance to get the color name.
 
 {% hint style="info" %}
-You can also get the nearest color information using just the `Color` instance using `GetNearestColor()` found in `ConsoleColorData`. Then, you can get this information to return the equivalent `Color` instance using the `Color` property.
+You can also get the nearest color information using either the `Color` instance, the RGB instance, or the RGB numbers using `GetNearestColor()` found in `ConsoleColorData`. Then, you can get this information to return the equivalent `Color` instance using the `Color` property.
 {% endhint %}
 
 ## Determining color brightness
