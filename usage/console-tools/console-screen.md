@@ -83,7 +83,7 @@ The screen class hosts an array of screen parts that you can add, edit, or remov
 * `EditBufferedPart()`
 * `RemoveBufferedPart()`
 
-You are required to provide a name for the specific screen part. This is to easily identify different screen parts, because if you're just looking for final buffer results, you might not be able to tell which part was for which.
+You are required to provide a name or a GUID for the specific screen part. This is to easily identify different screen parts, because if you're just looking for final buffer results, you might not be able to tell which part was for which.
 
 You can use either the buffered part index number or the part name when using any of the following querying functions (in addition to the last two functions):
 
@@ -99,6 +99,8 @@ By default, when the screen feature detects a resize, it'll re-render the curren
 #### Screen Part
 
 The screen part hosts a list of dynamic buffers to generate a working text sequence for the console plain writer to write it to the terminal to show you its contents. You can also call the screen parts as "layers" to more easily understand the motive behind these "layers."
+
+In order to uniquely identify each screen part without any ambiguity, you can use the `Id` property that is populated each time you make a new screen part.
 
 You can order them using the `Order` property when creating them. However, TermRead renders all the screen parts from the least important (the smallest `Order` values) to the most important (the largest `Order` values). This is useful for layering if you don't feel comfortable adding dynamic texts that represent layers.
 

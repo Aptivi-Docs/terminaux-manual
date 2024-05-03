@@ -560,3 +560,30 @@ This property shown above used to hold the current password mask to pass to the 
 {% hint style="info" %}
 You can no longer use this property, but you can still use the simple password-enabled terminal reader functions. They use the global settings starting from Terminaux 3.3.0 to avoid inconsistency.
 {% endhint %}
+
+## From 3.3.x to 3.4.x
+
+Between the 3.3.x and 3.4.x version range, we've made the following breaking changes:
+
+### Removed `CheckConsoleOnCall`
+
+{% code title="GeneralColorTools.cs" lineNumbers="true" %}
+```csharp
+public static class GeneralColorTools
+```
+{% endcode %}
+
+We've removed the `GeneralColorTools` class which only contained a property that inhibits the console checker for every assembly, called `CheckConsoleOnCall`. The reason was that because the console checker didn't necessarily have to do with the console colors, although the checker evaluates the console and its capabilities, such as the color support.
+
+We've already added assembly-based workarounds, so we've decided to replace this property with console check whitelists. It's necessary to change your code that depends on the console not being checked to add your assembly to the whitelist.
+
+{% hint style="info" %}
+The easiest way to add your own test assembly to the whitelist is by calling the `Assembly.GetEntryAssembly()` function within your one-time unit test initialization code.
+
+{% code lineNumbers="true" %}
+```csharp
+var asm = Assembly.GetEntryAssembly();
+ConsoleChecker.AddToCheckWhitelist(asm);
+```
+{% endcode %}
+{% endhint %}

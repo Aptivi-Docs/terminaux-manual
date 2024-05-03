@@ -117,13 +117,18 @@ You can also convert this color model instance to various color models, such as 
 [color-model-conversions.md](color-model-conversions.md)
 {% endcontent-ref %}
 
-### Getting color name
+### Getting color name and enumeration
 
 You can get the color name for all the color types according to the nearest color that is selected in accordance to the X11 color map. Just use the `Name` property in a `Color` instance to get the color name.
 
 {% hint style="info" %}
 You can also get the nearest color information using either the `Color` instance, the RGB instance, or the RGB numbers using `GetNearestColor()` found in `ConsoleColorData`. Then, you can get this information to return the equivalent `Color` instance using the `Color` property.
 {% endhint %}
+
+For color enumeration, a `Color` class contains the following properties:
+
+* `ColorEnum255`: Always populated related to the nearest matching color in the X11 color map. Can be used for `ConsoleColors` enumeration found within Terminaux.
+* `ColorEnum16`: Is not populated for color IDs that exceed `15`. Can be used for `ConsoleColor` enumeration found within the C# standard library.
 
 ## Determining color brightness
 

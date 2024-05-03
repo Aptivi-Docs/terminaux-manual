@@ -21,6 +21,22 @@ For checking the size requirement, you'll need to consult the below page to get 
 [console-size-requirements.md](console-size-requirements.md)
 {% endcontent-ref %}
 
+In case of unit tests failing because your application contains calls to parts of Terminaux that require this check to run, you can add your test assembly to the check whitelist to bypass checking only for your assembly.
+
+* `AddToCheckWhitelist()`: Adds your assembly to the check whitelist.
+* `RemoveFromCheckWhitelist()`: Removes your assembly from the check whitelist.
+
+{% hint style="info" %}
+The easiest way to add your own test assembly to the whitelist is by calling the `Assembly.GetEntryAssembly()` function within your one-time unit test initialization code.
+
+{% code lineNumbers="true" %}
+```csharp
+var asm = Assembly.GetEntryAssembly();
+ConsoleChecker.AddToCheckWhitelist(asm);
+```
+{% endcode %}
+{% endhint %}
+
 ### Dumb console
 
 Dumb consoles, in general, don't understand the concept of colors, positioning, erasing, and features other than writing to the console. However, some of them may be provided with basic color support and various other features that are simple.
