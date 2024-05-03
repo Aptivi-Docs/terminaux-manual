@@ -5,9 +5,11 @@ description: Welcome to Terminaux!
 # 👋 Welcome!
 
 {% hint style="info" %}
-Terminaux 3.x is currently under active development. Give us your feedback by testing it!
+Terminaux 4.x is currently under active development. Give us your feedback by testing it!
 
 If you still use old versions of Terminaux in your projects, go to the below links:
+
+[Terminaux 3.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/OmlwECCRQY4XJQJZaeLc/ "mention")
 
 [Terminaux 2.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/BAbXedIZJ6HPa9EGmSYt/ "mention")
 
