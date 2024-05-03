@@ -2,7 +2,7 @@
 description: We need to filter and build the VT sequences.
 ---
 
-# 🎚 VT Sequences
+# 🎚️ VT Sequences
 
 In your own terminal emulator, VT sequences are the power of any terminal emulator found in literally every PC.
 
@@ -10,12 +10,9 @@ This feature provides several filtering and manipulation tools which allow you t
 
 | Function                            | Description                                                                                        |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `FilterVTSequences()`               | Filters all of the VT sequences                                                                    |
-| `FilterVTSequencesMultiple()`       | Filters all of the VT sequences that are of multiple types                                         |
-| `MatchVTSequences()`                | Matches all of the VT sequences                                                                    |
-| `MatchVTSequencesMultiple()`        | Matches all of the VT sequences that are of multiple types                                         |
-| `IsMatchVTSequences()`              | Does the string contain all of the VT sequences or a VT sequence of any type?                      |
-| `IsMatchVTSequencesMultiple()`      | Does the string contain all of the VT sequences or a VT sequence of one or more types?             |
+| `FilterVTSequences()`               | Filters all of the VT sequences that are of either a single type or of multiple types              |
+| `MatchVTSequences()`                | Matches all of the VT sequences that are of either a single type or of multiple types              |
+| `IsMatchVTSequences()`              | Does the string contain all of the VT sequences or a VT sequence of one or more types?             |
 | `IsMatchVTSequencesSpecific()`      | Does the string contain all of the VT sequences or a VT sequence of any specific type?             |
 | `SplitVTSequences()`                | Splits all of the VT sequences                                                                     |
 | `SplitVTSequencesMultiple()`        | Splits all of the VT sequences that are of multiple types                                          |

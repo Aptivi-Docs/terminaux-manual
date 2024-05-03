@@ -56,15 +56,11 @@ You can customize the console wrappers so that applications that call the Termin
 * `BeepSeq()`
 * `ReadKey()`
 * `WriteChar()`
-* `WriteStringNonStandalone()`
 * `WriteString()`
 * `WriteParameterized()`
-* `WriteParameterizedNonStandalone()`
 * `WriteLine()`
 * `WriteLineStirng()`
-* `WriteLineStringNonStandalone()`
 * `WriteLineParameterized()`
-* `WriteLineParameterizedNonStandalone()`
 * `WriteError()`
 * `WriteErrorLine()`
 

@@ -48,6 +48,19 @@ The `ConsoleFormatting` class provides you with text formatting tools, including
 Your terminal emulator may not support all the formatting modes, so consult your terminal's manual to verify that all the formats supported by Terminaux are supported. Additionally, the Terminaux demo app provides a test facade, `TestFormatting`, that allows you to test your console for support of all the text formatting options.
 {% endhint %}
 
+## Console characters
+
+You can also manipulate with the console characters using the following functions:
+
+* GetCharWidth()
+* EstimateCellWidth()
+* EstimateZeroWidths()
+* EstimateFullWidths()
+
+{% hint style="info" %}
+Please note that this information doesn't indicate the string length either by the amount of UTF-8 characters or by the text element as `StringInfo` class returns. This indicates how many console grid cells a character or a sentence consumes.
+{% endhint %}
+
 ## Miscellaneous console extensions
 
 The following extensions that don't fit in any of the categories can be used in your applications:
