@@ -22,10 +22,9 @@ All pointer events include whether any of CTRL, ALT, and SHIFT keys were pressed
 {% hint style="info" %}
 Here are some notes to consider before implementing pointer support to your Terminaux console application:
 
-* Mouse pointer events are not supported yet on macOS, and will fail to start with an unhandled exception.
-* Linux and Windows handle console mouse pointer events differently. While Linux uses [VT sequences](https://www.xfree86.org/current/ctlseqs.html#Mouse%20Tracking), Windows uses its own API to fetch console events as seen in the [`MOUSE_EVENT_RECORD`](https://learn.microsoft.com/en-us/windows/console/mouse-event-record-str) structure. We're trying to polish the relationship across Terminaux releases to make applications that use mouse event handling behave more consistently.
+* Each platform handles console mouse pointer events differently. While Linux, macOS, and Android use [VT sequences](https://www.xfree86.org/current/ctlseqs.html#Mouse%20Tracking), Windows uses its own API to fetch console events as seen in the [`MOUSE_EVENT_RECORD`](https://learn.microsoft.com/en-us/windows/console/mouse-event-record-str) structure. We're trying to polish the relationship across Terminaux releases to make applications that use mouse event handling behave more consistently.
 * On Android, you'll have to connect your external wireless mouse to your phone or your tablet in order to be able to click anywhere. Movement handling is not supported there.
-* On Linux and Android, there may be residual input when using the terminal reader in conjunction with the pointer listener. This is something to be considered as part of the polishing plan.
+* On Linux, macOS, and Android, there may be residual input when using the terminal reader in conjunction with the pointer listener. This is something to be considered as part of the polishing plan.
 {% endhint %}
 
 You have two ways to subscribe to mouse events:
