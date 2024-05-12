@@ -152,13 +152,11 @@ public static Color GetGray(Color color)
 
 ## Getting console color information
 
-You can get detailed information about the console color ranging from 0 to 255 by making a new instance of the `ConsoleColorsInfo` class:
+You can get detailed information about the console color ranging from 0 to 255 by calling the `GetColorData()` function under the `ConsoleColorData` class:
 
 ```csharp
-public ConsoleColorsInfo(ConsoleColors ColorValue)
+public static partial ConsoleColorData[] GetColorData();
 ```
-
-You can then get its `Color` instance using the `Color` property.
 
 ## Simulating color-blindness
 
@@ -166,8 +164,6 @@ In the `ColorTools` static class, it contains several color blindness simulation
 
 * `EnableColorTransformation`
   * Enables the color transformation to adjust to color blindness upon making a new instance of color
-* `ColorTransformationMethod`
-  * Chooses the color transformation method. This only applies to some of the color-blindness transformations, such as Protan.
 * `ColorTransformationFormula`
   * Specifies the type of color transformation (Protan, Deutan, Tritan, Monochromacy, Inverse, BlueScale, and more...)
 * `ColorDeficiencySeverity`

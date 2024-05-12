@@ -112,12 +112,14 @@ And if you try to execute your key binding on an item found in the second pane, 
 
 <figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="danger" %}
-You **must** make a keybinding called `Switch` so that your users can choose items for the second pane in double-paned TUI applications, or they won't be able to switch to the second pane!
-{% endhint %}
+{% hint style="info" %}
+For the interactive TUI binding, you can also use the mouse to create custom TUI bindings, such as:
 
-{% hint style="warning" %}
-Currently, you can't assign mouse events to a keybinding, but we'll add support for that soon. For now, you can select items by moving your mouse and using your mouse wheel. Left-clicking an item is like pressing ENTER on a selected item.
+```csharp
+new InteractiveTuiBinding("Delete", PointerButton.Right, PointerButtonPress.Released, (_, index) => Remove(index)),
+```
+
+You can specify the pointer button (required), the pointer button press mode (optional), and the pointer modifiers (optional).
 {% endhint %}
 
 Additionally, you can make your TUI app refresh every set millisecond so that your app can update itself based on the **selected** data, like weather for the selected city. For this, you need an information source that is dynamic and self-updating (from the `GetInfoFromItem()` function), like stopwatches, random data, or even self-updating data gathered from the Internet, based on the selected item in the first pane, assuming that you know how to process them correctly.

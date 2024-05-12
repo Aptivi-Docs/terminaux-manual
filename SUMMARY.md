@@ -23,6 +23,8 @@
   * [🎚️ VT Sequences](usage/console-tools/vt-sequences.md)
   * [➕ Console Extensions](usage/console-tools/console-extensions.md)
   * [⌨️ Interactive TUI](usage/console-tools/interactive-tui.md)
+  * [🖼️ Image Rendering](usage/console-tools/image-rendering.md)
+  * [💠 Geometric Shapes](usage/console-tools/geometric-shapes.md)
 * [📖 Input Reader](usage/input-reader/README.md)
   * [⌨️ Keybindings](usage/input-reader/keybindings.md)
   * [🔌 Custom bindings](usage/input-reader/custom-bindings.md)

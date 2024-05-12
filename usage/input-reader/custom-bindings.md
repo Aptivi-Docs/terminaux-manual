@@ -110,3 +110,12 @@ You can also append or remove a string in the `TermReaderTools` class. This mean
 ## Writers
 
 You can use the text writers with the current reader settings by using `TextWriterColor`'s `WriteForReader()` and its siblings, passing it the reader settings to take care of the margins.
+
+## Conditionals
+
+In addition to all the above features, you can also make your key binding beep under certain circumstances, such as if the current text position is at the start of the text and we're trying to move left, using one of the two conditional functions from the `ConditionalTools` class:
+
+* `ShouldNot()`: Specifies that the specified condition should not be true
+* `Should()`: Specifies that the specified condition should not be false
+
+If either of these functions' assertions have failed, either your computer or your speakers emits a beep sound upon going back to the input mode.

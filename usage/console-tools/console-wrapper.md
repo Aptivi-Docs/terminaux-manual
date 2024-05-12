@@ -12,15 +12,17 @@ To use this console wrapper, just replace all the calls to `Console` with our re
 
 * `CursorLeft` (get and set)
 * `CursorTop` (get and set)
-* `WindowWidth` (get)
-* `WindowHeight` (get)
-* `BufferWidth` (get)
-* `BufferHeight` (get)
+* `WindowWidth` (get and set)
+* `WindowHeight` (get and set)
+* `BufferWidth` (get and set)
+* `BufferHeight` (get and set)
 * `CursorVisible` (get and set)
 * `KeyAvailable` (get)
 * `TreatCtrlCAsInput` (get and set)
 * `Clear()` (with and without background)
 * `SetCursorPosition()`
+* `SetWindowDimensions()`
+* `SetBufferDimensions()`
 * `Beep()`
 * `ReadKey()`
 * `Write()`
@@ -42,9 +44,13 @@ You can customize the console wrappers so that applications that call the Termin
 * `CursorTop`
 * `SetCursorTop`
 * `WindowWidth`
+* `SetWindowWidth`
 * `WindowHeight`
+* `SetWindowHeight`
 * `BufferWidth`
+* `SetBufferWidth`
 * `BufferHeight`
+* `SetBufferHeight`
 * `CursorVisible`
 * `GetCursorVisible`
 * `TreatCtrlCAsInput`
@@ -52,6 +58,8 @@ You can customize the console wrappers so that applications that call the Termin
 * `Clear()` (without background)
 * `ClearLoadBack()` (with background)
 * `SetCursorPosition()`
+* `SetWindowDimensions()`
+* `SetBufferDimensions()`
 * `Beep()`
 * `BeepSeq()`
 * `ReadKey()`
