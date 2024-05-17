@@ -19,6 +19,8 @@ Do you want to enable it in your application? If so, you'll need a single call t
 
 All pointer events include whether any of CTRL, ALT, and SHIFT keys were pressed at the time of the event or not. This is indicated in the `Modifiers` property. Such events also indicate the position of the mouse where the event occurred, which is a very important aspect to handling mouse click events in console applications. You can access this information using the `Coordinates` property that gives you two variables: `x` and `y`. The coordinates start from zero.
 
+You can also access the button click tier information when the `PointerButtonPress` value is `Released`. Button click tier 1 means a single click, 2 means a double click, and so on. You can access this information using the `ClickTier` property.
+
 {% hint style="info" %}
 Here are some notes to consider before implementing pointer support to your Terminaux console application:
 

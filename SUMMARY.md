@@ -27,7 +27,7 @@
   * [💠 Geometric Shapes](usage/console-tools/geometric-shapes.md)
 * [📖 Input Reader](usage/input-reader/README.md)
   * [⌨️ Keybindings](usage/input-reader/keybindings.md)
-  * [🔌 Custom bindings](usage/input-reader/custom-bindings.md)
+  * [🔌 Custom Bindings](usage/input-reader/custom-bindings.md)
   * [✔️ Reader State](usage/input-reader/reader-state.md)
   * [⚙️ Reader Settings](usage/input-reader/reader-settings.md)
   * [🔦 Syntax Highlighting](usage/input-reader/syntax-highlighting.md)

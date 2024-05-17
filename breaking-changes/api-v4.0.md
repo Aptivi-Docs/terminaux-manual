@@ -179,3 +179,17 @@ We've merged the Figletize library with the Textify library so that Terminaux ca
 {% hint style="info" %}
 You can consult the breaking change for Textify [here](https://app.gitbook.com/s/NaUWjRlaBR1k5rO42Zy8/breaking-changes#moved-figletize-to-textify.figlet).
 {% endhint %}
+
+### Removed unlimited input from the reader
+
+{% code title="TermReaderSettings.cs" lineNumbers="true" %}
+```csharp
+public bool LimitConsoleChars
+```
+{% endcode %}
+
+Unlimited input in the multi-line terminal reader was proven to be buggy, and we couldn't find a good solution to the problem, considering all the cases that need to be handled in the terminal reader. We've decided to remove unlimited input from the reader.
+
+{% hint style="info" %}
+If you still want unlimited input, you can use the one-line wrapped reader, which allows unlimited amount of characters.
+{% endhint %}

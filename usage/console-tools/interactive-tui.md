@@ -168,6 +168,10 @@ If everything goes well, you should see your TUI app refresh every 15 seconds:
 
 <figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
+{% hint style="info" %}
+If the information box (the second pane) is overflown, the interactive TUI gives you an option to press `W` and `S` to scroll the pane, as well as `SHIFT + I` to display the whole content in the informational box. You can also use the mouse to scroll it up/down.
+{% endhint %}
+
 ### Colors for the TUI
 
 You can also specify the colors for your TUI application, too! Currently, your interactive TUI uses the regular colors defined under `InteractiveTuiStatus`.
