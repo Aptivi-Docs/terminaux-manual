@@ -2,7 +2,7 @@
 description: How to assign your own binding?
 ---
 
-# 🔌 Custom bindings
+# 🔌 Custom Bindings
 
 TermRead supports custom bindings, which you can assign your `BaseBinding` class containing the following functions you must override:
 
@@ -50,7 +50,7 @@ namespace MyApp
         public override void DoAction(TermReaderState state)
         {
             // Your action.
-            TermReaderTools.Refresh();
+            state.RefreshRequired = true;
         }
     }
 }
@@ -69,10 +69,10 @@ If you're assigning a key containing `CTRL`, you must assign a character number 
 
 ## How to bind
 
-Once you created a base class as mentioned above, you can finally use the `CustomBindings` class to call the `Bind(BaseBinding)` function to add your own binding to the custom binding store, like this:
+Once you created a base class as mentioned above, you can finally use the `BindingsTools` class to call the `Bind(BaseBinding)` function to add your own binding to the custom binding store, like this:
 
 ```csharp
-CustomBindings.Bind(new MyBinding());
+BindingsTools.Bind(new MyBinding());
 ```
 
 {% hint style="warning" %}

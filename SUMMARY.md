@@ -25,6 +25,7 @@
   * [⌨️ Interactive TUI](usage/console-tools/interactive-tui.md)
   * [🖼️ Image Rendering](usage/console-tools/image-rendering.md)
   * [💠 Geometric Shapes](usage/console-tools/geometric-shapes.md)
+  * [🕶️ Nerd Fonts](usage/console-tools/nerd-fonts.md)
 * [📖 Input Reader](usage/input-reader/README.md)
   * [⌨️ Keybindings](usage/input-reader/keybindings.md)
   * [🔌 Custom Bindings](usage/input-reader/custom-bindings.md)

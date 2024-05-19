@@ -193,3 +193,63 @@ Unlimited input in the multi-line terminal reader was proven to be buggy, and we
 {% hint style="info" %}
 If you still want unlimited input, you can use the one-line wrapped reader, which allows unlimited amount of characters.
 {% endhint %}
+
+### Slider width and height determination changes
+
+{% code title="SliderColor.cs" lineNumbers="true" %}
+```csharp
+public static void WriteSliderPlain(int currPos, int maxPos, int Left, int Top, int WidthOffset, bool DrawBorder = true)
+public static void WriteSliderPlain(int currPos, int maxPos, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, bool DrawBorder = true)
+public static void WriteSlider(int currPos, int maxPos, int Left, int Top, int WidthOffset, bool DrawBorder = true)
+public static void WriteSlider(int currPos, int maxPos, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, bool DrawBorder = true)
+public static void WriteSlider(int currPos, int maxPos, int Left, int Top, int WidthOffset, Color SliderColor, bool DrawBorder = true)
+public static void WriteSlider(int currPos, int maxPos, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, Color SliderColor, bool DrawBorder = true)
+public static void WriteSlider(int currPos, int maxPos, int Left, int Top, int WidthOffset, Color SliderColor, Color FrameColor, bool DrawBorder = true)
+public static void WriteSlider(int currPos, int maxPos, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, Color SliderColor, Color FrameColor, bool DrawBorder = true)
+public static void WriteSlider(int currPos, int maxPos, int Left, int Top, int WidthOffset, Color SliderColor, Color FrameColor, Color BackgroundColor, bool DrawBorder = true)
+public static void WriteSlider(int currPos, int maxPos, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, Color SliderColor, Color FrameColor, Color BackgroundColor, bool DrawBorder = true)
+public static string RenderSliderPlain(int currPos, int maxPos, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, bool DrawBorder = true)
+public static string RenderSlider(int currPos, int maxPos, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, Color SliderColor, bool DrawBorder = true)
+public static string RenderSlider(int currPos, int maxPos, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, Color SliderColor, Color FrameColor, bool DrawBorder = true)
+public static string RenderSlider(int currPos, int maxPos, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, Color SliderColor, Color FrameColor, Color BackgroundColor, bool DrawBorder = true)
+```
+{% endcode %}
+
+{% code title="SliderVerticalColor.cs" lineNumbers="true" %}
+```csharp
+public static void WriteVerticalSliderPlain(int currPos, int maxPos, int Left, int Top, int HeightOffset, bool DrawBorder = true)
+public static void WriteVerticalSliderPlain(int currPos, int maxPos, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, bool DrawBorder = true)
+public static void WriteVerticalSlider(int currPos, int maxPos, int Left, int Top, int HeightOffset, bool DrawBorder = true)
+public static void WriteVerticalSlider(int currPos, int maxPos, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, bool DrawBorder = true)
+public static void WriteVerticalSlider(int currPos, int maxPos, int Left, int Top, int HeightOffset, Color SliderColor, bool DrawBorder = true)
+public static void WriteVerticalSlider(int currPos, int maxPos, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, Color SliderColor, bool DrawBorder = true)
+public static void WriteVerticalSlider(int currPos, int maxPos, int Left, int Top, int HeightOffset, Color SliderColor, Color FrameColor, bool DrawBorder = true)
+public static void WriteVerticalSlider(int currPos, int maxPos, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, Color SliderColor, Color FrameColor, bool DrawBorder = true)
+public static void WriteVerticalSlider(int currPos, int maxPos, int Left, int Top, int HeightOffset, Color SliderColor, Color FrameColor, Color BackgroundColor, bool DrawBorder = true)
+public static void WriteVerticalSlider(int currPos, int maxPos, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, Color SliderColor, Color FrameColor, Color BackgroundColor, bool DrawBorder = true)
+public static string RenderVerticalSliderPlain(int currPos, int maxPos, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, bool DrawBorder = true)
+public static string RenderVerticalSlider(int currPos, int maxPos, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, Color SliderColor, bool DrawBorder = true)
+public static string RenderVerticalSlider(int currPos, int maxPos, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, Color SliderColor, Color FrameColor, bool DrawBorder = true)
+public static string RenderVerticalSlider(int currPos, int maxPos, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, Color SliderColor, Color FrameColor, Color BackgroundColor, bool DrawBorder = true)
+```
+{% endcode %}
+
+Due to how difficult it was to determine the correct height from the left and the right offsets, we've decided to simplify things by replacing the offset system with the width/height system so that you can immediately determine the width and the height of your slider without having to perform additional calculations. This reduces the need of `ConsoleWrapper.Window{Width|Height}` call to determine the actual width/height from the two given offsets.
+
+{% hint style="info" %}
+We advise you to revise your slider calls and change them accordingly to represent the actual width/height.
+{% endhint %}
+
+### Merged three custom binding classes
+
+{% code title="CustomBindings.cs" lineNumbers="true" %}
+```csharp
+public static class CustomBindings
+```
+{% endcode %}
+
+The `CustomBindings` class has been recently expanded to include code from itself and the two internal classes - `BindingsReader` and `BindingsList` - that used to include both the binding execution tools and the list of pre-built and custom bindings. For easier maintenance, we've condensed these classes into one, renaming the `CustomBindings` class to `BindingsTools` to more accurately reflect its purpose.
+
+{% hint style="info" %}
+None of the functions are affected; just update your reference so that it points to `BindingsTools`.
+{% endhint %}
