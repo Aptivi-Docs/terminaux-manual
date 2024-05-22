@@ -346,5 +346,19 @@ The conversion and the parsing routines have been recently reworked so that all 
 As a result, while the generic parsing and conversion tools are unaffected, we've moved all color model specific tools to their own color model class and overridden the base class methods to use the model specific override instead of the base one that parses all specifiers.
 
 {% hint style="info" %}
+Use the parsing and the conversion tools using the existing classes.
+{% endhint %}
 
+### \[4.0.0.1] Removed the targeted argument for progress bar
+
+{% code title="ProgressBarColor.cs" lineNumbers="true" %}
+```csharp
+public static void WriteProgress..., bool Targeted = false)
+```
+{% endcode %}
+
+We've removed the targeted argument for the horizontal progress bar writers as we've made a breaking change that changes how the slider and the progress bar writers determine the height and the width. To reduce confusion and unexpected results, we've finally removed the targeted argument from all the progress bar writing functions.
+
+{% hint style="danger" %}
+It's advised to remove all targeted parameter values and to make appropriate changes.
 {% endhint %}
