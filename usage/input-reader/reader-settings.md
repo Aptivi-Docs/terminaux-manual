@@ -12,6 +12,8 @@ Here are the available settings that you can set:
   * Sets the password masking character.
 * `HistoryEnabled`
   * Whether the history is enabled or not.
+* `HistoryName`
+  * Select what history to use
 * `LeftMargin`
   * Sets the left margin of the input.
 * `RightMargin`

@@ -65,6 +65,7 @@ Terminaux's mouse pointer listener provides you with a wide assortment of helper
 * `PointerListener.PointerAvailable`
 * `PointerListener.PointerActive`
 * `PointerListener.InvertScrollYAxis`: Inverts the Y axis for vertical scrolling
+* `PointerListener.SwapLeftRightButtons`: Swaps the left/right mouse buttons
 * `PointerListener.ReadPointerNow()`
 * `TermReader.ReadPointer()`
 * `TermReader.ReadPointerOrKey()`

@@ -194,7 +194,7 @@ Unlimited input in the multi-line terminal reader was proven to be buggy, and we
 If you still want unlimited input, you can use the one-line wrapped reader, which allows unlimited amount of characters.
 {% endhint %}
 
-### Slider width and height determination changes
+### Slider and progress bar width and height determination changes
 
 {% code title="SliderColor.cs" lineNumbers="true" %}
 ```csharp
@@ -234,10 +234,48 @@ public static string RenderVerticalSlider(int currPos, int maxPos, int Left, int
 ```
 {% endcode %}
 
+{% code title="ProgressBarColor.cs" lineNumbers="true" %}
+```csharp
+public static void WriteProgressPlain(double Progress, int Left, int Top, int WidthOffset, bool DrawBorder = true, bool Targeted = false)
+public static void WriteProgressPlain(double Progress, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, bool DrawBorder = true, bool Targeted = false)
+public static void WriteProgress(double Progress, int Left, int Top, int WidthOffset, bool DrawBorder = true, bool Targeted = false)
+public static void WriteProgress(double Progress, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, bool DrawBorder = true, bool Targeted = false)
+public static void WriteProgress(double Progress, int Left, int Top, int WidthOffset, Color ProgressColor, bool DrawBorder = true, bool Targeted = false)
+public static void WriteProgress(double Progress, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, Color ProgressColor, bool DrawBorder = true, bool Targeted = false)
+public static void WriteProgress(double Progress, int Left, int Top, int WidthOffset, Color ProgressColor, Color FrameColor, bool DrawBorder = true, bool Targeted = false)
+public static void WriteProgress(double Progress, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, Color ProgressColor, Color FrameColor, bool DrawBorder = true, bool Targeted = false)
+public static void WriteProgress(double Progress, int Left, int Top, int WidthOffset, Color ProgressColor, Color FrameColor, Color BackgroundColor, bool DrawBorder = true, bool Targeted = false)
+public static void WriteProgress(double Progress, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, Color ProgressColor, Color FrameColor, Color BackgroundColor, bool DrawBorder = true, bool Targeted = false)
+public static string RenderProgressPlain(double Progress, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, bool DrawBorder = true, bool Targeted = false)
+public static string RenderProgress(double Progress, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, Color ProgressColor, bool DrawBorder = true, bool Targeted = false)
+public static string RenderProgress(double Progress, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, Color ProgressColor, Color FrameColor, bool DrawBorder = true, bool Targeted = false)
+public static string RenderProgress(double Progress, int Left, int Top, int LeftWidthOffset, int RightWidthOffset, Color ProgressColor, Color FrameColor, Color BackgroundColor, bool DrawBorder = true, bool Targeted = false)
+```
+{% endcode %}
+
+{% code title="ProgressBarVerticalColor.cs" lineNumbers="true" %}
+```csharp
+public static void WriteVerticalProgressPlain(double Progress, int Left, int Top, int HeightOffset, bool DrawBorder = true)
+public static void WriteVerticalProgressPlain(double Progress, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, bool DrawBorder = true)
+public static void WriteVerticalProgress(double Progress, int Left, int Top, int HeightOffset, bool DrawBorder = true)
+public static void WriteVerticalProgress(double Progress, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, bool DrawBorder = true)
+public static void WriteVerticalProgress(double Progress, int Left, int Top, int HeightOffset, Color ProgressColor, bool DrawBorder = true)
+public static void WriteVerticalProgress(double Progress, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, Color ProgressColor, bool DrawBorder = true)
+public static void WriteVerticalProgress(double Progress, int Left, int Top, int HeightOffset, Color ProgressColor, Color FrameColor, bool DrawBorder = true)
+public static void WriteVerticalProgress(double Progress, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, Color ProgressColor, Color FrameColor, bool DrawBorder = true)
+public static void WriteVerticalProgress(double Progress, int Left, int Top, int HeightOffset, Color ProgressColor, Color FrameColor, Color BackgroundColor, bool DrawBorder = true)
+public static void WriteVerticalProgress(double Progress, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, Color ProgressColor, Color FrameColor, Color BackgroundColor, bool DrawBorder = true)
+public static string RenderVerticalProgressPlain(double Progress, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, bool DrawBorder = true)
+public static string RenderVerticalProgress(double Progress, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, Color ProgressColor, bool DrawBorder = true)
+public static string RenderVerticalProgress(double Progress, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, Color ProgressColor, Color FrameColor, bool DrawBorder = true)
+public static string RenderVerticalProgress(double Progress, int Left, int Top, int TopHeightOffset, int BottomHeightOffset, Color ProgressColor, Color FrameColor, Color BackgroundColor, bool DrawBorder = true)
+```
+{% endcode %}
+
 Due to how difficult it was to determine the correct height from the left and the right offsets, we've decided to simplify things by replacing the offset system with the width/height system so that you can immediately determine the width and the height of your slider without having to perform additional calculations. This reduces the need of `ConsoleWrapper.Window{Width|Height}` call to determine the actual width/height from the two given offsets.
 
 {% hint style="info" %}
-We advise you to revise your slider calls and change them accordingly to represent the actual width/height.
+We advise you to revise your slider and/or progress bar calls and change them accordingly to represent the actual width/height.
 {% endhint %}
 
 ### Merged three custom binding classes
@@ -252,4 +290,61 @@ The `CustomBindings` class has been recently expanded to include code from itsel
 
 {% hint style="info" %}
 None of the functions are affected; just update your reference so that it points to `BindingsTools`.
+{% endhint %}
+
+### History system improvements
+
+{% code title="TermReaderState.cs" lineNumbers="true" %}
+```csharp
+public List<string> History
+```
+{% endcode %}
+
+{% code title="TermReaderTools.cs" lineNumbers="true" %}
+```csharp
+public static void SetHistory(List<string> History)
+public static void ClearHistory()
+```
+{% endcode %}
+
+The history system has seen a number of improvements that resulted in it being a standalone component that connects with the terminal reader to make the history function of the reader more powerful than before. As a result, we had to refactor some code, such as making the `History` property return an array instead of a list.
+
+{% hint style="info" %}
+Instead of directly referencing the two deleted methods from `TermReaderTools`, you should use the `HistoryTools` class to manipulate with the history.
+{% endhint %}
+
+### Color conversion and parsing tools refactored
+
+{% code title="Conversion tools" lineNumbers="true" %}
+```csharp
+public static class CmykConversionTools
+public static class CmyConversionTools
+public static class HslConversionTools
+public static class HsvConversionTools
+public static class RgbConversionTools
+public static class RybConversionTools
+public static class YiqConversionTools
+public static class YuvConversionTools
+```
+{% endcode %}
+
+{% code title="Parsing tools" lineNumbers="true" %}
+```csharp
+public static class CmykParsingTools
+public static class CmyParsingTools
+public static class HslParsingTools
+public static class HsvParsingTools
+public static class RgbParsingTools
+public static class RybParsingTools
+public static class YiqParsingTools
+public static class YuvParsingTools
+```
+{% endcode %}
+
+The conversion and the parsing routines have been recently reworked so that all color models have their own base class. This allows dynamic color conversion and easier implementation of the new color models in future Terminaux releases. This is to reduce the number of classes needed for a single color model.
+
+As a result, while the generic parsing and conversion tools are unaffected, we've moved all color model specific tools to their own color model class and overridden the base class methods to use the model specific override instead of the base one that parses all specifiers.
+
+{% hint style="info" %}
+
 {% endhint %}
