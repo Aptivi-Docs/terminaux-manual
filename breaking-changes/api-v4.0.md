@@ -353,7 +353,7 @@ Use the parsing and the conversion tools using the existing classes.
 
 {% code title="ProgressBarColor.cs" lineNumbers="true" %}
 ```csharp
-public static void WriteProgress..., bool Targeted = false)
+public static void WriteProgress [...] , bool Targeted = false)
 ```
 {% endcode %}
 
