@@ -137,3 +137,19 @@ This namespace contains these classes:
 Consult the below page to find out how to use these functions:
 
 {% embed url="https://aptivi.github.io/Terminaux/api/Terminaux.Writer.DynamicWriters.html" %}
+
+## Miscellaneous
+
+Some of the console writers allow customization, such as the bordered boxes or progress bars.
+
+### Borders
+
+You can customize the borders for some of the console writers that support borders by editing properties found in the global settings of the borders, which can be found in the `BorderSettings.GlobalSettings` property. You can pass your own instance of `BorderSettings` with your own customizations to the border and its properties to the supported writers and all the informational boxes. The following writers support editing the border settings:
+
+* `BorderColor`
+* `BorderTextColor`
+* `BoxFrameColor`
+* `ProgressBarColor`
+* `ProgressBarVerticalColor`
+* `SliderColor`
+* `SliderVerticalColor`

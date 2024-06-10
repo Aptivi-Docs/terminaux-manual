@@ -51,10 +51,15 @@ Additionally, if you wish to dryly set the colors on plain writers, you can use 
 * `RenderResetForeground()`
 * `RenderResetBackground()`
 
-if you don't want the color to leak. As for the foreground and the background colors, consider these:
+If you want to go back to the current color set by Terminaux, use one of the following:
+
+* `RenderRevertColors()`
+* `RenderRevertForeground()`
+* `RenderRevertBackground()`
+
+if you don't want the color to leak. As for the background colors, consider these:
 
 * Currently, `AllowBackground` is set to `false`, which means that background colors are disabled, unless forced. To enable background colors globally, you must enable it.
-* `AllowForeground` is also set to `false`, which means that foreground colors are disabled, unless forced. To enable foreground colors globally, you must enable it.
 {% endhint %}
 
 ## Background loading
@@ -91,3 +96,11 @@ You can also reset the colors either fully or selectively (foreground or backgro
 * `ResetColors()`: Resets both the foreground and the background colors.
 * `ResetForeground()`: Resets the foreground color.
 * `ResetBackground()`: Resets the background color.
+
+## Reverting the colors
+
+Reverting the colors to their currently set colors monitored by Terminaux can be done easily by calling one of the following functions:
+
+* `RevertColors()`: Reverts both the foreground and the background colors.
+* `RevertForeground()`: Reverts the foreground color.
+* `RevertBackground()`: Reverts the background color.

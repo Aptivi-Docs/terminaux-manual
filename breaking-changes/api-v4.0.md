@@ -362,3 +362,35 @@ We've removed the targeted argument for the horizontal progress bar writers as w
 {% hint style="danger" %}
 It's advised to remove all targeted parameter values and to make appropriate changes.
 {% endhint %}
+
+## From 4.0.x to 4.1.x
+
+Between the 4.0.x and 4.1.x version range, we've made the following breaking changes:
+
+### Removed `AllowForeground`
+
+{% code title="ColorTools.cs" lineNumbers="true" %}
+```csharp
+public static bool AllowForeground
+```
+{% endcode %}
+
+This was made initially to control whether setting foreground colors is allowed or not. However, its implementation had caused several bugs involving foreground colors for advanced rendered objects, such as the selection choices. Therefore, we've removed this property.
+
+{% hint style="warning" %}
+Unless you know what you're doing, you should refrain trying to re-implement it. You can, however, use convenience functions that behave similar to this property using the available functions in the `ColorTools` class.
+{% endhint %}
+
+### Replaced border settings with `BorderSettings`
+
+{% code title="BorderTools.cs" lineNumbers="true" %}
+```csharp
+public static class BorderTools
+```
+{% endcode %}
+
+The `BorderSettings` class has been introduced to allow you to more comfortably edit the border settings as a way to simplify the process of border customization. Consequently, we have to remove all the char-based overloads from all the supported writers and infoboxes and replace them with the `BorderSettings` version that simplifies the amount of arguments.
+
+{% hint style="info" %}
+Change your calls to such writers to use the `BorderSettings` overload.
+{% endhint %}
