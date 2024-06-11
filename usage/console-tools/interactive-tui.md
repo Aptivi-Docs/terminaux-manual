@@ -172,6 +172,8 @@ If everything goes well, you should see your TUI app refresh every 15 seconds:
 If the information box (the second pane) is overflown, the interactive TUI gives you an option to press `W` and `S` to scroll the pane, as well as `SHIFT + I` to display the whole content in the informational box. You can also use the mouse to scroll it up/down.
 {% endhint %}
 
+Bindings can also be configured to be executable even if there are no items in either the first pane or the second pane. However, you'll need to pass `true` to the last argument of the constructor of your binding instance, which controls this setting. Currently, it's set to false, meaning that this binding is not executable until there is at least one item.
+
 ### Colors for the TUI
 
 You can also specify the colors for your TUI application, too! Currently, your interactive TUI uses the regular colors defined under `InteractiveTuiStatus`.
