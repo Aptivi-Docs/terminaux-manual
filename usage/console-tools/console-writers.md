@@ -96,9 +96,9 @@ Alongside these writers, there are also writers that are categorized as "fancy" 
 * `TableColor`
   * Provides you with the necessary functions to allow you to render a table to the console.
 * `SliderVerticalColor`
-  * Provides you with the necessary functions to allow you to render a vertical slider to the console.
+  * Provides you with the necessary functions to allow you to render a vertical slider to the console. The `Absolute` versions of the functions are generally easier to use than the normal ones, because they describe ranges as actual numbers rather than the slider console cells.
 * `SliderColor`
-  * Provides you with the necessary functions to allow you to render a horizontal slider to the console.
+  * Provides you with the necessary functions to allow you to render a horizontal slider to the console. The `Absolute` versions of the functions are generally easier to use than the normal ones, because they describe ranges as actual numbers rather than the slider console cells.
 
 Consult the below page to find out how to use these functions.
 

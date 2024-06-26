@@ -26,6 +26,7 @@
   * [🖼️ Image Rendering](usage/console-tools/image-rendering.md)
   * [💠 Geometric Shapes](usage/console-tools/geometric-shapes.md)
   * [🕶️ Nerd Fonts](usage/console-tools/nerd-fonts.md)
+  * [📟 Terminal Info](usage/console-tools/terminal-info.md)
 * [📖 Input Reader](usage/input-reader/README.md)
   * [⌨️ Keybindings](usage/input-reader/keybindings.md)
   * [🔌 Custom Bindings](usage/input-reader/custom-bindings.md)
