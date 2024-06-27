@@ -42,3 +42,16 @@ You can also get colors for each pixel in the image using a file path, a byte ar
 {% hint style="info" %}
 Depending on the image size, it may take time to process the color data for each pixel. For the best results, try to make your images as small as possible.
 {% endhint %}
+
+If you don't want to provide an image file, stream, or array of bytes, or if you're making a UI concept, you can use the placeholder graphic renderer that can be easily be used like this:
+
+{% code title="Rendering a placeholder" lineNumbers="true" %}
+```csharp
+string rendered = ImageProcessor.RenderImage(40, 20, 4, 2);
+TextWriterRaw.WriteRaw(rendered);
+```
+{% endcode %}
+
+{% hint style="info" %}
+You can optionally specify a background color that the image renderer will use to render a transparent image with the background color that you've specified by passing a Color instance to the last argument of the `RenderImage()` functions. If not specified, it'll use your current background color.
+{% endhint %}

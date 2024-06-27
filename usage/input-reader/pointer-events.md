@@ -113,3 +113,10 @@ The topmost `if` statement is the mouse event, and the bottommost `if` statement
 {% hint style="warning" %}
 You must not directly stop the listener right after a mouse click has been detected without listening to the `Released` event, or Windows's listener might still think that a mouse button has been pressed when it's not.
 {% endhint %}
+
+## Pointer tools
+
+In addition to that, Terminaux provides the pointer tools that allow you to perform various operations to make building your console TUI applications easier. You can find the pointer tools in the `PointerTools` class, which are listed below:
+
+* `PointerWithinPoint()`: This function returns `true` if the mouse pointer (click, movement, etc.) is found within a single point. For example, it returns `true` if your mouse pointer at `(22, 4)` matches the provided point position `(22, 4)`.
+* `PointerWithinRange()`: This function returns `true` if the mouse pointer is found within a block range of the two points that form an invisible rectangle. For example, if you've specified `(22, 4)` and `(33, 6)` as two point ranges, and your mouse pointer has clicked on position `(25, 5)`, this function returns `true`.
