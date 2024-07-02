@@ -363,4 +363,60 @@ Think of these templates as a group of shortcuts. The template management system
 
 The color template management class can be found in the `TemplateTools` class, and an example code to demonstrate this feature can be found here:
 
-{% @github-files/github-code-block url="https://github.com/Aptivi/Terminaux/blob/main/Terminaux.Console/Fixtures/Cases/Writer/PrintTemplate.cs" %}
+{% code title="PrintTemplate.cs" lineNumbers="true" %}
+```csharp
+using Terminaux.Colors;
+using Terminaux.Colors.Templates;
+using Terminaux.Writer.ConsoleWriters;
+
+namespace Terminaux.Console.Fixtures.Cases.Writer
+{
+    internal class PrintTemplate : IFixture
+    {
+        public void RunFixture()
+        {
+            string name = "template";
+
+            // Default template
+            TextWriterColor.WriteColor("[Default - {0}] Hello world!", true, TemplateTools.GetColor(PredefinedComponentType.Text), TemplateTools.Exists(name));
+
+            // Custom template
+            string templateJson =
+                $$"""
+                {
+                    "Name": "{{name}}",
+                    "Components": {
+                        "Text": "#876543",
+                        "Component": 168555
+                    }
+                }
+                """;
+            var template = TemplateTools.GetTemplateFromJson(templateJson);
+            
+            // Template registration
+            TemplateTools.RegisterTemplate(template);
+            TextWriterColor.WriteColor("[Before - {0}] Hello world!", true, TemplateTools.GetColor(PredefinedComponentType.Text), TemplateTools.Exists(name));
+            
+            // Template setting
+            TemplateTools.SetDefaultTemplate(name);
+            TextWriterColor.WriteColor("[After - Text] Hello world!", true, TemplateTools.GetColor(PredefinedComponentType.Text));
+            TextWriterColor.WriteColor("[After - Component] Hello world!\n", true, TemplateTools.GetColor("Component"));
+            
+            // Colored component setting
+            TemplateTools.SetColor("Component", new Color(86));
+            TextWriterColor.WriteColor("[After - Component] Hello world!\n", true, TemplateTools.GetColor("Component"));
+            TextWriterColor.Write(TemplateTools.GetTemplateToJson());
+            
+            // Resetting
+            TemplateTools.ResetDefaultTemplate();
+            TextWriterColor.WriteColor("\n[Reset - {0}] Hello world!", true, TemplateTools.GetColor(PredefinedComponentType.Text), TemplateTools.Exists(name));
+            
+            // Unregistering
+            TemplateTools.UnregisterTemplate(name);
+            TextWriterColor.WriteColor("[Reset - {0}] Hello world!\n", true, TemplateTools.GetColor(PredefinedComponentType.Text), TemplateTools.Exists(name));
+            TextWriterColor.Write(TemplateTools.GetTemplateToJson());
+        }
+    }
+}
+```
+{% endcode %}
