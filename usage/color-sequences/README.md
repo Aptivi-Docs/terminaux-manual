@@ -69,6 +69,8 @@ The `ColorSpecifier` can be of the syntax:
   * `<y>`, `<i>`, and `<q>` should be of the range between 0 and 255
 * `yuv:<y>;<u>;<v>`
   * `<y>`, `<u>`, and `<v>` should be of the range between 0 and 255
+* `xyz:<x>;<y>;<z>`
+  * `<x>`, `<y>`, and `<z>` should be of the range between 0 and 100 in floating point units
 * `#000000`
   * Hexadecimal representation of the color for HTML fans. You can also use the `#RGB` format, implying that the three digits represent:
     * R: Red color level converted to RR (F becomes FF)
@@ -157,6 +159,8 @@ You can get detailed information about the console color ranging from 0 to 255 b
 ```csharp
 public static partial ConsoleColorData[] GetColorData();
 ```
+
+Similarly, you can also get the web-safe color list by using the `WebSafeColors` class and the `GetColorList()` function. Properties that specify every color are also available under the same class.
 
 ## Simulating color-blindness
 

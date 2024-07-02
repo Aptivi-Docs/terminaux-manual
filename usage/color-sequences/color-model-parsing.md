@@ -14,22 +14,13 @@ In addition to Terminaux supporting RGB color model, you can also use the CMYK a
 * RYB's specifier is `ryb:rrr;yyy;bbb`
 * YIQ's specifier is `yiq:yyy;iii;qqq`
 * YUV's specifier is `ryb:yyy;uuu;vvv`
+* XYZ's specifier is `xyz:xxx;yyy;zzz`
 
-To get a color instance from just the specifiers mentioned above, you first have to pick a source specifier. For example, if you want an HSV color instance from its specifier, you must have a string that holds the HSV color specifier as mentioned above. Then, you can call the `HsvParsingTools`'s `ParseSpecifier()` function to get an HSV instance.
+To get a color instance from just the specifiers mentioned above, you first have to pick a source specifier. For example, if you want an RGB color instance from HSV's specifier, you must have a string that holds the HSV color specifier as mentioned above. Then, you can call the `ParsingTools`'s `ParseSpecifier()` function, passing it that specifier, to get an RGB instance that you can convert to HSV using the available conversion tools that you can consult in the below page.
 
-The below parsing tools can be used:
-
-* `CmyParsingTools`: Parses the CMY specifier
-* `CmykParsingTools`: Parses the CMYK specifier
-* `HslParsingTools`: Parses the HSL specifier
-* `HsvParsingTools`: Parses the HSV specifier
-* `RgbParsingTools`: Parses the RGB specifier
-* `RybParsingTools`: Parses the RYB specifier
-* `YiqParsingTools`: Parses the YIQ specifier
-* `YuvParsingTools`: Parses the YUV specifier
-* `ParsingTools`: Parses the general specifiers
-
-Alternatively, if you want to get an RGB instance from any specifier other than RGB, you can use the `ParseSpecifierToRgb()` function in all the parsing tools, except the RGB one, to get an RGB instance derived from the resulting source color model.
+{% content-ref url="color-model-conversions.md" %}
+[color-model-conversions.md](color-model-conversions.md)
+{% endcontent-ref %}
 
 {% hint style="info" %}
 You have two options if you don't want to rely on exceptions:
@@ -37,5 +28,5 @@ You have two options if you don't want to rely on exceptions:
 * For boolean-based checks, you can rely on the output of the `IsSpecifierValidRgbHash()`, `IsSpecifierConsoleColors()`, and `IsSpecifierValid()` on `ParsingTools`.
 * If you want to also check the values, you can consult the `...AndValueValid()` sibling functions.
 
-You can also use the color-model-specific `IsSpecifierValid()` function, such as `RybParsingTools`.
+You can also use the color-model-specific `IsSpecifierValid()` function, such as `RedYellowBlue`.
 {% endhint %}
