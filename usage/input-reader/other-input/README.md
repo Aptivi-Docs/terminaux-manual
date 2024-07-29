@@ -57,6 +57,7 @@ If you want to obtain the `InputChoiceInfo` array, you can use the `InputChoiceT
 Below functions will help you get an array of `InputChoiceInfo`:
 
 * `GetInputChoices((string, string)[] Answers)`
+* `GetInputChoices(string[] Answers)`
 
 {% hint style="info" %}
 You can use this output to define choices while calling the above input functions.

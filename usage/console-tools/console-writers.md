@@ -118,6 +118,8 @@ Finally, the miscellaneous writers are the writers that don't have any meaningfu
   * Provides you with the necessary functions to simulate a typewriter that writes a text in a specific position to the console with and without color.
 * `TextWriterWrappedColor`
   * Provides you with the necessary functions to allow you to wrap long outputs to pages, also called a pager.
+* `KeybindingsWriter`
+  * Provides you with the nececssary functions that allow you to write the horizontal list of keybindings according to the list specified.
 
 Consult the below page to find out how to use these functions:
 
