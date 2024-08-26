@@ -14,7 +14,7 @@ Terminaux offers the console screen feature, which allows you to define a screen
 
 You can get started by making a new instance of the `Screen` class and using it to add a new `ScreenPart` instance with its name to make a layer for your rendering sequences. This facilitates buffering the screens to the console.
 
-The screen part instance allows you to add text in different ways:
+The screen part instance allows you to add text and sequences in different ways:
 
 * `AddText()`: Adds a simple and static text to the buffer
 * `AddTextLine()`: Adds a simple and static text to the buffer with the extra new line
@@ -30,6 +30,7 @@ The screen part instance allows you to add text in different ways:
 * `Clear()`: Clears the whole buffer.
 * `GetBuffer()`: Gets the resulting buffer.
 * `RequireRefresh()`: Tells the screen system to require a refresh.
+* `Visible`: Controls the visibility of the entire part
 
 {% hint style="info" %}
 `AddDynamicText()` is needed if you want to display anything that changes, including a box that changes when the console is resized.
@@ -124,7 +125,7 @@ In addition to these functions, you can use some of the console manipulation too
 * `BackgroundColor()`
 * `ResetColor()`
 
-If you want to clear the queue list without printing the buffers to the console, you can clear the list of dynamic buffers using the `Clear()` function.
+If you want to clear the queue list without printing the buffers to the console, you can clear the list of dynamic buffers using the `Clear()` function. You can also control its visibility using the Visible property.
 
 #### Screen Tools
 
