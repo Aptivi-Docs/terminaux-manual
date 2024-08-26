@@ -6,6 +6,7 @@
   * [⬆️ API v2.0](breaking-changes/api-v2.0.md)
   * [⬆️ API v3.0](breaking-changes/api-v3.0.md)
   * [⬆️ API v4.0](breaking-changes/api-v4.0.md)
+  * [⬆️ API v5.0](breaking-changes/api-v5.0.md)
 
 ## Usage
 

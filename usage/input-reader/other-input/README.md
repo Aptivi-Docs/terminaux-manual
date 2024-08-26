@@ -8,9 +8,9 @@ Terminaux not only provides the normal input reader with its custom bindings and
 
 Terminaux currently provides the following input styles:
 
-* Choice (one line, two lines, modern, and table)
+* Choice (one line, two lines, and modern)
 * Info box (buttons, normal, input, password input, progress, slider (with minimum, current, and maximum values), selection, and multiple choices)
-* Selection (single choice, multiple choices)
+* Selection (single choice and multiple choices)
 
 In addition to the three styles, you can also consult the following additional and specialized styles:
 
