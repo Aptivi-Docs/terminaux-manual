@@ -102,11 +102,13 @@ Depending on your input method, you can at least override the following:
 * `Process()`: A method that processes the input to validate it. True means that it's valid, and false means that it's invalid.
 
 {% hint style="info" %}
-You can override all the functions and the properties in the `BaseInputMethod` class, but be sure that you consider the use cases of your input method.
-{% endhint %}
-
-{% hint style="success" %}
-There's no need for you to register your input method!
+You can override all the functions and the properties in the `BaseInputMethod` class, but be sure that you consider the use cases of your input method. However, there's no need for you to register your input method!
 {% endhint %}
 
 The presentation system checks the page to see if there are any input instances. If true, you'll be presented with an informational box telling you to select an input to fill. The asterisk next to the number denotes the required input. This means that users should fill in such input before being able to go on. Those without the asterisk means that it's fully optional.
+
+You can customize how your slideshow looks using the following properties:
+
+* `BorderSettings`: Customizes your presentation's borders
+* `FrameColor`: Customizes your presentation's border frame color
+* `BackgroundColor`: Customizes your presentation's background color

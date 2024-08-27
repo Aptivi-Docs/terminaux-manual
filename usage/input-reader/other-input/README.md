@@ -11,6 +11,7 @@ Terminaux currently provides the following input styles:
 * Choice (one line, two lines, and modern)
 * Info box (buttons, normal, input, password input, progress, slider (with minimum, current, and maximum values), selection, and multiple choices)
 * Selection (single choice and multiple choices)
+* Editor (Text and hex editors and viewers)
 
 In addition to the three styles, you can also consult the following additional and specialized styles:
 

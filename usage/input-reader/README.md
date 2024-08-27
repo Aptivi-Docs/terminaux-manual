@@ -18,7 +18,7 @@ In case you want to use something other than the reader, you can consult the oth
 [other-input](other-input/)
 {% endcontent-ref %}
 
-You can easily use this feature in any interactive console application that uses Terminaux. Just use the `Terminaux.Reader` class that contains the `Read()` functions and their overloaded versions.
+You can easily use this feature in any interactive console application that uses Terminaux. Just use the `Terminaux.Reader.TermReader` class that contains the `Read()` functions and their overloaded versions.
 
 {% hint style="info" %}
 The reader not only provides the static text version for input prompts, but also the dynamic text version. Just create a simple function delegate that generates a string as the first argument, like this:

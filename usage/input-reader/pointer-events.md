@@ -10,7 +10,7 @@ Terminaux not only provides keyboard-based input, but it also provides mouse-bas
 Terminaux is the **#1** console manipulation library that proudly features console mouse pointer support; something that competitors like `Spectre.Console` don't provide!
 {% endhint %}
 
-Do you want to enable it in your application? If so, you'll need a single call to a function that starts the mouse click and move event handler, called `StartListening()` in `PointerListener`. Once started, the handler listens to every single mouse-based event based on the following conditions:
+Do you want to enable it in your application? If so, you'll need to set the `MouseEnabled` property value to `true` that is found in the `Input` class. Once started, the application that waits for mouse events respond to every single mouse-based event based on the following conditions:
 
 * If the user has moved their mouse and the movement events are acknowledged according to the `EnableMovementEvents` property, a `PointerEventContext` is made with `ButtonPress` being `Moved`.
 * If the user has clicked anywhere on the console, a `PointerEventContext` is made with `ButtonPress` being `Clicked`. Also, the `Button` property indicates what mouse button was being pressed at the time. As soon as the user has let go of the same button, another context is made with `ButtonPress` being `Released`.
@@ -29,55 +29,34 @@ Here are some notes to consider before implementing pointer support to your Term
 * On Linux, macOS, and Android, there may be residual input when using the terminal reader in conjunction with the pointer listener. This is something to be considered as part of the polishing plan.
 {% endhint %}
 
-You have two ways to subscribe to mouse events:
-
-* Using C# event handling mechanism
-* Using helper functions to grab a mouse event
-
 {% hint style="info" %}
 All of the input methods that use the whole screen, such as selection and [your interactive TUI](../console-tools/interactive-tui.md) apps, support mouse.
 {% endhint %}
 
-## Event handling mechanism
-
-The first way to subscribe to such events is using the `MouseEvent` event to register your event handler that handles all mouse input. This is suitable for simple applications only, so we recommend using the helper functions to listen to the mouse events. You can subscribe and unsubscribe to the mouse events like this:
-
-```csharp
-PointerListener.MouseEvent += MouseEvent;
-PointerListener.StartListening();
-// your code...
-PointerListener.MouseEvent -= MouseEvent;
-PointerListener.StopListening();
-```
-
-For example, Terminaux provides a demo that you can demonstrate mouse events like this:
-
-<figure><img src="../../.gitbook/assets/mouse.png" alt=""><figcaption></figcaption></figure>
-
-However, for more complex applications, you'll need to move on to the second method.
-
 ## Helper functions
 
-Terminaux's mouse pointer listener provides you with a wide assortment of helper functions and properties to enable your Terminaux application to listen to the mouse events. The following functions and properties are available:
+Terminaux's mouse feature provides you with a wide assortment of helper functions and properties to enable your Terminaux application to listen to the mouse events. The following functions and properties are available:
 
-* `PointerListener.Listening`
-* `PointerListener.InputAvailable`
-* `PointerListener.PointerAvailable`
-* `PointerListener.PointerActive`
-* `PointerListener.InvertScrollYAxis`: Inverts the Y axis for vertical scrolling
-* `PointerListener.SwapLeftRightButtons`: Swaps the left/right mouse buttons
-* `PointerListener.ReadPointerNow()`
-* `TermReader.ReadPointer()`
-* `TermReader.ReadPointerOrKey()`
+* `Input.Listening`
+* `Input.KeyboardInputAvailable`
+* `Input.MouseInputAvailable`
+* `Input.InputAvailable`
+* `Input.PointerActive`
+* `Input.InvertScrollYAxis`: Inverts the Y axis for vertical scrolling
+* `Input.SwapLeftRightButtons`: Swaps the left/right mouse buttons
+* `Input.DoubleClickTimeout`
+* `Input.EnableMovementEvents`
+* `Input.ReadPointer()`
+* `Input.ReadPointerOrKey()`
 
 At first, this may sound complicated, but it's rather easy to use. Inspired by the same concept of listening to console keyboard events using `ReadKey()` and `KeyAvailable`, you can use almost the same trick for mouse pointer events, albeit you'll always want to be able to handle both mouse and keyboard events.
 
-The easiest way to listen to both the mouse and the keyboard events using this method is this:
+The easiest way to listen to both the mouse and the keyboard events is this:
 
 ```csharp
 // ...your code, usually screen rendering
-SpinWait.SpinUntil(() => PointerListener.InputAvailable);
-if (PointerListener.PointerAvailable)
+SpinWait.SpinUntil(() => Input.InputAvailable);
+if (Input.MouseInputAvailable)
 {
     // Mouse input received.
     var mouse = TermReader.ReadPointer();
@@ -86,7 +65,7 @@ if (PointerListener.PointerAvailable)
         // Insert case statements here...
     }
 }
-else if (ConsoleWrapper.KeyAvailable && !PointerListener.PointerActive)
+else if (ConsoleWrapper.KeyAvailable && !Input.PointerActive)
 {
     // Keyboard input received.
     var key = TermReader.ReadKey();

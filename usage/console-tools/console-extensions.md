@@ -52,11 +52,9 @@ Your terminal emulator may not support all the formatting modes, so consult your
 
 You can also manipulate with the console characters using the following functions:
 
-* `GetCharWidth()`
 * `EstimateCellWidth()`
 * `EstimateZeroWidths()`
 * `EstimateFullWidths()`
-* `GetCharWidthType()`
 
 {% hint style="info" %}
 Please note that this information doesn't indicate the string length either by the amount of UTF-8 characters or by the text element as `StringInfo` class returns. This indicates how many console grid cells a character or a sentence consumes.
