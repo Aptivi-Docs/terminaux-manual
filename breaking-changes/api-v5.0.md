@@ -249,6 +249,10 @@ public static class InputChoiceTools
 
 The two above classes have been moved to `Terminaux.Inputs.Styles` as the input choice is actually considered as an input style and is not part of the base input, which the `Input` class defines.
 
+{% hint style="info" %}
+Change the using clause that contain both classes to use `Terminaux.Inputs.Styles`.
+{% endhint %}
+
 ### `InitializeSequences()` moved
 
 {% code title="ConsolePositioning.cs" lineNumbers="true" %}
@@ -259,6 +263,10 @@ public static bool InitializeSequences()
 
 This function has nothing to do with cursor positioning, so we've moved it outside `CursorPositioning` to the `ConsoleMisc` extension group.
 
+{% hint style="info" %}
+We haven't changed the name of the function or its functionality, but you should change all references that point to this function to reference the `ConsoleMisc` class.
+{% endhint %}
+
 ### Removed `SelectionStyleSwitches`
 
 {% code title="SelectionStyleSwitches.cs" lineNumbers="true" %}
@@ -268,6 +276,10 @@ public static class SelectionStyleSwitches
 {% endcode %}
 
 Currently, we don't have any use of this class because we've removed showing page count and choice count, so we've decided to remove this class until further notice. It'll be back in a non-static form under a different name.
+
+{% hint style="warning" %}
+It will be back in a future Terminaux release, so be patient.
+{% endhint %}
 
 ### Outsourced character width tools to Textify
 
