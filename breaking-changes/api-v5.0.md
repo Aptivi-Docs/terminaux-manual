@@ -181,6 +181,10 @@ We've changed how you can define your keybindings. Instead of being required to 
 
 You'll have to change how you define these functions that get bound to a key or a mouse button and you'll have to add your keybindings to the instance immediately after creating a new instance of your interactive TUI class before actually opening it.
 
+{% hint style="info" %}
+You may also have to change your action code if there are two panes that are accessible.
+{% endhint %}
+
 #### Interactive TUI types are now more flexible
 
 {% code title="BaseInteractiveTui.cs" lineNumbers="true" %}
