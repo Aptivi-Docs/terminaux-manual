@@ -4,208 +4,298 @@ description: Your apps are now interactive
 
 # ⌨️ Interactive TUI
 
-_TODO: Update this to reflect Terminaux 100% by rebuilding this page from scratch._
+Terminaux allows you to build interactive terminal applications based on data sets that consist of either a single type or a double type. Using the interactive TUI feature is straightforward, but you'll need to tell the interactive TUI tool how to render your data. This is achieved by creating a class that consists of either a single data type or a double data type:
 
-The interactive TUI allows you to make your apps interactive if they provide one or two data sources, which consist of a list of strings, integers, and even class instances, to make getting information about them easier. The interactive TUI renders the screen in two panes, the top being a status bar, and the bottom being a list of key bindings. For clarification, the `ifm` command uses the double pane interactive TUI and the `taskman` command uses the single pane interactive TUI with info in the second pane:
+## Preparation
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption><p>Double-paned interactive TUI with the ability to switch between two panes</p></figcaption></figure>
+Before being able to display it, you'll need to prepare a class with one or two of the data types of your choice:
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption><p>Single-paned interactive TUI</p></figcaption></figure>
+* Single data type: You can implement the `BaseInteractiveTui<T>` class and the `IInteractiveTui<T>` interface in your own TUI class.
+* Double data type: You can implement the `BaseInteractiveTui<TPrimary, TSecondary>` class and the `IInteractiveTui<TPrimary, TSecondary>` interface in your own TUI class.
 
-{% hint style="info" %}
-You can exit out of any interactive TUI application by pressing the `ESC` key on your keyboard.
-
-You can also press `F` to initiate a case-insensitive search for long choice selections to point you quickly to the desired choice.
+{% hint style="warning" %}
+The single data type implementation can be applied in the interactive TUIs that accept two panes, but using double data type implementation in said TUIs will result in only the primary one being used.
 {% endhint %}
 
-## Can I make one, too?
+### Single data type interactive TUI
 
-Yes! You can make your own interactive TUI application. Depending on your requirements, you may want to make a plan as to how would your interactive TUI application be.
+When working with an interactive TUI that contains only a single data type, you must implement both the `BaseInteractiveTui<T>` class and the `IInteractiveTui<T>` interface in your own TUI class so that you can choose what type your data source (list of data) will be. A simple example of an interactive TUI of this type with keybinding action functions is:
 
-For each application, you must make a class that would implement both the `BaseInteractiveTui` class and the `IInteractiveTui` interface, just like below:
-
-{% code title="MyTui.cs" lineNumbers="true" %}
+{% code lineNumbers="true" %}
 ```csharp
-internal class MyTui : BaseInteractiveTui<string>, IInteractiveTui<string>
+internal class CliInfoPaneTestData : BaseInteractiveTui<string>, IInteractiveTui<string>
 {
-    public override InteractiveTuiBinding[] Bindings { get; } =
-    [
-        new InteractiveTuiBinding("Action", ConsoleKey.F1, (data, _) => Proceed(data))
-    ];
+    internal static List<string> strings = [];
 
+    /// <inheritdoc/>
     public override IEnumerable<string> PrimaryDataSource =>
-        new string[] { "One", "Two", "Three", "Four" };
+        strings;
 
-    public override string GetStatusFromItem(string item) =>
-        item;
+    /// <inheritdoc/>
+    public override bool AcceptsEmptyData =>
+        true;
 
-    public override string GetEntryFromItem(string item)
+    /// <inheritdoc/>
+    public override string GetInfoFromItem(string item)
     {
-        return $" [{item}]";
+        string selected = item;
+
+        // Check to see if we're given the test info
+        if (string.IsNullOrEmpty(selected))
+            return " No info.";
+        else
+            return $" {selected}";
     }
 
-    private static void Proceed(object data)
+    /// <inheritdoc/>
+    public override string GetEntryFromItem(string item)
     {
-        string currentItem = (string)data;
-        InfoBoxColor.WriteInfoBox(currentItem);
-        InteractiveTuiStatus.RedrawRequired = true;
+        string selected = item;
+        return selected;
+    }
+
+    internal void Add(int index)
+    {
+        strings.Add($"[{index}] --+-- [{index}]");
+    }
+
+    internal void Remove(int index)
+    {
+        if (strings.Count > 0)
+            strings.RemoveAt(index);
+    }
+
+    internal void RemoveLast()
+    {
+        if (strings.Count > 0)
+            strings.RemoveAt(strings.Count - 1);
     }
 }
 ```
 {% endcode %}
 
-However, you cannot execute your interactive TUI based on your class unless you use this (assuming that you've already defined a command entry in your mod entry point class called `mycommand`):
+This results in the console UI showing up like this:
 
-{% code title="MyCommand.cs" lineNumbers="true" %}
-```csharp
-public override void Execute(string StringArgs, string[] ListArgsOnly, string[] ListSwitchesOnly) =>
-    InteractiveTuiTools.OpenInteractiveTui(new MyTui());
-```
-{% endcode %}
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-If everything goes well, you should see this:
+You can also use this in an interactive TUI that accepts two data sources by overriding `SecondPaneInteractable` to true, just like this:
 
-<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
-
-And if you press your key binding, you'll get this:
-
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
-
-For multiple panes, you'll have to modify your class to take two data sources and adapt it to interact with the second pane, like below: (note the highlighted parts, they are added)
-
-<pre class="language-csharp" data-title="MyTui.cs" data-line-numbers><code class="lang-csharp">internal class MyTui : BaseInteractiveTui&#x3C;string>, IInteractiveTui&#x3C;string>
+<pre class="language-csharp" data-line-numbers><code class="lang-csharp">internal class CliDoublePaneTestData : BaseInteractiveTui&#x3C;string>, IInteractiveTui&#x3C;string>
 {
-    public override InteractiveTuiBinding[] Bindings { get; } =
-    [
-        new InteractiveTuiBinding("Action", ConsoleKey.F1, (data, _) => Proceed(data)),
-    ];
+    internal static List&#x3C;string> strings = [];
+    internal static List&#x3C;string> strings2 = [];
+
+    /// &#x3C;inheritdoc/>
+    public override IEnumerable&#x3C;string> PrimaryDataSource =>
+        strings;
+
+    /// &#x3C;inheritdoc/>
+    public override IEnumerable&#x3C;string> SecondaryDataSource =>
+        strings2;
 
 <strong>    public override bool SecondPaneInteractable =>
 </strong><strong>        true;
 </strong>
-    public override IEnumerable&#x3C;string> PrimaryDataSource =>
-        new string[] { "One", "Two", "Three", "Four" };
+    /// &#x3C;inheritdoc/>
+    public override bool AcceptsEmptyData =>
+        true;
 
-<strong>    public override IEnumerable&#x3C;string> SecondaryDataSource =>
-</strong><strong>        new string[] { "Five", "Six", "Seven", "Eight", "Nine", "Ten" };
-</strong>
+    /// &#x3C;inheritdoc/>
     public override string GetStatusFromItem(string item) =>
+        string.IsNullOrEmpty(item) ? "No info." : item;
+
+    /// &#x3C;inheritdoc/>
+    public override string GetEntryFromItem(string item) =>
         item;
 
-    public override string GetEntryFromItem(string item)
+    /// &#x3C;inheritdoc/>
+    public override string GetStatusFromItemSecondary(string item) =>
+        string.IsNullOrEmpty(item) ? "No info." : item;
+
+    /// &#x3C;inheritdoc/>
+    public override string GetEntryFromItemSecondary(string item) =>
+        item;
+
+    internal void Add(int index, int index2)
     {
-        return $" [{item}]";
+        if (CurrentPane == 2)
+            strings2.Add($"[{index2}] --2-- [{index2}]");
+        else
+            strings.Add($"[{index}] --1-- [{index}]");
     }
 
-    private static void Proceed(object data)
+    internal void Remove(int index, int index2)
     {
-        string currentItem = (string)data;
-        InfoBoxColor.WriteInfoBox(currentItem);
-        InteractiveTuiStatus.RedrawRequired = true;
+        if (CurrentPane == 2)
+        {
+            if (index2 &#x3C; strings2.Count &#x26;&#x26; strings2.Count > 0)
+                strings2.RemoveAt(index2 == 0 ? index2 : index2 - 1);
+            if (SecondPaneCurrentSelection > strings2.Count)
+                InteractiveTuiTools.SelectionMovement(this, strings2.Count);
+        }
+        else
+        {
+            if (index &#x3C; strings.Count &#x26;&#x26; strings.Count > 0)
+                strings.RemoveAt(index == 0 ? index : index - 1);
+            if (FirstPaneCurrentSelection > strings.Count)
+                InteractiveTuiTools.SelectionMovement(this, strings.Count);
+        }
+    }
+
+    internal void RemoveLast()
+    {
+        if (CurrentPane == 2)
+        {
+            if (strings2.Count > 0)
+                strings2.RemoveAt(strings2.Count - 1);
+            if (SecondPaneCurrentSelection > strings2.Count)
+                InteractiveTuiTools.SelectionMovement(this, strings2.Count);
+        }
+        else
+        {
+            if (strings.Count > 0)
+                strings.RemoveAt(strings.Count - 1);
+            if (FirstPaneCurrentSelection > strings.Count)
+                InteractiveTuiTools.SelectionMovement(this, strings.Count);
+        }
     }
 }
 </code></pre>
 
-If everything goes well, you should be able to switch to the second pane, causing you to be able to select items from the second pane:
+### Double data type interactive TUI
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+Your interactive TUI can also accept two different data types, but it must accept two data sources in order for this to work. Otherwise, only the primary type is considered. When working with an interactive TUI that contains two data types, you must implement both the `BaseInteractiveTui<TPrimary, TSecondary>` class and the `IInteractiveTui<TPrimary, TSecondary>` interface in your own TUI class. A simple example of an interactive TUI of this type with keybinding action functions is:
 
-And if you try to execute your key binding on an item found in the second pane, you'll see this:
-
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
-
-{% hint style="info" %}
-For the interactive TUI binding, you can also use the mouse to create custom TUI bindings, such as:
-
+{% code lineNumbers="true" %}
 ```csharp
-new InteractiveTuiBinding("Delete", PointerButton.Right, PointerButtonPress.Released, (_, index) => Remove(index)),
-```
-
-You can specify the pointer button (required), the pointer button press mode (optional), and the pointer modifiers (optional).
-{% endhint %}
-
-Additionally, you can make your TUI app refresh every set millisecond so that your app can update itself based on the **selected** data, like weather for the selected city. For this, you need an information source that is dynamic and self-updating (from the `GetInfoFromItem()` function), like stopwatches, random data, or even self-updating data gathered from the Internet, based on the selected item in the first pane, assuming that you know how to process them correctly.
-
-For example, to use the Textify library to make a single-paned TUI application that gathers random names to list 10 names in the info pane, you must add a NuGet package, Textify, to your mod's dependencies. To learn more about how to use this library, consult the below page:
-
-{% content-ref url="https://app.gitbook.com/s/NaUWjRlaBR1k5rO42Zy8/usage/how-to-use" %}
-[How to use](https://app.gitbook.com/s/NaUWjRlaBR1k5rO42Zy8/usage/how-to-use)
-{% endcontent-ref %}
-
-The code that would do this would look like this:
-
-<pre class="language-csharp" data-title="MyTui.cs" data-line-numbers><code class="lang-csharp">internal class MyTui : BaseInteractiveTui&#x3C;string>, IInteractiveTui&#x3C;string>
+internal class CliDoublePaneTestData : BaseInteractiveTui<string, string>, IInteractiveTui<string, string>
 {
-    public override InteractiveTuiBinding[] Bindings { get; } = [];
+    internal static List<string> strings = [];
+    internal static List<string> strings2 = [];
 
-    public override int RefreshInterval => 15000;
+    /// <inheritdoc/>
+    public override IEnumerable<string> PrimaryDataSource =>
+        strings;
 
-    public override IEnumerable&#x3C;string> PrimaryDataSource =>
-        new string[] { "Test" };
+    /// <inheritdoc/>
+    public override IEnumerable<string> SecondaryDataSource =>
+        strings2;
 
+    public override bool SecondPaneInteractable =>
+        true;
+
+    /// <inheritdoc/>
+    public override bool AcceptsEmptyData =>
+        true;
+
+    /// <inheritdoc/>
     public override string GetStatusFromItem(string item) =>
+        string.IsNullOrEmpty(item) ? "No info." : item;
+
+    /// <inheritdoc/>
+    public override string GetEntryFromItem(string item) =>
         item;
 
-    public override string GetEntryFromItem(string item)
+    /// <inheritdoc/>
+    public override string GetStatusFromItemSecondary(string item) =>
+        string.IsNullOrEmpty(item) ? "No info." : item;
+
+    /// <inheritdoc/>
+    public override string GetEntryFromItemSecondary(string item) =>
+        item;
+
+    internal void Add(int index, int index2)
     {
-        return $" [{item}]";
+        if (CurrentPane == 2)
+            strings2.Add($"[{index2}] --2-- [{index2}]");
+        else
+            strings.Add($"[{index}] --1-- [{index}]");
     }
-<strong>    public override string GetInfoFromItem(string item)
-</strong><strong>    {
-</strong><strong>        var namesBuilder = new StringBuilder();
-</strong><strong>
-</strong><strong>        var list = NameGenerator.GenerateNames(10);
-</strong><strong>        for (int i = 0; i &#x3C; list.Count; i++)
-</strong><strong>        {
-</strong><strong>            string name = list[i];
-</strong><strong>            namesBuilder.AppendLine(name);
-</strong><strong>        }
-</strong><strong>
-</strong><strong>        return namesBuilder.ToString();
-</strong><strong>    }
-</strong>}
-</code></pre>
 
-If everything goes well, you should see your TUI app refresh every 15 seconds:
+    internal void Remove(int index, int index2)
+    {
+        if (CurrentPane == 2)
+        {
+            if (index2 < strings2.Count && strings2.Count > 0)
+                strings2.RemoveAt(index2 == 0 ? index2 : index2 - 1);
+            if (SecondPaneCurrentSelection > strings2.Count)
+                InteractiveTuiTools.SelectionMovement(this, strings2.Count);
+        }
+        else
+        {
+            if (index < strings.Count && strings.Count > 0)
+                strings.RemoveAt(index == 0 ? index : index - 1);
+            if (FirstPaneCurrentSelection > strings.Count)
+                InteractiveTuiTools.SelectionMovement(this, strings.Count);
+        }
+    }
 
-<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+    internal void RemoveLast()
+    {
+        if (CurrentPane == 2)
+        {
+            if (strings2.Count > 0)
+                strings2.RemoveAt(strings2.Count - 1);
+            if (SecondPaneCurrentSelection > strings2.Count)
+                InteractiveTuiTools.SelectionMovement(this, strings2.Count);
+        }
+        else
+        {
+            if (strings.Count > 0)
+                strings.RemoveAt(strings.Count - 1);
+            if (FirstPaneCurrentSelection > strings.Count)
+                InteractiveTuiTools.SelectionMovement(this, strings.Count);
+        }
+    }
+}
+```
+{% endcode %}
 
-{% hint style="info" %}
-If the information box (the second pane) is overflown, the interactive TUI gives you an option to press `W` and `S` to scroll the pane, as well as `SHIFT + I` to display the whole content in the informational box. You can also use the mouse to scroll it up/down.
+This results in the double pane interactive TUI showing up like this:
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+## Execution
+
+The execution process involves having to add keybindings to the interactive TUI to make it more useful and to the point, though they are completely optional in some cases, such as automatically refreshing TUIs. After that, you'll have to call the `OpenInteractiveTui()` under the `InteractiveTuiTools` class, passing it your brand new interactive TUI class instance. A simple example of this process with keybindings is like this:
+
+{% code lineNumbers="true" %}
+```csharp
+public void RunFixture()
+{
+    var tui = new CliInfoPaneTestData();
+    tui.Bindings.Add(new InteractiveTuiBinding<string>("Add", ConsoleKey.F1, (_, index, _, _) => tui.Add(index), true));
+    tui.Bindings.Add(new InteractiveTuiBinding<string>("Delete", ConsoleKey.F2, (_, index, _, _) => tui.Remove(index), true));
+    tui.Bindings.Add(new InteractiveTuiBinding<string>("Delete", PointerButton.Right, PointerButtonPress.Released, (_, index, _, _) => tui.Remove(index)));
+    tui.Bindings.Add(new InteractiveTuiBinding<string>("Delete Last", ConsoleKey.F3, (_, _, _, _) => tui.RemoveLast(), true));
+    InteractiveTuiTools.OpenInteractiveTui(tui);
+}
+```
+{% endcode %}
+
+The `InteractiveTuiBinding` class is a generic class that takes either a single data type or a multiple data type. However, they must match the interactive TUI pane data types so that they become easy to implement. The delegate, which dictates what a specific keybinding is going to do with your interactive TUI, has the following arguments:
+
+* Primary item
+* Primary item index
+* Secondary item
+* Secondary item index
+
+{% hint style="warning" %}
+If you're going to create a binding class that supports mouse, ensure that you've put a code in the binding logic function that checks to see if the mouse cursor is at the right pane so that the TUI may not have accidentally launched your action in the wrong pane. A simple example is to bail if this action is run on a wrong pane is written below as part of your action code:
+
+{% code lineNumbers="true" %}
+```csharp
+// Check the pane first
+if (CurrentPane != 2)
+    return;
+```
+{% endcode %}
 {% endhint %}
 
-Bindings can also be configured to be executable even if there are no items in either the first pane or the second pane. However, you'll need to pass `true` to the last argument of the constructor of your binding instance, which controls this setting. Currently, it's set to false, meaning that this binding is not executable until there is at least one item.
+## Configuration
 
-### Colors for the TUI
+You can also configure how your interactive TUI behaves, such as automatic refreshing. For automatic refreshing, your data type will have to be dynamic (i.e. constantly changing) to be able to see live data in the interactive TUI. In order to configure the automatic refresh, you'll have to override the `RefreshInterval` property and to give it a duration of the pause between refreshes in milliseconds.
 
-You can also specify the colors for your TUI application, too! Currently, your interactive TUI uses the regular colors defined under `InteractiveTuiStatus`.
-
-### `AcceptsEmptyData`
-
-You can specify if your interactive TUI accepts empty data. The interactive TUI, by default, checks for the data source in both panes and, if not found or are empty, exits.
-
-However, if you override the value like below, it'll start up regardless of how many data is there.
-
-```csharp
-public override bool AcceptsEmptyData => true;
-```
-
-### `Screen`
-
-You can also access the `Screen` instance that the interactive TUI uses by accessing the `Screen` property in order to be able to get a deep insight about what the screen contains, including buffer data for rendering selected elements.
-
-{% code title="BaseInteractiveTui.cs" lineNumbers="true" %}
-```csharp
-public Screen Screen
-```
-{% endcode %}
-
-### `Instance`
-
-Some of the interactive TUI tools require that you provide the base interactive TUI instance. Inside your interactive TUI class, you can use this property to get the current interactive TUI instance that is currently on display. The below example shows the `SelectionMovement()` function being called with this property:
-
-{% code title="FileManagerCli.cs (Nitrocid 0.1.0.3+)" lineNumbers="true" %}
-```csharp
-InteractiveTuiTools.SelectionMovement(Instance, 1);
-```
-{% endcode %}
+{% hint style="info" %}
+All configuration must be done when implementing your interactive TUI class.
+{% endhint %}
