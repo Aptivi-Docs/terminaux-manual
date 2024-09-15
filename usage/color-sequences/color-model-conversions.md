@@ -10,7 +10,7 @@ This class is made to facilitate the color model conversion, such as from RGB to
 
 Color models also contain their normalized properties. Some of these models have the `Normalized` (floating point numbers) variants of the components, while some others have the `Whole` (integers) variants.
 
-To convert your source color model, you first need to select the conversion tools according to the color model that you want to convert the source model to (a.k.a. the target color model). For example, if you want to convert RGB to HSV, you can use `ConversionTools` and call the function, `ToHsv(RedGreenBlue)`, to run the conversion.
+To convert your source color model, you first need to select the conversion tools according to the color model that you want to convert the source model to (a.k.a. the target color model). For example, if you want to convert RGB to HSV, you can use `ConversionTools` and call the function, `ToHsv(RedGreenBlue)`, to run the conversion. You can also specify a type of color model in both the generic and the non-generic versions of the functions.
 
 Here's how the conversion is run:
 

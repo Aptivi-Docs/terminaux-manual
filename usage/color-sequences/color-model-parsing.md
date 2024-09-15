@@ -15,6 +15,10 @@ In addition to Terminaux supporting RGB color model, you can also use the CMYK a
 * YIQ's specifier is `yiq:yyy;iii;qqq`
 * YUV's specifier is `ryb:yyy;uuu;vvv`
 * XYZ's specifier is `xyz:xxx;yyy;zzz`
+* YXY's specifier is `yxy:yyy;xxx;yyy`
+* HunterLab's specifier is `hunterlab:lll;aaa;bbb`
+* CIE-L\*ab's specifier is `cielab:lll;aaa;bbb`
+* CIE-L\*uv's specifier is `cieluv:lll;uuu;vvv`
 
 To get a color instance from just the specifiers mentioned above, you first have to pick a source specifier. For example, if you want an RGB color instance from HSV's specifier, you must have a string that holds the HSV color specifier as mentioned above. Then, you can call the `ParsingTools`'s `ParseSpecifier()` function, passing it that specifier, to get an RGB instance that you can convert to HSV using the available conversion tools that you can consult in the below page.
 

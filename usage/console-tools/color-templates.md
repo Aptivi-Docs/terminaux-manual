@@ -2,7 +2,7 @@
 description: Colors in one group.
 ---
 
-# 🖼 Color Templates
+# 🖼️ Color Templates
 
 The color templates allow you to organize your colors into one group, known as a template. It allows you to group all your colors and categorize them into a template for easier organization without resorting to building your own in your application. These templates can be built from a JSON string or a file, but should be of the below format:
 
@@ -29,13 +29,27 @@ The template reader function to parse your template JSON files is `GetTemplateFr
 
 After you get a `TemplateInfo` class instance, you can use that to register it to the template manager. This way, you've added your template. This means that you can set it as a default template so that all of the functions that use your default template, such as `GetColor()`, can use it to get the colors from the template components.
 
-You can also get a JSON representation of your template using `GetTemplateToJson()` to be able to save them to files for later use.
+You can also get a JSON representation of your template using `GetTemplateToJson()` to be able to save them to files for later use. You can also make your own template by calling a constructor of `TemplateInfo`.
 
 ## Examples
 
 Here are the examples of how you can use this feature. Please note that these examples are sequential and don't work independently.
 
-### Registering the template
+### Registering the template from info
+
+{% code lineNumbers="true" %}
+```csharp
+// Custom template
+var template = new TemplateInfo(name, new()
+{
+    { "Text", new("#876543") },
+    { "Component", new(168555) },
+});
+TemplateTools.RegisterTemplate(template);
+```
+{% endcode %}
+
+### Registering the template from JSON
 
 {% code lineNumbers="true" %}
 ```csharp
