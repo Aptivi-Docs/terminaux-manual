@@ -308,3 +308,46 @@ These functions and properties could have been implemented in Textify, but we ha
 {% hint style="info" %}
 Refer to [Textify's manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/NaUWjRlaBR1k5rO42Zy8/) for more info. You'll only have to change the reference to point to `TextTools`.
 {% endhint %}
+
+## From 5.0.x to 5.3.x
+
+Between the 5.0.x and 5.3.x version range, we've made the following breaking changes:
+
+### Used `TermInfoValueDesc` for capabilities
+
+{% code title="ExtendedCapabilities.cs" lineNumbers="true" %}
+```csharp
+public bool? GetBoolean(string key)
+public int? GetNum(string key)
+public string? GetString(string key)
+```
+{% endcode %}
+
+{% code title="TermInfoDesc.cs" lineNumbers="true" %}
+```csharp
+public bool? GetBoolean(TermInfoCaps.Boolean value)
+public int? GetNum(TermInfoCaps.Num value)
+public string? GetString(TermInfoCaps.String value)
+
+// and all corresponding generated capability properties
+```
+{% endcode %}
+
+In order to implement the parameter extraction functionality, we had to implement both `TermInfoValueDesc` and `ParameterInfo` that allow easier parameter processing to ensure that we can store the following properties in the former class:
+
+* `Value`
+* `Name`
+* `ValueType`
+* `Desc`
+
+{% code title="TermInfoCapsKind.cs" lineNumbers="true" %}
+```csharp
+public enum TermInfoCapsKind
+```
+{% endcode %}
+
+As a consequence, we had to remove the above enumeration in order to satisfy the requirements of the two new classes introduced to Terminaux.
+
+{% hint style="info" %}
+You'll have to adjust your calls to call appropriate properties. For example, if you used to be able to access a string directly, you'll have to get a value of the `Value` property found in the `TermInfoValueDesc<string?>` string capability instance.
+{% endhint %}
