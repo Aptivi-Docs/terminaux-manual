@@ -4,7 +4,11 @@ description: Your apps are now interactive
 
 # ⌨️ Interactive TUI
 
-Terminaux allows you to build interactive terminal applications based on data sets that consist of either a single type or a double type. Using the interactive TUI feature is straightforward, but you'll need to tell the interactive TUI tool how to render your data. This is achieved by creating a class that consists of either a single data type or a double data type:
+Terminaux allows you to build interactive terminal applications based on data sets that consist of either a single type or a double type. Using the interactive TUI feature is straightforward, but you'll need to tell the interactive TUI tool how to render your data.
+
+You can use the down/up arrow keys to navigate items within the current pane, the `TAB` key to switch panes, `ESC` to quit, and `F` to search items with regular expressions.
+
+This is achieved by creating a class that consists of either a single data type or a double data type:
 
 ## Preparation
 

@@ -351,3 +351,22 @@ As a consequence, we had to remove the above enumeration in order to satisfy the
 {% hint style="info" %}
 You'll have to adjust your calls to call appropriate properties. For example, if you used to be able to access a string directly, you'll have to get a value of the `Value` property found in the `TermInfoValueDesc<string?>` string capability instance.
 {% endhint %}
+
+## From 5.3.x to 5.4.x
+
+Between the 5.3.x and 5.4.x version range, we've made the following breaking changes:
+
+### Infobox clarifications
+
+{% code title="InfoBoxColor.cs" lineNumbers="true" %}
+```csharp
+public static class InfoBoxColor
+```
+{% endcode %}
+
+Since the start of Terminaux, when we had implemented informational boxes, we kept saying "modal infoboxes" for boxes that require a user input and "non-modal infoboxes" for boxes that don't require a user input and just print themselves to the terminal, while the modality could be demonstrated by toggling the `waitForInput` parameter on or off. To clear confusion, we've decided to rename the class to indicate infobox modality
+
+{% hint style="info" %}
+* For modal infoboxes, the class name is `InfoBoxModalColor`.
+* For non-modal infoboxes, the class name is `InfoBoxNonModalColor`.
+{% endhint %}

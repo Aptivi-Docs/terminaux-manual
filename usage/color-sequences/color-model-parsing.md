@@ -19,6 +19,11 @@ In addition to Terminaux supporting RGB color model, you can also use the CMYK a
 * HunterLab's specifier is `hunterlab:lll;aaa;bbb`
 * CIE-L\*ab's specifier is `cielab:lll;aaa;bbb`
 * CIE-L\*uv's specifier is `cieluv:lll;uuu;vvv`
+* CIE-L\*ch's specifier is `cielch:lll;ccc;hhh`
+
+{% hint style="info" %}
+The `hhh` notation in the CIE-L\*ch specifier is an angle at degrees, not radians.
+{% endhint %}
 
 To get a color instance from just the specifiers mentioned above, you first have to pick a source specifier. For example, if you want an RGB color instance from HSV's specifier, you must have a string that holds the HSV color specifier as mentioned above. Then, you can call the `ParsingTools`'s `ParseSpecifier()` function, passing it that specifier, to get an RGB instance that you can convert to HSV using the available conversion tools that you can consult in the below page.
 

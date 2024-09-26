@@ -9,9 +9,13 @@ Terminaux not only provides the normal input reader with its custom bindings and
 Terminaux currently provides the following input styles:
 
 * Choice (one line, two lines, and modern)
-* Info box (buttons, normal, input, password input, progress, slider (with minimum, current, and maximum values), selection, and multiple choices)
+* Info box (buttons, normal (modal and non-modal), input, password input, progress, slider (with minimum, current, and maximum values), selection, and multiple choices)
 * Selection (single choice and multiple choices)
 * Editor (Text and hex editors and viewers)
+
+{% hint style="info" %}
+Modal infoboxes are informational boxes that are displayed on the terminal, waiting for user input. However, non-modal infoboxes are boxes that are just displayed for purposes, such as reporting a progress non-deterministically. Selection-based inputs can be searched using regular expressions compatible with the .NET syntax.
+{% endhint %}
 
 In addition to the three styles, you can also consult the following additional and specialized styles:
 
@@ -76,3 +80,9 @@ Additionally, if you want to render the selection panel, you may want to use the
 * (optional) Alternate choice position (zero-based) that is a marker for the start of the alternate choice
 * (optional) Whether to swap the selected choice color or not
 * (optional) Selection element colors
+
+For keybindings, you can make use of the keybindings writer to convey the available keybindings to the end user by utilizing the `KeybindingsWriter` class, assuming that you've made an array of the `Keybinding` class.
+
+{% hint style="info" %}
+You can also customize the "help" keybinding, but be aware that it only supports keyboard binding.
+{% endhint %}
