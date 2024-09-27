@@ -4,6 +4,8 @@ description: Here's how you can let the users choose their own colors
 
 # 🎨 Color Wheel
 
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
 The new color wheel, `ColorSelector`, is now available. You can use this brand new color selector to get information about your selected color visually. The color preview is split into two views: normal and color blinded. You can call the `OpenColorSelector()` function in your code to get the new color selector.
 
 The color selector allows you to change the color in the following modes:
@@ -32,6 +34,7 @@ The following controls are available:
 | `P` / `WHEEL UP on opacity ramp`                | Decreases the opacity                                                          |
 | `N`                                             | Next color blindness simulation                                                |
 | `M`                                             | Previous color blindness simulation                                            |
+| `W`                                             | Select web color                                                               |
 
 This function returns a `Color` instance containing necessary information. To know more about the structure of the `Color` class, visit the page below to learn more.
 

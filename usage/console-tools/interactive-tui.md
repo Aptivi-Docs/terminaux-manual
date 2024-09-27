@@ -80,7 +80,7 @@ internal class CliInfoPaneTestData : BaseInteractiveTui<string>, IInteractiveTui
 
 This results in the console UI showing up like this:
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 You can also use this in an interactive TUI that accepts two data sources by overriding `SecondPaneInteractable` to true, just like this:
 
@@ -257,7 +257,7 @@ internal class CliDoublePaneTestData : BaseInteractiveTui<string, string>, IInte
 
 This results in the double pane interactive TUI showing up like this:
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Execution
 

@@ -112,14 +112,12 @@ The tools for fancy writers can also be found here:
 
 Finally, the miscellaneous writers are the writers that don't have any meaningful category. That's when `MiscWriters` comes in. This namespace contains these classes:
 
-* `TextWriterSlowColor`
-  * Provides you with the necessary functions to simulate a typewriter writing a requested string to the console with and without color.
-* `TextWriterWhereSlowColor`
-  * Provides you with the necessary functions to simulate a typewriter that writes a text in a specific position to the console with and without color.
-* `TextWriterWrappedColor`
-  * Provides you with the necessary functions to allow you to wrap long outputs to pages, also called a pager.
+* `LineHandleWriter`
+  * Provides you with the necessary functions to allow you to render a line of a text file with the compiler-like line handle using the specified line and column to the console.
+* `LineHandleRangedWriter`
+  * Provides you with the necessary functions to allow you to render a line of a text file with the compiler-like line handle using the specified line and column range to the console. This is used to highlight relevant parts of the entire line
 * `KeybindingsWriter`
-  * Provides you with the nececssary functions that allow you to write the horizontal list of keybindings according to the list specified. Some of these functions also allow you to write a modal informational box that shows a list of keybindings.
+  * Provides you with the nececssary functions that allow you to write the horizontal list of keybindings according to the list specified. Some of these functions also allow you to write a modal informational box that shows a list of keybindings. For more information, see [this page](../../input-reader/other-input/keybindings.md).
 
 Consult the below page to find out how to use these functions:
 
@@ -131,10 +129,12 @@ In addition to the standard writers, there exists dynamic writers that allow you
 
 This namespace contains these classes:
 
-* `LineHandleWriter`
-  * Provides you with the necessary functions to allow you to render a line of a text file with the compiler-like line handle using the specified line and column to the console.
-* `LineHandleRangedWriter`
-  * Provides you with the necessary functions to allow you to render a line of a text file with the compiler-like line handle using the specified line and column range to the console. This is used to highlight relevant parts of the entire line
+* `TextWriterSlowColor`
+  * Provides you with the necessary functions to simulate a typewriter writing a requested string to the console with and without color.
+* `TextWriterWhereSlowColor`
+  * Provides you with the necessary functions to simulate a typewriter that writes a text in a specific position to the console with and without color.
+* `TextWriterWrappedColor`
+  * Provides you with the necessary functions to allow you to wrap long outputs to pages, also called a pager.
 
 Consult the below page to find out how to use these functions:
 
