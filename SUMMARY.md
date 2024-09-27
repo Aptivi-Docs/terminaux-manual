@@ -40,6 +40,7 @@
   * [🖱️ Pointer Events](usage/input-reader/pointer-events.md)
   * [✍️ Other Input](usage/input-reader/other-input/README.md)
     * [🖋️ Choice-based inputs](usage/input-reader/other-input/choice-based-inputs.md)
+    * [📖 Editors and Viewers](usage/input-reader/other-input/editors-and-viewers.md)
     * [🖊️ Figlet Font Selector](usage/input-reader/other-input/figlet-font-selector.md)
     * [🎨 Color Wheel](usage/input-reader/other-input/color-wheel.md)
 * [🎨 Color Sequences](usage/color-sequences/README.md)

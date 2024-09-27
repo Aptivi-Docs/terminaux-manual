@@ -27,6 +27,10 @@ In addition to the above styles, you can also consult the following additional a
 [color-wheel.md](color-wheel.md)
 {% endcontent-ref %}
 
+{% content-ref url="editors-and-viewers.md" %}
+[editors-and-viewers.md](editors-and-viewers.md)
+{% endcontent-ref %}
+
 To learn more about choice-based inputs, visit this page:
 
 {% content-ref url="choice-based-inputs.md" %}
