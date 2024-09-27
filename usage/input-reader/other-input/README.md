@@ -14,7 +14,7 @@ Terminaux currently provides the following input styles:
 * Editor (Text and hex editors and viewers)
 
 {% hint style="info" %}
-Modal infoboxes are informational boxes that are displayed on the terminal, waiting for user input. However, non-modal infoboxes are boxes that are just displayed for purposes, such as reporting a progress non-deterministically. Selection-based inputs can be searched using regular expressions compatible with the .NET syntax.
+Modal infoboxes are informational boxes that are displayed on the terminal, waiting for user input. However, non-modal infoboxes are boxes that are just displayed for informational purposes, such as reporting a progress non-deterministically. Selection-based inputs can be searched using regular expressions compatible with the .NET syntax.
 {% endhint %}
 
 In addition to the above styles, you can also consult the following additional and specialized styles:
