@@ -4,11 +4,9 @@ description: The reader state.
 
 # ✔️ Reader State
 
-## Reader State
-
 When the input reader is invoked by your console application, it creates a state class that is applicable to the current input read. The reader state contains variables that are building blocks for your custom bindings. You can also manipulate with the text positioning using the `PositioningTools` class.
 
-### Variable-based States
+## Variable-based States
 
 The terminal reader state class contains the below most important variables that are documented here, alongside the less important ones.
 
