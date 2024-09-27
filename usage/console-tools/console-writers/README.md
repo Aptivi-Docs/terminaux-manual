@@ -14,8 +14,8 @@ The `Render()` functions are made primarily for plain writing operations. You ca
 
 The standard console writers provide you with non-moving parts of the text. They have their own writers and renderers to allow you to use them in two ways. The writer writes directly to the console, while the renderers are more suitable for the screen feature that you can check out at:
 
-{% content-ref url="console-screen.md" %}
-[console-screen.md](console-screen.md)
+{% content-ref url="../console-screen.md" %}
+[console-screen.md](../console-screen.md)
 {% endcontent-ref %}
 
 ### Normal console writers

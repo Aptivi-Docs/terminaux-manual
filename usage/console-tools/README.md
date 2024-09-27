@@ -2,7 +2,7 @@
 description: Everything about the console
 ---
 
-# 🖥 Console Tools
+# 🖥️ Console Tools
 
 Terminaux was created to provide you various console tools that are useful for your interactive .NET console applications, such as those that simulate the textual user interface (TUI) for various interactive applications, such as Nitrocid KS, BassBoom, and GRILO.
 
@@ -12,8 +12,8 @@ Terminaux provides you with a plethora of console tools, such as a console wrapp
 [interactive-tui.md](interactive-tui.md)
 {% endcontent-ref %}
 
-{% content-ref url="console-writers.md" %}
-[console-writers.md](console-writers.md)
+{% content-ref url="console-writers/" %}
+[console-writers](console-writers/)
 {% endcontent-ref %}
 
 {% content-ref url="console-checker/" %}
