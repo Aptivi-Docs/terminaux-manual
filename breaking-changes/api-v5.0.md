@@ -1,8 +1,9 @@
 ---
 description: Breaking changes for API v5.0
+icon: up
 ---
 
-# ⬆️ API v5.0
+# API v5.0
 
 Here is a list of breaking changes that happened during the API v5.0 period when differing versions of Terminaux introduced breaking changes.
 

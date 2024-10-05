@@ -1,8 +1,9 @@
 ---
 description: Press any key!
+icon: keyboard
 ---
 
-# ⌨️ Keybindings
+# Keybindings
 
 Individual keybindings are defined using the `Keybinding` class found in the `Terminaux.Writers.MiscWriters.Tools` namespace. They define what key or key combination, whether it's a mouse or a keyboard event, corresponds to what action that is described using text. You can define them using one of the following constructors:
 

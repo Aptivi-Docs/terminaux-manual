@@ -1,8 +1,9 @@
 ---
 description: Here's how you can let the users choose their own colors
+icon: palette
 ---
 
-# 🎨 Color Wheel
+# Color Wheel
 
 <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 

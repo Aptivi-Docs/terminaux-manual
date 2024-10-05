@@ -1,8 +1,9 @@
 ---
 description: Edit or view text or hex
+icon: book-open
 ---
 
-# 📖 Editors and Viewers
+# Editors and Viewers
 
 Terminaux provides a way to edit or view a hexadecimal representation of bytes or lines of text in an interactive way without any hassle. The following classes are available for you to use:
 

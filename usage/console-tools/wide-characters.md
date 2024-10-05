@@ -1,8 +1,9 @@
 ---
 description: Characters that take up more than 16 bits!
+icon: square-t
 ---
 
-# 🀄 Wide Characters
+# Wide Characters
 
 Wide characters are UTF-32 characters that are usually formed by surrogate pairs, which are connected with each other to form a single character not normally available in the UTF-16 encoding, such as what the predefined 2-byte `char` type in .NET is using. Wide characters take up 4 bytes, which means 32 bits. They are used in simple emojis and other characters, and Terminaux provides a solution to handle these characters, which is a `WideChar` struct. It's found in the `Terminaux.Base.Structures` namespace.
 

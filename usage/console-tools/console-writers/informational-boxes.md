@@ -1,8 +1,9 @@
 ---
 description: Information in a box
+icon: square-info
 ---
 
-# ℹ️ Informational Boxes
+# Informational Boxes
 
 When you want to present information to the user in a form of a dialog box, you'll want to use this feature that presents you with a wide variety of informational box styles to choose from, depending on the purpose. Some informational box styles are modal, while others are non-modal. Modal informational boxes require input from the end user, while non-modal informational boxes don't require input and usually represent a progress being made.
 

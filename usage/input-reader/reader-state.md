@@ -1,8 +1,9 @@
 ---
 description: The reader state.
+icon: badge-check
 ---
 
-# ✔️ Reader State
+# Reader State
 
 When the input reader is invoked by your console application, it creates a state class that is applicable to the current input read. The reader state contains variables that are building blocks for your custom bindings. You can also manipulate with the text positioning using the `PositioningTools` class.
 

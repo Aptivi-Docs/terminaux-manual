@@ -1,8 +1,9 @@
 ---
 description: Select your choice
+icon: pen
 ---
 
-# 🖋️ Choice-based inputs
+# Choice-based inputs
 
 Terminaux provides a choice-based input style group that has several styles that present the choices in different shapes, such as informational boxes and selection styles. These inputs simplify the way you present your choices for applications to perform a specific action based on a selected choice.
 

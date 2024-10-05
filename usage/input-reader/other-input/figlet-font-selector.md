@@ -1,8 +1,9 @@
 ---
 description: Select your favorite font from here!
+icon: pen
 ---
 
-# 🖊️ Figlet Font Selector
+# Figlet Font Selector
 
 <figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 

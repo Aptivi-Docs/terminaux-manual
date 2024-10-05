@@ -1,8 +1,9 @@
 ---
 description: We have breaking changes here...
+icon: up
 ---
 
-# 🥛 Breaking changes
+# Breaking changes
 
 As new Terminaux versions are being made, we've documented all the breaking changes when upgrading to newer versions of Terminaux. Here are the list of all the breaking changes that happened, starting from the oldest version to the latest.
 

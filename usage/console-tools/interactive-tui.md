@@ -1,8 +1,9 @@
 ---
 description: Your apps are now interactive
+icon: keyboard
 ---
 
-# ⌨️ Interactive TUI
+# Interactive TUI
 
 Terminaux allows you to build interactive terminal applications based on data sets that consist of either a single type or a double type. Using the interactive TUI feature is straightforward, but you'll need to tell the interactive TUI tool how to render your data.
 
