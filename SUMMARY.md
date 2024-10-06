@@ -11,7 +11,7 @@
 ## Usage
 
 * [Preface](usage/preface.md)
-* [🖥️ Console Tools](usage/console-tools/README.md)
+* [Console Tools](usage/console-tools/README.md)
   * [Console Checker](usage/console-tools/console-checker/README.md)
     * [Console Size Requirements](usage/console-tools/console-checker/console-size-requirements.md)
   * [Image Rendering](usage/console-tools/image-rendering.md)
