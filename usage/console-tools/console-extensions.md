@@ -1,6 +1,6 @@
 ---
-description: How can you extend your console?
 icon: plus
+description: How can you extend your console?
 ---
 
 # Console Extensions
@@ -59,6 +59,25 @@ You can also manipulate with the console characters using the following function
 
 {% hint style="info" %}
 Please note that this information doesn't indicate the string length either by the amount of UTF-8 characters or by the text element as `StringInfo` class returns. This indicates how many console grid cells a character or a sentence consumes.
+{% endhint %}
+
+## Console taskbar progress
+
+You can make your console application show a progress bar in your taskbar using the `ConsoleTaskbarProgress` class that provides the following functions:
+
+* `SetProgress()`: Shows a progress indicator in the taskbar with a specified number and a maximum number (signed positive number)
+* `SetProgressUnsigned()`: Shows a progress indicator in the taskbar with a specified number and a maximum number (unsigned positive number)
+
+The progress can be described as follows:
+
+* Normal progress \[`ConsoleTaskbarProgressEnum.Normal`]: Indicates that there is progress, and the progress bar in the taskbar fills up according to the specified value.
+* Failed progress \[`ConsoleTaskbarProgressEnum.Error`]: Indicates that there is an error when processing, and the progress bar in the taskbar will be shown as red.
+* Paused progress \[`ConsoleTaskbarProgressEnum.Paused`]: Indicates that there is a paused operation, and the progress bar in the taskbar will be shown as yellow.
+* Indeterminate progress \[`ConsoleTaskbarProgressEnum.Indeterminate`]: Indicates that there is progress that can't be determined, and the progress bar will show as a marquee in the taskbar.
+* No progress \[`ConsoleTaskbarProgressEnum.NoProgress`]: Indicates that there is no progress, and the progress bar in the taskbar will be hidden.
+
+{% hint style="warning" %}
+This feature is only available for applications running on Windows 7 or higher. The functions that pertain to this feature do nothing when being called on systems older than Windows 7 and on non-Windows systems.
 {% endhint %}
 
 ## Miscellaneous console extensions

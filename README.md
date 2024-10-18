@@ -1,12 +1,12 @@
 ---
-description: Welcome to Terminaux!
 icon: hand-wave
+description: Welcome to Terminaux!
 ---
 
 # Welcome!
 
 {% hint style="info" %}
-Terminaux 5.x is under active development, but consult the stable Terminaux 5.x manual for more info:
+Terminaux 6.x is under active development. Meanwhile, you can consult the stable Terminaux 5.x manual if you're using this version:
 
 [Terminaux 5.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/AwolIeCEQSaYeA2rJwE5/ "mention")
 
