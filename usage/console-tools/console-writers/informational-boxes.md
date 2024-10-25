@@ -1,6 +1,6 @@
 ---
-description: Information in a box
 icon: square-info
+description: Information in a box
 ---
 
 # Informational Boxes
@@ -37,13 +37,13 @@ For informational boxes that use choice-based input styles, you can discover how
 
 ### Buttons
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 This style utilizes choice-based input to render the buttons inside the informational box of this style, which makes them look like a conventional dialog box. This style can render up to three buttons from the right to the left, which means three instances of `InputChoiceInfo`. You can use this style with the `InfoBoxButtonsColor` class.
 
 ### Input
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 This style uses the input reader to tell the user to write something, based on the informational box contents. For example, if this informational box tells an end-user to write a hostname of an SFTP server, the user will have to write the hostname. You can use this style with `InfoBoxInputColor`.
 

@@ -1,6 +1,6 @@
 ---
-description: Edit or view text or hex
 icon: book-open
+description: Edit or view text or hex
 ---
 
 # Editors and Viewers
@@ -30,7 +30,7 @@ You can consult the list of keybindings through the `K` key.
 
 ## Text editor and viewer
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The interactive text editor allows you to seamlessly and interactively edit multi-line text. Inspired by VIM, the popular extensible terminal text editor, this text editor features two modes:
 
