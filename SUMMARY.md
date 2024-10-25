@@ -7,6 +7,7 @@
   * [API v3.0](breaking-changes/api-v3.0.md)
   * [API v4.0](breaking-changes/api-v4.0.md)
   * [API v5.0](breaking-changes/api-v5.0.md)
+  * [API v6.0](breaking-changes/api-v6.0.md)
 
 ## Usage
 
@@ -30,7 +31,6 @@
   * [Geometric Shapes](usage/console-tools/geometric-shapes.md)
   * [Nerd Fonts](usage/console-tools/nerd-fonts.md)
   * [Terminal Info](usage/console-tools/terminal-info.md)
-  * [Wide Characters](usage/console-tools/wide-characters.md)
 * [Input Reader](usage/input-reader/README.md)
   * [Reader State](usage/input-reader/reader-state.md)
   * [Reader Settings](usage/input-reader/reader-settings.md)

@@ -1,6 +1,6 @@
 ---
-description: Breaking changes for API v5.0
 icon: up
+description: Breaking changes for API v5.0
 ---
 
 # API v5.0
@@ -45,7 +45,7 @@ public static string PromptChoice(string Question, InputChoiceInfo[] Answers, In
 We've made a new class, `ChoiceStyleSettings`, to ease configuration of the choice style. This results in the above function overloads being removed so that all overloads take an argument of `ChoiceStyleSettings`. This argument defines the very settings that you used to define in these overloads to change how it's rendered, including the colors.
 
 {% hint style="info" %}
-You must move all the configuration, including the colors, to the `ChoiceStyleSettings` instance to be able to continue configration.
+You must move all the configuration, including the colors, to the `ChoiceStyleSettings` instance to be able to continue configuration.
 {% endhint %}
 
 ### Table renderer re-write

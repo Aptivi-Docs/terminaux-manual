@@ -1,6 +1,6 @@
 ---
-description: How do I wrap the console?
 icon: plug
+description: How do I wrap the console?
 ---
 
 # Console Wrapper
@@ -21,6 +21,7 @@ To use this console wrapper, just replace all the calls to `Console` with our re
 * `KeyAvailable` (get)
 * `TreatCtrlCAsInput` (get and set)
 * `Clear()` (with and without background)
+* `GetCursorPosition()`
 * `SetCursorPosition()`
 * `SetWindowDimensions()`
 * `SetBufferDimensions()`
@@ -58,6 +59,7 @@ You can customize the console wrappers so that applications that call the Termin
 * `KeyAvailable`
 * `Clear()` (without background)
 * `ClearLoadBack()` (with background)
+* `GetCursorPosition()`
 * `SetCursorPosition()`
 * `SetWindowDimensions()`
 * `SetBufferDimensions()`

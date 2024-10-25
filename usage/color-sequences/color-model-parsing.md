@@ -1,6 +1,6 @@
 ---
-description: Getting a color from a text-based color representation.
 icon: badge-check
+description: Getting a color from a text-based color representation.
 ---
 
 # Color Model Parsing
@@ -18,12 +18,14 @@ In addition to Terminaux supporting RGB color model, you can also use the CMYK a
 * XYZ's specifier is `xyz:xxx;yyy;zzz`
 * YXY's specifier is `yxy:yyy;xxx;yyy`
 * HunterLab's specifier is `hunterlab:lll;aaa;bbb`
-* CIE-L\*ab's specifier is `cielab:lll;aaa;bbb`
-* CIE-L\*uv's specifier is `cieluv:lll;uuu;vvv`
-* CIE-L\*ch's specifier is `cielch:lll;ccc;hhh`
+* CIE-L\*ab's specifier is `cielab:lll;aaa;bbb` or `cielab:lll;aaa;bbb;o;i`
+* CIE-L\*uv's specifier is `cieluv:lll;uuu;vvv` or `cieluv:lll;uuu;vvv;o;i`
+* CIE-L\*ch's specifier is `cielch:lll;ccc;hhh` or `cielch:lll;ccc;hhh;o;i`
 
 {% hint style="info" %}
 The `hhh` notation in the CIE-L\*ch specifier is an angle at degrees, not radians.
+
+The `o` and `i` notations represent the observer (2 or 10 degrees) and the illuminant number starting from zero. These two notations will be used to get the 3D reference values (`X`, `Y`, and `Z`) used for calculation. This is returned by the `GetIlluminantReferences()` function in `IlluminanceTools`.
 {% endhint %}
 
 To get a color instance from just the specifiers mentioned above, you first have to pick a source specifier. For example, if you want an RGB color instance from HSV's specifier, you must have a string that holds the HSV color specifier as mentioned above. Then, you can call the `ParsingTools`'s `ParseSpecifier()` function, passing it that specifier, to get an RGB instance that you can convert to HSV using the available conversion tools that you can consult in the below page.

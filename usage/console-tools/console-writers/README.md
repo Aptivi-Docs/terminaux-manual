@@ -1,6 +1,6 @@
 ---
-description: We need to write to the console
 icon: pen
+description: We need to write to the console
 ---
 
 # Console Writers
@@ -68,18 +68,18 @@ The below wrapped pager controls are available when wrapping is enabled:
 
 Alongside these writers, there are also writers that are categorized as "fancy" because they either print so awesome or they print graphics. Some of these writers allow you to supply text and/or a title. They can be found in the `FancyWriters` namespace that provides the below classes:
 
+* `AlignedFigletTextColor`
+  * Provides you with the necessary functions to allow you to render a string using the provided Figlet font either at the left of the console, at the middle of the console, or at the right of the console.
+* `AlignedTextColor`
+  * Provides you with the necessary functions to allow you to render a string either at the left of the console, at the middle of the console, or at the right of the console.
 * `BorderColor`
   * Provides you with the necessary functions to allow you to draw a border somewhere in the console and with colors (border, background, and text).
 * `BorderTextColor`
-  * Provides you with the necessary functions to allow you to draw a border somewhere in the console with text inside the box and with colors (border, background, and text).
+  * Provides you with the necessary functions to allow you to draw a border somewhere in the console with text inside the box with support for colors (border, background, and text) and alignment.
 * `BoxColor`
   * Provides you with the necessary functions to allow you to draw a box somewhere in the console.
 * `BoxFrameColor`
-  * Provides you with the necessary functions to allow you to draw a box frame somewhere in the console and with colors (border, background, and text).
-* `CenteredFigletTextColor`
-  * Provides you with the necessary functions to allow you to render a string using the provided Figlet font in the middle of the console.
-* `CenteredTextColor`
-  * Provides you with the necessary functions to allow you to render a string in the middle of the console.
+  * Provides you with the necessary functions to allow you to draw a box frame somewhere in the console with support for colors (border, background, and text), text alignment, and title alignment.
 * `FigletColor`
   * Provides you with the necessary functions to allow you to render a string using the provided Figlet font to the console.
 * `FigletWhereColor`
@@ -95,11 +95,13 @@ Alongside these writers, there are also writers that are categorized as "fancy" 
 * `SeparatorWriterColor`
   * Provides you with the necessary functions to allow you to render a separator including text to the console.
 * `TableColor`
-  * Provides you with the necessary functions to allow you to render a table to the console.
+  * Provides you with the necessary functions to allow you to render a table to the console with alignment and color support.
 * `SliderVerticalColor`
   * Provides you with the necessary functions to allow you to render a vertical slider to the console. The `Absolute` versions of the functions are generally easier to use than the normal ones, because they describe ranges as actual numbers rather than the slider console cells.
 * `SliderColor`
   * Provides you with the necessary functions to allow you to render a horizontal slider to the console. The `Absolute` versions of the functions are generally easier to use than the normal ones, because they describe ranges as actual numbers rather than the slider console cells.
+* `TruncatedText`
+  * Provides you with renderers that allow you to render a truncated text block that's limited according to the height and the width, with the current column and row position of the text.
 
 Consult the below page to find out how to use these functions.
 
@@ -108,6 +110,10 @@ Consult the below page to find out how to use these functions.
 The tools for fancy writers can also be found here:
 
 {% embed url="https://aptivi.github.io/Terminaux/api/Terminaux.Writer.FancyWriters.Tools.html" %}
+
+{% hint style="info" %}
+In order to use text alignment and other settings, you must first create an instance of `TextSettings`. You can use the `TextWriterTools` to gain access to low-level tools for your writing methods, such as if you're creating a custom writer tailored for your app.
+{% endhint %}
 
 ### Miscellaneous writers
 
@@ -156,3 +162,7 @@ You can customize the borders for some of the console writers that support borde
 * `ProgressBarVerticalColor`
 * `SliderColor`
 * `SliderVerticalColor`
+
+{% hint style="info" %}
+Pre-defined borders can be accessed by calling one of the properties in the `PredefinedBorders` class.
+{% endhint %}
