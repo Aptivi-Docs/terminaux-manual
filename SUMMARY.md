@@ -18,6 +18,7 @@
   * [Image Rendering](usage/console-tools/image-rendering.md)
     * [Icons](usage/console-tools/icons.md)
   * [Console Writers](usage/console-tools/console-writers/README.md)
+    * [Individual Writers](usage/console-tools/console-writers/individual-writers.md)
     * [Informational Boxes](usage/console-tools/console-writers/informational-boxes.md)
   * [Console Wrapper](usage/console-tools/console-wrapper.md)
   * [Console Colors](usage/console-tools/console-colors.md)
