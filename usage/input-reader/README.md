@@ -1,6 +1,6 @@
 ---
-description: May I read what you've written, please?
 icon: book-open
+description: May I read what you've written, please?
 ---
 
 # Input Reader
@@ -45,6 +45,19 @@ Each one of these functions creates a reader state, `TermReaderState`, that cont
 
 {% hint style="info" %}
 If you're making your own mod in Nitrocid KS, it's best to use its own `Input` class instead of Terminaux's `TermReader`, as the class there actually deals with the screensaver in most circumstances.
+{% endhint %}
+
+You can use the `Read()` function with a generic type that resembles a simple type, such as integers, characters, and strings. This is to simplify type conversion that may be needed for certain inputs, such as entering a number or a fractional number. The below example demonstrates how to use this feature:
+
+{% code title="PromptNumber.cs" lineNumbers="true" %}
+```csharp
+int input = TermReader.Read<int>("Write a number: ", "5", false, false, false);
+TextWriterColor.Write("Number is: " + input);
+```
+{% endcode %}
+
+{% hint style="warning" %}
+You can't use complex types as a generic type, such as JSON nodes.
 {% endhint %}
 
 ## Keybindings

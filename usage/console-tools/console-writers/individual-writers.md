@@ -1,6 +1,6 @@
 ---
-description: Here's the documentation for individual writers
 icon: pencil-mechanical
+description: Here's the documentation for individual writers
 ---
 
 # Individual Writers
@@ -51,13 +51,13 @@ This writer allows you to easily write one list entry with its value to the cons
 
 This writer allows you to easily write list entries from either an array or an enumerable, such as lists and dictionaries, to the console without having to write loop statements. This is available in both the generic and the non-generic versions.
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Normal text writer (`TextWriterColor`)
 
 This writer is the simplest writer with color support, and can be used to write general text to the console effortlessly.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Highlighted text writer (`TextWriterHighlightedColor`)
 
@@ -128,6 +128,8 @@ The tools for fancy writers can also be found here:
 
 {% hint style="info" %}
 In order to use text alignment and other settings, you must first create an instance of `TextSettings`. You can use the `TextWriterTools` to gain access to low-level tools for your writing methods, such as if you're creating a custom writer tailored for your app.
+
+There are also cyclic writers available for some of the fancy writers.
 {% endhint %}
 
 #### Aligned Figlet text color writer (`AlignedFigletTextColor`)
@@ -319,7 +321,24 @@ You can customize the borders for some of the console writers that support borde
 * ...and much more
 
 {% hint style="info" %}
-Pre-defined borders can be accessed by calling one of the properties in the `PredefinedBorders` class.
+Pre-defined borders can be accessed by calling one of the following properties in the `PredefinedBorders` class:
+
+* `Default`
+* `RectangleTwoLines`
+* `RectangleTwoLinesEdge`
+* `RectangleThin`
+* `RectangleThick`
+* `RectangleThickEdge`
+* `RectangleSimple`
+* `HorizontalIntersection`
+* `VerticalIntersection`
+* `Intersections`
+* `HorizontalIntersectionThick`
+* `VerticalIntersectionThick`
+* `IntersectionsThick`
+* `HorizontalIntersectionDouble`
+* `VerticalIntersectionDouble`
+* `IntersectionsDouble`
 {% endhint %}
 
 ### Wrapped pager controls

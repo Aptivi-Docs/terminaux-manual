@@ -1,6 +1,6 @@
 ---
-description: Your screen in front of you.
 icon: display
+description: Your screen in front of you.
 ---
 
 # Console Screen
@@ -96,6 +96,12 @@ You can also clear the entire buffered parts queue using the `RemoveBufferedPart
 
 {% hint style="info" %}
 By default, when the screen feature detects a resize, it'll re-render the current screen. It will, by default, reset the resize state, causing some programs to behave incorrectly. If you want Terminaux not to reset the resize state when the screen is resized, use the `ResetResize` property to set it to `false`.
+{% endhint %}
+
+In addition to that, you can make the screen cyclic by specifying the amount of milliseconds that describes the frequency of the cyclic screen. This is achieved using the `CycleFrequency` property. However, before the cyclic screen gets rendered in a loop, you must first set it as a default cyclic screen using the `SetCurrentCyclic()` function and render it using the `StartCyclicScreen()` function instead of the usual `Render()` function. When you're done rendering this screen, for example, exiting from a specific screen, use the `StopCyclicScreen()` function. Afterwards, you can use the `UnsetCurrentCyclic()` function to unset the current cyclic screen.
+
+{% hint style="info" %}
+You can't override the current cyclic screen until the thread that renders the chosen cyclic screen stops. You can check to see if this thread is running using the `CyclicScreenRunning()` function.
 {% endhint %}
 
 #### Screen Part

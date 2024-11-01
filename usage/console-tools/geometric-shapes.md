@@ -15,7 +15,11 @@ Terminaux also provides a wide assortment of classes that allow you to render di
 * Circle
 * Ellipsis
 
-They implement the `IGeometricShape` interface to allow you to iteratively render different geometric shapes from arrays of shapes that you can loop through to speed up the process and to allow you to implement your custom geometric shape.
+They implement the `IGeometricShape` and the `IStaticRenderable` interfaces to allow you to iteratively render different geometric shapes from arrays of shapes that you can loop through to speed up the process and to allow you to implement your custom geometric shape.
+
+{% hint style="info" %}
+You can also store these shapes in a container and render them iteratively using the [`Container`](console-writers/cyclic-writers.md) class.
+{% endhint %}
 
 To render a geometric shape, such as a rectangle, to the console, you must create a new instance of a shape class, providing the width and the height of the shape, as well as the position that tells Terminaux where to render the shape, whether to render the outline or the full shape (optional), and the selected color (optional).
 
@@ -34,7 +38,7 @@ TextWriterRaw.WriteRaw(rect2.Render());
 ```
 {% endcode %}
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 For general graphics tools, it provides the following functions found in the `GraphicsTools` class in the `Terminaux.Graphics` namespace:
 

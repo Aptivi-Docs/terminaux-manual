@@ -1,6 +1,6 @@
 ---
-description: Breaking changes for API v6.0
 icon: up
+description: Breaking changes for API v6.0
 ---
 
 # API v6.0
@@ -72,4 +72,24 @@ The above centered writers have been replaced by more flexible aligned writers t
 
 {% hint style="info" %}
 If you still want to write text at the center of the console, you can use the `TextAlignment.Middle` enumeration.
+{% endhint %}
+
+### Shapes and `IGeometricShape` moved to `CyclicWriters`
+
+{% code title="IGeometricShape.cs" lineNumbers="true" %}
+```csharp
+namespace Terminaux.Graphics
+```
+{% endcode %}
+
+{% code title="Shape source codes" lineNumbers="true" %}
+```csharp
+namespace Terminaux.Graphics.Shapes
+```
+{% endcode %}
+
+As part of the renderable cyclic writers that can be contained in a single `Container` instance, we've moved all the shapes and their interface, `IGeometricShape`, as both that interface and `IStaticRenderable` work similarly to each other. The shape feature and its interface was a prelude to the static renderable writers.
+
+{% hint style="info" %}
+You just need to change the `using` clause to point to `Terminaux.Writer.CyclicWriters.Shapes`. You can still tell the difference between a static renderable and a geometric shape by examining the implemented interfaces, since we don't plan to remove the geometric shape interface.
 {% endhint %}
