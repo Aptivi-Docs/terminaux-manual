@@ -73,13 +73,13 @@ The progress can be described as follows:
 * Normal progress \[`ConsoleTaskbarProgressEnum.Normal`]: Indicates that there is progress, and the progress bar in the taskbar fills up according to the specified value.\
   ![](<../../.gitbook/assets/image (19).png>)
 * Failed progress \[`ConsoleTaskbarProgressEnum.Error`]: Indicates that there is an error when processing, and the progress bar in the taskbar will be shown as red.\
-  ![](<../../.gitbook/assets/image (1) (1) (1).png>)
+  ![](<../../.gitbook/assets/image (1) (1) (1) (1).png>)
 * Paused progress \[`ConsoleTaskbarProgressEnum.Paused`]: Indicates that there is a paused operation, and the progress bar in the taskbar will be shown as yellow.\
-  ![](<../../.gitbook/assets/image (2) (1).png>)
+  ![](<../../.gitbook/assets/image (2) (1) (1).png>)
 * Indeterminate progress \[`ConsoleTaskbarProgressEnum.Indeterminate`]: Indicates that there is progress that can't be determined, and the progress bar will show as a marquee in the taskbar.\
-  ![](<../../.gitbook/assets/image (3) (1).png>)
+  ![](<../../.gitbook/assets/image (3) (1) (1).png>)
 * No progress \[`ConsoleTaskbarProgressEnum.NoProgress`]: Indicates that there is no progress, and the progress bar in the taskbar will be hidden.\
-  ![](<../../.gitbook/assets/image (4) (1).png>)
+  ![](<../../.gitbook/assets/image (4) (1) (1).png>)
 
 {% hint style="warning" %}
 This feature is only available for applications running on Windows 7 or higher. The functions that pertain to this feature do nothing when being called on systems older than Windows 7 and on non-Windows systems.

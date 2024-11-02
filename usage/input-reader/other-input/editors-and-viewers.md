@@ -18,7 +18,7 @@ Terminaux provides a way to edit or view a hexadecimal representation of bytes o
 
 ## Hex editor and viewer
 
-<figure><img src="../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The interactive hex editor allows you to edit either a file or a byte array byte by byte, while giving you basic editing abilities, such as replacing all occurrences of a byte value with another byte value, finding a byte value or a group of it, and so on. This is all done with the help of the [screen feature](../../console-tools/console-screen.md) in Terminaux to allow visual editing.
 
@@ -30,7 +30,7 @@ You can consult the list of keybindings through the `K` key.
 
 ## Text editor and viewer
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The interactive text editor allows you to seamlessly and interactively edit multi-line text. Inspired by VIM, the popular extensible terminal text editor, this text editor features two modes:
 

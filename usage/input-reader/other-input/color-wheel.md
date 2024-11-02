@@ -5,7 +5,7 @@ description: Here's how you can let the users choose their own colors
 
 # Color Wheel
 
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The new color wheel, `ColorSelector`, is now available. You can use this brand new color selector to get information about your selected color visually. The color preview is split into two views: normal and color blinded. You can call the `OpenColorSelector()` function in your code to get the new color selector.
 

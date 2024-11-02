@@ -13,7 +13,7 @@ You can group instances of `InputChoiceInfo` classes using an array of `InputCho
 
 ## Choices
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Input choices are required to make use of all choice-based input methods that use the `InputChoiceInfo` class instances, which you can define them yourself. You can define them using the following variables in a constructor:
 
@@ -91,7 +91,7 @@ You can access information from here:
 
 ### Selection style
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Selection style input method uses choices to present you with a full-screen interactive choice selector that allows you to select a choice. This style is found in the `SelectionStyle` and the `SelectionMultipleStyle` classes for both the single-choice selection style and the multiple-choice selection style, respectively.
 

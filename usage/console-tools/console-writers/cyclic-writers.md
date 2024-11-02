@@ -687,32 +687,864 @@ This allows you to draw artistic stuff into the console so that you can build yo
 
 ### Border
 
+You can render a nice border to the console either without any text, just a title, a text, or box title and text. You can also customize the borders.
 
+{% tabs %}
+{% tab title="No text" %}
+```csharp
+var artistic = new Border()
+{
+    Left = 2,
+    Top = 1,
+    InteriorWidth = 20,
+    InteriorHeight = 10,
+};
+TextWriterRaw.WriteRaw(artistic.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Title only" %}
+```csharp
+var artistic = new Border()
+{
+    Left = 2,
+    Top = 1,
+    InteriorWidth = 20,
+    InteriorHeight = 10,
+    Title = "Border title",
+};
+TextWriterRaw.WriteRaw(artistic.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Text only" %}
+```csharp
+var artistic = new Border()
+{
+    Left = 2,
+    Top = 1,
+    InteriorWidth = 20,
+    InteriorHeight = 10,
+    Text = "Border text",
+};
+TextWriterRaw.WriteRaw(artistic.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Title + text" %}
+```csharp
+var artistic = new Border()
+{
+    Left = 2,
+    Top = 1,
+    InteriorWidth = 20,
+    InteriorHeight = 10,
+    Title = "Border title",
+    Text = "Border text",
+};
+TextWriterRaw.WriteRaw(artistic.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
 
 ### Box
 
+You can render a box to the terminal easily.
 
+```csharp
+var artistic = new Box()
+{
+    Left = 2,
+    Top = 1,
+    InteriorWidth = 20,
+    InteriorHeight = 10,
+    Color = ConsoleColors.Magenta3
+};
+TextWriterRaw.WriteRaw(artistic.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ### Box frame
 
+It's basically the same as a border, but without text support and without filling inside the box
 
+{% tabs %}
+{% tab title="No title" %}
+```csharp
+var artistic = new BoxFrame("")
+{
+    Left = 2,
+    Top = 1,
+    InteriorWidth = 20,
+    InteriorHeight = 10,
+};
+TextWriterRaw.WriteRaw(artistic.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="With title" %}
+```csharp
+var artistic = new BoxFrame("Text")
+{
+    Left = 2,
+    Top = 1,
+    InteriorWidth = 20,
+    InteriorHeight = 10,
+};
+TextWriterRaw.WriteRaw(artistic.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
 
 ### Canvas
 
+This is your sandbox for your awesome creations. This is done by coloring individual pixels with a color of your choice.
 
+{% tabs %}
+{% tab title="Transparent, half-width" %}
+```csharp
+var artistic = new Canvas()
+{
+	Left = 2,
+	Top = 2,
+	Color = ConsoleColors.Green,
+	DoubleWidth = false,
+	Transparent = true,
+	InteriorWidth = 20,
+	InteriorHeight = 20,
+	Pixels =
+	[
+        // Draw the top part of the "T" letter
+        new(2, 2) { CellColor = ConsoleColors.Yellow },
+		new(3, 2) { CellColor = ConsoleColors.Yellow },
+		new(4, 2) { CellColor = ConsoleColors.Yellow },
+		new(5, 2) { CellColor = ConsoleColors.Yellow },
+		new(6, 2) { CellColor = ConsoleColors.Yellow },
+		new(7, 2) { CellColor = ConsoleColors.Yellow },
+		new(8, 2) { CellColor = ConsoleColors.Yellow },
+		new(9, 2) { CellColor = ConsoleColors.Yellow },
+		new(10, 2) { CellColor = ConsoleColors.Yellow },
+		new(11, 2) { CellColor = ConsoleColors.Yellow },
+		new(12, 2) { CellColor = ConsoleColors.Yellow },
+		new(13, 2) { CellColor = ConsoleColors.Yellow },
+		new(14, 2) { CellColor = ConsoleColors.Yellow },
+		new(15, 2) { CellColor = ConsoleColors.Yellow },
+		new(16, 2) { CellColor = ConsoleColors.Yellow },
+		new(17, 2) { CellColor = ConsoleColors.Yellow },
+		new(18, 2) { CellColor = ConsoleColors.Yellow },
+		new(2, 3) { CellColor = ConsoleColors.Yellow },
+		new(3, 3) { CellColor = ConsoleColors.Yellow },
+		new(4, 3) { CellColor = ConsoleColors.Yellow },
+		new(5, 3) { CellColor = ConsoleColors.Yellow },
+		new(6, 3) { CellColor = ConsoleColors.Yellow },
+		new(7, 3) { CellColor = ConsoleColors.Yellow },
+		new(8, 3) { CellColor = ConsoleColors.Yellow },
+		new(9, 3) { CellColor = ConsoleColors.Yellow },
+		new(10, 3) { CellColor = ConsoleColors.Yellow },
+		new(11, 3) { CellColor = ConsoleColors.Yellow },
+		new(12, 3) { CellColor = ConsoleColors.Yellow },
+		new(13, 3) { CellColor = ConsoleColors.Yellow },
+		new(14, 3) { CellColor = ConsoleColors.Yellow },
+		new(15, 3) { CellColor = ConsoleColors.Yellow },
+		new(16, 3) { CellColor = ConsoleColors.Yellow },
+		new(17, 3) { CellColor = ConsoleColors.Yellow },
+		new(18, 3) { CellColor = ConsoleColors.Yellow },
+        
+        // Draw the line of the "T" letter
+        new(9, 3) { CellColor = ConsoleColors.Yellow },
+		new(9, 4) { CellColor = ConsoleColors.Yellow },
+		new(9, 5) { CellColor = ConsoleColors.Yellow },
+		new(9, 6) { CellColor = ConsoleColors.Yellow },
+		new(9, 7) { CellColor = ConsoleColors.Yellow },
+		new(9, 8) { CellColor = ConsoleColors.Yellow },
+		new(9, 9) { CellColor = ConsoleColors.Yellow },
+		new(9, 10) { CellColor = ConsoleColors.Yellow },
+		new(9, 11) { CellColor = ConsoleColors.Yellow },
+		new(9, 12) { CellColor = ConsoleColors.Yellow },
+		new(9, 13) { CellColor = ConsoleColors.Yellow },
+		new(9, 14) { CellColor = ConsoleColors.Yellow },
+		new(9, 15) { CellColor = ConsoleColors.Yellow },
+		new(9, 16) { CellColor = ConsoleColors.Yellow },
+		new(9, 17) { CellColor = ConsoleColors.Yellow },
+		new(9, 18) { CellColor = ConsoleColors.Yellow },
+		new(9, 19) { CellColor = ConsoleColors.Yellow },
+		new(10, 3) { CellColor = ConsoleColors.Yellow },
+		new(10, 4) { CellColor = ConsoleColors.Yellow },
+		new(10, 5) { CellColor = ConsoleColors.Yellow },
+		new(10, 6) { CellColor = ConsoleColors.Yellow },
+		new(10, 7) { CellColor = ConsoleColors.Yellow },
+		new(10, 8) { CellColor = ConsoleColors.Yellow },
+		new(10, 9) { CellColor = ConsoleColors.Yellow },
+		new(10, 10) { CellColor = ConsoleColors.Yellow },
+		new(10, 11) { CellColor = ConsoleColors.Yellow },
+		new(10, 12) { CellColor = ConsoleColors.Yellow },
+		new(10, 13) { CellColor = ConsoleColors.Yellow },
+		new(10, 14) { CellColor = ConsoleColors.Yellow },
+		new(10, 15) { CellColor = ConsoleColors.Yellow },
+		new(10, 16) { CellColor = ConsoleColors.Yellow },
+		new(10, 17) { CellColor = ConsoleColors.Yellow },
+		new(10, 18) { CellColor = ConsoleColors.Yellow },
+		new(10, 19) { CellColor = ConsoleColors.Yellow },
+		new(11, 3) { CellColor = ConsoleColors.Yellow },
+		new(11, 4) { CellColor = ConsoleColors.Yellow },
+		new(11, 5) { CellColor = ConsoleColors.Yellow },
+		new(11, 6) { CellColor = ConsoleColors.Yellow },
+		new(11, 7) { CellColor = ConsoleColors.Yellow },
+		new(11, 8) { CellColor = ConsoleColors.Yellow },
+		new(11, 9) { CellColor = ConsoleColors.Yellow },
+		new(11, 10) { CellColor = ConsoleColors.Yellow },
+		new(11, 11) { CellColor = ConsoleColors.Yellow },
+		new(11, 12) { CellColor = ConsoleColors.Yellow },
+		new(11, 13) { CellColor = ConsoleColors.Yellow },
+		new(11, 14) { CellColor = ConsoleColors.Yellow },
+		new(11, 15) { CellColor = ConsoleColors.Yellow },
+		new(11, 16) { CellColor = ConsoleColors.Yellow },
+		new(11, 17) { CellColor = ConsoleColors.Yellow },
+		new(11, 18) { CellColor = ConsoleColors.Yellow },
+		new(11, 19) { CellColor = ConsoleColors.Yellow },
+	]
+};
+TextWriterRaw.WriteRaw(artistic.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Opaque, half-width" %}
+```csharp
+var artistic = new Canvas()
+{
+	Left = 2,
+	Top = 2,
+	Color = ConsoleColors.Green,
+	DoubleWidth = false,
+	InteriorWidth = 20,
+	InteriorHeight = 20,
+	Pixels =
+	[
+        // Draw the top part of the "T" letter
+        new(2, 2) { CellColor = ConsoleColors.Yellow },
+		new(3, 2) { CellColor = ConsoleColors.Yellow },
+		new(4, 2) { CellColor = ConsoleColors.Yellow },
+		new(5, 2) { CellColor = ConsoleColors.Yellow },
+		new(6, 2) { CellColor = ConsoleColors.Yellow },
+		new(7, 2) { CellColor = ConsoleColors.Yellow },
+		new(8, 2) { CellColor = ConsoleColors.Yellow },
+		new(9, 2) { CellColor = ConsoleColors.Yellow },
+		new(10, 2) { CellColor = ConsoleColors.Yellow },
+		new(11, 2) { CellColor = ConsoleColors.Yellow },
+		new(12, 2) { CellColor = ConsoleColors.Yellow },
+		new(13, 2) { CellColor = ConsoleColors.Yellow },
+		new(14, 2) { CellColor = ConsoleColors.Yellow },
+		new(15, 2) { CellColor = ConsoleColors.Yellow },
+		new(16, 2) { CellColor = ConsoleColors.Yellow },
+		new(17, 2) { CellColor = ConsoleColors.Yellow },
+		new(18, 2) { CellColor = ConsoleColors.Yellow },
+		new(2, 3) { CellColor = ConsoleColors.Yellow },
+		new(3, 3) { CellColor = ConsoleColors.Yellow },
+		new(4, 3) { CellColor = ConsoleColors.Yellow },
+		new(5, 3) { CellColor = ConsoleColors.Yellow },
+		new(6, 3) { CellColor = ConsoleColors.Yellow },
+		new(7, 3) { CellColor = ConsoleColors.Yellow },
+		new(8, 3) { CellColor = ConsoleColors.Yellow },
+		new(9, 3) { CellColor = ConsoleColors.Yellow },
+		new(10, 3) { CellColor = ConsoleColors.Yellow },
+		new(11, 3) { CellColor = ConsoleColors.Yellow },
+		new(12, 3) { CellColor = ConsoleColors.Yellow },
+		new(13, 3) { CellColor = ConsoleColors.Yellow },
+		new(14, 3) { CellColor = ConsoleColors.Yellow },
+		new(15, 3) { CellColor = ConsoleColors.Yellow },
+		new(16, 3) { CellColor = ConsoleColors.Yellow },
+		new(17, 3) { CellColor = ConsoleColors.Yellow },
+		new(18, 3) { CellColor = ConsoleColors.Yellow },
+        
+        // Draw the line of the "T" letter
+        new(9, 3) { CellColor = ConsoleColors.Yellow },
+		new(9, 4) { CellColor = ConsoleColors.Yellow },
+		new(9, 5) { CellColor = ConsoleColors.Yellow },
+		new(9, 6) { CellColor = ConsoleColors.Yellow },
+		new(9, 7) { CellColor = ConsoleColors.Yellow },
+		new(9, 8) { CellColor = ConsoleColors.Yellow },
+		new(9, 9) { CellColor = ConsoleColors.Yellow },
+		new(9, 10) { CellColor = ConsoleColors.Yellow },
+		new(9, 11) { CellColor = ConsoleColors.Yellow },
+		new(9, 12) { CellColor = ConsoleColors.Yellow },
+		new(9, 13) { CellColor = ConsoleColors.Yellow },
+		new(9, 14) { CellColor = ConsoleColors.Yellow },
+		new(9, 15) { CellColor = ConsoleColors.Yellow },
+		new(9, 16) { CellColor = ConsoleColors.Yellow },
+		new(9, 17) { CellColor = ConsoleColors.Yellow },
+		new(9, 18) { CellColor = ConsoleColors.Yellow },
+		new(9, 19) { CellColor = ConsoleColors.Yellow },
+		new(10, 3) { CellColor = ConsoleColors.Yellow },
+		new(10, 4) { CellColor = ConsoleColors.Yellow },
+		new(10, 5) { CellColor = ConsoleColors.Yellow },
+		new(10, 6) { CellColor = ConsoleColors.Yellow },
+		new(10, 7) { CellColor = ConsoleColors.Yellow },
+		new(10, 8) { CellColor = ConsoleColors.Yellow },
+		new(10, 9) { CellColor = ConsoleColors.Yellow },
+		new(10, 10) { CellColor = ConsoleColors.Yellow },
+		new(10, 11) { CellColor = ConsoleColors.Yellow },
+		new(10, 12) { CellColor = ConsoleColors.Yellow },
+		new(10, 13) { CellColor = ConsoleColors.Yellow },
+		new(10, 14) { CellColor = ConsoleColors.Yellow },
+		new(10, 15) { CellColor = ConsoleColors.Yellow },
+		new(10, 16) { CellColor = ConsoleColors.Yellow },
+		new(10, 17) { CellColor = ConsoleColors.Yellow },
+		new(10, 18) { CellColor = ConsoleColors.Yellow },
+		new(10, 19) { CellColor = ConsoleColors.Yellow },
+		new(11, 3) { CellColor = ConsoleColors.Yellow },
+		new(11, 4) { CellColor = ConsoleColors.Yellow },
+		new(11, 5) { CellColor = ConsoleColors.Yellow },
+		new(11, 6) { CellColor = ConsoleColors.Yellow },
+		new(11, 7) { CellColor = ConsoleColors.Yellow },
+		new(11, 8) { CellColor = ConsoleColors.Yellow },
+		new(11, 9) { CellColor = ConsoleColors.Yellow },
+		new(11, 10) { CellColor = ConsoleColors.Yellow },
+		new(11, 11) { CellColor = ConsoleColors.Yellow },
+		new(11, 12) { CellColor = ConsoleColors.Yellow },
+		new(11, 13) { CellColor = ConsoleColors.Yellow },
+		new(11, 14) { CellColor = ConsoleColors.Yellow },
+		new(11, 15) { CellColor = ConsoleColors.Yellow },
+		new(11, 16) { CellColor = ConsoleColors.Yellow },
+		new(11, 17) { CellColor = ConsoleColors.Yellow },
+		new(11, 18) { CellColor = ConsoleColors.Yellow },
+		new(11, 19) { CellColor = ConsoleColors.Yellow },
+	]
+};
+TextWriterRaw.WriteRaw(artistic.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Transparent, full-width" %}
+```csharp
+var artistic = new Canvas()
+{
+	Left = 2,
+	Top = 2,
+	Color = ConsoleColors.Green,
+	Transparent = true,
+	InteriorWidth = 20,
+	InteriorHeight = 20,
+	Pixels =
+	[
+        // Draw the top part of the "T" letter
+        new(2, 2) { CellColor = ConsoleColors.Yellow },
+		new(3, 2) { CellColor = ConsoleColors.Yellow },
+		new(4, 2) { CellColor = ConsoleColors.Yellow },
+		new(5, 2) { CellColor = ConsoleColors.Yellow },
+		new(6, 2) { CellColor = ConsoleColors.Yellow },
+		new(7, 2) { CellColor = ConsoleColors.Yellow },
+		new(8, 2) { CellColor = ConsoleColors.Yellow },
+		new(9, 2) { CellColor = ConsoleColors.Yellow },
+		new(10, 2) { CellColor = ConsoleColors.Yellow },
+		new(11, 2) { CellColor = ConsoleColors.Yellow },
+		new(12, 2) { CellColor = ConsoleColors.Yellow },
+		new(13, 2) { CellColor = ConsoleColors.Yellow },
+		new(14, 2) { CellColor = ConsoleColors.Yellow },
+		new(15, 2) { CellColor = ConsoleColors.Yellow },
+		new(16, 2) { CellColor = ConsoleColors.Yellow },
+		new(17, 2) { CellColor = ConsoleColors.Yellow },
+		new(18, 2) { CellColor = ConsoleColors.Yellow },
+		new(2, 3) { CellColor = ConsoleColors.Yellow },
+		new(3, 3) { CellColor = ConsoleColors.Yellow },
+		new(4, 3) { CellColor = ConsoleColors.Yellow },
+		new(5, 3) { CellColor = ConsoleColors.Yellow },
+		new(6, 3) { CellColor = ConsoleColors.Yellow },
+		new(7, 3) { CellColor = ConsoleColors.Yellow },
+		new(8, 3) { CellColor = ConsoleColors.Yellow },
+		new(9, 3) { CellColor = ConsoleColors.Yellow },
+		new(10, 3) { CellColor = ConsoleColors.Yellow },
+		new(11, 3) { CellColor = ConsoleColors.Yellow },
+		new(12, 3) { CellColor = ConsoleColors.Yellow },
+		new(13, 3) { CellColor = ConsoleColors.Yellow },
+		new(14, 3) { CellColor = ConsoleColors.Yellow },
+		new(15, 3) { CellColor = ConsoleColors.Yellow },
+		new(16, 3) { CellColor = ConsoleColors.Yellow },
+		new(17, 3) { CellColor = ConsoleColors.Yellow },
+		new(18, 3) { CellColor = ConsoleColors.Yellow },
+        
+        // Draw the line of the "T" letter
+        new(9, 3) { CellColor = ConsoleColors.Yellow },
+		new(9, 4) { CellColor = ConsoleColors.Yellow },
+		new(9, 5) { CellColor = ConsoleColors.Yellow },
+		new(9, 6) { CellColor = ConsoleColors.Yellow },
+		new(9, 7) { CellColor = ConsoleColors.Yellow },
+		new(9, 8) { CellColor = ConsoleColors.Yellow },
+		new(9, 9) { CellColor = ConsoleColors.Yellow },
+		new(9, 10) { CellColor = ConsoleColors.Yellow },
+		new(9, 11) { CellColor = ConsoleColors.Yellow },
+		new(9, 12) { CellColor = ConsoleColors.Yellow },
+		new(9, 13) { CellColor = ConsoleColors.Yellow },
+		new(9, 14) { CellColor = ConsoleColors.Yellow },
+		new(9, 15) { CellColor = ConsoleColors.Yellow },
+		new(9, 16) { CellColor = ConsoleColors.Yellow },
+		new(9, 17) { CellColor = ConsoleColors.Yellow },
+		new(9, 18) { CellColor = ConsoleColors.Yellow },
+		new(9, 19) { CellColor = ConsoleColors.Yellow },
+		new(10, 3) { CellColor = ConsoleColors.Yellow },
+		new(10, 4) { CellColor = ConsoleColors.Yellow },
+		new(10, 5) { CellColor = ConsoleColors.Yellow },
+		new(10, 6) { CellColor = ConsoleColors.Yellow },
+		new(10, 7) { CellColor = ConsoleColors.Yellow },
+		new(10, 8) { CellColor = ConsoleColors.Yellow },
+		new(10, 9) { CellColor = ConsoleColors.Yellow },
+		new(10, 10) { CellColor = ConsoleColors.Yellow },
+		new(10, 11) { CellColor = ConsoleColors.Yellow },
+		new(10, 12) { CellColor = ConsoleColors.Yellow },
+		new(10, 13) { CellColor = ConsoleColors.Yellow },
+		new(10, 14) { CellColor = ConsoleColors.Yellow },
+		new(10, 15) { CellColor = ConsoleColors.Yellow },
+		new(10, 16) { CellColor = ConsoleColors.Yellow },
+		new(10, 17) { CellColor = ConsoleColors.Yellow },
+		new(10, 18) { CellColor = ConsoleColors.Yellow },
+		new(10, 19) { CellColor = ConsoleColors.Yellow },
+		new(11, 3) { CellColor = ConsoleColors.Yellow },
+		new(11, 4) { CellColor = ConsoleColors.Yellow },
+		new(11, 5) { CellColor = ConsoleColors.Yellow },
+		new(11, 6) { CellColor = ConsoleColors.Yellow },
+		new(11, 7) { CellColor = ConsoleColors.Yellow },
+		new(11, 8) { CellColor = ConsoleColors.Yellow },
+		new(11, 9) { CellColor = ConsoleColors.Yellow },
+		new(11, 10) { CellColor = ConsoleColors.Yellow },
+		new(11, 11) { CellColor = ConsoleColors.Yellow },
+		new(11, 12) { CellColor = ConsoleColors.Yellow },
+		new(11, 13) { CellColor = ConsoleColors.Yellow },
+		new(11, 14) { CellColor = ConsoleColors.Yellow },
+		new(11, 15) { CellColor = ConsoleColors.Yellow },
+		new(11, 16) { CellColor = ConsoleColors.Yellow },
+		new(11, 17) { CellColor = ConsoleColors.Yellow },
+		new(11, 18) { CellColor = ConsoleColors.Yellow },
+		new(11, 19) { CellColor = ConsoleColors.Yellow },
+	]
+};
+TextWriterRaw.WriteRaw(artistic.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Opaque, full-width" %}
+```csharp
+var artistic = new Canvas()
+{
+	Left = 2,
+	Top = 2,
+	Color = ConsoleColors.Green,
+	InteriorWidth = 20,
+	InteriorHeight = 20,
+	Pixels =
+	[
+        // Draw the top part of the "T" letter
+        new(2, 2) { CellColor = ConsoleColors.Yellow },
+		new(3, 2) { CellColor = ConsoleColors.Yellow },
+		new(4, 2) { CellColor = ConsoleColors.Yellow },
+		new(5, 2) { CellColor = ConsoleColors.Yellow },
+		new(6, 2) { CellColor = ConsoleColors.Yellow },
+		new(7, 2) { CellColor = ConsoleColors.Yellow },
+		new(8, 2) { CellColor = ConsoleColors.Yellow },
+		new(9, 2) { CellColor = ConsoleColors.Yellow },
+		new(10, 2) { CellColor = ConsoleColors.Yellow },
+		new(11, 2) { CellColor = ConsoleColors.Yellow },
+		new(12, 2) { CellColor = ConsoleColors.Yellow },
+		new(13, 2) { CellColor = ConsoleColors.Yellow },
+		new(14, 2) { CellColor = ConsoleColors.Yellow },
+		new(15, 2) { CellColor = ConsoleColors.Yellow },
+		new(16, 2) { CellColor = ConsoleColors.Yellow },
+		new(17, 2) { CellColor = ConsoleColors.Yellow },
+		new(18, 2) { CellColor = ConsoleColors.Yellow },
+		new(2, 3) { CellColor = ConsoleColors.Yellow },
+		new(3, 3) { CellColor = ConsoleColors.Yellow },
+		new(4, 3) { CellColor = ConsoleColors.Yellow },
+		new(5, 3) { CellColor = ConsoleColors.Yellow },
+		new(6, 3) { CellColor = ConsoleColors.Yellow },
+		new(7, 3) { CellColor = ConsoleColors.Yellow },
+		new(8, 3) { CellColor = ConsoleColors.Yellow },
+		new(9, 3) { CellColor = ConsoleColors.Yellow },
+		new(10, 3) { CellColor = ConsoleColors.Yellow },
+		new(11, 3) { CellColor = ConsoleColors.Yellow },
+		new(12, 3) { CellColor = ConsoleColors.Yellow },
+		new(13, 3) { CellColor = ConsoleColors.Yellow },
+		new(14, 3) { CellColor = ConsoleColors.Yellow },
+		new(15, 3) { CellColor = ConsoleColors.Yellow },
+		new(16, 3) { CellColor = ConsoleColors.Yellow },
+		new(17, 3) { CellColor = ConsoleColors.Yellow },
+		new(18, 3) { CellColor = ConsoleColors.Yellow },
+        
+        // Draw the line of the "T" letter
+        new(9, 3) { CellColor = ConsoleColors.Yellow },
+		new(9, 4) { CellColor = ConsoleColors.Yellow },
+		new(9, 5) { CellColor = ConsoleColors.Yellow },
+		new(9, 6) { CellColor = ConsoleColors.Yellow },
+		new(9, 7) { CellColor = ConsoleColors.Yellow },
+		new(9, 8) { CellColor = ConsoleColors.Yellow },
+		new(9, 9) { CellColor = ConsoleColors.Yellow },
+		new(9, 10) { CellColor = ConsoleColors.Yellow },
+		new(9, 11) { CellColor = ConsoleColors.Yellow },
+		new(9, 12) { CellColor = ConsoleColors.Yellow },
+		new(9, 13) { CellColor = ConsoleColors.Yellow },
+		new(9, 14) { CellColor = ConsoleColors.Yellow },
+		new(9, 15) { CellColor = ConsoleColors.Yellow },
+		new(9, 16) { CellColor = ConsoleColors.Yellow },
+		new(9, 17) { CellColor = ConsoleColors.Yellow },
+		new(9, 18) { CellColor = ConsoleColors.Yellow },
+		new(9, 19) { CellColor = ConsoleColors.Yellow },
+		new(10, 3) { CellColor = ConsoleColors.Yellow },
+		new(10, 4) { CellColor = ConsoleColors.Yellow },
+		new(10, 5) { CellColor = ConsoleColors.Yellow },
+		new(10, 6) { CellColor = ConsoleColors.Yellow },
+		new(10, 7) { CellColor = ConsoleColors.Yellow },
+		new(10, 8) { CellColor = ConsoleColors.Yellow },
+		new(10, 9) { CellColor = ConsoleColors.Yellow },
+		new(10, 10) { CellColor = ConsoleColors.Yellow },
+		new(10, 11) { CellColor = ConsoleColors.Yellow },
+		new(10, 12) { CellColor = ConsoleColors.Yellow },
+		new(10, 13) { CellColor = ConsoleColors.Yellow },
+		new(10, 14) { CellColor = ConsoleColors.Yellow },
+		new(10, 15) { CellColor = ConsoleColors.Yellow },
+		new(10, 16) { CellColor = ConsoleColors.Yellow },
+		new(10, 17) { CellColor = ConsoleColors.Yellow },
+		new(10, 18) { CellColor = ConsoleColors.Yellow },
+		new(10, 19) { CellColor = ConsoleColors.Yellow },
+		new(11, 3) { CellColor = ConsoleColors.Yellow },
+		new(11, 4) { CellColor = ConsoleColors.Yellow },
+		new(11, 5) { CellColor = ConsoleColors.Yellow },
+		new(11, 6) { CellColor = ConsoleColors.Yellow },
+		new(11, 7) { CellColor = ConsoleColors.Yellow },
+		new(11, 8) { CellColor = ConsoleColors.Yellow },
+		new(11, 9) { CellColor = ConsoleColors.Yellow },
+		new(11, 10) { CellColor = ConsoleColors.Yellow },
+		new(11, 11) { CellColor = ConsoleColors.Yellow },
+		new(11, 12) { CellColor = ConsoleColors.Yellow },
+		new(11, 13) { CellColor = ConsoleColors.Yellow },
+		new(11, 14) { CellColor = ConsoleColors.Yellow },
+		new(11, 15) { CellColor = ConsoleColors.Yellow },
+		new(11, 16) { CellColor = ConsoleColors.Yellow },
+		new(11, 17) { CellColor = ConsoleColors.Yellow },
+		new(11, 18) { CellColor = ConsoleColors.Yellow },
+		new(11, 19) { CellColor = ConsoleColors.Yellow },
+	]
+};
+TextWriterRaw.WriteRaw(artistic.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
 
 ## Misc
 
-To be populated
+This category contains all other cyclic writers that don't fit in the above categories.
 
 ### Asciinema
 
+This cyclic writer allows you to render a recorded Asciinema cast file to the terminal.
+
+{% hint style="danger" %}
+This feature is work in progress.
+{% endhint %}
+
 ### Progress bar
+
+Progress bars describe how much of a progress was done for the current task. You can make the progress bar either with text or without text. Progress bars can either be determinate (at which you can know the progress) or indeterminate (at which the process is not determined)
 
 #### Progress bar with text
 
+This writer allows you to show a progress bar while allowing you to describe what is going on during the process.
+
+{% tabs %}
+{% tab title="Determinate" %}
+```csharp
+var stickScreen = new Screen()
+{
+    CycleFrequency = 50,
+};
+var progressBar = new ProgressBar(
+    "This is the test progress bar that contains a scrolling marquee.", 0, 100)
+{
+    LeftMargin = 4,
+    RightMargin = 4,
+};
+try
+{
+    // First, clear the screen
+    ColorTools.LoadBack();
+
+    // Then, show the progress bar
+    var stickScreenPart = new ScreenPart();
+    stickScreenPart.Position(4, ConsoleWrapper.WindowHeight - 1);
+    stickScreenPart.AddDynamicText(progressBar.Render);
+    stickScreen.AddBufferedPart("Test", stickScreenPart);
+    ScreenTools.SetCurrent(stickScreen);
+    ScreenTools.SetCurrentCyclic(stickScreen);
+    ScreenTools.StartCyclicScreen();
+
+    // Finally, increment the progress bar until it's full
+    for (int progress = 0; progress < 100; progress++)
+    {
+        progressBar.Position = progress;
+        Thread.Sleep(100);
+    }
+}
+catch (Exception ex)
+{
+    InfoBoxModalColor.WriteInfoBoxModal($"Screen failed to render: {ex.Message}");
+}
+finally
+{
+    ScreenTools.StopCyclicScreen();
+    ScreenTools.UnsetCurrent(stickScreen);
+    ColorTools.LoadBack();
+}
+```
+
+<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Indeterminate" %}
+```csharp
+var stickScreen = new Screen()
+{
+    CycleFrequency = 50,
+};
+var progressBar = new ProgressBar(
+    "This is the test progress bar that contains a scrolling marquee.", 0, 100)
+{
+    LeftMargin = 4,
+    RightMargin = 4,
+    Indeterminate = true,
+};
+try
+{
+    // First, clear the screen
+    ColorTools.LoadBack();
+
+    // Then, show the progress bar
+    var stickScreenPart = new ScreenPart();
+    stickScreenPart.Position(4, ConsoleWrapper.WindowHeight - 1);
+    stickScreenPart.AddDynamicText(progressBar.Render);
+    stickScreen.AddBufferedPart("Test", stickScreenPart);
+    ScreenTools.SetCurrent(stickScreen);
+    ScreenTools.SetCurrentCyclic(stickScreen);
+    ScreenTools.StartCyclicScreen();
+
+    // Finally, increment the progress bar until it's full
+    for (int progress = 0; progress < 100; progress++)
+    {
+        progressBar.Position = progress;
+        Thread.Sleep(100);
+    }
+}
+catch (Exception ex)
+{
+    InfoBoxModalColor.WriteInfoBoxModal($"Screen failed to render: {ex.Message}");
+}
+finally
+{
+    ScreenTools.StopCyclicScreen();
+    ScreenTools.UnsetCurrent(stickScreen);
+    ColorTools.LoadBack();
+}
+```
+
+<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
+
 #### Progress bar without text
+
+This writer allows you to show a progress bar without any text.
+
+{% tabs %}
+{% tab title="Determinate" %}
+```csharp
+var stickScreen = new Screen()
+{
+    CycleFrequency = 50,
+};
+var progressBar = new ProgressBarNoText(0, 100)
+{
+    LeftMargin = 4,
+    RightMargin = 4,
+};
+try
+{
+    // First, clear the screen
+    ColorTools.LoadBack();
+
+    // Then, show the progress bar
+    var stickScreenPart = new ScreenPart();
+    stickScreenPart.Position(4, ConsoleWrapper.WindowHeight - 1);
+    stickScreenPart.AddDynamicText(progressBar.Render);
+    stickScreen.AddBufferedPart("Test", stickScreenPart);
+    ScreenTools.SetCurrent(stickScreen);
+    ScreenTools.SetCurrentCyclic(stickScreen);
+    ScreenTools.StartCyclicScreen();
+
+    // Finally, increment the progress bar until it's full
+    for (int progress = 0; progress < 100; progress++)
+    {
+        progressBar.Position = progress;
+        Thread.Sleep(100);
+    }
+}
+catch (Exception ex)
+{
+    InfoBoxModalColor.WriteInfoBoxModal($"Screen failed to render: {ex.Message}");
+}
+finally
+{
+    ScreenTools.StopCyclicScreen();
+    ScreenTools.UnsetCurrent(stickScreen);
+    ColorTools.LoadBack();
+}
+```
+
+<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Indeterminate" %}
+```csharp
+var stickScreen = new Screen()
+{
+    CycleFrequency = 50,
+};
+var progressBar = new ProgressBarNoText(0, 100)
+{
+    LeftMargin = 4,
+    RightMargin = 4,
+    Indeterminate = true,
+};
+try
+{
+    // First, clear the screen
+    ColorTools.LoadBack();
+
+    // Then, show the progress bar
+    var stickScreenPart = new ScreenPart();
+    stickScreenPart.Position(4, ConsoleWrapper.WindowHeight - 1);
+    stickScreenPart.AddDynamicText(progressBar.Render);
+    stickScreen.AddBufferedPart("Test", stickScreenPart);
+    ScreenTools.SetCurrent(stickScreen);
+    ScreenTools.SetCurrentCyclic(stickScreen);
+    ScreenTools.StartCyclicScreen();
+
+    // Finally, increment the progress bar until it's full
+    for (int progress = 0; progress < 100; progress++)
+    {
+        progressBar.Position = progress;
+        Thread.Sleep(100);
+    }
+}
+catch (Exception ex)
+{
+    InfoBoxModalColor.WriteInfoBoxModal($"Screen failed to render: {ex.Message}");
+}
+finally
+{
+    ScreenTools.StopCyclicScreen();
+    ScreenTools.UnsetCurrent(stickScreen);
+    ColorTools.LoadBack();
+}
+```
+
+<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
 
 ### Spinner
 
+This writer allows you to write a spinner that moves according to the number of times that the spinner has rendered. This is useful for progress bars and others.
+
+```csharp
+var stickScreen = new Screen()
+{
+    CycleFrequency = 80,
+};
+var marquee = BuiltinSpinners.BouncingBar;
+try
+{
+    // First, clear the screen
+    ColorTools.LoadBack();
+
+    // Then, show the counter
+    var stickScreenPart = new ScreenPart();
+    stickScreenPart.Position(4, ConsoleWrapper.WindowHeight - 2);
+    stickScreenPart.AddDynamicText(marquee.Render);
+    stickScreen.AddBufferedPart("Test", stickScreenPart);
+    ScreenTools.SetCurrent(stickScreen);
+    ScreenTools.SetCurrentCyclic(stickScreen);
+    ScreenTools.StartCyclicScreen();
+    Input.ReadKey();
+}
+catch (Exception ex)
+{
+    InfoBoxModalColor.WriteInfoBoxModal($"Screen failed to render: {ex.Message}");
+}
+finally
+{
+    ScreenTools.StopCyclicScreen();
+    ScreenTools.UnsetCurrent(stickScreen);
+    ColorTools.LoadBack();
+}
+```
+
+<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
 ### Table
+
+This allows you to render a table that consists of rows and columns to the terminal. You can use the cell options variable to configure various cells, such as colors.
+
+```csharp
+var Rows = new string[,]
+{
+    { "Ubuntu Version", "Release Date", "Support End", "ESM Support End" },
+    { "12.04 (Precise Pangolin)", new DateTime(2012, 4, 26).ToString(), new DateTime(2017, 4, 28).ToString(), new DateTime(2019, 4, 28).ToString() },
+    { "14.04 (Trusty Tahr)", new DateTime(2014, 4, 17).ToString(), new DateTime(2019, 4, 25).ToString(), new DateTime(2024, 4, 25).ToString() },
+    { "16.04 (Xenial Xerus)", new DateTime(2016, 4, 21).ToString(), new DateTime(2021, 4, 30).ToString(), new DateTime(2026, 4, 30).ToString() },
+    { "18.04 (Bionic Beaver)", new DateTime(2018, 4, 26).ToString(), new DateTime(2023, 4, 30).ToString(), new DateTime(2028, 4, 30).ToString() },
+    { "20.04 (Focal Fossa)", new DateTime(2020, 4, 23).ToString(), new DateTime(2025, 4, 25).ToString(), new DateTime(2030, 4, 25).ToString() },
+    { "22.04 (Jammy Jellyfish)", new DateTime(2022, 4, 26).ToString(), new DateTime(2027, 4, 25).ToString(), new DateTime(2032, 4, 25).ToString() },
+    { "24.04 (Noble Numbat)", new DateTime(2024, 4, 25).ToString(), new DateTime(2029, 4, 25).ToString(), new DateTime(2034, 4, 25).ToString() },
+};
+var misc = new Table()
+{
+    Rows = Rows,
+    Header = true,
+    Left = 4,
+    Top = 2,
+    InteriorWidth = ConsoleWrapper.WindowWidth - 7,
+    InteriorHeight = ConsoleWrapper.WindowHeight - 5,
+    Settings =
+    [
+        new CellOptions(2, 2) { CellColor = ConsoleColors.Red, CellBackgroundColor = ConsoleColors.DarkRed, ColoredCell = true },
+        new CellOptions(3, 2) { CellColor = ConsoleColors.Red, CellBackgroundColor = ConsoleColors.DarkRed, ColoredCell = true },
+        new CellOptions(4, 2) { CellColor = ConsoleColors.Red, CellBackgroundColor = ConsoleColors.DarkRed, ColoredCell = true },
+        new CellOptions(2, 3) { CellColor = ConsoleColors.Red, CellBackgroundColor = ConsoleColors.DarkRed, ColoredCell = true },
+        new CellOptions(3, 3) { CellColor = ConsoleColors.Red, CellBackgroundColor = ConsoleColors.DarkRed, ColoredCell = true },
+        new CellOptions(4, 3) { CellColor = ConsoleColors.Red, CellBackgroundColor = ConsoleColors.DarkRed, ColoredCell = true },
+        new CellOptions(2, 4) { CellColor = ConsoleColors.Yellow, CellBackgroundColor = ConsoleColors.Olive, ColoredCell = true },
+        new CellOptions(3, 4) { CellColor = ConsoleColors.Yellow, CellBackgroundColor = ConsoleColors.Olive, ColoredCell = true },
+        new CellOptions(2, 5) { CellColor = ConsoleColors.Yellow, CellBackgroundColor = ConsoleColors.Olive, ColoredCell = true },
+        new CellOptions(3, 5) { CellColor = ConsoleColors.Yellow, CellBackgroundColor = ConsoleColors.Olive, ColoredCell = true },
+    ]
+};
+TextWriterRaw.WriteRaw(misc.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
