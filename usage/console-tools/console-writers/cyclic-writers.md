@@ -679,7 +679,7 @@ finally
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/ScreenRecording2024-11-02155547-ezgif.com-video-to-gif-converter.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/1000022817.gif" alt=""><figcaption></figcaption></figure>
 
 ## Artistic
 
