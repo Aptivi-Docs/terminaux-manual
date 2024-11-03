@@ -145,3 +145,7 @@ If you want to render the selection panel, you may want to use the `SelectionInp
   * Background color of the selected alternate item
   * Foreground color of the disabled item
   * Background color of the disabled item
+
+{% hint style="info" %}
+If you want to get more information about an item that you've selected, either press `TAB`, or open the sidebar using the `S` key and navigate through it using the `E` and the `D` keys.
+{% endhint %}

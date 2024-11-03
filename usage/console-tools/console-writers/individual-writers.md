@@ -79,6 +79,10 @@ This text writer allows you to write text at any position to the console. This m
 
 Alongside these writers, there are also writers that are categorized as "fancy" because they either print so awesome or they print graphics. Some of these writers allow you to supply text and/or a title. They can be found in the `FancyWriters` namespace that provides the below classes:
 
+{% hint style="warning" %}
+Please note that it's better to use a cyclic renderer, as the below writers are now wrappers to their own individual cyclic renderers. These writers will be fully replaced in the next version of Terminaux.
+{% endhint %}
+
 * `AlignedFigletTextColor`
   * Provides you with the necessary functions to allow you to render a string using the provided Figlet font either at the left of the console, at the middle of the console, or at the right of the console.
 * `AlignedTextColor`
@@ -262,6 +266,10 @@ This writer allows you to render a text block with the height and the width of y
 ### Miscellaneous writers
 
 Finally, the miscellaneous writers are the writers that don't have any meaningful category. That's when `MiscWriters` comes in. This namespace contains these classes:
+
+{% hint style="warning" %}
+Please note that it's better to use a cyclic renderer, as the below writers are now wrappers to their own individual cyclic renderers. These writers will be fully replaced in the next version of Terminaux.
+{% endhint %}
 
 * `LineHandleWriter`
   * Provides you with the necessary functions to allow you to render a line of a text file with the compiler-like line handle using the specified line and column to the console.

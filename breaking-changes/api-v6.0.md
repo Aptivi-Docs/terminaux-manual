@@ -93,3 +93,30 @@ As part of the renderable cyclic writers that can be contained in a single `Cont
 {% hint style="info" %}
 You just need to change the `using` clause to point to `Terminaux.Writer.CyclicWriters.Shapes`. You can still tell the difference between a static renderable and a geometric shape by examining the implemented interfaces, since we don't plan to remove the geometric shape interface.
 {% endhint %}
+
+### Writer tools moved to `CyclicWriters`
+
+```csharp
+namespace Terminaux.Writer.FancyWriters.Tools
+// or
+namespace Terminaux.Writer.MiscWriters.Tools
+```
+
+The following writer tools have been moved to the `Terminaux.Writer.CyclicWriters.Renderer.Tools` namespace to unify all the writer tools for consistency:
+
+* `AsciinemaRepresentation` (newly introduced)
+* `BorderSettings`
+* `CellOptions`
+* `ChartElement`
+* `FigletTextTools`
+* `Keybinding`
+* `PowerLineSegment`
+* `PowerLineTools`
+* `PredefinedBorders`
+* `TextAlignment` (newly introduced)
+* `TextSettings`
+* `TextWriterTools`
+
+{% hint style="info" %}
+None of the above classes and enumerations are affected at the time of the move, but you'll have to change the `using` clause to point to the right namespace.
+{% endhint %}

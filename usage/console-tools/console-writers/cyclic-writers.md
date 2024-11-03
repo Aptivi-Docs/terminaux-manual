@@ -25,19 +25,24 @@ Cyclic writers are dynamic writers that can be rendered individually by making a
   * `AlignedText`
   * `BoundedText`
   * `FigletText`
+  * `PowerLine`
   * `TextMarquee`
 * Artistic
   * `Border`
   * `Box`
   * `BoxFrame`
   * `Canvas`
+  * `AnimatedCanvas`
 * Misc
   * `Asciinema` (WIP)
   * `ProgressBar`
   * `ProgressBarNoText`
+  * `SimpleProgress`
+  * `Slider`
   * `Spinner`
     * Built-in spinners are available in the `BuiltinSpinners` class.
   * `Table`
+  * `Eraser`
 
 You can define a container by creating a new instance of the `Container` class and adding some of the renderables that can be identified by their name. You can also set their positions by using the `SetRenderablePosition()` function.
 
@@ -241,10 +246,10 @@ You must specify at least the name and the value to identify your element. Howev
 
 ### Breakdown chart
 
-This gives you a horizontal stick that describes what part of the whole stick has taken per each item. This describes a breakdown of several items that you want to present.
+This gives you either a horizontal stick or a vertical stick that describes what part of the whole stick has taken per each item. This describes a breakdown of several items that you want to present.
 
 {% tabs %}
-{% tab title="Showcase" %}
+{% tab title="Horizontal with showcase" %}
 ```csharp
 var chart = new BreakdownChart()
 {
@@ -282,7 +287,7 @@ TextWriterRaw.WriteRaw(chart.Render());
 <figure><img src="../../../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
-{% tab title="No showcase" %}
+{% tab title="Horizontal with no showcase" %}
 ```csharp
 var chart = new BreakdownChart()
 {
@@ -317,6 +322,85 @@ TextWriterRaw.WriteRaw(chart.Render());
 ```
 
 <figure><img src="../../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Vertical with showcase" %}
+```csharp
+var chart = new BreakdownChart()
+{
+    InteriorWidth = ConsoleWrapper.WindowWidth - 4,
+    InteriorHeight = ConsoleWrapper.WindowHeight - 8,
+    Left = 2,
+    Top = 4,
+    Showcase = true,
+    Vertical = true,
+    Elements =
+    [
+        new()
+        {
+            Name = "C#",
+            Value = 80,
+        },
+        new()
+        {
+            Name = "Java",
+            Value = 13,
+        },
+        new()
+        {
+            Name = "C++",
+            Value = 6.9,
+        },
+        new()
+        {
+            Name = "Shell",
+            Value = 0.1,
+        },
+    ]
+};
+TextWriterRaw.WriteRaw(chart.Render());
+```
+
+
+{% endtab %}
+
+{% tab title="Vertical with no showcase" %}
+```csharp
+var chart = new BreakdownChart()
+{
+    InteriorWidth = ConsoleWrapper.WindowWidth - 4,
+    InteriorHeight = ConsoleWrapper.WindowHeight - 8,
+    Left = 2,
+    Top = 4,
+    Vertical = true,
+    Elements =
+    [
+        new()
+        {
+            Name = "C#",
+            Value = 80,
+        },
+        new()
+        {
+            Name = "Java",
+            Value = 13,
+        },
+        new()
+        {
+            Name = "C++",
+            Value = 6.9,
+        },
+        new()
+        {
+            Name = "Shell",
+            Value = 0.1,
+        },
+    ]
+};
+TextWriterRaw.WriteRaw(chart.Render());
+```
+
+
 {% endtab %}
 {% endtabs %}
 
@@ -1247,6 +1331,10 @@ TextWriterRaw.WriteRaw(artistic.Render());
 {% endtab %}
 {% endtabs %}
 
+### Animated canvases
+
+You can make animated canvases using the `AnimatedCanvas` class. It allows you to define canvas frames that describe a group of arrays of cell properties. They are changed sequentially to form an animated canvas.
+
 ## Misc
 
 This category contains all other cyclic writers that don't fit in the above categories.
@@ -1467,6 +1555,60 @@ finally
 {% endtab %}
 {% endtabs %}
 
+#### Simple progress bars
+
+If you want to just print a progress bar either horizontally or vertically without any extra elements, you can use the `SimpleProgress` renderable.
+
+{% tabs %}
+{% tab title="Determinate, horiz." %}
+```csharp
+```
+
+
+{% endtab %}
+
+{% tab title="Indeterminate, horiz." %}
+```csharp
+```
+
+
+{% endtab %}
+
+{% tab title="Determinate, vert." %}
+```csharp
+```
+
+
+{% endtab %}
+
+{% tab title="Indeterminate, vert." %}
+```csharp
+```
+
+
+{% endtab %}
+{% endtabs %}
+
+### Slider
+
+This writer allows you to write a slider that moves according to the minimum position, the current position, and the maximum position. This is useful for slider bars.
+
+{% tabs %}
+{% tab title="Horizontal" %}
+```csharp
+```
+
+
+{% endtab %}
+
+{% tab title="Vertical" %}
+```csharp
+```
+
+
+{% endtab %}
+{% endtabs %}
+
 ### Spinner
 
 This writer allows you to write a spinner that moves according to the number of times that the spinner has rendered. This is useful for progress bars and others.
@@ -1548,3 +1690,18 @@ TextWriterRaw.WriteRaw(misc.Render());
 ```
 
 <figure><img src="../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+
+### Eraser
+
+This renderable allows you to erase either the entire screen or a part of the screen.
+
+```csharp
+var misc = new Eraser()
+{
+    Left = 2,
+    Top = 2,
+    InteriorWidth = 40,
+    InteriorHeight = 10,
+};
+TextWriterRaw.WriteRaw(misc.Render());
+```
