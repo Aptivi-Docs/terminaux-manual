@@ -32,14 +32,14 @@ After creating a new instance, just call `Render()` on the shape instance.
 
 {% code title="RenderRectangle.cs" lineNumbers="true" %}
 ```csharp
-var rect = new Rectangle(15, 5, 4, 2, true, ConsoleColors.Red);
-var rect2 = new Rectangle(15, 5, 21, 2, false, ConsoleColors.Aqua);
+var rect = new Rectangle(7, 5, 4, 2, true, ConsoleColors.Red);
+var rect2 = new Rectangle(7, 5, 21, 2, false, ConsoleColors.Aqua);
 TextWriterRaw.WriteRaw(rect.Render());
 TextWriterRaw.WriteRaw(rect2.Render());
 ```
 {% endcode %}
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 For general graphics tools, it provides the following functions found in the `GraphicsTools` class in the `Terminaux.Graphics` namespace:
 

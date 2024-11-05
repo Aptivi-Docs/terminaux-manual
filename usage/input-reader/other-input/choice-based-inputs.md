@@ -13,7 +13,7 @@ You can group instances of `InputChoiceInfo` classes using an array of `InputCho
 
 ## Choices
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Input choices are required to make use of all choice-based input methods that use the `InputChoiceInfo` class instances, which you can define them yourself. You can define them using the following variables in a constructor:
 
@@ -91,7 +91,7 @@ You can access information from here:
 
 ### Selection style
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Selection style input method uses choices to present you with a full-screen interactive choice selector that allows you to select a choice. This style is found in the `SelectionStyle` and the `SelectionMultipleStyle` classes for both the single-choice selection style and the multiple-choice selection style, respectively.
 
@@ -121,6 +121,7 @@ Here are some tips that apply to selection style inputs:
 
 * The overloads that contain a settings argument let you pass your custom settings to the current selection style invocation, while the overloads that don't contain this parameter use the global settings.
 * In multiple choice selections, you can press `A` to select all the choices. You can also press `F` to initiate a regular expression search for long choice selections to point you quickly to the desired choice.
+* You can press `P` to show the current choice selection count and the current page count, as well as total choices and pages.
 {% endhint %}
 
 If you want to render the selection panel, you may want to use the `SelectionInputTools` class, which all selection styles internally use, that contains the `RenderSelections()` function with the following arguments:
@@ -149,5 +150,5 @@ If you want to render the selection panel, you may want to use the `SelectionInp
 {% hint style="info" %}
 If you want to get more information about an item that you've selected, either press `TAB`, or open the sidebar using the `S` key and navigate through it using the `E` and the `D` keys.
 
-<img src="../../../.gitbook/assets/image (13).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image (13) (1).png" alt="" data-size="original">
 {% endhint %}

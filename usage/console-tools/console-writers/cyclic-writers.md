@@ -78,7 +78,7 @@ var shape = new Circle(20, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full" %}
@@ -87,7 +87,7 @@ var shape = new Circle(20, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -188,20 +188,20 @@ This writer allows you to write an ellipsis directly to the console. It also all
 {% tabs %}
 {% tab title="Outline" %}
 ```csharp
-var shape = new Ellipsis(40, 15, 2, 1);
+var shape = new Ellipsis(20, 15, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full" %}
 ```csharp
-var shape = new Ellipsis(40, 15, 2, 1, true);
+var shape = new Ellipsis(20, 15, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -212,20 +212,20 @@ This writer allows you to write a parallelogram to the console directly. You can
 {% tabs %}
 {% tab title="Outline" %}
 ```csharp
-var shape = new Parallelogram(40, 10, 2, 1);
+var shape = new Parallelogram(20, 10, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full" %}
 ```csharp
-var shape = new Parallelogram(40, 10, 2, 1, true);
+var shape = new Parallelogram(20, 10, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -236,20 +236,20 @@ This writer allows you to write a rectangle to the console directly. You can spe
 {% tabs %}
 {% tab title="Outline" %}
 ```csharp
-var shape = new Rectangle(40, 10, 2, 1);
+var shape = new Rectangle(20, 10, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
-{% tab title="undefined" %}
+{% tab title="Full" %}
 ```csharp
-var shape = new Rectangle(40, 10, 2, 1, true);
+var shape = new Rectangle(20, 10, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -284,20 +284,20 @@ This renders a trapezoid using a specified height, a top edge width, and a botto
 {% tabs %}
 {% tab title="Outline" %}
 ```csharp
-var shape = new Trapezoid(20, 60, 20, 2, 1);
+var shape = new Trapezoid(10, 30, 20, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full" %}
 ```csharp
-var shape = new Trapezoid(20, 60, 20, 2, 1, true);
+var shape = new Trapezoid(10, 30, 20, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -312,7 +312,7 @@ var shape = new Triangle(30, 20, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Final" %}
@@ -321,7 +321,7 @@ var shape = new Triangle(30, 20, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -734,7 +734,7 @@ TextWriterRaw.WriteRaw(text2.Render());
 TextWriterRaw.WriteRaw(text3.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Rainbow" %}
@@ -768,7 +768,7 @@ TextWriterRaw.WriteRaw(text2.Render());
 TextWriterRaw.WriteRaw(text3.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -839,7 +839,7 @@ TextWriterRaw.WriteRaw(text2.Render());
 TextWriterRaw.WriteRaw(text3.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Rainbow" %}
@@ -873,7 +873,7 @@ TextWriterRaw.WriteRaw(text2.Render());
 TextWriterRaw.WriteRaw(text3.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -1041,7 +1041,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Text only" %}
@@ -1057,7 +1057,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Title + text" %}
@@ -1074,7 +1074,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -1094,7 +1094,7 @@ var artistic = new Box()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Box frame
 
@@ -1113,7 +1113,7 @@ var artistic = new BoxFrame("")
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="With title" %}
@@ -1128,7 +1128,7 @@ var artistic = new BoxFrame("Text")
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -1243,7 +1243,7 @@ var artistic = new Canvas()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Opaque, half-width" %}
@@ -1351,7 +1351,7 @@ var artistic = new Canvas()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Transparent, full-width" %}
@@ -1459,7 +1459,7 @@ var artistic = new Canvas()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Opaque, full-width" %}
@@ -1566,7 +1566,7 @@ var artistic = new Canvas()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -1642,7 +1642,7 @@ finally
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Indeterminate" %}
@@ -1744,7 +1744,7 @@ finally
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Indeterminate" %}
@@ -1792,7 +1792,7 @@ finally
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (13) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -2246,7 +2246,7 @@ var calendar = new Calendars()
 TextWriterRaw.WriteRaw(calendar.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Calendar (Hijri)" %}
@@ -2266,7 +2266,7 @@ var calendar = new Calendars()
 TextWriterRaw.WriteRaw(calendar.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -2446,7 +2446,7 @@ var misc = new Keybindings()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Overflow" %}
@@ -2471,7 +2471,7 @@ var misc = new Keybindings()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Overflow + custom help key" %}
@@ -2497,7 +2497,7 @@ var misc = new Keybindings()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -2521,7 +2521,7 @@ var misc = new Listing()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Dictionaries" %}
@@ -2538,7 +2538,7 @@ var misc = new Listing()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Leveled lists" %}
@@ -2599,7 +2599,7 @@ TextWriterRaw.WritePlain(misc7.Render());
 TextWriterRaw.WritePlain(misc8.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -2613,4 +2613,4 @@ var misc = new Emoji(Textify.Data.Unicode.EmojiEnum.SmilingFaceWithSmilingEyes);
 TextWriterWhereColor.WriteWhere(misc.Render(), rng.Next(ConsoleWrapper.WindowWidth), rng.Next(ConsoleWrapper.WindowHeight));
 ```
 
-<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>

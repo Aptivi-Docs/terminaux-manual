@@ -37,19 +37,19 @@ For informational boxes that use choice-based input styles, you can discover how
 
 ### Buttons
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This style utilizes choice-based input to render the buttons inside the informational box of this style, which makes them look like a conventional dialog box. This style can render up to three buttons from the right to the left, which means three instances of `InputChoiceInfo`. You can use this style with the `InfoBoxButtonsColor` class.
 
 ### Input
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This style uses the input reader to tell the user to write something, based on the informational box contents. For example, if this informational box tells an end-user to write a hostname of an SFTP server, the user will have to write the hostname. You can use this style with `InfoBoxInputColor`.
 
 ### Input (password)
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This style uses the input reader masked with the password to tell the user to write something, based on the informational box contents. For example, if this informational box tells an end-user to write a password of an account when logging in to the SFTP server, the user will have to write the password. You can use this style with `InfoBoxInputPasswordColor`.
 
@@ -59,7 +59,7 @@ This style only prints information that the end user needs to read. This is suit
 
 ### Slider
 
-<figure><img src="../../../.gitbook/assets/image (11) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This style allows you to define a minimum, a current, and a maximum value of an integral value that can only be described as surrounded between the minimum value and the maximum value. For example, a slider that has a minimum value of 5 and a maximum value of 10 can only accept values of between 5 and 10, which means 5, 6, 7, 8, 9, and 10. You can use this style with the `InfoBoxSliderColor` class.
 
@@ -72,13 +72,13 @@ There are two styles in this category:
 
 #### Single selection informational box
 
-<figure><img src="../../../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This info box style uses the choice-based input to define choices that the end user will have to select one of them. Plus, you can search for a choice using the `F` key to initiate a regex-based search for maximum flexibility. You can use this style with the `InfoBoxSelectionColor` class.
 
 #### Multiple selection informational box
 
-<figure><img src="../../../.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This info box style uses the choice-based input to define multiple choices that the end user will have to select one of them. Plus, you can search for a choice using the `F` key to initiate a regex-based search for maximum flexibility. You can use this style with the `InfoBoxSelectionMultipleColor` class.
 
@@ -88,12 +88,12 @@ In addition to the modal informational boxes, we also have non-modal information
 
 ### Normal infobox
 
-<figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This is used to convey information to the end user that some progress is being made without any percentage. Such progress is called indeterminate progress. However, this can be used to display a disclaimer or any other information within a limited time.
 
 ### Progress
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This is used to tell the end user through an informational box with a progress bar that something is happening, and that the progress is being done all the way to 100%. This infobox needs to be in a loop while progress is being made.

@@ -195,12 +195,20 @@ We have removed the above property from the geometric shape interface, because t
 If you want to continue using this property, implement it in individual geometric shape classes. You won't be able to call it from a general interface variable, so you'll have to cast it to a class that has this property first.
 {% endhint %}
 
-### Changed how ellipses render
+### Changed how shapes render
 
-Due to the new canvas class being used to render an ellipse, you'll notice that the ellipses will appear stretched. This is due to the width not being treated as a multiple of two when creating ellipsis instances due to canvases defaulting to full width.
+Due to the new canvas class being used to render a shape, you'll notice that the shapes will appear stretched. This is due to the width not being treated as a multiple of two when creating shape instances due to canvases defaulting to full width. The following shapes are affected based on width:
+
+* Ellipsis
+* Parallelogram
+* Rectangle
+* Square
+* Line
+* Triangle
+* Trapezoid
 
 {% hint style="info" %}
-Divide the width by two as in below example:
+Divide the width by two as in below example (adapt this to your shape instance):
 
 ```diff
 -var ellipsis = new Ellipsis(40, 20, 4, 2, true, ConsoleColors.Red);
