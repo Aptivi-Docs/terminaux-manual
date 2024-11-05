@@ -361,7 +361,7 @@ var chart = new BreakdownChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-
+<figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Vertical with no showcase" %}
@@ -400,7 +400,7 @@ var chart = new BreakdownChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-
+<figure><img src="../../../.gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -1333,7 +1333,9 @@ TextWriterRaw.WriteRaw(artistic.Render());
 
 ### Animated canvases
 
-You can make animated canvases using the `AnimatedCanvas` class. It allows you to define canvas frames that describe a group of arrays of cell properties. They are changed sequentially to form an animated canvas.
+You can make animated canvases using the `AnimatedCanvas` class. It allows you to define canvas frames that describe a group of arrays of cell properties. They are changed sequentially to form an animated canvas. The example below is taken from [this file](https://github.com/Aptivi/Terminaux/blob/main/Terminaux.Console/Fixtures/Cases/Writer/TestAnimatedCanvas.cs).
+
+<figure><img src="../../../.gitbook/assets/animated-canvas.gif" alt=""><figcaption></figcaption></figure>
 
 ## Misc
 
@@ -1562,30 +1564,200 @@ If you want to just print a progress bar either horizontally or vertically witho
 {% tabs %}
 {% tab title="Determinate, horiz." %}
 ```csharp
+var stickScreen = new Screen()
+{
+    CycleFrequency = 50,
+};
+var progressBar = new SimpleProgress(0, 100)
+{
+    LeftMargin = 4,
+    RightMargin = 4,
+};
+try
+{
+    // First, clear the screen
+    ColorTools.LoadBack();
+
+    // Then, show the progress bar
+    var stickScreenPart = new ScreenPart();
+    stickScreenPart.Position(4, ConsoleWrapper.WindowHeight - 1);
+    stickScreenPart.AddDynamicText(progressBar.Render);
+    stickScreen.AddBufferedPart("Test", stickScreenPart);
+    ScreenTools.SetCurrent(stickScreen);
+    ScreenTools.SetCurrentCyclic(stickScreen);
+    ScreenTools.StartCyclicScreen();
+
+    // Finally, increment the progress bar until it's full
+    for (int progress = 0; progress < 100; progress++)
+    {
+        progressBar.Position = progress;
+        Thread.Sleep(100);
+    }
+}
+catch (Exception ex)
+{
+    InfoBoxModalColor.WriteInfoBoxModal($"Screen failed to render: {ex.Message}");
+}
+finally
+{
+    ScreenTools.StopCyclicScreen();
+    ScreenTools.UnsetCurrent(stickScreen);
+    ColorTools.LoadBack();
+}
 ```
 
-
+<figure><img src="../../../.gitbook/assets/image (47).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Indeterminate, horiz." %}
 ```csharp
+var stickScreen = new Screen()
+{
+    CycleFrequency = 50,
+};
+var progressBar = new SimpleProgress(0, 100)
+{
+    LeftMargin = 4,
+    RightMargin = 4,
+    Indeterminate = true,
+};
+try
+{
+    // First, clear the screen
+    ColorTools.LoadBack();
+
+    // Then, show the progress bar
+    var stickScreenPart = new ScreenPart();
+    stickScreenPart.Position(4, ConsoleWrapper.WindowHeight - 1);
+    stickScreenPart.AddDynamicText(progressBar.Render);
+    stickScreen.AddBufferedPart("Test", stickScreenPart);
+    ScreenTools.SetCurrent(stickScreen);
+    ScreenTools.SetCurrentCyclic(stickScreen);
+    ScreenTools.StartCyclicScreen();
+
+    // Finally, increment the progress bar until it's full
+    for (int progress = 0; progress < 100; progress++)
+    {
+        progressBar.Position = progress;
+        Thread.Sleep(100);
+    }
+}
+catch (Exception ex)
+{
+    InfoBoxModalColor.WriteInfoBoxModal($"Screen failed to render: {ex.Message}");
+}
+finally
+{
+    ScreenTools.StopCyclicScreen();
+    ScreenTools.UnsetCurrent(stickScreen);
+    ColorTools.LoadBack();
+}
 ```
 
-
+<figure><img src="../../../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Determinate, vert." %}
 ```csharp
+var stickScreen = new Screen()
+{
+    CycleFrequency = 50,
+};
+var container = new Container();
+var progressBar1 = new SimpleProgress(0, 100)
+{
+    Height = 20,
+    Vertical = true,
+};
+container.AddRenderable("Progress bar 1", progressBar1);
+container.SetRenderablePosition("Progress bar 1", new(4, 2));
+
+// Render them all
+try
+{
+    // First, clear the screen
+    ColorTools.LoadBack();
+
+    // Then, show the progress bar
+    var stickScreenPart = new ScreenPart();
+    stickScreenPart.AddDynamicText(() => ContainerTools.RenderContainer(container));
+    stickScreen.AddBufferedPart("Test", stickScreenPart);
+    ScreenTools.SetCurrent(stickScreen);
+    ScreenTools.SetCurrentCyclic(stickScreen);
+    ScreenTools.StartCyclicScreen();
+
+    // Finally, increment the progress bar until it's full
+    for (int progress = 0; progress < 100; progress++)
+    {
+        progressBar1.Position = progress;
+        Thread.Sleep(100);
+    }
+}
+catch (Exception ex)
+{
+    InfoBoxModalColor.WriteInfoBoxModal($"Screen failed to render: {ex.Message}");
+}
+finally
+{
+    ScreenTools.StopCyclicScreen();
+    ScreenTools.UnsetCurrent(stickScreen);
+    ColorTools.LoadBack();
+}
 ```
 
-
+<figure><img src="../../../.gitbook/assets/image (49).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Indeterminate, vert." %}
 ```csharp
+var stickScreen = new Screen()
+{
+    CycleFrequency = 50,
+};
+var container = new Container();
+var progressBar1 = new SimpleProgress(0, 100)
+{
+    Height = 20,
+    Vertical = true,
+    Indeterminate = true,
+};
+container.AddRenderable("Progress bar 1", progressBar1);
+container.SetRenderablePosition("Progress bar 1", new(4, 2));
+
+// Render them all
+try
+{
+    // First, clear the screen
+    ColorTools.LoadBack();
+
+    // Then, show the progress bar
+    var stickScreenPart = new ScreenPart();
+    stickScreenPart.AddDynamicText(() => ContainerTools.RenderContainer(container));
+    stickScreen.AddBufferedPart("Test", stickScreenPart);
+    ScreenTools.SetCurrent(stickScreen);
+    ScreenTools.SetCurrentCyclic(stickScreen);
+    ScreenTools.StartCyclicScreen();
+
+    // Finally, increment the progress bar until it's full
+    for (int progress = 0; progress < 100; progress++)
+    {
+        progressBar1.Position = progress;
+        Thread.Sleep(100);
+    }
+}
+catch (Exception ex)
+{
+    InfoBoxModalColor.WriteInfoBoxModal($"Screen failed to render: {ex.Message}");
+}
+finally
+{
+    ScreenTools.StopCyclicScreen();
+    ScreenTools.UnsetCurrent(stickScreen);
+    ColorTools.LoadBack();
+}
 ```
 
-
+<figure><img src="../../../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -1596,16 +1768,143 @@ This writer allows you to write a slider that moves according to the minimum pos
 {% tabs %}
 {% tab title="Horizontal" %}
 ```csharp
+var stickScreen = new Screen()
+{
+    CycleFrequency = 50,
+};
+var container = new Container();
+var slider1 = new Slider(0, 0, 100)
+{
+    Width = 40,
+};
+var slider2 = new Slider(0, 0, 10)
+{
+    Width = 40,
+};
+var slider3 = new Slider(0, 0, 4)
+{
+    Width = 40,
+};
+container.AddRenderable("Slider bar 1", slider1);
+container.SetRenderablePosition("Slider bar 1", new(4, ConsoleWrapper.WindowHeight - 3));
+container.AddRenderable("Slider bar 2", slider2);
+container.SetRenderablePosition("Slider bar 2", new(4, ConsoleWrapper.WindowHeight - 2));
+container.AddRenderable("Slider bar 3", slider3);
+container.SetRenderablePosition("Slider bar 3", new(4, ConsoleWrapper.WindowHeight - 1));
+
+// Render them all
+try
+{
+    // First, clear the screen
+    ColorTools.LoadBack();
+
+    // Then, show the slider bar
+    var stickScreenPart = new ScreenPart();
+    stickScreenPart.Position(4, ConsoleWrapper.WindowHeight - 1);
+    stickScreenPart.AddDynamicText(() => ContainerTools.RenderContainer(container));
+    stickScreen.AddBufferedPart("Test", stickScreenPart);
+    ScreenTools.SetCurrent(stickScreen);
+    ScreenTools.SetCurrentCyclic(stickScreen);
+    ScreenTools.StartCyclicScreen();
+
+    // Finally, increment the slider bar until it's full
+    for (int sliderPos1 = 0, sliderPos2 = 0, sliderPos3 = 0; sliderPos1 < 100; sliderPos1++, sliderPos2++, sliderPos3++)
+    {
+        if (sliderPos2 == 10)
+            sliderPos2 = 0;
+        if (sliderPos3 == 4)
+            sliderPos3 = 0;
+        slider1.Position = sliderPos1;
+        slider2.Position = sliderPos2;
+        slider3.Position = sliderPos3;
+        Thread.Sleep(100);
+    }
+}
+catch (Exception ex)
+{
+    InfoBoxModalColor.WriteInfoBoxModal($"Screen failed to render: {ex.Message}");
+}
+finally
+{
+    ScreenTools.StopCyclicScreen();
+    ScreenTools.UnsetCurrent(stickScreen);
+    ColorTools.LoadBack();
+}
 ```
 
-
+<figure><img src="../../../.gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Vertical" %}
 ```csharp
+var stickScreen = new Screen()
+{
+    CycleFrequency = 50,
+};
+var container = new Container();
+var slider4 = new Slider(0, 0, 100)
+{
+    Height = 10,
+    Vertical = true,
+};
+var slider5 = new Slider(0, 0, 10)
+{
+    Height = 10,
+    Vertical = true,
+};
+var slider6 = new Slider(0, 0, 4)
+{
+    Height = 10,
+    Vertical = true,
+};
+container.AddRenderable("Slider bar 4", slider4);
+container.SetRenderablePosition("Slider bar 4", new(4, 2));
+container.AddRenderable("Slider bar 5", slider5);
+container.SetRenderablePosition("Slider bar 5", new(6, 2));
+container.AddRenderable("Slider bar 6", slider6);
+container.SetRenderablePosition("Slider bar 6", new(8, 2));
+
+// Render them all
+try
+{
+    // First, clear the screen
+    ColorTools.LoadBack();
+
+    // Then, show the slider bar
+    var stickScreenPart = new ScreenPart();
+    stickScreenPart.Position(4, ConsoleWrapper.WindowHeight - 1);
+    stickScreenPart.AddDynamicText(() => ContainerTools.RenderContainer(container));
+    stickScreen.AddBufferedPart("Test", stickScreenPart);
+    ScreenTools.SetCurrent(stickScreen);
+    ScreenTools.SetCurrentCyclic(stickScreen);
+    ScreenTools.StartCyclicScreen();
+
+    // Finally, increment the slider bar until it's full
+    for (int sliderPos1 = 0, sliderPos2 = 0, sliderPos3 = 0; sliderPos1 < 100; sliderPos1++, sliderPos2++, sliderPos3++)
+    {
+        if (sliderPos2 == 10)
+            sliderPos2 = 0;
+        if (sliderPos3 == 4)
+            sliderPos3 = 0;
+        slider4.Position = sliderPos1;
+        slider5.Position = sliderPos2;
+        slider6.Position = sliderPos3;
+        Thread.Sleep(100);
+    }
+}
+catch (Exception ex)
+{
+    InfoBoxModalColor.WriteInfoBoxModal($"Screen failed to render: {ex.Message}");
+}
+finally
+{
+    ScreenTools.StopCyclicScreen();
+    ScreenTools.UnsetCurrent(stickScreen);
+    ColorTools.LoadBack();
+}
 ```
 
-
+<figure><img src="../../../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -1705,3 +2004,143 @@ var misc = new Eraser()
 };
 TextWriterRaw.WriteRaw(misc.Render());
 ```
+
+For example, this is used to erase edges from a canvas without modifying the canvas instance itself:
+
+```csharp
+var canvas = new Canvas()
+{
+    Left = 2,
+    Top = 2,
+    Color = ConsoleColors.Green,
+    InteriorWidth = 20,
+    InteriorHeight = 20,
+    Transparent = true,
+    Pixels =
+    [
+        // Draw the top part of the "T" letter
+        new(2, 2) { CellColor = ConsoleColors.Yellow },
+        new(3, 2) { CellColor = ConsoleColors.Yellow },
+        new(4, 2) { CellColor = ConsoleColors.Yellow },
+        new(5, 2) { CellColor = ConsoleColors.Yellow },
+        new(6, 2) { CellColor = ConsoleColors.Yellow },
+        new(7, 2) { CellColor = ConsoleColors.Yellow },
+        new(8, 2) { CellColor = ConsoleColors.Yellow },
+        new(9, 2) { CellColor = ConsoleColors.Yellow },
+        new(10, 2) { CellColor = ConsoleColors.Yellow },
+        new(11, 2) { CellColor = ConsoleColors.Yellow },
+        new(12, 2) { CellColor = ConsoleColors.Yellow },
+        new(13, 2) { CellColor = ConsoleColors.Yellow },
+        new(14, 2) { CellColor = ConsoleColors.Yellow },
+        new(15, 2) { CellColor = ConsoleColors.Yellow },
+        new(16, 2) { CellColor = ConsoleColors.Yellow },
+        new(17, 2) { CellColor = ConsoleColors.Yellow },
+        new(18, 2) { CellColor = ConsoleColors.Yellow },
+        new(2, 3) { CellColor = ConsoleColors.Yellow },
+        new(3, 3) { CellColor = ConsoleColors.Yellow },
+        new(4, 3) { CellColor = ConsoleColors.Yellow },
+        new(5, 3) { CellColor = ConsoleColors.Yellow },
+        new(6, 3) { CellColor = ConsoleColors.Yellow },
+        new(7, 3) { CellColor = ConsoleColors.Yellow },
+        new(8, 3) { CellColor = ConsoleColors.Yellow },
+        new(9, 3) { CellColor = ConsoleColors.Yellow },
+        new(10, 3) { CellColor = ConsoleColors.Yellow },
+        new(11, 3) { CellColor = ConsoleColors.Yellow },
+        new(12, 3) { CellColor = ConsoleColors.Yellow },
+        new(13, 3) { CellColor = ConsoleColors.Yellow },
+        new(14, 3) { CellColor = ConsoleColors.Yellow },
+        new(15, 3) { CellColor = ConsoleColors.Yellow },
+        new(16, 3) { CellColor = ConsoleColors.Yellow },
+        new(17, 3) { CellColor = ConsoleColors.Yellow },
+        new(18, 3) { CellColor = ConsoleColors.Yellow },
+        
+        // Draw the line of the "T" letter
+        new(9, 3) { CellColor = ConsoleColors.Yellow },
+        new(9, 4) { CellColor = ConsoleColors.Yellow },
+        new(9, 5) { CellColor = ConsoleColors.Yellow },
+        new(9, 6) { CellColor = ConsoleColors.Yellow },
+        new(9, 7) { CellColor = ConsoleColors.Yellow },
+        new(9, 8) { CellColor = ConsoleColors.Yellow },
+        new(9, 9) { CellColor = ConsoleColors.Yellow },
+        new(9, 10) { CellColor = ConsoleColors.Yellow },
+        new(9, 11) { CellColor = ConsoleColors.Yellow },
+        new(9, 12) { CellColor = ConsoleColors.Yellow },
+        new(9, 13) { CellColor = ConsoleColors.Yellow },
+        new(9, 14) { CellColor = ConsoleColors.Yellow },
+        new(9, 15) { CellColor = ConsoleColors.Yellow },
+        new(9, 16) { CellColor = ConsoleColors.Yellow },
+        new(9, 17) { CellColor = ConsoleColors.Yellow },
+        new(9, 18) { CellColor = ConsoleColors.Yellow },
+        new(9, 19) { CellColor = ConsoleColors.Yellow },
+        new(10, 3) { CellColor = ConsoleColors.Yellow },
+        new(10, 4) { CellColor = ConsoleColors.Yellow },
+        new(10, 5) { CellColor = ConsoleColors.Yellow },
+        new(10, 6) { CellColor = ConsoleColors.Yellow },
+        new(10, 7) { CellColor = ConsoleColors.Yellow },
+        new(10, 8) { CellColor = ConsoleColors.Yellow },
+        new(10, 9) { CellColor = ConsoleColors.Yellow },
+        new(10, 10) { CellColor = ConsoleColors.Yellow },
+        new(10, 11) { CellColor = ConsoleColors.Yellow },
+        new(10, 12) { CellColor = ConsoleColors.Yellow },
+        new(10, 13) { CellColor = ConsoleColors.Yellow },
+        new(10, 14) { CellColor = ConsoleColors.Yellow },
+        new(10, 15) { CellColor = ConsoleColors.Yellow },
+        new(10, 16) { CellColor = ConsoleColors.Yellow },
+        new(10, 17) { CellColor = ConsoleColors.Yellow },
+        new(10, 18) { CellColor = ConsoleColors.Yellow },
+        new(10, 19) { CellColor = ConsoleColors.Yellow },
+        new(11, 3) { CellColor = ConsoleColors.Yellow },
+        new(11, 4) { CellColor = ConsoleColors.Yellow },
+        new(11, 5) { CellColor = ConsoleColors.Yellow },
+        new(11, 6) { CellColor = ConsoleColors.Yellow },
+        new(11, 7) { CellColor = ConsoleColors.Yellow },
+        new(11, 8) { CellColor = ConsoleColors.Yellow },
+        new(11, 9) { CellColor = ConsoleColors.Yellow },
+        new(11, 10) { CellColor = ConsoleColors.Yellow },
+        new(11, 11) { CellColor = ConsoleColors.Yellow },
+        new(11, 12) { CellColor = ConsoleColors.Yellow },
+        new(11, 13) { CellColor = ConsoleColors.Yellow },
+        new(11, 14) { CellColor = ConsoleColors.Yellow },
+        new(11, 15) { CellColor = ConsoleColors.Yellow },
+        new(11, 16) { CellColor = ConsoleColors.Yellow },
+        new(11, 17) { CellColor = ConsoleColors.Yellow },
+        new(11, 18) { CellColor = ConsoleColors.Yellow },
+        new(11, 19) { CellColor = ConsoleColors.Yellow },
+    ]
+};
+var eraser1 = new Eraser()
+{
+    Left = 2,
+    Top = 2,
+    InteriorWidth = 40,
+    InteriorHeight = 1,
+};
+var eraser2 = new Eraser()
+{
+    Left = 2,
+    Top = 3,
+    InteriorWidth = 2,
+    InteriorHeight = 19,
+};
+var eraser3 = new Eraser()
+{
+    Left = 2,
+    Top = 21,
+    InteriorWidth = 40,
+    InteriorHeight = 1,
+};
+var eraser4 = new Eraser()
+{
+    Left = 38,
+    Top = 3,
+    InteriorWidth = 4,
+    InteriorHeight = 19,
+};
+TextWriterRaw.WriteRaw(canvas.Render());
+TextWriterRaw.WriteRaw(eraser1.Render());
+TextWriterRaw.WriteRaw(eraser2.Render());
+TextWriterRaw.WriteRaw(eraser3.Render());
+TextWriterRaw.WriteRaw(eraser4.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
