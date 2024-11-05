@@ -9,6 +9,7 @@ Cyclic writers are dynamic writers that can be rendered individually by making a
 
 * Shapes
   * `Circle`
+  * `Arc`
   * `Ellipsis`
   * `Parallelogram`
   * `Rectangle`
@@ -41,8 +42,12 @@ Cyclic writers are dynamic writers that can be rendered individually by making a
   * `Slider`
   * `Spinner`
     * Built-in spinners are available in the `BuiltinSpinners` class.
-  * `Table`
+  * `Table` and `Calendars`
   * `Eraser`
+  * `Keybindings`
+  * `ListEntry`
+  * `Listing`
+  * `Emoji`
 
 You can define a container by creating a new instance of the `Container` class and adding some of the renderables that can be identified by their name. You can also set their positions by using the `SetRenderablePosition()` function.
 
@@ -83,6 +88,96 @@ TextWriterRaw.WriteRaw(shape.Render());
 ```
 
 <figure><img src="../../../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
+
+### Arc
+
+This writer allows you to write an arc directly to the console with some parameters, such as custom inner and outer radius, and angle ranges.
+
+{% tabs %}
+{% tab title="Partial Donut" %}
+```csharp
+var arc = new Arc(20, 4, 2, ConsoleColors.Red)
+{
+    InnerRadius = 6,
+    OuterRadius = 9,
+    AngleStart = 360,
+    AngleEnd = 100,
+};
+TextWriterRaw.WriteRaw(arc.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Full Donut" %}
+```csharp
+var arc = new Arc(20, 4, 2, ConsoleColors.Red)
+{
+    InnerRadius = 6,
+    OuterRadius = 9,
+    AngleStart = 360,
+    AngleEnd = 100,
+};
+var arc2 = new Arc(20, 4, 2, ConsoleColors.Lime)
+{
+    InnerRadius = 6,
+    OuterRadius = 9,
+    AngleStart = 150,
+    AngleEnd = 300,
+};
+var arc3 = new Arc(20, 4, 2, ConsoleColors.Blue)
+{
+    InnerRadius = 6,
+    OuterRadius = 9,
+    AngleStart = 100,
+    AngleEnd = 150,
+};
+TextWriterRaw.WriteRaw(arc.Render());
+TextWriterRaw.WriteRaw(arc2.Render());
+TextWriterRaw.WriteRaw(arc3.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Partial Pie" %}
+```csharp
+var arc = new Arc(20, 4, 2, ConsoleColors.Red)
+{
+    InnerRadius = 0,
+    OuterRadius = 9,
+    AngleStart = 170,
+    AngleEnd = 120,
+};
+TextWriterRaw.WriteRaw(arc.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Full Pie" %}
+```csharp
+var arc = new Arc(20, 4, 2, ConsoleColors.Red)
+{
+    InnerRadius = 0,
+    OuterRadius = 9,
+    AngleStart = 170,
+    AngleEnd = 120,
+};
+var arc2 = new Arc(20, 4, 2, ConsoleColors.Aqua)
+{
+    InnerRadius = 0,
+    OuterRadius = 9,
+    AngleStart = 120,
+    AngleEnd = 170,
+};
+TextWriterRaw.WriteRaw(arc.Render());
+TextWriterRaw.WriteRaw(arc2.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -576,6 +671,8 @@ The following writers write text in different ways to the console.
 
 This allows you to write an aligned Figlet text to the console.
 
+{% tabs %}
+{% tab title="Normal" %}
 ```csharp
 var text = new AlignedFigletText(FigletFonts.GetByName("small"), "Left")
 {
@@ -604,11 +701,83 @@ TextWriterRaw.WriteRaw(text3.Render());
 ```
 
 <figure><img src="../../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Colored" %}
+```csharp
+var text = new AlignedFigletText(FigletFonts.GetByName("small"), "Left")
+{
+    ForegroundColor = ConsoleColors.Red,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    }
+};
+var text2 = new AlignedFigletText(FigletFonts.GetByName("small"), "Middle")
+{
+    ForegroundColor = ConsoleColors.Lime,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Middle
+    }
+};
+var text3 = new AlignedFigletText(FigletFonts.GetByName("small"), "Right")
+{
+    ForegroundColor = ConsoleColors.Blue,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Right
+    }
+};
+TextWriterRaw.WriteRaw(text.Render());
+TextWriterRaw.WriteRaw(text2.Render());
+TextWriterRaw.WriteRaw(text3.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Rainbow" %}
+```csharp
+var text = new AlignedFigletText(FigletFonts.GetByName("small"), "Left")
+{
+    Rainbow = true,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    }
+};
+var text2 = new AlignedFigletText(FigletFonts.GetByName("small"), "Middle")
+{
+    Rainbow = true,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Middle
+    }
+};
+var text3 = new AlignedFigletText(FigletFonts.GetByName("small"), "Right")
+{
+    Rainbow = true,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Right
+    }
+};
+TextWriterRaw.WriteRaw(text.Render());
+TextWriterRaw.WriteRaw(text2.Render());
+TextWriterRaw.WriteRaw(text3.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
 
 ### Aligned text
 
 This allows you to write an aligned text to the console.
 
+{% tabs %}
+{% tab title="Normal" %}
 ```csharp
 var text = new AlignedText("Left")
 {
@@ -637,6 +806,76 @@ TextWriterRaw.WriteRaw(text3.Render());
 ```
 
 <figure><img src="../../../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Colored" %}
+```csharp
+var text = new AlignedText("Left")
+{
+    ForegroundColor = ConsoleColors.Red,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    }
+};
+var text2 = new AlignedText("Middle")
+{
+    ForegroundColor = ConsoleColors.Lime,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Middle
+    }
+};
+var text3 = new AlignedText("Right")
+{
+    ForegroundColor = ConsoleColors.Blue,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Right
+    }
+};
+TextWriterRaw.WriteRaw(text.Render());
+TextWriterRaw.WriteRaw(text2.Render());
+TextWriterRaw.WriteRaw(text3.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Rainbow" %}
+```csharp
+var text = new AlignedText("Left")
+{
+    Rainbow = true,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    }
+};
+var text2 = new AlignedText("Middle")
+{
+    Rainbow = true,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Middle
+    }
+};
+var text3 = new AlignedText("Right")
+{
+    Rainbow = true,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Right
+    }
+};
+TextWriterRaw.WriteRaw(text.Render());
+TextWriterRaw.WriteRaw(text2.Render());
+TextWriterRaw.WriteRaw(text3.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
 
 ### Bounded text
 
@@ -786,7 +1025,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Title only" %}
@@ -802,7 +1041,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Text only" %}
@@ -818,7 +1057,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Title + text" %}
@@ -835,7 +1074,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -855,7 +1094,7 @@ var artistic = new Box()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Box frame
 
@@ -874,7 +1113,7 @@ var artistic = new BoxFrame("")
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="With title" %}
@@ -889,7 +1128,7 @@ var artistic = new BoxFrame("Text")
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -1004,7 +1243,7 @@ var artistic = new Canvas()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Opaque, half-width" %}
@@ -1112,7 +1351,7 @@ var artistic = new Canvas()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Transparent, full-width" %}
@@ -1220,7 +1459,7 @@ var artistic = new Canvas()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Opaque, full-width" %}
@@ -1327,7 +1566,7 @@ var artistic = new Canvas()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -1403,7 +1642,7 @@ finally
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Indeterminate" %}
@@ -1452,7 +1691,7 @@ finally
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -1505,7 +1744,7 @@ finally
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Indeterminate" %}
@@ -1553,7 +1792,7 @@ finally
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -1945,12 +2184,14 @@ finally
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Table
 
-This allows you to render a table that consists of rows and columns to the terminal. You can use the cell options variable to configure various cells, such as colors.
+This allows you to render a table that consists of rows and columns to the terminal. You can use the cell options variable to configure various cells, such as colors. Calendars internally use the table renderer to render the core elements of a calendar, and they support non-Gregorian calendars.
 
+{% tabs %}
+{% tab title="Normal tables" %}
 ```csharp
 var Rows = new string[,]
 {
@@ -1988,7 +2229,46 @@ var misc = new Table()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Calendar (Gregorian)" %}
+```csharp
+var calendar = new Calendars()
+{
+    Year = DateTime.Now.Year,
+    Month = DateTime.Now.Month,
+    Left = 4,
+    Top = 2,
+    InteriorWidth = 40,
+    InteriorHeight = 10,
+};
+TextWriterRaw.WriteRaw(calendar.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Calendar (Hijri)" %}
+```csharp
+var culture = new CultureInfo("ar");
+culture.DateTimeFormat.Calendar = new HijriCalendar();
+var calendar = new Calendars()
+{
+    Year = DateTime.Now.Year,
+    Month = DateTime.Now.Month,
+    Left = 4,
+    Top = 2,
+    InteriorWidth = 40,
+    InteriorHeight = 10,
+    Culture = culture
+};
+TextWriterRaw.WriteRaw(calendar.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
 
 ### Eraser
 
@@ -2144,3 +2424,193 @@ TextWriterRaw.WriteRaw(eraser4.Render());
 ```
 
 <figure><img src="../../../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
+
+### Keybindings
+
+This renderable allows you to write a list of keybindings similar to that of old text-based applications to the terminal.
+
+{% tabs %}
+{% tab title="No overflow" %}
+```csharp
+var misc = new Keybindings()
+{
+    Top = ConsoleWrapper.WindowHeight - 1,
+    Width = ConsoleWrapper.WindowWidth,
+    KeybindingList =
+    [
+        new("Binding 1", ConsoleKey.Enter),
+        new("Binding 2", ConsoleKey.Escape),
+        new("Binding 3", ConsoleKey.Tab),
+    ]
+};
+TextWriterRaw.WriteRaw(misc.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Overflow" %}
+```csharp
+var misc = new Keybindings()
+{
+    Top = ConsoleWrapper.WindowHeight - 1,
+    Width = ConsoleWrapper.WindowWidth,
+    KeybindingList =
+    [
+        new("Binding 1", ConsoleKey.Enter),
+        new("Binding 2", ConsoleKey.Escape),
+        new("Binding 3", ConsoleKey.Tab),
+        new("Binding 4", ConsoleKey.Spacebar),
+        new("Binding 5", ConsoleKey.Home),
+        new("Binding 6", ConsoleKey.End),
+        new("Binding 7", ConsoleKey.DownArrow),
+        new("Binding 8", ConsoleKey.UpArrow),
+        new("Binding 9", ConsoleKey.Insert),
+    ]
+};
+TextWriterRaw.WriteRaw(misc.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Overflow + custom help key" %}
+```csharp
+var misc = new Keybindings()
+{
+    Top = ConsoleWrapper.WindowHeight - 1,
+    Width = ConsoleWrapper.WindowWidth,
+    KeybindingList =
+    [
+        new("Binding 1", ConsoleKey.Enter),
+        new("Binding 2", ConsoleKey.Escape),
+        new("Binding 3", ConsoleKey.Tab),
+        new("Binding 4", ConsoleKey.Spacebar),
+        new("Binding 5", ConsoleKey.Home),
+        new("Binding 6", ConsoleKey.End),
+        new("Binding 7", ConsoleKey.DownArrow),
+        new("Binding 8", ConsoleKey.UpArrow),
+        new("Binding 9", ConsoleKey.Insert),
+    ],
+    HelpKeyInfo = new('H', ConsoleKey.H, false, false, false)
+};
+TextWriterRaw.WriteRaw(misc.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
+
+### `ListEntry` and `Listing`
+
+These renderables help you create a rendered list of items easily. `Listing` accepts any enumerable with optional functions that convert individual items to string representations, while `ListEntry` is used to render a single entry in the key and the value form.
+
+{% tabs %}
+{% tab title="Lists" %}
+```csharp
+var misc = new Listing()
+{
+    Objects = new string[]
+    {
+        "One",
+        "Two",
+        "Three",
+        "Four",
+    }
+};
+TextWriterRaw.WriteRaw(misc.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Dictionaries" %}
+```csharp
+var misc = new Listing()
+{
+    Objects = new Dictionary<string, int>
+    {
+        { "Nitrocid KS", 264 },
+        { "VisualCard", 221 },
+        { "Terminaux", 214 },
+    }
+};
+TextWriterRaw.WriteRaw(misc.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Leveled lists" %}
+```csharp
+var misc = new ListEntry()
+{
+    Entry = "Commit count for September 2024",
+    Value = "699",
+};
+var misc2 = new ListEntry()
+{
+    Entry = "Nitrocid KS",
+    Value = "264",
+    Indentation = 1,
+};
+var misc3 = new ListEntry()
+{
+    Entry = "VisualCard",
+    Value = "221",
+    Indentation = 1,
+};
+var misc4 = new ListEntry()
+{
+    Entry = "Terminaux",
+    Value = "214",
+    Indentation = 1,
+};
+var misc5 = new ListEntry()
+{
+    Entry = "Commit count for October 2024",
+    Value = "536",
+};
+var misc6 = new ListEntry()
+{
+    Entry = "Terminaux",
+    Value = "216",
+    Indentation = 1,
+};
+var misc7 = new ListEntry()
+{
+    Entry = "VisualCard",
+    Value = "208",
+    Indentation = 1,
+};
+var misc8 = new ListEntry()
+{
+    Entry = "Textify",
+    Value = "112",
+    Indentation = 1,
+};
+TextWriterRaw.WritePlain(misc.Render());
+TextWriterRaw.WritePlain(misc2.Render());
+TextWriterRaw.WritePlain(misc3.Render());
+TextWriterRaw.WritePlain(misc4.Render());
+TextWriterRaw.WritePlain(misc5.Render());
+TextWriterRaw.WritePlain(misc6.Render());
+TextWriterRaw.WritePlain(misc7.Render());
+TextWriterRaw.WritePlain(misc8.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
+
+### Emoji
+
+You can use this renderer to render an emoji within a rendered container.
+
+```csharp
+var rng = new Random();
+var misc = new Emoji(Textify.Data.Unicode.EmojiEnum.SmilingFaceWithSmilingEyes);
+TextWriterWhereColor.WriteWhere(misc.Render(), rng.Next(ConsoleWrapper.WindowWidth), rng.Next(ConsoleWrapper.WindowHeight));
+```
+
+<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>

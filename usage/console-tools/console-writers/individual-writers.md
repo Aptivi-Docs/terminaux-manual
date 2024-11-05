@@ -30,6 +30,10 @@ Starting from `ConsoleWriters`, this namespace provides the following classes:
   * By default, the modern way of highlighting specific text is enabled by using a VT sequence intended to reverse the colors. If you still want to use the legacy way, you'll have to set the `legacy` argument to `true` before passing in all the usual parameters.
 * `TextWriterWhereColor`
   * Provides you with the necessary functions to write the text in a specific position to the console with and without color.
+* `TextWriterSlowColor`
+  * Provides you with the necessary functions to simulate a typewriter writing a requested string to the console with and without color.
+* `TextWriterWhereSlowColor`
+  * Provides you with the necessary functions to simulate a typewriter that writes a text in a specific position to the console with and without color.
 
 Consult the below page to find out how to use these functions.
 
@@ -51,19 +55,19 @@ This writer allows you to easily write one list entry with its value to the cons
 
 This writer allows you to easily write list entries from either an array or an enumerable, such as lists and dictionaries, to the console without having to write loop statements. This is available in both the generic and the non-generic versions.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Normal text writer (`TextWriterColor`)
 
 This writer is the simplest writer with color support, and can be used to write general text to the console effortlessly.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Highlighted text writer (`TextWriterHighlightedColor`)
 
 This writer takes the colors and reverts the background and the foreground colors to make text look like as if it's highlighted.
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Raw text writer (`TextWriterRaw`)
 
@@ -73,7 +77,7 @@ This writer provides access to plain console writers and raw console writers tha
 
 This text writer allows you to write text at any position to the console. This moves the cursor to the destination, writes text to the console, and, if instructed, to return to the original position that the cursor was on before the writing process.
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Fancy writers
 
@@ -142,15 +146,15 @@ This writer allows you to write a Figlet text with alignment and color support, 
 
 {% tabs %}
 {% tab title="Left alignment" %}
-<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Center alignment" %}
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Right alignment" %}
-<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -160,15 +164,15 @@ This text writer allows you to write an aligned text with color support. It wrap
 
 {% tabs %}
 {% tab title="Left alignment" %}
-<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Center alignment" %}
-<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Right alignment" %}
-<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -180,7 +184,7 @@ This writer allows you to write a customizable border anywhere on the console. Y
 
 This writer allows you to write a customizable border anywhere on the console with text being printed inside the border. You can customize the border style, the background, and the title and its settings, such as title and text alignment.
 
-<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Box color writer (`BoxColor`)
 
@@ -194,7 +198,7 @@ This writer allows you to write a box border to the console in any position with
 
 This provides you with an easy way to write a Figlet text to the console with color, margin, and formatting support.
 
-<figure><img src="../../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Figlet color positional writer (`FigletWhereColor`)
 
@@ -210,7 +214,7 @@ This writer allows you to form PowerLine elements and write them to the console.
 * Segment transition icon: An iconic character that contains a segment transition icon. This is determined by the `SegmentTransitionIcon` property and should have a value of a PowerLine transition icon.
 * Segment text: Text of a segment that will be shown. It's usually filled with status information. This is determined by the `SegmentText` property.
 
-<figure><img src="../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Progress bar color (`ProgressBarColor`)
 
@@ -224,19 +228,19 @@ This writer allows you to write a static vertical progress bar for determinate p
 
 This writer allows you to write a rainbow-colored text to the console with line and background color support.
 
-<figure><img src="../../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (13) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Background rainbow text writer (`RainbowBackTextWriterColor`)
 
 This writer allows you to write a text with rainbow color background to the console with line and background color support.
 
-<figure><img src="../../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Separator writer (`SeparatorWriterColor`)
 
 This text writer allows you to easily write a separator that can be used to easily separate sections. This supports custom colors.
 
-<figure><img src="../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (15) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Slider writer (`SliderColor`)
 
@@ -257,7 +261,7 @@ This writer allows you to easily write a customizable table with support for col
   * `CellBackgroundColor`: Chooses the background color of the cell.
 * `TextSettings`: Provides you a way to customize how text in the cells is printed, including alignment.
 
-<figure><img src="../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (16) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Truncated text writer (`TruncatedText`)
 
@@ -286,30 +290,13 @@ Consult the below page to find out how to use these functions:
 
 These writers allow you to write a line from a file or an array of lines with the line number and a handle that points to either a specified column number or a range. This is similar to the GCC compiler's method of showing you the errors and warnings, but it's implemented in a more general way.
 
-<figure><img src="../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (17) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Keybinding list writer (`KeybindingsWriter`)
 
 This writer allows you to easily write a list of keybindings to the console effortlessly. It supports margins, positions, customized colors, and customized "help" key. It also provides functions that allow you to write a list of keybindings for informational boxes. This is used by most interactive applications, including the interactive TUI.
 
-<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
-
-## Dynamic writers
-
-In addition to the standard writers, there exists dynamic writers that allow you to render moving parts of text to the console. This type of writers are usable only when writing to the console directly.
-
-This namespace contains these classes:
-
-* `TextWriterSlowColor`
-  * Provides you with the necessary functions to simulate a typewriter writing a requested string to the console with and without color.
-* `TextWriterWhereSlowColor`
-  * Provides you with the necessary functions to simulate a typewriter that writes a text in a specific position to the console with and without color.
-* `TextWriterWrappedColor`
-  * Provides you with the necessary functions to allow you to wrap long outputs to pages, also called a pager.
-
-Consult the below page to find out how to use these functions:
-
-{% embed url="https://aptivi.github.io/Terminaux/api/Terminaux.Writer.DynamicWriters.html" %}
+<figure><img src="../../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Miscellaneous
 

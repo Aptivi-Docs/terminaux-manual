@@ -13,6 +13,7 @@ Terminaux also provides a wide assortment of classes that allow you to render di
 * Trapezoid
 * Parallelogram
 * Circle
+* Arc
 * Ellipsis
 
 They implement the `IGeometricShape` and the `IStaticRenderable` interfaces to allow you to iteratively render different geometric shapes from arrays of shapes that you can loop through to speed up the process and to allow you to implement your custom geometric shape.
@@ -38,7 +39,7 @@ TextWriterRaw.WriteRaw(rect2.Render());
 ```
 {% endcode %}
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 For general graphics tools, it provides the following functions found in the `GraphicsTools` class in the `Terminaux.Graphics` namespace:
 

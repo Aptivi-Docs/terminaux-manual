@@ -120,3 +120,92 @@ The following writer tools have been moved to the `Terminaux.Writer.CyclicWriter
 {% hint style="info" %}
 None of the above classes and enumerations are affected at the time of the move, but you'll have to change the `using` clause to point to the right namespace.
 {% endhint %}
+
+### Wrapped writer removed
+
+{% code title="TextWriterWrappedColor.cs" lineNumbers="true" %}
+```csharp
+public static class TextWriterWrappedColor
+```
+{% endcode %}
+
+Due to new features being introduced with the introduction of the bounded text, we've decided to remove this writer. It'll be re-introduced in a better form in one of the Terminaux releases, and we promise you with new features.
+
+As a result, the `ListWriterColor` no longer supports wrapping, as we've removed the `Wrap` parameter. As Nitrocid KS extensively uses this feature, especially for wrapping commands, this means that Terminaux 6.x series higher than 6.0 will be used in the next few versions of Nitrocid KS.
+
+{% hint style="warning" %}
+Please be patient while we're working on a re-write of the wrapped writer in a future 6.x version of Terminaux.
+{% endhint %}
+
+### `KeybindingsWriter` refactored
+
+{% code title="KeybindingsWriter.cs" lineNumbers="true" %}
+```csharp
+public static void ShowKeybindingInfoboxPlain(Keybinding[] keybindings, params object[] vars)
+public static void ShowKeybindingInfoboxPlain(Keybinding[] keybindings, BorderSettings settings, params object[] vars)
+public static void ShowKeybindingInfobox(Keybinding[] keybindings, params object[] vars)
+public static void ShowKeybindingInfoboxColor(Keybinding[] keybindings, Color InfoBoxColor, params object[] vars)
+public static void ShowKeybindingInfoboxColorBack(Keybinding[] keybindings, Color InfoBoxColor, Color BackgroundColor, params object[] vars)
+public static void ShowKeybindingInfobox(Keybinding[] keybindings, BorderSettings settings, params object[] vars)
+public static void ShowKeybindingInfoboxColor(Keybinding[] keybindings, BorderSettings settings, Color InfoBoxColor, params object[] vars)
+public static void ShowKeybindingInfoboxColorBack(Keybinding[] keybindings, BorderSettings settings, Color InfoBoxColor, Color BackgroundColor, params object[] vars)
+public static void ShowKeybindingInfoboxPlain(string title, Keybinding[] keybindings, params object[] vars)
+public static void ShowKeybindingInfoboxPlain(string title, Keybinding[] keybindings, BorderSettings settings, params object[] vars)
+public static void ShowKeybindingInfobox(string title, Keybinding[] keybindings, params object[] vars)
+public static void ShowKeybindingInfoboxColor(string title, Keybinding[] keybindings, Color InfoBoxTitledColor, params object[] vars)
+public static void ShowKeybindingInfoboxColorBack(string title, Keybinding[] keybindings, Color InfoBoxTitledColor, Color BackgroundColor, params object[] vars)
+public static void ShowKeybindingInfobox(string title, Keybinding[] keybindings, BorderSettings settings, params object[] vars)
+public static void ShowKeybindingInfoboxColor(string title, Keybinding[] keybindings, BorderSettings settings, Color InfoBoxTitledColor, params object[] vars)
+public static void ShowKeybindingInfoboxColorBack(string title, Keybinding[] keybindings, BorderSettings settings, Color InfoBoxTitledColor, Color BackgroundColor, params object[] vars)
+public static string RenderKeybindingHelpText(Keybinding[] keybindings)
+```
+{% endcode %}
+
+We have moved the `KeybindingsWriter` functionality to its own cyclic writer class. Also, we've moved the above functions to the `KeybindingTools` static class.
+
+{% hint style="info" %}
+If you use these functions, consider using the `KeybindingTools` class.
+{% endhint %}
+
+### Slow writers moved to `ConsoleWriters`
+
+{% code title="TextWriter[Where]SlowColor.cs" lineNumbers="true" %}
+```csharp
+namespace Terminaux.Writer.DynamicWriters
+```
+{% endcode %}
+
+These dynamic writers have been moved to the normal console writers namespace, because we're cleaning up the writer base in versions between Terminaux 6.0 and a future major release of this library.
+
+{% hint style="info" %}
+Just change the `using` clause to point to `Terminaux.Writer.ConsoleWriters`.
+{% endhint %}
+
+### `Filled` property removed from `IGeometricShape`
+
+{% code title="IGeometricShape.cs" lineNumbers="true" %}
+```csharp
+bool Filled { get; }
+```
+{% endcode %}
+
+We have removed the above property from the geometric shape interface, because there are shapes, such as arcs, that can't have this property due to high flexibility.
+
+{% hint style="info" %}
+If you want to continue using this property, implement it in individual geometric shape classes. You won't be able to call it from a general interface variable, so you'll have to cast it to a class that has this property first.
+{% endhint %}
+
+### Changed how ellipses render
+
+Due to the new canvas class being used to render an ellipse, you'll notice that the ellipses will appear stretched. This is due to the width not being treated as a multiple of two when creating ellipsis instances due to canvases defaulting to full width.
+
+{% hint style="info" %}
+Divide the width by two as in below example:
+
+```diff
+-var ellipsis = new Ellipsis(40, 20, 4, 2, true, ConsoleColors.Red);
+-var ellipsis2 = new Ellipsis(20, 20, 46, 2, false, ConsoleColors.Aqua);
++var ellipsis = new Ellipsis(20, 20, 4, 2, true, ConsoleColors.Red);
++var ellipsis2 = new Ellipsis(10, 20, 46, 2, false, ConsoleColors.Aqua);
+```
+{% endhint %}

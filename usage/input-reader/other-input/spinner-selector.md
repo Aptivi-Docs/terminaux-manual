@@ -5,7 +5,7 @@ description: Spin, spin, spin!
 
 # Spinner Selector
 
-<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
 Terminaux provides a selector that allows you to choose a spinner in an interactive way with live previews based on the [cyclic screen](../../console-tools/console-screen.md#screen) feature. This feature can be found in the `SpinnerSelector` class found in the `Terminaux.Inputs.Styles` namespace, and you can run it with the following functions:
 
