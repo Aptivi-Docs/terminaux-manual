@@ -217,3 +217,24 @@ Divide the width by two as in below example (adapt this to your shape instance):
 +var ellipsis2 = new Ellipsis(10, 20, 46, 2, false, ConsoleColors.Aqua);
 ```
 {% endhint %}
+
+### `NerdFontsTools` moved
+
+```csharp
+namespace Terminaux.Graphics.NerdFonts
+{
+    /// <summary>
+    /// Nerd Fonts tools
+    /// </summary>
+    public static partial class NerdFontsTools
+    {
+        (...)
+    }
+}
+```
+
+As we're phasing out `Terminaux.Graphics` due to the cyclic writers being introduced to the Terminaux 6.0 line, we've decided to move this class to a new namespace, `Terminaux.Writer.CyclicWriters.Renderer.Tools`.
+
+{% hint style="info" %}
+Just change your `using` clause to point to the new namespace.
+{% endhint %}

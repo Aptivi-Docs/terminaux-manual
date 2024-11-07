@@ -48,8 +48,9 @@ Cyclic writers are dynamic writers that can be rendered individually by making a
   * `ListEntry`
   * `Listing`
   * `Emoji`
+  * `NerdFonts`
 
-You can define a container by creating a new instance of the `Container` class and adding some of the renderables that can be identified by their name. You can also set their positions by using the `SetRenderablePosition()` function.
+You can define a container by creating a new instance of the `Container` class and adding some of the renderables that can be identified by their name. You can also set their positions by using the `SetRenderablePosition()` function. If you don't want to use a container, you can use the `RenderRenderable()` function or the `WriteRenderable()` function to render a specific renderable in a specific position and to write the result to the console, respectively.
 
 {% hint style="info" %}
 Some of the renderables may override the position variable for a renderable and may use the values from the renderables' properties.
@@ -78,7 +79,7 @@ var shape = new Circle(20, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full" %}
@@ -1041,7 +1042,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Text only" %}
@@ -2471,7 +2472,7 @@ var misc = new Keybindings()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Overflow + custom help key" %}
@@ -2614,3 +2615,16 @@ TextWriterWhereColor.WriteWhere(misc.Render(), rng.Next(ConsoleWrapper.WindowWid
 ```
 
 <figure><img src="../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+
+### NerdFonts
+
+This renderable allows you to render a Nerd Fonts glyph to the console.
+
+```csharp
+var rng = new Random();
+var misc = new NerdFonts(NerdFontsTypes.Codicons, "nf-md-microsoft_visual_studio_code");
+var pos = new Coordinate(rng.Next(ConsoleWrapper.WindowWidth), rng.Next(ConsoleWrapper.WindowHeight));
+ContainerTools.WriteRenderable(misc, pos);
+```
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>

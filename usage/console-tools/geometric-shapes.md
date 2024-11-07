@@ -19,7 +19,7 @@ Terminaux also provides a wide assortment of classes that allow you to render di
 They implement the `IGeometricShape` and the `IStaticRenderable` interfaces to allow you to iteratively render different geometric shapes from arrays of shapes that you can loop through to speed up the process and to allow you to implement your custom geometric shape.
 
 {% hint style="info" %}
-You can also store these shapes in a container and render them iteratively using the [`Container`](console-writers/cyclic-writers.md) class.
+You can also store these shapes in a container and render them iteratively using the [`Container`](console-writers/cyclic-writers.md) class. For line rendering, we recommend that you rely on the cyclic writer and its renderables.
 {% endhint %}
 
 To render a geometric shape, such as a rectangle, to the console, you must create a new instance of a shape class, providing the width and the height of the shape, as well as the position that tells Terminaux where to render the shape, whether to render the outline or the full shape (optional), and the selected color (optional).
@@ -39,13 +39,4 @@ TextWriterRaw.WriteRaw(rect2.Render());
 ```
 {% endcode %}
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
-
-For general graphics tools, it provides the following functions found in the `GraphicsTools` class in the `Terminaux.Graphics` namespace:
-
-* `RenderLine()`: Renders a colored line using the [Bresenham's line algorithm](https://en.wikipedia.org/wiki/Bresenham's\_line\_algorithm).
-* `RenderLineSmooth()`: Renders a colored anti-aliasedline using [Xiaolin Wu's line algorithm](https://en.wikipedia.org/wiki/Xiaolin\_Wu's\_line\_algorithm).
-
-{% hint style="info" %}
-Rendering geometric shapes and lines require that you either buffer it to your [screen part](console-screen.md), or call the `TextWriterRaw.WriteRaw()` function, passing it the resultant string.
-{% endhint %}
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
