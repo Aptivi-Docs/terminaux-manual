@@ -40,11 +40,11 @@ Here are the available settings that you can set:
 * `BassBoomLibraryPath`
   * In case of addons or other custom path for MPG123, specifies a root path to BassBoom's libraries. See [here](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/izAJoIbtQw1BdIlE4DBz/) for more info.
 * `PlayWriteCue`
-  * Specifies whether to play a write cue (that is, plays a sound for each keypress)
+  * Specifies whether to play a write cue (that is, plays a sound for each keypress). You can specify your custom write cue using the `CueWrite` property, but be sure to pass it a stream that contains an MP3 file content that [BassBoom](https://app.gitbook.com/s/izAJoIbtQw1BdIlE4DBz/power-users/using-basolia) can play.
 * `PlayRuboutCue`
-  * Specifies whether to play a rubout cue (that is, plays a sound for every backspace press)
+  * Specifies whether to play a rubout cue (that is, plays a sound for every backspace press). You can specify your custom write cue using the `CueRubout` property, but be sure to pass it a stream that contains an MP3 file content that [BassBoom](https://app.gitbook.com/s/izAJoIbtQw1BdIlE4DBz/power-users/using-basolia) can play.
 * `PlayEnterCue`
-  * Specifies whether to play an enter cue (that is, plays a sound for each "submit" key, such as Enter)
+  * Specifies whether to play an enter cue (that is, plays a sound for each "submit" key, such as Enter). You can specify your custom write cue using the `CueEnter` property, but be sure to pass it a stream that contains an MP3 file content that [BassBoom](https://app.gitbook.com/s/izAJoIbtQw1BdIlE4DBz/power-users/using-basolia) can play.
 * `CueVolume`
   * Specifies the cue volume in fractional number between `0.0` and `1.0` (or `3.0` with volume boost)
 * `CueVolumeBoost`
