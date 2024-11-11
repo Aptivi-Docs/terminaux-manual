@@ -1,17 +1,22 @@
 ---
-description: We're listening for any size changes!
 icon: maximize
+description: We're listening for any size changes!
 ---
 
 # Console Resize Listener
 
 Terminaux provides a fast and stable console resize listener that allows your console application, especially the interactive ones, to listen to every single console resize event for all the platforms. It works on Windows, macOS, Linux, and Android.
 
+You can start and stop the resize listener using the following functions:
+
+* `StartResizeListener()`: Starts the resize listener with either the default resize handler or a custom resize handler that we'll explain later in this page.
+* `StopResizeListener()`: Stops the resize listener if it's running.
+
 {% hint style="info" %}
-This listener can be started upon request with `StartResizeListener()`, but can't be stopped until the application is exited either gracefully or ungracefully.
+You can check the state of the resize listener by calling the `IsListening` property.
 {% endhint %}
 
-## Functions
+## Other Functions
 
 The console resize listener contains several of the convenience functions that allow you to control the listener.
 

@@ -1,6 +1,6 @@
 ---
-description: We need colors!
 icon: palette
+description: We need colors!
 ---
 
 # Color Sequences
@@ -133,7 +133,7 @@ For color enumeration, a `Color` class contains the following properties:
 * `ColorEnum255`: Always populated related to the nearest matching color in the X11 color map. Can be used for `ConsoleColors` enumeration found within Terminaux.
 * `ColorEnum16`: Is not populated for color IDs that exceed `15`. Can be used for `ConsoleColor` enumeration found within the C# standard library.
 
-## Determining color brightness
+## Determining color brightness and contrast
 
 You can check to see if a color is a light or a dark color using the `Brightness` property, which returns either of the following:
 
@@ -153,6 +153,28 @@ public static Color GetGray(Color color)
 ```
 {% endcode %}
 
+### Getting a color contrast ratio
+
+If you want to get a color contrast ratio, you can use the `GetContrast()` function found in the `TransformationTools` class that returns a contrast ratio in double-precision floating point value.
+
+```csharp
+public static double GetContrast(Color firstColor, Color secondColor)
+```
+
+This uses the `GetLuminance()` function, which is available in the public API. It lets you get the luminance rate for a color instance.
+
+```csharp
+public static double GetLuminance(Color color)
+```
+
+## Getting dark background of a color
+
+If you want a darker version of your color, you can use the `GetDarkBackground()` function, passing it the source color that you want to darken in a new copy of the `Color` class. This is normally suitable for backgrounds that are responsive.
+
+```csharp
+public static Color GetDarkBackground(Color source)
+```
+
 ## Getting console color information
 
 You can get detailed information about the console color ranging from 0 to 255 by calling the `GetColorData()` function under the `ConsoleColorData` class:
@@ -163,26 +185,18 @@ public static partial ConsoleColorData[] GetColorData();
 
 Similarly, you can also get the web-safe color list by using the `WebSafeColors` class and the `GetColorList()` function. Properties that specify every color are also available under the same class.
 
-## Simulating color-blindness
+## Color transformation
 
-In the `ColorTools` static class, it contains several color blindness simulation tools that you can use:
+In order to simulate color blindness and other color transformation formulas, you can change the value of the `Transformations` property in the `Color` instance that you want to edit. This property is an array of transformation formula classes based on `BaseTransformationFormula` and `ITransformationFormula` that provide the following properties:
 
-* `EnableColorTransformation`
-  * Enables the color transformation to adjust to color blindness upon making a new instance of color
-* `ColorTransformationFormula`
-  * Specifies the type of color transformation (Protan, Deutan, Tritan, Monochromacy, Inverse, BlueScale, and more...)
-* `ColorDeficiencySeverity`
-  * Specifies the severity of the color deficiency ranging between 0.0 and 1.0 from lowest to highest
+* `Frequency`
+  * Specifies the density ranging between 0.0 and 1.0 from lowest to highest
 
 {% hint style="info" %}
-Both the severity and the transformation formula flags don't affect the monochromacy color transformer.
+Depending on the `Render()` implementation of the transformation formula classes, it may or may not take note of the `Frequency` value. However, it's recommended to use it for general purposes, except if you can't do it for some reason.
 {% endhint %}
 
-After you change these values, the next time you make a new instance of `Color`, you'll notice that the resulting color is shifted to adjust to color-blindness.
-
-{% hint style="info" %}
-You can easily make a new `Color` instance using the brand new API function, `RenderColorBlindnessAware()`.
-{% endhint %}
+Once the new class instance is created with the above property being populated with several transformations, you can get a transformed color.
 
 ## Other tools
 

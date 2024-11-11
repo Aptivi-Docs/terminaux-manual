@@ -238,3 +238,33 @@ As we're phasing out `Terminaux.Graphics` due to the cyclic writers being introd
 {% hint style="info" %}
 Just change your `using` clause to point to the new namespace.
 {% endhint %}
+
+### Transformation formula interface publicized
+
+{% code title="TransformationTools.cs" lineNumbers="true" %}
+```csharp
+public static Color RenderColorBlindnessAware(Color color, TransformationFormula formula, double severity)
+```
+{% endcode %}
+
+{% code title="TransformationFormula.cs" lineNumbers="true" %}
+```csharp
+public enum TransformationFormula
+```
+{% endcode %}
+
+To allow for multiple transformations to be done seamlessly, we've decided to publicize the `ITransformationFormula` interface and the `BaseTransformationFormula` class that provides the signature prototype needed for the transformation code. Because we've made these public, we've demoted the `TransformationFormula` enumeration from `public` to `internal` visibility, causing us to remove the `RenderColorBlindnessAware()` function.
+
+{% code title="ColorSettings.cs" lineNumbers="true" %}
+```csharp
+public bool EnableColorTransformation { get; set; } = false;
+public TransformationFormula ColorTransformationFormula { get; set; } = TransformationFormula.Protan;
+public double ColorBlindnessSeverity ...
+```
+{% endcode %}
+
+In addition to that, we've also removed the above properties so that you can finally specify not only a list of transformation formulas, but you can also specify their own density ranging from 0.0 to 0.1.
+
+{% hint style="info" %}
+To continue using this feature, you must change the `Transformations` value in the `Color` instance, passing it an array of transformation formula classes that you desire to use.
+{% endhint %}
