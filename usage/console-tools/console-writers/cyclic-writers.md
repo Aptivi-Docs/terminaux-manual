@@ -1079,6 +1079,10 @@ TextWriterRaw.WriteRaw(artistic.Render());
 {% endtab %}
 {% endtabs %}
 
+{% hint style="info" %}
+You can use the border settings to change the color of the border and to determine whether to display the entire border or not using a set of properties. For example, if you don't want to render the right edge, you can set `BorderRightFrameEnabled` to `false`.
+{% endhint %}
+
 ### Box
 
 You can render a box to the terminal easily.

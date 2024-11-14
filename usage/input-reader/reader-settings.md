@@ -32,7 +32,11 @@ Here are the available settings that you can set:
 * `PlaceholderText`
   * This is the text that the terminal reader shows when there is no input text. This is used to give users hints on what they should write to the prompt.
 * `PrintDefaultValue`
-  * Whether to print the default value or not.
+  * Whether to print the default value or not. Disables `WriteDefaultValue`.
+* `WriteDefaultValue`
+  * Whether to make the default value part of the input or not. Disables `PrintDefaultValue`.
+* `InitialPosition`
+  * Where to set the initial cursor position for the reader (only works when there is a default value and `WriteDefaultValue` is on)
 * `DefaultValueFormat`
   * The default value format to print if `PrintDefaultValue` is enabled and there is a prompt.
 * `KeyboardCues`
