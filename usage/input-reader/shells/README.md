@@ -19,6 +19,6 @@ This program is part of the core kernel that is programmed to be a standalone ye
 
 For more information about its inner workings and how you can build your own commands and shells, consult the below page.
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="shell-structure/" %}
+[shell-structure](shell-structure/)
 {% endcontent-ref %}

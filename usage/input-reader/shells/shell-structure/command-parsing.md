@@ -1,6 +1,6 @@
 ---
-description: How command parsing works
 icon: badge-check
+description: How command parsing works
 ---
 
 # Command Parsing
@@ -42,8 +42,8 @@ Finally, the command executor thread is fired up with the `ExecuteCommandParamet
 
 You can know more about switch management by clicking on the below button:
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="command-switches.md" %}
+[command-switches.md](command-switches.md)
 {% endcontent-ref %}
 
 ### Special characters

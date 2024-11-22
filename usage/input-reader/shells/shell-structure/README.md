@@ -1,6 +1,6 @@
 ---
-description: Explaining the inner workings of all the kernel shells
 icon: square-terminal
+description: Explaining the inner workings of all the kernel shells
 ---
 
 # Shell Structure
@@ -152,9 +152,7 @@ public override CommandInfo NonSlashCommandInfo => new CommandInfo(...);
 ```
 
 {% hint style="info" %}
-If you need to know how to define a command information class, consult the below link:
-
-[Broken link](broken-reference "mention")
+If you need to know how to define a command information class, consult [here](command-information.md).
 {% endhint %}
 
 ## Base Command
@@ -246,48 +244,36 @@ Since Nitrocid no longer uses this list, we recommend that you use it as a mutab
 
 For guidance on how to define your command, click the below button:
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="command-information.md" %}
+[command-information.md](command-information.md)
 {% endcontent-ref %}
 
-For guidance on how to define your command's switches, click the below button:
+For guidance on how to define and manage your command's switches, click the below button:
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
-
-For guidance on how to manage your command's switches, click the below button:
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="command-switches.md" %}
+[command-switches.md](command-switches.md)
 {% endcontent-ref %}
 
 For information about the help system and how it works, consult the below page:
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="help-system.md" %}
+[help-system.md](help-system.md)
 {% endcontent-ref %}
 
 For command parsing, click the below button:
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="command-parsing.md" %}
+[command-parsing.md](command-parsing.md)
 {% endcontent-ref %}
 
 For shell presets, click the below button:
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="shell-presets.md" %}
+[shell-presets.md](shell-presets.md)
 {% endcontent-ref %}
 
-For shell history, click the below button:
+For command aliasing, click the below button:
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
-
-For extra shell features, click the below button:
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="command-aliasing.md" %}
+[command-aliasing.md](command-aliasing.md)
 {% endcontent-ref %}
