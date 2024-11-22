@@ -1,6 +1,6 @@
 ---
-description: Everything about the console
 icon: computer
+description: Everything about the console
 ---
 
 # Console Tools
@@ -9,8 +9,8 @@ Terminaux was created to provide you various console tools that are useful for y
 
 Terminaux provides you with a plethora of console tools, such as a console wrapper, a powerful console writer with various types of writing, and basic terminal graphics renderer. Here are some of its tools:
 
-{% content-ref url="interactive-tui.md" %}
-[interactive-tui.md](interactive-tui.md)
+{% content-ref url="textual-ui/interactive-tui.md" %}
+[interactive-tui.md](textual-ui/interactive-tui.md)
 {% endcontent-ref %}
 
 {% content-ref url="console-writers/" %}

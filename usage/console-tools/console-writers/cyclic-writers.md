@@ -56,6 +56,7 @@ The following built-in cyclic writers are available:
   * `ListEntry`
   * `Listing`
   * `Emoji`
+  * `Kaomoji`
   * `NerdFonts`
 
 You can define a container by creating a new instance of the `Container` class and adding some of the renderables that can be identified by their name. You can also set their positions by using the `SetRenderablePosition()` function. If you don't want to use a container, you can use the `RenderRenderable()` function or the `WriteRenderable()` function to render a specific renderable in a specific position and to write the result to the console, respectively.
@@ -87,7 +88,7 @@ var shape = new Circle(20, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full" %}
@@ -96,7 +97,7 @@ var shape = new Circle(20, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -201,7 +202,7 @@ var shape = new Ellipsis(20, 15, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full" %}
@@ -1215,7 +1216,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Text only" %}
@@ -1231,7 +1232,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Title + text" %}
@@ -1248,7 +1249,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -2649,7 +2650,7 @@ var misc = new Keybindings()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Overflow + custom help key" %}
@@ -2675,7 +2676,7 @@ var misc = new Keybindings()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -2699,7 +2700,7 @@ var misc = new Listing()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Dictionaries" %}
@@ -2793,6 +2794,18 @@ TextWriterWhereColor.WriteWhere(misc.Render(), rng.Next(ConsoleWrapper.WindowWid
 
 <figure><img src="../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
+### Kaomoji
+
+You can use this renderer to render a Kaomoji within a rendered container.
+
+```csharp
+var rng = new Random();
+var misc = new Kaomoji(KaomojiCategory.Positive, KaomojiSubcategory.Joy, 3);
+TextWriterWhereColor.WriteWhere(misc.Render(), rng.Next(ConsoleWrapper.WindowWidth), rng.Next(ConsoleWrapper.WindowHeight));
+```
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
 ### NerdFonts
 
 This renderable allows you to render a Nerd Fonts glyph to the console.
@@ -2804,4 +2817,4 @@ var pos = new Coordinate(rng.Next(ConsoleWrapper.WindowWidth), rng.Next(ConsoleW
 ContainerTools.WriteRenderable(misc, pos);
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>

@@ -1,6 +1,6 @@
 ---
-description: Mouse on your console!
 icon: computer-mouse
+description: Mouse on your console!
 ---
 
 # Pointer Events
@@ -31,7 +31,7 @@ Here are some notes to consider before implementing pointer support to your Term
 {% endhint %}
 
 {% hint style="info" %}
-All of the input methods that use the whole screen, such as selection and [your interactive TUI](../console-tools/interactive-tui.md) apps, support mouse.
+All of the input methods that use the whole screen, such as selection and [your interactive TUI](../console-tools/textual-ui/interactive-tui.md) apps, support mouse.
 {% endhint %}
 
 ## Helper functions

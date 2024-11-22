@@ -1,6 +1,6 @@
 ---
-description: Breaking changes for API v3.0
 icon: up
+description: Breaking changes for API v3.0
 ---
 
 # API v3.0
@@ -474,7 +474,7 @@ public static int PresentationInformationalTop
 The following presentation properties shown above have been marked as obsolete, because they were initially meant not to be publicly accessible. Due to how the presentation system was implemented, we've made plans to undergo a revamp in a future Terminaux release.
 
 {% hint style="info" %}
-It's recommended to either use the available functions to make your own TUI, or use the built-in interactive TUI functionality as mentioned in [its own page](../usage/console-tools/interactive-tui.md) until this revamp is done.
+It's recommended to either use the available functions to make your own TUI, or use the built-in interactive TUI functionality as mentioned in [its own page](../usage/console-tools/textual-ui/interactive-tui.md) until this revamp is done.
 
 The compiler, once you use one of these properties for your custom elements, will issue a warning that says: `These were initially reserved for internal use. Also, the presentation system will be revamped in the next few releases.`
 {% endhint %}
