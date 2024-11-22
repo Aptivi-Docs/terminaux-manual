@@ -85,6 +85,38 @@ The progress can be described as follows:
 This feature is only available for applications running on Windows 7 or higher. The functions that pertain to this feature do nothing when being called on systems older than Windows 7 and on non-Windows systems.
 {% endhint %}
 
+## Console acoustic tools
+
+You can also use the acoustic tools for your console, such as beep synth features that were originally implemented on Nitrocid KS. For beep synths, you must call `GetSynthInfo()` before `PlaySynth()` once you're sure that you have a valid beep synth JSON representations that looks like the following:
+
+```json
+{
+    "name": "Test synth info",
+    "chapters": [
+        {
+            "name": "Chapter 1",
+            "synths": [
+                "128 100",
+                "256 200",
+                "512 300",
+                "256 400",
+                "128 500",
+            ]
+        },
+        {
+            "name": "Chapter 2",
+            "synths": [
+                "256 100",
+                "512 200",
+                "1024 300",
+                "512 400",
+                "256 500",
+            ]
+        },
+    ]
+}
+```
+
 ## Miscellaneous console extensions
 
 The following extensions that don't fit in any of the categories can be used in your applications:
@@ -98,4 +130,6 @@ The following extensions that don't fit in any of the categories can be used in 
 * `Truncate()`
 * `ShowMainBuffer()`
 * `ShowAltBuffer()`
+* `Flash()` and `Flash(int)`
+* `Bell()`
 * `IsOnAltBuffer`

@@ -5,7 +5,13 @@ description: Such writers render repeatedly with or without some movement
 
 # Cyclic Writers
 
-Cyclic writers are dynamic writers that can be rendered individually by making a new class instance of a renderable class that implements the `IStaticRenderable` interface that you can implement in your renderable class. Such writers can either be animated or static, and can be rendered either by calling their individual `Render()` function one by one or by putting renderable classes to a container and calling that container's `WriteContainer()` function from the `ContainerTools` class. The following built-in cyclic writers are available:
+Cyclic writers are dynamic writers that can be rendered individually by making a new class instance of a renderable class that implements the `IStaticRenderable` interface that you can implement in your renderable class. Such writers can either be animated or static, and can be rendered either by calling their individual `Render()` function one by one or by putting renderable classes to a container and calling that container's `WriteContainer()` function from the `ContainerTools` class.
+
+{% hint style="info" %}
+Most of the renderables also support colors, in which you can set with `UseColors` and their appropriate properties.
+{% endhint %}
+
+The following built-in cyclic writers are available:
 
 * Shapes
   * `Circle`
@@ -24,10 +30,12 @@ Cyclic writers are dynamic writers that can be rendered individually by making a
 * Text
   * `AlignedFigletText`
   * `AlignedText`
+  * `AnimatedText`
   * `BoundedText`
   * `FigletText`
   * `PowerLine`
   * `TextMarquee`
+  * `Decoration`
 * Artistic
   * `Border`
   * `Box`
@@ -878,6 +886,65 @@ TextWriterRaw.WriteRaw(text3.Render());
 {% endtab %}
 {% endtabs %}
 
+### Animated text
+
+This allows you to write text with animations using frames to define how the text is going to move.
+
+```csharp
+var animatedText = new AnimatedText()
+{
+    TextFrames =
+    [
+        "H",
+        "He",
+        "Hel",
+        "Hell",
+        "Hello",
+        "Hello ",
+        "Hello W",
+        "Hello Wo",
+        "Hello Wor",
+        "Hello Worl",
+        "Hello World",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World ",
+        "Hello Worl  ",
+        "Hello Wor   ",
+        "Hello Wo    ",
+        "Hello W     ",
+        "Hello       ",
+        "Hello       ",
+        "Hell        ",
+        "Hel         ",
+        "He          ",
+        "H           ",
+        "            ",
+    ],
+    Left = 4,
+    Top = 2,
+    Width = 18,
+};
+for (int i = 0; i < animatedText.TextFrames.Length; i++)
+{
+    TextWriterRaw.WriteRaw(animatedText.Render());
+    Thread.Sleep(100);
+}
+```
+
+<figure><img src="../../../.gitbook/assets/animated-text.gif" alt=""><figcaption></figcaption></figure>
+
 ### Bounded text
 
 This allows you to write text with boundaries to the console to allow enough information to fit in a specified width and height. This works either according to lines, or according to column and row of the invisible caret.
@@ -1004,6 +1071,112 @@ finally
 ```
 
 <figure><img src="../../../.gitbook/assets/1000022817.gif" alt=""><figcaption></figcaption></figure>
+
+### Decoration
+
+This allows you to create decorative renders for your text, but in a standalone form. You can also use this instance with aligned text instances to decorate your text with prefixes and suffixes.
+
+```csharp
+var decoration1 = new Decoration()
+{
+    ForegroundColor = ConsoleColors.Red,
+    Start = "..:: ",
+    End = " ::..",
+};
+var decoration2 = new Decoration()
+{
+    ForegroundColor = ConsoleColors.Lime,
+    Start = "..::",
+    End = "::..",
+};
+var decoration3 = new Decoration()
+{
+    ForegroundColor = ConsoleColors.Blue,
+    Start = "..::",
+    End = "::..",
+};
+TextWriterRaw.WritePlain("Full decoration:  " + decoration1.Render());
+TextWriterRaw.WritePlain("Start decoration: " + decoration2.RenderStart());
+TextWriterRaw.WritePlain("End decoration:   " + decoration3.RenderEnd() + "\n");
+
+var alignedTextUndecorated = new AlignedText("Aligned text")
+{
+    ForegroundColor = ConsoleColors.Yellow,
+    Top = 6,
+    LeftMargin = "Aligned text without decoration: ".Length,
+};
+var alignedTextDecorated = new AlignedText("Aligned text")
+{
+    ForegroundColor = ConsoleColors.Yellow,
+    UseColors = true,
+    Top = 7,
+    LeftMargin = "Aligned text without decoration: ".Length,
+    Decoration = decoration2,
+};
+TextWriterRaw.WritePlain("Aligned text without decoration: " + alignedTextUndecorated.Render());
+TextWriterRaw.WritePlain("Aligned text with decoration:    " + alignedTextDecorated.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
+
+### Text path
+
+You can render the decorated text path with this renderable so that the paths appear more elegant and simplified.
+
+```csharp
+var path1 = new TextPath()
+{
+    PathText = @"C:\WINDOWS\System32\very\long\path\so\that\we\can\read-this.txt",
+    Left = 4,
+    Top = 2,
+    Width = 30,
+};
+var path2 = new TextPath()
+{
+    PathText = @"C:\WINDOWS\System32\taskmgr.exe",
+    ForegroundColor = ConsoleColors.Green,
+    LastPathColor = ConsoleColors.Blue,
+    SeparatorColor = ConsoleColors.Yellow,
+    RootDriveColor = ConsoleColors.Red,
+    UseColors = true,
+    Settings = new() { Alignment = TextAlignment.Left },
+    Left = 4,
+    Top = 4,
+    Width = 40,
+};
+var path3 = new TextPath()
+{
+    PathText = @"/etc/grub.d/40_custom",
+    ForegroundColor = ConsoleColors.Green,
+    LastPathColor = ConsoleColors.Blue,
+    SeparatorColor = ConsoleColors.Yellow,
+    RootDriveColor = ConsoleColors.Red,
+    UseColors = true,
+    Settings = new() { Alignment = TextAlignment.Middle },
+    Left = 4,
+    Top = 5,
+    Width = 40,
+};
+var path4 = new TextPath()
+{
+    PathText = @"Source/Public/Terminaux",
+    ForegroundColor = ConsoleColors.Green,
+    LastPathColor = ConsoleColors.Blue,
+    SeparatorColor = ConsoleColors.Yellow,
+    RootDriveColor = ConsoleColors.Red,
+    UseColors = true,
+    Settings = new() { Alignment = TextAlignment.Right },
+    Left = 4,
+    Top = 6,
+    Width = 40,
+};
+TextWriterRaw.WriteRaw(path1.Render());
+TextWriterRaw.WriteRaw(path2.Render());
+TextWriterRaw.WriteRaw(path3.Render());
+TextWriterRaw.WriteRaw(path4.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
 
 ## Artistic
 

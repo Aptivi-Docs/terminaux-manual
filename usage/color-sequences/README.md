@@ -153,28 +153,6 @@ public static Color GetGray(Color color)
 ```
 {% endcode %}
 
-### Getting a color contrast ratio
-
-If you want to get a color contrast ratio, you can use the `GetContrast()` function found in the `TransformationTools` class that returns a contrast ratio in double-precision floating point value.
-
-```csharp
-public static double GetContrast(Color firstColor, Color secondColor)
-```
-
-This uses the `GetLuminance()` function, which is available in the public API. It lets you get the luminance rate for a color instance.
-
-```csharp
-public static double GetLuminance(Color color)
-```
-
-## Getting dark background of a color
-
-If you want a darker version of your color, you can use the `GetDarkBackground()` function, passing it the source color that you want to darken in a new copy of the `Color` class. This is normally suitable for backgrounds that are responsive.
-
-```csharp
-public static Color GetDarkBackground(Color source)
-```
-
 ## Getting console color information
 
 You can get detailed information about the console color ranging from 0 to 255 by calling the `GetColorData()` function under the `ConsoleColorData` class:
@@ -197,6 +175,55 @@ Depending on the `Render()` implementation of the transformation formula classes
 {% endhint %}
 
 Once the new class instance is created with the above property being populated with several transformations, you can get a transformed color.
+
+### Getting a color contrast ratio
+
+If you want to get a color contrast ratio, you can use the `GetContrast()` function found in the `TransformationTools` class that returns a contrast ratio in double-precision floating point value.
+
+```csharp
+public static double GetContrast(Color firstColor, Color secondColor)
+```
+
+This uses the `GetLuminance()` function, which is available in the public API. It lets you get the luminance rate for a color instance.
+
+```csharp
+public static double GetLuminance(Color color)
+```
+
+### Getting dark background of a color
+
+If you want a darker version of your color, you can use the `GetDarkBackground()` function, passing it the source color that you want to darken in a new copy of the `Color` class. This is normally suitable for backgrounds that are responsive.
+
+```csharp
+public static Color GetDarkBackground(Color source)
+```
+
+### Saturation and Desaturation
+
+You can saturate the color to appear lighter, and desaturate the color to appear darker. This manipulates the saturation value in the HSL representation of the color.
+
+```csharp
+public static Color Desaturate(Color source, int target)
+public static Color Saturate(Color source, int target)
+```
+
+### Darkening and Lightening
+
+You can darken the color to appear darker, and lighten the colors to appear lighter. This manipulates the lightness value in the HSL representation of the color.
+
+```csharp
+public static Color Darken(Color source, int target)
+public static Color Lighten(Color source, int target)
+```
+
+### Spins and Complements
+
+You can not only spin the color using a specified hue angle to add to the HSL angle from the color, but you can also get a complement by adding 180 to the hue angle in degrees.
+
+```csharp
+public static Color Spin(Color source, int target)
+public static Color Complement(Color source)
+```
 
 ## Other tools
 
@@ -364,11 +391,28 @@ This is not a real transparency, but a simulated one. That doesn't make text and
 
 ### Gradients
 
-Terminaux also supports creating a list of intermediate colors that would transition from the source color to the target color. This is called gradients. This feature aims to make implementing the gradients easier than before.
+Terminaux also supports creating a list of intermediate colors that would transition from either the source color or multiple colors to the target color. This is called gradients. This feature aims to make implementing the gradients easier than before.
 
 Just specify the source color that you want to transition from, the target color that you want to transition to, and the number of steps needed, and call `ColorGradients`'s `GetGradients()`. You will need to assign a variable to hold an instance of `ColorGradients`.
 
+```csharp
+public static ColorGradients GetGradients(Color sourceColor, Color targetColor, int steps)
+```
+
+{% hint style="info" %}
 You can enumerate through all the gradients either with the for-loop or the foreach-loop to get all their intermediate color. This ensures that it covers all the intermediate colors in exactly the number of steps that you've specified.
+{% endhint %}
+
+In addition to that, you can specify an array of target colors with their level ranging from 0.0 to 1.0, as well as specifying the end color. Use the below function to get started:
+
+```csharp
+public static ColorGradients GetGradients((double, Color)[] colors, Color ending, int steps)
+```
+
+There are two types of gradients that are also implemented:
+
+* Shades: It returns a list of colors that go from the selected color down to the black color. You can use the `GetShades()` function.
+* Tints: It returns a list of colors that go from the selected color up to the white color. You can use the `GetTints()` function.
 
 ### Color templates
 
