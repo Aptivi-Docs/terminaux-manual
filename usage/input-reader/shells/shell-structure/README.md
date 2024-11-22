@@ -231,15 +231,6 @@ public static void UnregisterCustomCommands(string ShellType, string[] commandNa
 
 If you've registered your commands correctly, the `help` command list should list your mod command that you've registered using one of the `RegisterCustomCommand` functions.
 
-{% hint style="info" %}
-If you're migrating your mods, your mod code can still contain the old `Commands` list, but you must use the following properties:
-
-* `Commands.Keys` (command names for unregistration)
-* `Commands.Values` (command info instances for registration)
-
-Since Nitrocid no longer uses this list, we recommend that you use it as a mutable list of commands just for your mods, since you could be generating commands and registering them.
-{% endhint %}
-
 ## More?
 
 For guidance on how to define your command, click the below button:
