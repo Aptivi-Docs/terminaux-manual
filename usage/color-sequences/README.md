@@ -409,10 +409,11 @@ In addition to that, you can specify an array of target colors with their level 
 public static ColorGradients GetGradients((double, Color)[] colors, Color ending, int steps)
 ```
 
-There are two types of gradients that are also implemented:
+There are types of gradients that are also implemented:
 
 * Shades: It returns a list of colors that go from the selected color down to the black color. You can use the `GetShades()` function.
 * Tints: It returns a list of colors that go from the selected color up to the white color. You can use the `GetTints()` function.
+* Stage level: It returns a color that specifies the stage level of a specified number according to the stage positions. It uses the gradient function if you're using the smooth version. You can use the `StageLevelSmooth()` function.
 
 ### Color templates
 

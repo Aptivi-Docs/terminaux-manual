@@ -1,6 +1,6 @@
 ---
-description: More control in your TUIs!
 icon: browser
+description: More control in your TUIs!
 ---
 
 # Textual UI
@@ -32,6 +32,8 @@ In the class, there are several properties that you can modify at your discretio
 * `Fallback`: Fallback binding in case a key doesn't bind to anything.
 * `Renderables`: List of renderables that get rendered on top of what the `Render()` function has rendered.
 
+If you want the TUI to refresh in the next render, you'll have to call the `RequireRefresh()` function, which calls the refresh requirement function on the screen instance.
+
 {% hint style="info" %}
 You can edit the `Keybindings` property to add your custom keybindings, but it's preferrable to either place them in a constructor or in the overridden value, and to define the delegates in separate private functions inside the UI class. Also, make sure that you don't place conflicting keybindings when trying to add them.
 {% endhint %}
@@ -57,7 +59,7 @@ Here's the companion code to start the interactive TUI for the above class:
 
 Here's the resulting picture of the interactive TUI:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Refreshing" %}
@@ -71,7 +73,7 @@ Here's the companion code that executes the above TUI class:
 
 Here's the resulting picture for the TUI:
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 

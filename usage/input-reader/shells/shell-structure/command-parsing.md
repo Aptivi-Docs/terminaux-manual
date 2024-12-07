@@ -38,6 +38,20 @@ After the above class constructor is called, the shell attempts to execute an al
 
 Finally, the command executor thread is fired up with the `ExecuteCommandParameters` instance to hold command execution parameters for the same thread. The thread is then started.
 
+## Command-line Arguments
+
+The command-line arguments feature is backported from Nitrocid KS with more customization in place. This allows you to create a console application that handles arguments deeply, such as support for argument values.
+
+To parse the arguments, you'll have to define a statically defined dictionary in a static class with a type of `Dictionary<string, ArgumentInfo>`, given that `ArgumentInfo` can be constructed with the following:
+
+* `Argument`: The argument name that users will have to write down
+* `HelpDefinition`: The description of the argument that will be shown in the help renderer
+* `ArgArgumentInfo`: An array of argument info instances that will modify its behavior
+* `ArgumentBase`: An argument executor instance that holds the actual code for the argument
+* `Obsolete`: Whether this argument is obsolete or not
+
+Afterwards, you can use the `ParseArguments()` function somewhere in the main application code. You can find the relevant classes in the `Terminaux.Shell.Arguments.Base` namespace.
+
 ## Switch Management
 
 You can know more about switch management by clicking on the below button:

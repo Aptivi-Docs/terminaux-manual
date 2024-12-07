@@ -27,6 +27,7 @@ The following built-in cyclic writers are available:
   * `BreakdownChart`
   * `BarChart`
   * `StickChart`
+  * `StemLeafChart`
 * Text
   * `AlignedFigletText`
   * `AlignedText`
@@ -36,6 +37,8 @@ The following built-in cyclic writers are available:
   * `PowerLine`
   * `TextMarquee`
   * `Decoration`
+  * `SyntaxText`
+  * `TextPath`
 * Artistic
   * `Border`
   * `Box`
@@ -53,11 +56,13 @@ The following built-in cyclic writers are available:
   * `Table` and `Calendars`
   * `Eraser`
   * `Keybindings`
+  * `KeyShortcut`
   * `ListEntry`
   * `Listing`
   * `Emoji`
   * `Kaomoji`
   * `NerdFonts`
+  * `Selection`
 
 You can define a container by creating a new instance of the `Container` class and adding some of the renderables that can be identified by their name. You can also set their positions by using the `SetRenderablePosition()` function. If you don't want to use a container, you can use the `RenderRenderable()` function or the `WriteRenderable()` function to render a specific renderable in a specific position and to write the result to the console, respectively.
 
@@ -88,7 +93,7 @@ var shape = new Circle(20, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full" %}
@@ -97,7 +102,7 @@ var shape = new Circle(20, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -673,6 +678,39 @@ TextWriterRaw.WriteRaw(chart.Render());
 {% endtab %}
 {% endtabs %}
 
+### Stem and Leaf Chart
+
+This shows you a stem and leaf chart that describes the breakdown of the numbers, with the following conditions:
+
+* The stem either represents the digit of tens and greater (if the number is not a decimal) or the numeric part (if the number is a decimal)
+* The leaf either represents the digit of ones (if the number is not a decimal) or the decimal part with the precision of two decimal digits (if the number is a decimal)
+
+```csharp
+var chart = new StemLeafChart()
+{
+    Left = 2,
+    Top = 4,
+    Elements =
+    [
+        789,
+        7,
+        13,
+        14,
+        14.4,
+        14.8,
+        15.4,
+        16.7,
+        16.8,
+        17.26,
+        17.4286,
+        18.345,
+    ],
+};
+TextWriterRaw.WriteRaw(chart.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
+
 ## Text
 
 The following writers write text in different ways to the console.
@@ -1120,6 +1158,33 @@ TextWriterRaw.WritePlain("Aligned text with decoration:    " + alignedTextDecora
 
 <figure><img src="../../../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
 
+### Syntax text
+
+You can render a syntax highlighted snippet of code using this renderable.
+
+{% hint style="info" %}
+Please note that you must have the [`highlight`](http://andre-simon.de/zip/download.php) app installed.
+{% endhint %}
+
+```csharp
+var chart = new SyntaxText()
+{
+	Top = 4,
+	LeftMargin = 4,
+	Syntax = "rust",
+	Text =
+		"""
+        fn main() {
+            // Comment
+            println!("Hello World!");
+        }
+        """
+};
+TextWriterRaw.WriteRaw(chart.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (58).png" alt=""><figcaption></figcaption></figure>
+
 ### Text path
 
 You can render the decorated text path with this renderable so that the paths appear more elegant and simplified.
@@ -1185,7 +1250,7 @@ This allows you to draw artistic stuff into the console so that you can build yo
 
 ### Border
 
-You can render a nice border to the console either without any text, just a title, a text, or box title and text. You can also customize the borders.
+You can render a nice border to the console either without any text, just a title, a text, or box title and text. You can also customize the borders, such as drop shadows which we'll showcase in the `BoxFrame` renderable.
 
 {% tabs %}
 {% tab title="No text" %}
@@ -1216,7 +1281,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Text only" %}
@@ -1232,7 +1297,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Title + text" %}
@@ -1308,6 +1373,46 @@ TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
 <figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="No title (shadow)" %}
+```csharp
+var artistic = new BoxFrame("")
+{
+    Left = 2,
+    Top = 1,
+    InteriorWidth = 20,
+    InteriorHeight = 10,
+    BackgroundColor = ConsoleColors.Aqua,
+    FrameColor = ConsoleColors.Black,
+    TitleColor = ConsoleColors.Black,
+    DropShadow = true,
+    ShadowColor = ConsoleColors.Teal,
+};
+TextWriterRaw.WriteRaw(artistic.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Title (shadow)" %}
+```csharp
+var artistic = new BoxFrame("Hello world!")
+{
+    Left = 2,
+    Top = 1,
+    InteriorWidth = 20,
+    InteriorHeight = 10,
+    BackgroundColor = ConsoleColors.Aqua,
+    FrameColor = ConsoleColors.Black,
+    TitleColor = ConsoleColors.Black,
+    DropShadow = true,
+    ShadowColor = ConsoleColors.Teal,
+};
+TextWriterRaw.WriteRaw(artistic.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -2650,7 +2755,7 @@ var misc = new Keybindings()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Overflow + custom help key" %}
@@ -2676,9 +2781,24 @@ var misc = new Keybindings()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
+
+### KeyShortcut
+
+This renderable allows you to write a keybinding shortcut descriptor, which the `Keybindings` renderable internally uses, similar to that of old text-based applications to the terminal.
+
+```csharp
+var misc = new KeyShortcut()
+{
+    Shortcut = new("Binding 1", ConsoleKey.Enter),
+    Width = ConsoleWrapper.WindowWidth,
+};
+TextWriterRaw.WriteRaw(misc.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### `ListEntry` and `Listing`
 
@@ -2804,7 +2924,7 @@ var misc = new Kaomoji(KaomojiCategory.Positive, KaomojiSubcategory.Joy, 3);
 TextWriterWhereColor.WriteWhere(misc.Render(), rng.Next(ConsoleWrapper.WindowWidth), rng.Next(ConsoleWrapper.WindowHeight));
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### NerdFonts
 
@@ -2817,4 +2937,65 @@ var pos = new Coordinate(rng.Next(ConsoleWrapper.WindowWidth), rng.Next(ConsoleW
 ContainerTools.WriteRenderable(misc, pos);
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+### Selection
+
+You can render a list of selection elements using this renderable. This uses a part of the selection style renderer code.
+
+{% tabs %}
+{% tab title="Single" %}
+```csharp
+var finalSelections = new InputChoiceInfo[]
+{
+	new("Choice one", "The first choice"),
+	new("Choice two", "The second choice"),
+	new("Choice three", "The third choice"),
+	new("Choice four", "The fourth choice"),
+	new("Choice five", "The fifth choice"),
+	new("Choice six", "The sixth choice"),
+	new("Choice seven", "The seventh choice"),
+	new("Choice eight", "The eighth choice"),
+};
+var selections = new Selection(finalSelections)
+{
+	Left = 2,
+	Top = 1,
+	CurrentSelection = 2,
+	Height = 7,
+	Width = 30,
+};
+TextWriterRaw.WriteRaw(selections.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (59).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Multiple" %}
+```csharp
+var finalSelections = new InputChoiceInfo[]
+{
+	new("Choice one", "The first choice"),
+	new("Choice two", "The second choice"),
+	new("Choice three", "The third choice"),
+	new("Choice four", "The fourth choice"),
+	new("Choice five", "The fifth choice"),
+	new("Choice six", "The sixth choice"),
+	new("Choice seven", "The seventh choice"),
+	new("Choice eight", "The eighth choice"),
+};
+var selections = new Selection(finalSelections)
+{
+	Left = 2,
+	Top = 1,
+	CurrentSelection = 2,
+	CurrentSelections = [0, 2, 4, 6],
+	Height = 7,
+	Width = 30,
+};
+TextWriterRaw.WriteRaw(selections.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}

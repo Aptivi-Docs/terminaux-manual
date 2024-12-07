@@ -13,7 +13,7 @@ You can group instances of `InputChoiceInfo` classes using an array of `InputCho
 
 ## Choices
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Input choices are required to make use of all choice-based input methods that use the `InputChoiceInfo` class instances, which you can define them yourself. You can define them using the following variables in a constructor:
 
@@ -146,6 +146,7 @@ If you want to render the selection panel, you may want to use the `SelectionInp
   * Background color of the selected alternate item
   * Foreground color of the disabled item
   * Background color of the disabled item
+  * Background color of the overall UI
 
 {% hint style="info" %}
 If you want to get more information about an item that you've selected, either press `TAB`, or open the sidebar using the `S` key and navigate through it using the `E` and the `D` keys.

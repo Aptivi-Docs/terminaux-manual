@@ -38,6 +38,7 @@ The following controls are available:
 | `M`                                             | Previous color blindness simulation                                            |
 | `CTRL` + `M`                                    | Decrease transformation frequenc                                               |
 | `W`                                             | Select web color                                                               |
+| `L`                                             | Shows color list                                                               |
 
 This function returns a `Color` instance containing necessary information. To know more about the structure of the `Color` class, visit the page below to learn more.
 

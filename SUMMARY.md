@@ -34,6 +34,8 @@
   * [Geometric Shapes](usage/console-tools/geometric-shapes.md)
   * [Nerd Fonts](usage/console-tools/nerd-fonts.md)
   * [Terminal Info](usage/console-tools/terminal-info.md)
+  * [Test Fixtures](usage/console-tools/test-fixtures.md)
+  * [Terminal Structures](usage/console-tools/terminal-structures.md)
 * [Input Reader](usage/input-reader/README.md)
   * [Shells](usage/input-reader/shells/README.md)
     * [Shell Structure](usage/input-reader/shells/shell-structure/README.md)
