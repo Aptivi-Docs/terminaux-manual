@@ -268,3 +268,24 @@ In addition to that, we've also removed the above properties so that you can fin
 {% hint style="info" %}
 To continue using this feature, you must change the `Transformations` value in the `Color` instance, passing it an array of transformation formula classes that you desire to use.
 {% endhint %}
+
+### `ScreenPart` obsolete functions removed
+
+{% code title="ScreenPart.cs" lineNumbers="true" %}
+```csharp
+public void LeftPosition(int left)
+public void TopPosition(int top)
+public void Position(int left, int top)
+public void ForegroundColor(Color color, bool forceTrue = false)
+public void BackgroundColor(Color color, bool forceTrue = false)
+public void ResetColors()
+public void ResetForegroundColor()
+public void ResetBackgroundColor()
+```
+{% endcode %}
+
+The obsolete functions that added VT sequences to the dynamic screen part buffer have been removed, because of the introduction of the `AddDynamicText()` function.
+
+{% hint style="info" %}
+You can achieve similar results to that of executing these functions by using the appropriate functions and properties.
+{% endhint %}

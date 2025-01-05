@@ -5,7 +5,7 @@ description: More control in your TUIs!
 
 # Textual UI
 
-This feature is the new form of interactive TUIs that not only allow you to make an interactive TUI based on a set of data for either a single pane or two panes, but you can also make your own interactive applications seamlessly by separating the rendering code and the key handling code into small functions. This achieves the goal of making textual UI code maintenance easier, while providing the most dynamic UI setup along with support for resize thanks to the [screen](../console-screen.md) feature.
+This feature is the new form of interactive TUIs that not only allow you to make an interactive TUI based on a set of data for either a single pane or two panes, but you can also make your own interactive applications seamlessly by separating the rendering code and the key handling code into small functions. This achieves the goal of making textual UI code maintenance easier, while providing the most dynamic UI setup along with support for resize thanks to the [screen](console-screen.md) feature.
 
 To get started using this awesome feature, you can create a new class that implements the `TextualUI` abstract class and overrides the `Render()` function. Inside the function, you can return a string that consists of VT sequences resulting from several console writers, especially the renderables. You can find out more about the renderables here.
 

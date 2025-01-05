@@ -20,7 +20,7 @@ Terminaux provides a way to edit or view a hexadecimal representation of bytes o
 
 <figure><img src="../../../.gitbook/assets/image (12) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-The interactive hex editor allows you to edit either a file or a byte array byte by byte, while giving you basic editing abilities, such as replacing all occurrences of a byte value with another byte value, finding a byte value or a group of it, and so on. This is all done with the help of the [screen feature](../../console-tools/console-screen.md) in Terminaux to allow visual editing.
+The interactive hex editor allows you to edit either a file or a byte array byte by byte, while giving you basic editing abilities, such as replacing all occurrences of a byte value with another byte value, finding a byte value or a group of it, and so on. This is all done with the help of the [screen feature](../../console-tools/textual-ui/console-screen.md) in Terminaux to allow visual editing.
 
 In the other hand, the interactive hex viewer only allows you to view a hexadecimal representation of each byte without any editing functionality. This allows quick viewing of bytes in hexadecimal.
 

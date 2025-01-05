@@ -1,6 +1,6 @@
 ---
-description: What's your terminal type and its capabilities?
 icon: square-terminal
+description: What's your terminal type and its capabilities?
 ---
 
 # Terminal Info
@@ -33,7 +33,7 @@ Built-in terminal capabilities can be accessed as properties in the `TermInfoDes
 
 ### TermInfo string parameters
 
-Terminaux supports all the [printf(3)](https://manpages.debian.org/bullseye/manpages-dev/printf.3.en.html)-like string parameters that are defined in the [Parameterized Strings](https://manpages.debian.org/bullseye/ncurses-bin/terminfo.5.en.html#Parameterized\_Strings) section from the `terminfo(5)` manual page found in the NCurses library. The following string parameters are supported according to the types:
+Terminaux supports all the [printf(3)](https://manpages.debian.org/bullseye/manpages-dev/printf.3.en.html)-like string parameters that are defined in the [Parameterized Strings](https://manpages.debian.org/bullseye/ncurses-bin/terminfo.5.en.html#Parameterized_Strings) section from the `terminfo(5)` manual page found in the NCurses library. The following string parameters are supported according to the types:
 
 | Parameter                               | Type                   | Description                                      |
 | --------------------------------------- | ---------------------- | ------------------------------------------------ |
@@ -74,7 +74,7 @@ You can extract parameters from a capability string by using the `ExtractParamet
 * Representation: The parameter that has been extracted from the capability string.
 * Index: Zero-based index of the first character of the representation relative to the capability string.
 
-For example, we have this string: `<ESCAPE>=%p1%' '%+%c%p2%' '%+%c`, with `<ESCAPE>` being a designator for `\u001b` that corresponds to the ESCAPE character essential for all terminal [VT sequences](vt-sequences.md) according to Unicode and ASCII encoding. When we ran this string through the parameter extractor, we got this result:
+For example, we have this string: `<ESCAPE>=%p1%' '%+%c%p2%' '%+%c`, with `<ESCAPE>` being a designator for `\u001b` that corresponds to the ESCAPE character essential for all terminal [VT sequences](textual-ui/vt-sequences.md) according to Unicode and ASCII encoding. When we ran this string through the parameter extractor, we got this result:
 
 ```
 <ESCAPE> is not a parameter at index 0

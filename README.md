@@ -10,7 +10,7 @@ Terminaux 6.x is under active development. Meanwhile, you can consult the stable
 
 [Terminaux 5.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/AwolIeCEQSaYeA2rJwE5/ "mention")
 
-We'll come up with a new major version of Terminaux at Q1 2025. If you still use old versions of Terminaux in your projects, go to the below links:
+If you still use old versions of Terminaux in your projects, go to the below links:
 
 [Terminaux 4.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/LICzQPcJvzuBfJRHqvLy/ "mention")
 

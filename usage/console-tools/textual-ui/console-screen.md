@@ -20,14 +20,6 @@ The screen part instance allows you to add text and sequences in different ways:
 * `AddText()`: Adds a simple and static text to the buffer
 * `AddTextLine()`: Adds a simple and static text to the buffer with the extra new line
 * `AddDynamicText()`: This is the key of the Screen feature. It allows you to define a function delegate that generates text dynamically.
-* `Position()`: Adds a VT sequence that changes the position. Works for static text addition.
-* `LeftPosition()`: Adds a VT sequence that changes the cursor left position. Works for static text addition.
-* `TopPosition()`: Adds a VT sequence that changes the cursor top position. Works for static text addition.
-* `ForegroundColor()`: Adds a VT sequence that changes the foreground color. Works for static text addition.
-* `BackgroundColor()`: Adds a VT sequence that changes the background color. Works for static text addition.
-* `ResetColors()`: Adds a VT sequence that resets the background and the foreground colors.
-* `ResetForegroundColor()`: Adds a VT sequence that resets the foreground color.
-* `ResetBackgroundColor()`: Adds a VT sequence that resets the background color.
 * `Clear()`: Clears the whole buffer.
 * `GetBuffer()`: Gets the resulting buffer.
 * `RequireRefresh()`: Tells the screen system to require a refresh.

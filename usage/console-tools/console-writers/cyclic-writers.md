@@ -340,6 +340,39 @@ TextWriterRaw.WriteRaw(shape.Render());
 {% endtab %}
 {% endtabs %}
 
+### Line
+
+This renders either a rough line or a smooth line, and it can either be half-width or full-width.
+
+{% tabs %}
+{% tab title="Rough line" %}
+```csharp
+var line = new Line()
+{
+    StartPos = new(2, 2),
+    EndPos = new(10, 5)
+};
+TextWriterRaw.WriteRaw(line.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Smooth line" %}
+```csharp
+var line = new Line()
+{
+    StartPos = new(2, 2),
+    EndPos = new(10, 5),
+    AntiAlias = true,
+};
+TextWriterRaw.WriteRaw(line.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
+
 ## Charts
 
 Presenting numbers, especially when comparing device performance benchmark numbers, can sometimes be clearer if you use a chart instead of a table. In order to use charts, you must specify at least the chart elements that can be described as an array of `ChartElement` class instances, which is usually set in the `Elements` property. You can create a new element like this:

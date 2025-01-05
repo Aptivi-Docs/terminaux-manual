@@ -52,6 +52,12 @@ To parse the arguments, you'll have to define a statically defined dictionary in
 
 Afterwards, you can use the `ParseArguments()` function somewhere in the main application code. You can find the relevant classes in the `Terminaux.Shell.Arguments.Base` namespace.
 
+{% hint style="info" %}
+If you want to retain the behavior of Nitrocid KS 0.1.1 or earlier by considering every word as an argument, you can use the `ParseArgumentsLegacy()` function.
+
+However, if you want to use the behavior of Nitrocid KS 0.1.2 or later by considering every word that matches one of the arguments as an argument, you can use the `ParseArguments()` function.
+{% endhint %}
+
 ## Switch Management
 
 You can know more about switch management by clicking on the below button:
