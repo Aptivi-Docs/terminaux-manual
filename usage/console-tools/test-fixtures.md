@@ -1,6 +1,6 @@
 ---
-description: Test your functions!
 icon: flask
+description: Test your functions!
 ---
 
 # Test Fixtures
@@ -156,7 +156,7 @@ FixtureSelector.OpenFixtureSelector(fixtures);
 
 If you've defined all the test fixtures correctly, you should now see a menu that looks similar to this:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 For each test, there is a status box that indicates whether the test has been run, has succeeded, or has failed.
 

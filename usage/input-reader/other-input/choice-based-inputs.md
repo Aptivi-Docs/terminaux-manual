@@ -13,7 +13,7 @@ You can group instances of `InputChoiceInfo` classes using an array of `InputCho
 
 ## Choices
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Input choices are required to make use of all choice-based input methods that use the `InputChoiceInfo` class instances, which you can define them yourself. You can define them using the following variables in a constructor:
 

@@ -34,6 +34,8 @@ Starting from `ConsoleWriters`, this namespace provides the following classes:
   * Provides you with the necessary functions to simulate a typewriter writing a requested string to the console with and without color.
 * `TextWriterWhereSlowColor`
   * Provides you with the necessary functions to simulate a typewriter that writes a text in a specific position to the console with and without color.
+* `WrappedWriter`
+  * Provides you with the necessary functions to write long text to the console, with a basic UI that allows you to skim through the text. Consult [this page](../../input-reader/other-input/editors-and-viewers.md) for more info.
 
 Consult the below page to find out how to use these functions.
 
@@ -55,19 +57,19 @@ This writer allows you to easily write one list entry with its value to the cons
 
 This writer allows you to easily write list entries from either an array or an enumerable, such as lists and dictionaries, to the console without having to write loop statements. This is available in both the generic and the non-generic versions.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Normal text writer (`TextWriterColor`)
 
 This writer is the simplest writer with color support, and can be used to write general text to the console effortlessly.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Highlighted text writer (`TextWriterHighlightedColor`)
 
 This writer takes the colors and reverts the background and the foreground colors to make text look like as if it's highlighted.
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Raw text writer (`TextWriterRaw`)
 

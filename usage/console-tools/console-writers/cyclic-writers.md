@@ -28,6 +28,9 @@ The following built-in cyclic writers are available:
   * `BarChart`
   * `StickChart`
   * `StemLeafChart`
+  * `LineChart`
+  * `WinsLosses`
+  * `AreaChart` (unfinished)
 * Text
   * `AlignedFigletText`
   * `AlignedText`
@@ -93,7 +96,7 @@ var shape = new Circle(20, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full" %}
@@ -102,7 +105,7 @@ var shape = new Circle(20, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -744,6 +747,119 @@ TextWriterRaw.WriteRaw(chart.Render());
 
 <figure><img src="../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
 
+### Line Charts
+
+This allows you to render a line chart that shows you rises and falls of a specific data to the console.
+
+```csharp
+var chart = new LineChart()
+{
+    InteriorWidth = ConsoleWrapper.WindowWidth - 4,
+    InteriorHeight = ConsoleWrapper.WindowHeight - 8,
+    Left = 2,
+    Top = 4,
+    Showcase = true,
+    Elements =
+    [
+        new()
+        {
+            Name = "September 2023",
+            Value = 34.92,
+        },
+        new()
+        {
+            Name = "October 2023",
+            Value = 36.46,
+        },
+        new()
+        {
+            Name = "November 2023",
+            Value = 37.63,
+        },
+        new()
+        {
+            Name = "December 2023",
+            Value = 35.44,
+        },
+        new()
+        {
+            Name = "January 2024",
+            Value = 32.27,
+        },
+        new()
+        {
+            Name = "February 2024",
+            Value = 28.83,
+        },
+        new()
+        {
+            Name = "March 2024",
+            Value = 26.26,
+        },
+        new()
+        {
+            Name = "April 2024",
+            Value = 24.42,
+        },
+        new()
+        {
+            Name = "May 2024",
+            Value = 23.34,
+        },
+        new()
+        {
+            Name = "June 2024",
+            Value = 22.28,
+        },
+        new()
+        {
+            Name = "July 2024",
+            Value = 21.31,
+        },
+        new()
+        {
+            Name = "August 2024",
+            Value = 20.56,
+        },
+        new()
+        {
+            Name = "September 2024",
+            Value = 19.86,
+        },
+    ],
+};
+TextWriterRaw.WriteRaw(chart.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### Wins and Losses
+
+This chart allows you to visualize wins and losses for a company or for other things in your console.
+
+```csharp
+var chart = new WinsLosses()
+{
+    InteriorWidth = ConsoleWrapper.WindowWidth - 4,
+    InteriorHeight = ConsoleWrapper.WindowHeight - 8,
+    Left = 2,
+    Top = 4,
+    Showcase = true,
+    Elements =
+    [
+        ("January 2023", new(){ Name = "Win", Value = 85.29 }, new(){ Name = "Loss", Value = 43.46 }),
+        ("February 2023", new(){ Name = "Win", Value = 86.22 }, new(){ Name = "Loss", Value = 44.22 }),
+        ("March 2023", new(){ Name = "Win", Value = 89.32 }, new(){ Name = "Loss", Value = 40.20 }),
+        ("April 2023", new(){ Name = "Win", Value = 90.01 }, new(){ Name = "Loss", Value = 39.85 }),
+        ("May 2023", new(){ Name = "Win", Value = 89.43 }, new(){ Name = "Loss", Value = 42.02 }),
+        ("June 2023", new(){ Name = "Win", Value = 87.49 }, new(){ Name = "Loss", Value = 46.22 }),
+    ],
+};
+TextWriterRaw.WriteRaw(chart.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
 ## Text
 
 The following writers write text in different ways to the console.
@@ -1314,7 +1430,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Text only" %}
@@ -1330,7 +1446,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Title + text" %}
@@ -2788,7 +2904,7 @@ var misc = new Keybindings()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Overflow + custom help key" %}
@@ -2814,7 +2930,7 @@ var misc = new Keybindings()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -2831,7 +2947,7 @@ var misc = new KeyShortcut()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### `ListEntry` and `Listing`
 
@@ -2957,7 +3073,7 @@ var misc = new Kaomoji(KaomojiCategory.Positive, KaomojiSubcategory.Joy, 3);
 TextWriterWhereColor.WriteWhere(misc.Render(), rng.Next(ConsoleWrapper.WindowWidth), rng.Next(ConsoleWrapper.WindowHeight));
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### NerdFonts
 
@@ -2970,7 +3086,7 @@ var pos = new Coordinate(rng.Next(ConsoleWrapper.WindowWidth), rng.Next(ConsoleW
 ContainerTools.WriteRenderable(misc, pos);
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Selection
 
