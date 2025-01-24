@@ -302,5 +302,5 @@ if (CurrentPane != 2)
 You can also configure how your interactive TUI behaves, such as automatic refreshing. For automatic refreshing, your data type will have to be dynamic (i.e. constantly changing) to be able to see live data in the interactive TUI. In order to configure the automatic refresh, you'll have to override the `RefreshInterval` property and to give it a duration of the pause between refreshes in milliseconds.
 
 {% hint style="info" %}
-All configuration must be done when implementing your interactive TUI class.
+All configuration must be done when implementing your interactive TUI class. However, you can globally configure the interactive TUI appearance using the `GlobalSettings` property found in the `InteractiveTuiSettings` class
 {% endhint %}
