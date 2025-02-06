@@ -6,11 +6,11 @@ description: Welcome to Terminaux!
 # Welcome!
 
 {% hint style="info" %}
-Terminaux 6.x is under active development. Meanwhile, you can consult the stable Terminaux 5.x manual if you're using this version:
-
-[Terminaux 5.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/AwolIeCEQSaYeA2rJwE5/ "mention")
+Terminaux 6.x is currently under maintenance, but [under another branch](https://github.com/Aptivi/Terminaux/tree/x/oob/6.1.x). This series is supported until August 5th, 2025.
 
 If you still use old versions of Terminaux in your projects, go to the below links:
+
+[Terminaux 5.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/AwolIeCEQSaYeA2rJwE5/ "mention")
 
 [Terminaux 4.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/LICzQPcJvzuBfJRHqvLy/ "mention")
 
