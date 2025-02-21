@@ -6,19 +6,16 @@ description: Welcome to Terminaux!
 # Welcome!
 
 {% hint style="info" %}
-Terminaux 6.x is currently under maintenance, but [under another branch](https://github.com/Aptivi/Terminaux/tree/x/oob/6.1.x). This series is supported until August 5th, 2026.
+Terminaux 7.x is currently under active development.
 
 If you still use old versions of Terminaux in your projects, go to the below links:
 
-[Terminaux 5.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/AwolIeCEQSaYeA2rJwE5/ "mention")
-
-[Terminaux 4.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/LICzQPcJvzuBfJRHqvLy/ "mention")
-
-[Terminaux 3.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/OmlwECCRQY4XJQJZaeLc/ "mention")
-
-[Terminaux 2.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/BAbXedIZJ6HPa9EGmSYt/ "mention")
-
-[Terminaux 1.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/IcD1aLc5jxHMwvslhJIP/ "mention")
+* [Terminaux 6.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/TQS2U00Papqc2LMhftr5/)
+* [Terminaux 5.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/AwolIeCEQSaYeA2rJwE5/)
+* [Terminaux 4.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/LICzQPcJvzuBfJRHqvLy/)
+* [Terminaux 3.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/OmlwECCRQY4XJQJZaeLc/)
+* [Terminaux 2.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/BAbXedIZJ6HPa9EGmSYt/)
+* [Terminaux 1.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/IcD1aLc5jxHMwvslhJIP/)
 {% endhint %}
 
 Terminaux is a library that contains all the common and the extra console tools that allow you to build productive console applications. Terminaux also provides a powerful color feature that lets you get an RGB color, convert color models, and so on.

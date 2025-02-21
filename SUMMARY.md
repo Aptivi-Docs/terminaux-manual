@@ -8,6 +8,7 @@
   * [API v4.0](breaking-changes/api-v4.0.md)
   * [API v5.0](breaking-changes/api-v5.0.md)
   * [API v6.0](breaking-changes/api-v6.0.md)
+  * [API v7.0](breaking-changes/api-v7.0.md)
 
 ## Usage
 
