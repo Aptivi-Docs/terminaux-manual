@@ -9,8 +9,8 @@ This feature is the new form of interactive TUIs that not only allow you to make
 
 To get started using this awesome feature, you can create a new class that implements the `TextualUI` abstract class and overrides the `Render()` function. Inside the function, you can return a string that consists of VT sequences resulting from several console writers, especially the renderables. You can find out more about the renderables here.
 
-{% content-ref url="../console-writers/cyclic-writers.md" %}
-[cyclic-writers.md](../console-writers/cyclic-writers.md)
+{% content-ref url="../console-writers/cyclic-writers/" %}
+[cyclic-writers](../console-writers/cyclic-writers/)
 {% endcontent-ref %}
 
 {% hint style="info" %}

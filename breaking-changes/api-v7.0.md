@@ -48,7 +48,7 @@ public static class LineHandleWriter
 The above classes, which were marked as deprecated back in Terminaux 6.0, have been removed in this API revision to clean things up as we're getting ready to stabilize the cyclic writers to make them more consistent and usable than before.
 
 {% hint style="info" %}
-You'll have to use cyclic writers if you want to continue using fancy writers. You can consult [this page](../usage/console-tools/console-writers/cyclic-writers.md) for more info.
+You'll have to use cyclic writers if you want to continue using fancy writers. You can consult [this page](../usage/console-tools/console-writers/cyclic-writers/) for more info.
 {% endhint %}
 
 ### Base shell info generic class implemented

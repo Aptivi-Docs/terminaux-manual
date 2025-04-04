@@ -1,6 +1,6 @@
 ---
-icon: arrows-spin
 description: Spin, spin, spin!
+icon: arrows-spin
 ---
 
 # Spinner Selector
@@ -18,7 +18,7 @@ The first overload automatically falls back to the `Dots` built-in spinner, whil
 You can't use custom spinners, as they are not considered to be built-in.
 {% endhint %}
 
-Once the user end submitted their selection, the two functions will return a `Spinner` instance obtained from the built-in spinner instance list, which can be rendered immediately using a function described [here](../../console-tools/console-writers/cyclic-writers.md).
+Once the user end submitted their selection, the two functions will return a `Spinner` instance obtained from the built-in spinner instance list, which can be rendered immediately using a function described [here](../../console-tools/console-writers/cyclic-writers/).
 
 ## Controls
 
