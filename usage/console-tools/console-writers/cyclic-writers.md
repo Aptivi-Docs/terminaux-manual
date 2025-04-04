@@ -1,15 +1,27 @@
 ---
-icon: arrow-rotate-right
 description: Such writers render repeatedly with or without some movement
+icon: arrow-rotate-right
 ---
 
 # Cyclic Writers
 
-Cyclic writers are dynamic writers that can be rendered individually by making a new class instance of a renderable class that implements the `IStaticRenderable` interface that you can implement in your renderable class. Such writers can either be animated or static, and can be rendered either by calling their individual `Render()` function one by one or by putting renderable classes to a container and calling that container's `WriteContainer()` function from the `ContainerTools` class.
+Cyclic writers are dynamic writers that can be rendered individually by making a new class instance of a renderable class that implements the base cyclic writer class, `CyclicWriter`, and one of the typed cyclic writer classes that you can implement in your renderable class. Such writers can either be animated or static, and can be rendered either by calling their individual `Render()` function one by one or by putting renderable classes to a container and calling that container's `WriteContainer()` function from the `ContainerTools` class.
+
+In cyclic writers, the implementation usually implements the base cyclic writer class and one of the following classes:
+
+* `GraphicalCyclicWriter`: This cyclic writer utilizes positioning and supports widths and heights for graphical terminal applications.
+* `SimpleCyclicWriter`: This cyclic writer simply writes the rendered output to the console and is suitable for simple and scrolling terminal applications.
 
 {% hint style="info" %}
 Most of the renderables also support colors, in which you can set with `UseColors` and their appropriate properties.
 {% endhint %}
+
+For margins, in all cyclic writers that derive from the `GraphicalCyclicWriter` class, you can use the following properties:
+
+* `Padding`: Object padding to create blank space around the selected areas in cells.
+* `Margin`: Object margin to reduce the width and the height based on the margin values.
+
+All graphical cyclic writers use the `SetMargin` property to set the appropriate position and size in accordance to the two above property values.
 
 The following built-in cyclic writers are available:
 
@@ -29,8 +41,9 @@ The following built-in cyclic writers are available:
   * `StickChart`
   * `StemLeafChart`
   * `LineChart`
+  * `LinesChart`
+  * `PieChart`
   * `WinsLosses`
-  * `AreaChart` (unfinished)
 * Text
   * `AlignedFigletText`
   * `AlignedText`
@@ -49,7 +62,6 @@ The following built-in cyclic writers are available:
   * `Canvas`
   * `AnimatedCanvas`
 * Misc
-  * `Asciinema` (WIP)
   * `ProgressBar`
   * `ProgressBarNoText`
   * `SimpleProgress`
@@ -67,7 +79,7 @@ The following built-in cyclic writers are available:
   * `NerdFonts`
   * `Selection`
 
-You can define a container by creating a new instance of the `Container` class and adding some of the renderables that can be identified by their name. You can also set their positions by using the `SetRenderablePosition()` function. If you don't want to use a container, you can use the `RenderRenderable()` function or the `WriteRenderable()` function to render a specific renderable in a specific position and to write the result to the console, respectively.
+You can define a container by creating a new instance of the `Container` class and adding some of the renderables that can be identified by their name. You can also set their positions using the `SetRenderablePosition()` function, and you can set their sizes using the `SetRenderableSize()` function. If you don't want to use a container, you can use the `RenderRenderable()` function or the `WriteRenderable()` function from the `RendererTools` class to render a specific renderable in a specific position and to write the result to the console, respectively.
 
 {% hint style="info" %}
 Some of the renderables may override the position variable for a renderable and may use the values from the renderables' properties.
@@ -79,6 +91,7 @@ In addition to that, you can manipulate with a renderable using the following fu
 * `RemoveRenderable()`: Removes a renderable with this ID.
 * `GetRenderable()`: Gets a renderable instance from this ID.
 * `GetRenderablePosition()`: Gets a renderable instance position from this ID.
+* `GetRenderableSize()`: Gets a renderable instance size from this ID.
 * `GetRenderableNames()`: Gets an array of renderable IDs.
 
 ## Shapes
@@ -96,7 +109,7 @@ var shape = new Circle(20, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full" %}
@@ -105,7 +118,7 @@ var shape = new Circle(20, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -724,8 +737,6 @@ This shows you a stem and leaf chart that describes the breakdown of the numbers
 ```csharp
 var chart = new StemLeafChart()
 {
-    Left = 2,
-    Top = 4,
     Elements =
     [
         789,
@@ -831,7 +842,7 @@ var chart = new LineChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Wins and Losses
 
@@ -853,6 +864,131 @@ var chart = new WinsLosses()
         ("April 2023", new(){ Name = "Win", Value = 90.01 }, new(){ Name = "Loss", Value = 39.85 }),
         ("May 2023", new(){ Name = "Win", Value = 89.43 }, new(){ Name = "Loss", Value = 42.02 }),
         ("June 2023", new(){ Name = "Win", Value = 87.49 }, new(){ Name = "Loss", Value = 46.22 }),
+    ],
+};
+TextWriterRaw.WriteRaw(chart.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+### Pie charts
+
+Pie charts visualize data, like all other data charts, but in a pie instead of the usual bars. It uses the values to calculate the arc angles of all elements to then display the whole pie to the console.
+
+```csharp
+var chart = new PieChart()
+{
+    Width = ConsoleWrapper.WindowWidth - 4,
+    Height = ConsoleWrapper.WindowHeight - 8,
+    Left = 2,
+    Top = 4,
+    Showcase = true,
+    Elements =
+    [
+        new()
+        {
+            Name = "September 2023",
+            Value = 34.92,
+        },
+        new()
+        {
+            Name = "October 2023",
+            Value = 36.46,
+        },
+        new()
+        {
+            Name = "November 2023",
+            Value = 37.63,
+        },
+        new()
+        {
+            Name = "December 2023",
+            Value = 35.44,
+        },
+        new()
+        {
+            Name = "January 2024",
+            Value = 32.27,
+        },
+        new()
+        {
+            Name = "February 2024",
+            Value = 28.83,
+        },
+        new()
+        {
+            Name = "March 2024",
+            Value = 26.26,
+        },
+        new()
+        {
+            Name = "April 2024",
+            Value = 24.42,
+        },
+        new()
+        {
+            Name = "May 2024",
+            Value = 23.34,
+        },
+        new()
+        {
+            Name = "June 2024",
+            Value = 22.28,
+        },
+        new()
+        {
+            Name = "July 2024",
+            Value = 21.31,
+        },
+        new()
+        {
+            Name = "August 2024",
+            Value = 20.56,
+        },
+        new()
+        {
+            Name = "September 2024",
+            Value = 19.86,
+        },
+    ],
+};
+TextWriterRaw.WriteRaw(chart.Render());
+```
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### Chart of Lines
+
+This kind of chart demonstrates how an item has increased or decreased over either time periods or, more generally, iterations. It uses lines for such demonstration.
+
+```csharp
+var chart = new LinesChart()
+{
+    Width = ConsoleWrapper.WindowWidth - 4,
+    Height = ConsoleWrapper.WindowHeight - 8,
+    Left = 2,
+    Top = 4,
+    Showcase = true,
+    Elements =
+    [
+        ("Android 12", [
+            new() { Name = "3/2024", Value = 16.97 },
+            new() { Name = "4/2024", Value = 16.42 },
+            new() { Name = "5/2024", Value = 16.01 },
+            new() { Name = "6/2024", Value = 15.80 }
+        ]),
+        ("Android 13", [
+            new() { Name = "3/2024", Value = 26.26 },
+            new() { Name = "4/2024", Value = 24.42 },
+            new() { Name = "5/2024", Value = 23.34 },
+            new() { Name = "6/2024", Value = 22.28 }
+        ]),
+        ("Android 14", [
+            new() { Name = "3/2024", Value = 16.28 },
+            new() { Name = "4/2024", Value = 20.38 },
+            new() { Name = "5/2024", Value = 23.46 },
+            new() { Name = "6/2024", Value = 25.67 }
+        ]),
     ],
 };
 TextWriterRaw.WriteRaw(chart.Render());
@@ -1228,8 +1364,7 @@ var marquee = new TextMarquee(
     "left and the right side, and is intentionally long to make the text scroll just like how music players " +
     "work.")
 {
-    LeftMargin = 4,
-    RightMargin = 4,
+    Width = ConsoleWrapper.WindowWidth - 8,
 };
 try
 {
@@ -1430,7 +1565,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Text only" %}
@@ -1446,7 +1581,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Title + text" %}
@@ -2013,14 +2148,6 @@ You can make animated canvases using the `AnimatedCanvas` class. It allows you t
 
 This category contains all other cyclic writers that don't fit in the above categories.
 
-### Asciinema
-
-This cyclic writer allows you to render a recorded Asciinema cast file to the terminal.
-
-{% hint style="danger" %}
-This feature is work in progress.
-{% endhint %}
-
 ### Progress bar
 
 Progress bars describe how much of a progress was done for the current task. You can make the progress bar either with text or without text. Progress bars can either be determinate (at which you can know the progress) or indeterminate (at which the process is not determined)
@@ -2039,8 +2166,7 @@ var stickScreen = new Screen()
 var progressBar = new ProgressBar(
     "This is the test progress bar that contains a scrolling marquee.", 0, 100)
 {
-    LeftMargin = 4,
-    RightMargin = 4,
+    Width = ConsoleWrapper.WindowWidth - 8,
 };
 try
 {
@@ -2087,8 +2213,7 @@ var stickScreen = new Screen()
 var progressBar = new ProgressBar(
     "This is the test progress bar that contains a scrolling marquee.", 0, 100)
 {
-    LeftMargin = 4,
-    RightMargin = 4,
+    Width = ConsoleWrapper.WindowWidth - 8,
     Indeterminate = true,
 };
 try
@@ -2141,8 +2266,7 @@ var stickScreen = new Screen()
 };
 var progressBar = new ProgressBarNoText(0, 100)
 {
-    LeftMargin = 4,
-    RightMargin = 4,
+    Width = ConsoleWrapper.WindowWidth - 8,
 };
 try
 {
@@ -2188,8 +2312,7 @@ var stickScreen = new Screen()
 };
 var progressBar = new ProgressBarNoText(0, 100)
 {
-    LeftMargin = 4,
-    RightMargin = 4,
+    Width = ConsoleWrapper.WindowWidth - 8,
     Indeterminate = true,
 };
 try
@@ -2242,8 +2365,7 @@ var stickScreen = new Screen()
 };
 var progressBar = new SimpleProgress(0, 100)
 {
-    LeftMargin = 4,
-    RightMargin = 4,
+    Width = ConsoleWrapper.WindowWidth - 8,
 };
 try
 {
@@ -2289,8 +2411,7 @@ var stickScreen = new Screen()
 };
 var progressBar = new SimpleProgress(0, 100)
 {
-    LeftMargin = 4,
-    RightMargin = 4,
+    Width = ConsoleWrapper.WindowWidth - 8,
     Indeterminate = true,
 };
 try
@@ -2867,7 +2988,6 @@ This renderable allows you to write a list of keybindings similar to that of old
 ```csharp
 var misc = new Keybindings()
 {
-    Top = ConsoleWrapper.WindowHeight - 1,
     Width = ConsoleWrapper.WindowWidth,
     KeybindingList =
     [
@@ -2876,7 +2996,7 @@ var misc = new Keybindings()
         new("Binding 3", ConsoleKey.Tab),
     ]
 };
-TextWriterRaw.WriteRaw(misc.Render());
+TextWriterRaw.WriteRaw(RenderableTools.RenderRenderable(misc, new(0, ConsoleWrapper.WindowHeight - 1)));
 ```
 
 <figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
@@ -2886,7 +3006,6 @@ TextWriterRaw.WriteRaw(misc.Render());
 ```csharp
 var misc = new Keybindings()
 {
-    Top = ConsoleWrapper.WindowHeight - 1,
     Width = ConsoleWrapper.WindowWidth,
     KeybindingList =
     [
@@ -2901,17 +3020,16 @@ var misc = new Keybindings()
         new("Binding 9", ConsoleKey.Insert),
     ]
 };
-TextWriterRaw.WriteRaw(misc.Render());
+TextWriterRaw.WriteRaw(RenderableTools.RenderRenderable(misc, new(0, ConsoleWrapper.WindowHeight - 1)));
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Overflow + custom help key" %}
 ```csharp
 var misc = new Keybindings()
 {
-    Top = ConsoleWrapper.WindowHeight - 1,
     Width = ConsoleWrapper.WindowWidth,
     KeybindingList =
     [
@@ -2927,10 +3045,10 @@ var misc = new Keybindings()
     ],
     HelpKeyInfo = new('H', ConsoleKey.H, false, false, false)
 };
-TextWriterRaw.WriteRaw(misc.Render());
+TextWriterRaw.WriteRaw(RenderableTools.RenderRenderable(misc, new(0, ConsoleWrapper.WindowHeight - 1)));
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -2947,7 +3065,7 @@ var misc = new KeyShortcut()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### `ListEntry` and `Listing`
 
@@ -3073,7 +3191,7 @@ var misc = new Kaomoji(KaomojiCategory.Positive, KaomojiSubcategory.Joy, 3);
 TextWriterWhereColor.WriteWhere(misc.Render(), rng.Next(ConsoleWrapper.WindowWidth), rng.Next(ConsoleWrapper.WindowHeight));
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### NerdFonts
 
@@ -3086,7 +3204,7 @@ var pos = new Coordinate(rng.Next(ConsoleWrapper.WindowWidth), rng.Next(ConsoleW
 ContainerTools.WriteRenderable(misc, pos);
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Selection
 

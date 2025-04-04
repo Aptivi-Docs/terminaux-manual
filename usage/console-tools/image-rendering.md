@@ -1,6 +1,6 @@
 ---
-icon: image
 description: Images in the terminal!
+icon: image
 ---
 
 # Image Rendering
@@ -48,7 +48,7 @@ You don't need to install ImageMagick to your system; it's embedded in the Magic
 
 You can demonstrate this by running the `Terminaux.Console` app (build from source) and running the `RenderImage` test fixture:
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 In some cases, you don't actually need to specify the left and the top position of the upper left corner of the image, such as interactive TUIs that print text and informational boxes.

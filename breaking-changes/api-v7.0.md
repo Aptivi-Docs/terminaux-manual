@@ -75,3 +75,126 @@ PromptPresetBase CurrentPreset { get; }
 {% hint style="info" %}
 When inheriting the non-generic base shell class, your shell info class might hold wrong information about your shell, even if your commands are defined. Therefore, you must migrate to the generic version of the class if you want to retain your shell settings.
 {% endhint %}
+
+### Cyclic writers now use typed `CyclicWriter` classes
+
+The cyclic writers have been redefined to make their classes use the typed `CyclicWriter` classes. These classes consist of:
+
+* `SimpleCyclicWriter`
+* `GraphicalCyclicWriter`
+
+This was required because we needed applications to be able to determine whether the writer that they're using was a simple one or a graphical one. Simple cyclic writers are suitable for command line applications, while graphical ones are used in TUIs.
+
+The following writers have been migrated to `SimpleCyclicWriter`:
+
+* `Decoration`
+* `Emoji`
+* `FigletText`
+* `Kaomoji`
+* `KeyShortcut`
+* `Keybindings`
+* `LineHandle`
+* `ListEntry`
+* `Listing`
+* `NerdFonts`
+* `PowerLine`
+* `ProgressBar`
+* `ProgressBarNoText`
+* `SimpleProgress`
+* `Slider`
+* `Spinner`
+* `StemLeafChart`
+* `TextException`
+* `TextMarquee`
+
+The following writers have been migrated to `GraphicalCyclicWriter`:
+
+* `AlignedFigletText`
+* `AlignedText`
+* `AnimatedCanvas`
+* `AnimatedText`
+* `BarChart`
+* `Border`
+* `BoundedText`
+* `Box`
+* `BoxFrame`
+* `BreakdownChart`
+* `Calendars`
+* `Canvas`
+* `Eraser`
+* `Line`
+* `LineChart`
+* `LinesChart`
+* `PieChart`
+* `Selection`
+* `StickChart`
+*  `SyntaxText`
+* `Table`
+* `TextPath`
+* `WinsLosses`
+
+The following shape renderers have been migrated to `GraphicalCyclicWriter`:
+
+* `Arc`
+* `Circle`
+*  `Ellipsis`
+* `Parallelogram`
+* `Rectangle`
+* `Square`
+* `Trapezoid`
+* `Triangle`
+
+Part of the introduction of the two typed cyclic writer classes involved removing both `IStaticRenderable` and `IGeometricShape` interfaces to reduce the complexity involved.
+
+{% hint style="info" %}
+Consult the updated cyclic writer documentation for more information.
+{% endhint %}
+
+### Changed left and right margins to widths in some graphical writers
+
+{% code title="Some graphical writers" lineNumbers="true" %}
+```csharp
+public int LeftMargin
+{
+    get => leftMargin;
+    set => leftMargin = value;
+}
+
+public int RightMargin
+{
+    get => rightMargin;
+    set => rightMargin = value;
+}
+```
+{% endcode %}
+
+We have replaced the two above properties with the `Width` property that some graphical writers that are derived from `GraphicalCyclicWriter` use to determine the element width. The following writers are affected:
+
+* `FigletText`
+* `ProgressBar`
+* `ProgressBarNoText`
+* `SimpleProgress`
+* `TextMarquee`
+
+{% hint style="info" %}
+You'll have to calculate the total width that the affected writers need to render to the terminal.
+{% endhint %}
+
+### `Keybindings` and `StemLeafChart` writers now act as a simple writer
+
+{% code title="Keybindings.cs + StemLeafChart.cs" lineNumbers="true" %}
+```csharp
+public int Left { get; set; }
+public int Top { get; set; }
+```
+{% endcode %}
+
+The two above properties have been removed because simple writers are not supposed to use anything related to positioning.
+
+{% hint style="info" %}
+You can still use the rendering tools functions to accommodate your needs, should you use positioning to write these.
+{% endhint %}
+
+### Moved `WriteRenderable()` and `RenderRenderable()` to `RendererTools`
+
+We have moved all `WriteRenderable()` and `RenderRenderable()` function overloads from `ContainerTools` to `RendererTools` to better convey the goals as we have created the two base cyclic writer classes.

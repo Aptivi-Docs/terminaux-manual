@@ -1,6 +1,6 @@
 ---
-icon: keyboard
 description: Your apps are now interactive
+icon: keyboard
 ---
 
 # Interactive TUI
@@ -81,7 +81,7 @@ internal class CliInfoPaneTestData : BaseInteractiveTui<string>, IInteractiveTui
 
 This results in the console UI showing up like this:
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 You can also use this in an interactive TUI that accepts two data sources by overriding `SecondPaneInteractable` to true, just like this:
 

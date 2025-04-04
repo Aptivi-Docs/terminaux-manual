@@ -1,6 +1,6 @@
 ---
-icon: triangle
 description: Drawing geometric shapes to the console!
+icon: triangle
 ---
 
 # Geometric Shapes
@@ -16,7 +16,7 @@ Terminaux also provides a wide assortment of classes that allow you to render di
 * Arc
 * Ellipsis
 
-They implement the `IGeometricShape` and the `IStaticRenderable` interfaces to allow you to iteratively render different geometric shapes from arrays of shapes that you can loop through to speed up the process and to allow you to implement your custom geometric shape.
+They implement the `GraphicalCyclicWriter` and the `CyclicWriter` classes to allow you to iteratively render different geometric shapes from arrays of shapes that you can loop through to speed up the process and to allow you to implement your custom geometric shape.
 
 {% hint style="info" %}
 You can also store these shapes in a container and render them iteratively using the [`Container`](console-writers/cyclic-writers.md) class. For line rendering, we recommend that you rely on the cyclic writer and its renderables.
@@ -39,4 +39,4 @@ TextWriterRaw.WriteRaw(rect2.Render());
 ```
 {% endcode %}
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
