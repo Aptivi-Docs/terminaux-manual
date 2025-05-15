@@ -173,6 +173,59 @@ TextWriterRaw.WriteRaw(artistic.Render());
 
 <figure><img src="../../../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
+
+{% tab title="With Rulers" %}
+```csharp
+TextWriterColor.WriteColor("A simple box frame:", true, new Color(ConsoleColors.Green));
+var frame1 = new BoxFrame()
+{
+    Width = 20,
+    Height = 7,
+    Left = 2,
+    Top = 4,
+};
+var frame2 = new BoxFrame()
+{
+    Width = 20,
+    Height = 7,
+    Left = 24,
+    Top = 4,
+    Rulers =
+    [
+        new(3, RulerOrientation.Horizontal),
+    ]
+};
+var frame3 = new BoxFrame()
+{
+    Width = 20,
+    Height = 7,
+    Left = 2,
+    Top = 13,
+    Rulers =
+    [
+        new(8, RulerOrientation.Vertical),
+    ]
+};
+var frame4 = new BoxFrame()
+{
+    Width = 20,
+    Height = 7,
+    Left = 24,
+    Top = 13,
+    Rulers =
+    [
+        new(3, RulerOrientation.Horizontal),
+        new(8, RulerOrientation.Vertical),
+    ]
+};
+TextWriterRaw.WriteRaw(frame1.Render());
+TextWriterRaw.WriteRaw(frame2.Render());
+TextWriterRaw.WriteRaw(frame3.Render());
+TextWriterRaw.WriteRaw(frame4.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
 {% endtabs %}
 
 ## Canvas

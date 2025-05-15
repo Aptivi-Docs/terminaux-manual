@@ -48,15 +48,16 @@ The presentation viewer has the following controls:
 
 ### Input
 
-In addition to the presentation elements, you can also add input to your presentation to interact with your users more. Just create a new instance of the `InputInfo` class and provide the title, the description, and a new instance of the input method class that implements the `IInputMethod` interface and the `BaseInputMethod` class.
+In addition to the presentation elements, you can also add input to your presentation to interact with your users more. Just create a new instance of the `PresentationInputInfo` class and provide the title, the description, and a new instance of the input module class that implements the `InputModule` class.
 
 ```csharp
-internal static InputInfo input =
-    new("Second choice", "Asks the user to select one of the names (larger)",
-        new SelectionInputMethod()
+internal static PresentationInputInfo input =
+    new("Second multiple choice", "Asks the user to select one or more of the names (larger)",
+        new MultiComboBoxModule()
         {
-            Question = "Ultricies mi eget mauris pharetra sapien et ligula:",
-            Choices = data2.Select((data) => new InputChoiceInfo(data, data)).ToArray()
+            Name = "Second multiple choice",
+            Description = "Ultricies mi eget mauris pharetra sapien et ligula:",
+            Choices = GetCategories(data2)
         }, true
     );
 ```
@@ -81,32 +82,20 @@ new PresentationPage("Fifth page - Debugging choice input",
 ```
 
 {% hint style="info" %}
-In order to be able to get the input, it's recommended to put the `InputInfo` instances in their own variables so that you can act according to the input value.
+In order to be able to get the input, it's recommended to put the `PresentationInputInfo` instances in their own variables so that you can act according to the input value.
 
-* `DisplayInput` corresponds to the displayed input that shows in the input selection box, and doesn't represent the actual input.
-* `Input` represents the actual input, and the return type is determined by the generic `IInputMethod` interface and the generic `BaseInputMethod` class.
-
-You can also specify whether the input is required in the `InputInfo` constructor. Currently, the input is not required, but you can pass `true` to the fourth argument to make it required, such as in the example above.
-{% endhint %}
-
-Making your input method class requires that you've already implemented the following in order:
-
-* `BaseInputMethod` (generic): The base input method to simplify the implementation of your input method)
-* `IInputMethod` (generic): The generic interface that specifies the return type of the input
-* `IInputMethod` (base): The most basic interface that provides all the functions needed for input methods
-
-Depending on your input method, you can at least override the following:
-
-* `DisplayInput`
-* `Input`
-* `PromptInput()`: A method that prompts the user for the input, such as the color selector.
-* `Process()`: A method that processes the input to validate it. True means that it's valid, and false means that it's invalid.
-
-{% hint style="info" %}
-You can override all the functions and the properties in the `BaseInputMethod` class, but be sure that you consider the use cases of your input method. However, there's no need for you to register your input method!
+You can also specify whether the input is required in the constructor. Currently, the input is not required, but you can pass `true` to the fourth argument to make it required, such as in the example above.
 {% endhint %}
 
 The presentation system checks the page to see if there are any input instances. If true, you'll be presented with an informational box telling you to select an input to fill. The asterisk next to the number denotes the required input. This means that users should fill in such input before being able to go on. Those without the asterisk means that it's fully optional.
+
+{% hint style="info" %}
+To learn more about input modules, consult the below page:
+
+<a href="../input-reader/other-input/input-modules.md" class="button primary">Input Modules</a>
+{% endhint %}
+
+### Appearance
 
 You can customize how your slideshow looks using the following properties:
 

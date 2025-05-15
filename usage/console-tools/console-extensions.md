@@ -117,6 +117,18 @@ You can also use the acoustic tools for your console, such as beep synth feature
 }
 ```
 
+## Console mode
+
+You can adjust the console mode by using the following functions:
+
+* `IsRaw`: Checks to see if the Linux console is in raw mode.
+* `EnableRaw()`: Enables the raw mode.
+* `DisableRaw()`: Disables the raw mode.
+
+{% hint style="info" %}
+In Linux consoles, you can't use `EnableRaw()` and `DisableRaw()` functions if mouse support is enabled as the way the mouse events are handled require raw mode because they get injected into the `stdin` stream.
+{% endhint %}
+
 ## Miscellaneous console extensions
 
 The following extensions that don't fit in any of the categories can be used in your applications:

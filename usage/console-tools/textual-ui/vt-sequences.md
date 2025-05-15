@@ -15,8 +15,7 @@ This feature provides several filtering and manipulation tools which allow you t
 | `MatchVTSequences()`                | Matches all of the VT sequences that are of either a single type or of multiple types              |
 | `IsMatchVTSequences()`              | Does the string contain all of the VT sequences or a VT sequence of one or more types?             |
 | `IsMatchVTSequencesSpecific()`      | Does the string contain all of the VT sequences or a VT sequence of any specific type?             |
-| `SplitVTSequences()`                | Splits all of the VT sequences                                                                     |
-| `SplitVTSequencesMultiple()`        | Splits all of the VT sequences that are of multiple types                                          |
+| `SplitVTSequences()`                | Splits all of the VT sequences that are either of a single type or of multiple types               |
 | `DetermineTypeFromText()`           | Determines the VT sequence type from the given text                                                |
 | `GetSequenceFilterRegexFromType()`  | Gets the sequence filter regular expression from the provided VT sequence type                     |
 | `GetSequenceFilterRegexFromTypes()` | Gets the sequence filter regular expression list from the provided VT sequence types (one or more) |

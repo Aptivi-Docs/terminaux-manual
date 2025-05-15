@@ -1,6 +1,6 @@
 ---
-icon: badge-check
 description: Getting a color from a text-based color representation.
+icon: badge-check
 ---
 
 # Color Model Parsing
@@ -12,6 +12,7 @@ In addition to Terminaux supporting RGB color model, you can also use the CMYK a
 * CMY's specifier is `cmy:ccc;mmm;yyy`
 * HSL's specifier is `hsl:hhh;sss;lll`
 * HSV's specifier is `hsv:hhh;sss;vvv`
+* HWB's specifier is `hwb:hhh;www;bbb`
 * RYB's specifier is `ryb:rrr;yyy;bbb`
 * YIQ's specifier is `yiq:yyy;iii;qqq`
 * YUV's specifier is `ryb:yyy;uuu;vvv`

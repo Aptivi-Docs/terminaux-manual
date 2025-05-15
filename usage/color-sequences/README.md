@@ -1,6 +1,6 @@
 ---
-icon: palette
 description: We need colors!
+icon: palette
 ---
 
 # Color Sequences
@@ -64,6 +64,9 @@ The `ColorSpecifier` can be of the syntax:
 * `hsv:<hhh>;<sss>;<vvv>`
   * `<hhh>` should be of the range between 0 and 360 in degrees and not radians
   * `<sss>` and `<vvv>` should be of the range between 0 and 100
+* `hwb:<hhh>;<www>;<bbb>`
+  * `<hhh>` should be of the range between 0 and 360 in degrees and not radians
+  * `<www>` and `<bbb>` should be of the range between 0 and 100
 * `ryb:<rrr>;<yyy>;<bbb>`
   * `<rrr>`, `<yyy>`, and `<bbb>` should be of the range between 0 and 255, just like RGB.
 * `yiq:<y>;<i>;<q>`
@@ -196,6 +199,14 @@ If you want a darker version of your color, you can use the `GetDarkBackground()
 
 ```csharp
 public static Color GetDarkBackground(Color source)
+```
+
+### Getting light background of a color
+
+If you want a lighter version of your color, you can use the `GetLightBackground()` function, passing it the source color that you want to lighten in a new copy of the `Color` class. This is normally suitable for backgrounds that are responsive.
+
+```csharp
+public static Color GetLightBackground(Color source)
 ```
 
 ### Saturation and Desaturation

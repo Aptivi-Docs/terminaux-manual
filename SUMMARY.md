@@ -60,6 +60,7 @@
     * [Figlet Font Selector](usage/input-reader/other-input/figlet-font-selector.md)
     * [Color Wheel](usage/input-reader/other-input/color-wheel.md)
     * [Spinner Selector](usage/input-reader/other-input/spinner-selector.md)
+    * [Input Modules](usage/input-reader/other-input/input-modules.md)
   * [Reader State](usage/input-reader/reader-state.md)
   * [Reader Settings](usage/input-reader/reader-settings.md)
   * [Syntax Highlighting](usage/input-reader/syntax-highlighting.md)
@@ -68,6 +69,7 @@
   * [Color Model Conversions](usage/color-sequences/color-model-conversions.md)
   * [Color Model Parsing](usage/color-sequences/color-model-parsing.md)
   * [Interop with System.Drawing.Color](usage/color-sequences/interop-with-system.drawing.color.md)
+* [Interop with Spectre.Console](usage/interop-with-spectre.console.md)
 
 ***
 

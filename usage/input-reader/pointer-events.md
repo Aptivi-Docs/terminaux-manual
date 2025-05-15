@@ -1,6 +1,6 @@
 ---
-icon: computer-mouse
 description: Mouse on your console!
+icon: computer-mouse
 ---
 
 # Pointer Events
@@ -27,50 +27,51 @@ Here are some notes to consider before implementing pointer support to your Term
 
 * Each platform handles console mouse pointer events differently. While Linux, macOS, and Android use [VT sequences](https://www.xfree86.org/current/ctlseqs.html#Mouse%20Tracking), Windows uses its own API to fetch console events as seen in the [`MOUSE_EVENT_RECORD`](https://learn.microsoft.com/en-us/windows/console/mouse-event-record-str) structure. We're trying to polish the relationship across Terminaux releases to make applications that use mouse event handling behave more consistently.
 * On Android, you'll have to connect your external wireless mouse to your phone or your tablet in order to be able to click anywhere. Movement handling is not supported there.
-* On Linux, macOS, and Android, there may be residual input when using the terminal reader in conjunction with the pointer listener. This is something to be considered as part of the polishing plan.
+* On Linux, macOS, and Android, calling `ConsoleWrapper.CursorLeft` or `CursorTop` may have a negative performance impact, depending on how often they get called. In most cases, you don't even need this information.
+* On Linux, macOS, and Android, Terminaux uses SGR protocol by default due to the older X10 protocol limitations.
 {% endhint %}
 
 {% hint style="info" %}
 All of the input methods that use the whole screen, such as selection and [your interactive TUI](../console-tools/textual-ui/interactive-tui.md) apps, support mouse.
 {% endhint %}
 
+{% hint style="danger" %}
+Never call any of `Console.*` functions directly when mouse support or raw mode has been enabled in Linux systems. Otherwise, you'll get I/O errors and your application may crash unexpectedly!
+{% endhint %}
+
 ## Helper functions
 
 Terminaux's mouse feature provides you with a wide assortment of helper functions and properties to enable your Terminaux application to listen to the mouse events. The following functions and properties are available:
 
-* `Input.Listening`
-* `Input.KeyboardInputAvailable`
-* `Input.MouseInputAvailable`
-* `Input.InputAvailable`
-* `Input.PointerActive`
 * `Input.InvertScrollYAxis`: Inverts the Y axis for vertical scrolling
 * `Input.SwapLeftRightButtons`: Swaps the left/right mouse buttons
-* `Input.DoubleClickTimeout`
-* `Input.EnableMovementEvents`
-* `Input.ReadPointer()`
-* `Input.ReadPointerOrKey()`
-
-At first, this may sound complicated, but it's rather easy to use. Inspired by the same concept of listening to console keyboard events using `ReadKey()` and `KeyAvailable`, you can use almost the same trick for mouse pointer events, albeit you'll always want to be able to handle both mouse and keyboard events.
+* `Input.DoubleClickTimeout`: Specifies the double clock timeout in a time span
+* `Input.EnableMovementEvents`: Enables or disables the mouse movement events
+* `Input.PointerEncoding`: Specifies the pointer encoding to use
+* `Input.ReadPointerOrKey()`: Reads the next input event synchronously
+* `Input.ReadPointerOrKeyNoBlock()`: Reads the next input event asynchronously
+* `Input.ReadKey()`: Reads a single key synchronously
+* `Input.ReadKeyTimeout()`: Reads a single key synchronously with timeout
+* `Input.InvalidateInput()`: Invalidates all input events
 
 The easiest way to listen to both the mouse and the keyboard events is this:
 
 ```csharp
 // ...your code, usually screen rendering
-SpinWait.SpinUntil(() => Input.InputAvailable);
-if (Input.MouseInputAvailable)
+InputEventInfo data = Input.ReadPointerOrKey();
+var mouse = data.PointerEventContext;
+if (mouse is not null)
 {
     // Mouse input received.
-    var mouse = TermReader.ReadPointer();
     switch (mouse.Button)
     {
         // Insert case statements here...
     }
 }
-else if (ConsoleWrapper.KeyAvailable && !Input.PointerActive)
+else if (data.ConsoleKeyInfo is ConsoleKeyInfo cki && !Input.PointerActive))
 {
     // Keyboard input received.
-    var key = TermReader.ReadKey();
-    switch (key.Key)
+    switch (cki.Key)
     {
         // Insert case statements here...
     }
@@ -100,3 +101,78 @@ In addition to that, Terminaux provides the pointer tools that allow you to perf
 
 * `PointerWithinPoint()`: This function returns `true` if the mouse pointer (click, movement, etc.) is found within a single point. For example, it returns `true` if your mouse pointer at `(22, 4)` matches the provided point position `(22, 4)`.
 * `PointerWithinRange()`: This function returns `true` if the mouse pointer is found within a block range of the two points that form an invisible rectangle. For example, if you've specified `(22, 4)` and `(33, 6)` as two point ranges, and your mouse pointer has clicked on position `(25, 5)`, this function returns `true`.
+
+## Pointer Hitboxes
+
+You can define an invisible rectangle that resembles a mouse hitbox that allows your application to react to a mouse event that is within the hitbox. Using the `PointerHitbox` class, you can use the constructor that allows you to specify a hitbox in one of the following ways:
+
+* Point: A single terminal cell in which to make it react to the mouse event.
+* Start and End positions: Defines two positions in which to make a rectangle using the upper left corner (start) and the lower right corner (end).
+* Start and Size positions: Defines a start position that resembles the upper left corner and a size of a rectangle.
+
+{% hint style="info" %}
+A callback is required to be specified, but you can choose between a delegate that returns void and a delegate that returns an object.
+{% endhint %}
+
+Later, you can set the following properties:
+
+* `Button`: Specifies which button(s) to listen to (default: the mouse left button)
+* `ButtonPress`: Specifies how the button is pressed (default: the released state)
+* `Modifiers`: Specifies what modifiers (SHIFT, ALT, CTRL) to listen to (default: none)
+* `Dragging`: Specifies whether mouse dragging is required (default: `false`)
+* `ProcessTier`: Specifies whether to process the tier for double-clicks and other tiered clicks (default: `false`)
+* `ClickTier`: Specifies the exact number of clicks required to trigger the action if `ProcessTier` is on (default: 0)
+
+Useful functions, such as `ProcessPointer()`, can be used when processing the mouse event to perform an action when certain requirements of a hitbox are met. The following functions are available:
+
+* `IsPointerWithin()`: Specifies whether the mouse event context describes a mouse position that is within the boundaries of the hitbox.
+* `IsPointerModifierMatch()`: Specifies whether the hitbox requirements are met by the mouse event, such as modifiers, button, and button press state.
+* `ProcessPointer()`: Checks for boundaries and for requirements before executing the function delegate that was passed to the constructor.
+
+Here's how you can easily process a pointer from a hitbox in the mouse event processing code:
+
+```csharp
+// Obtain the start and the end coordinates...
+
+// Make a new hitbox instance
+var hitbox = new PointerHitbox(
+    new(startX, startY),
+    new Coordinate(endX, endY),
+    (pec) => DoAction(pec)
+)
+{
+    Button = PointerButton.WheelUp | PointerButton.WheelDown,
+    ButtonPress = PointerButtonPress.Scrolled
+};
+
+// Some processing code...
+
+// Process the pointer event
+if (hitbox.IsPointerWithin(mouse))
+{
+    hitbox.ProcessPointer(mouse, out bool status);
+    // If the IsPointerWithin if conditional is omitted, you can check the status
+    // variable to determine whether the pointer is processed.
+}
+```
+
+{% hint style="info" %}
+Usually, a call to `IsPointerModifierMatch()` is not needed, since `ProcessPointer()` calls it implicitly.
+{% endhint %}
+
+### Hitboxes and Selection Renderer
+
+The selection cyclic writer can now provide you with the available hitboxes for you to process them in custom interactive applications. Internally, Terminaux uses this method to determine the item number to process in selection infoboxes, in selection style TUIs, and in interactive selector TUIs when a mouse event has been received. You can get this information for each choice using the `GenerateSelectionHitboxes()` function (you can optionally specify the zero-based choice index), which gives you an array of a tuple that contains the following values:
+
+* `hitbox`: A generated hitbox that is connected to the text representation of either a category, a group, or a choice.
+* `type`: One of `Category`, `Group`, or `Choice`.
+* `related`: A one-based number of a choice that is processed. No incrementation occurs in categories and groups, but it increases for every choice.
+
+{% hint style="info" %}
+`related` doesn't describe the choice number in a group or a category, but it describes the choice number out of all choices extracted from groups and categories.
+{% endhint %}
+
+You can also use the following functions:
+
+* `GenerateSelectionHitbox()`: Generates a list of hitboxes according to either the current choice position or a specified choice index, and returns a specified hitbox using an index.
+* `CanGenerateSelectionHitbox()`: Checks to see whether a call to `GenerateSelectionHitbox()` is possible by checking the indexes as described above.

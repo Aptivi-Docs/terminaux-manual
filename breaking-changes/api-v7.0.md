@@ -198,3 +198,140 @@ You can still use the rendering tools functions to accommodate your needs, shoul
 ### Moved `WriteRenderable()` and `RenderRenderable()` to `RendererTools`
 
 We have moved all `WriteRenderable()` and `RenderRenderable()` function overloads from `ContainerTools` to `RendererTools` to better convey the goals as we have created the two base cyclic writer classes.
+
+### Migrated `InfoBoxInputPasswordColor` to `InfoBoxInputColor`
+
+{% code title="InfoBoxInputPasswordColor.cs" lineNumbers="true" %}
+```csharp
+public static class InfoBoxInputPasswordColor
+```
+{% endcode %}
+
+We've migrated the two classes into one by adding functions labelled with `Password`, such as `WriteInfoBoxInputPassword()`, to the `InfoBoxInputColor` to reduce maintenance burden and to avoid code repetition.
+
+{% hint style="info" %}
+You'll have to reference the same functions but with the `InfoBoxInputColor` class.
+{% endhint %}
+
+### Removed `SplitVTSequencesMultiple()`
+
+{% code title="VtSequenceTools.cs" lineNumbers="true" %}
+```csharp
+public static string[] SplitVTSequencesMultiple(string Text, VtSequenceType types = VtSequenceType.All)
+```
+{% endcode %}
+
+As `SplitVTSequencesMultiple()` provides the same functionality as `SplitVTSequences()` with the target type set to `All`, we've seen the above function as redundant; therefore, we've removed it.
+
+{% hint style="info" %}
+Replace all calls to the removed function with `SplitVTSequences()`.
+{% endhint %}
+
+### Removed `SliderInside` from `Selection`
+
+{% code title="Selection.cs" lineNumbers="true" %}
+```csharp
+public bool SliderInside { get; set; }
+```
+{% endcode %}
+
+As development of Terminaux 7.0 continues, we've seen the above property as redundant due to the fact that it was buggy. We've removed this property to make the selection implementation more simple. This removal was part of the broader mouse improvements that were done in this version of Terminaux.
+
+{% hint style="info" %}
+You'll have to manually adjust the left position to add `1`, depending on the look of your application. If you're using this property, you'll have to increment the left position. Otherwise, you don't have to.
+{% endhint %}
+
+### Presentation system now uses the input modules
+
+{% code title="InputInfo.cs" lineNumbers="true" %}
+```csharp
+public class InputInfo
+```
+{% endcode %}
+
+Input modules have been implemented, and they are stable enough that the presentation input elements are actually duplicates of the broader input module classes. As a result, we've decided to eliminate the presentation-specific input elements and to rename the `InputInfo` class to `PresentationInputInfo` to avoid ambiguity. As a result, the following input methods have been removed together with the corresponding interface, `IInputMethod`, and the base class, `BaseInputMethod`:
+
+* `MaskedTextInputMethod`
+* `SelectionInputMethod`
+* `SelectionMultipleInputMethod`
+* `TextInputMethod`
+
+This is done as a result of the addition of a new infobox that uses the input modules.
+
+{% hint style="info" %}
+You'll have to replace all definitions of the older `InputMethod` classes with the newer `InputModule` classes. The following input methods can be replaced with:
+
+* `MaskedTextInputMethod` -> `MaskedTextBoxModule`
+* `SelectionInputMethod` -> `ComboBoxModule`
+* `SelectionMultipleInputMethod` -> `MultiComboBoxModule`
+* `TextInputMethod` -> `TextBoxModule`
+{% endhint %}
+
+### Refactored CIE color models
+
+{% code title="Cie*Full.cs" lineNumbers="true" %}
+```csharp
+public class CieLabFull : BaseColorModel, IEquatable<CieLabFull> {}
+public class CieLchFull : BaseColorModel, IEquatable<CieLchFull> {}
+public class CieLuvFull : BaseColorModel, IEquatable<CieLuvFull> {}
+```
+{% endcode %}
+
+We've refactored the CIE color model classes so that both the limited version and the full version are migrated to one class without the `Full` suffix. This is to reduce confusion and to improve the overall codebase when it comes to color models.
+
+Functions that were suffixed with `Full` were also migrated in the same manner as the affected classes.
+
+{% hint style="info" %}
+You'll have to use the functions and the classes of CIE-Lab, CIE-Lch, and CIE-Luv without the `Full` suffix.
+{% endhint %}
+
+### Refactored the input management code
+
+{% code title="Input.cs" lineNumbers="true" %}
+```csharp
+public static bool KeyboardInputAvailable
+public static bool MouseInputAvailable
+public static bool InputAvailable
+```
+{% endcode %}
+
+Improved mouse support on Linux means that we'll have to enable non-block I/O operations on the `stdin` stream, which means removing the "poll" operation that uses the `ioctl()` function. However, this approach allowed the mouse escape sequences to "leak" to the console, which is unfeasible and could cause graphical glitches.
+
+As a result, we've decided to ditch the read-twice design and go for the read-once design in a single function, `ReadPointerOrKey()`, while maintaining the async version of the function, called `ReadPointerOrKeyNoBlock()`. This is further improved by introducing our own event stack, which takes the most recent event received from each type.
+
+{% hint style="info" %}
+You need to switch the loop code from the below model:
+
+```csharp
+SpinWait.SpinUntil(() => Input.InputAvailable);
+if (Input.MouseInputAvailable)
+{
+    // Mouse input received.
+    var mouse = Input.ReadPointer();
+    if (mouse is null)
+        continue;
+        
+    // Process mouse input here...
+}
+else if (ConsoleWrapper.KeyAvailable && !Input.PointerActive)
+{
+    var key = Input.ReadKey();
+    
+    // Process keyboard input here...
+}
+```
+
+...to this:
+
+```csharp
+var (mouse, key) = Input.ReadPointerOrKey();
+if (mouse is not null)
+{
+    // Process mouse input here...
+}
+else if (key is ConsoleKeyInfo cki && !Input.PointerActive)
+{
+    // Process keyboard input here...
+}
+```
+{% endhint %}

@@ -1,6 +1,6 @@
 ---
-icon: square-info
 description: Information in a box
+icon: square-info
 ---
 
 # Informational Boxes
@@ -12,7 +12,6 @@ The following informational box styles are presented in this way:
 * Modal informational boxes
   * Buttons
   * Input
-  * Password input
   * Modal dialog box
   * Slider
   * Selection
@@ -51,7 +50,7 @@ This style uses the input reader to tell the user to write something, based on t
 
 <figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-This style uses the input reader masked with the password to tell the user to write something, based on the informational box contents. For example, if this informational box tells an end-user to write a password of an account when logging in to the SFTP server, the user will have to write the password. You can use this style with `InfoBoxInputPasswordColor`.
+This style uses the input reader masked with the password to tell the user to write something, based on the informational box contents. For example, if this informational box tells an end-user to write a password of an account when logging in to the SFTP server, the user will have to write the password. You can use this style with `InfoBoxInputColor` with functions labelled with `Password`.
 
 ### Normal modal info box
 
