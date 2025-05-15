@@ -54,7 +54,7 @@ var shape = new Circle(20, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (72).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full" %}
@@ -63,7 +63,7 @@ var shape = new Circle(20, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -84,7 +84,7 @@ var arc = new Arc(20, 4, 2, ConsoleColors.Red)
 TextWriterRaw.WriteRaw(arc.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full Donut" %}
@@ -115,7 +115,7 @@ TextWriterRaw.WriteRaw(arc2.Render());
 TextWriterRaw.WriteRaw(arc3.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Partial Pie" %}
@@ -130,7 +130,7 @@ var arc = new Arc(20, 4, 2, ConsoleColors.Red)
 TextWriterRaw.WriteRaw(arc.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full Pie" %}
@@ -153,7 +153,7 @@ TextWriterRaw.WriteRaw(arc.Render());
 TextWriterRaw.WriteRaw(arc2.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (71).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
