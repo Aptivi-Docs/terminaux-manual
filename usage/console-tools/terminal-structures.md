@@ -16,6 +16,15 @@ A structure that defines a coordinate relative to the console that starts with t
 
 This allows you to store coordinate information in one variable without having to resort to tuples or multiple variables.
 
+## Size
+
+A structure that defines a width and a height of an element is called `Size`. It contains two properties:
+
+* `Width`: Width of the element (horizontal length)
+* `Height`: Height of the element (vertical length)
+
+This allows you to store size information in one variable without having to resort to tuples or multiple variables.
+
 ## Padding
 
 A structure that defines padding information related to the element, such as the console, is called `Padding`. The default padding is (0, 0, 0, 0) which represents the left, the top, the right, and the bottom padding. It contains the following properties:
