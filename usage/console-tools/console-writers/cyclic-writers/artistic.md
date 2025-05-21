@@ -226,6 +226,87 @@ TextWriterRaw.WriteRaw(frame4.Render());
 
 <figure><img src="../../../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
+
+{% tab title="With Rulers + stops" %}
+```csharp
+var frame1 = new BoxFrame()
+{
+    Width = 20,
+    Height = 7,
+    Left = 2,
+    Top = 4,
+};
+var frame2 = new BoxFrame()
+{
+    Width = 20,
+    Height = 7,
+    Left = 24,
+    Top = 4,
+    Rulers =
+    [
+        new(3, RulerOrientation.Horizontal),
+    ]
+};
+var frame3 = new BoxFrame()
+{
+    Width = 20,
+    Height = 7,
+    Left = 2,
+    Top = 13,
+    Rulers =
+    [
+        new(8, RulerOrientation.Vertical),
+    ]
+};
+var frame4 = new BoxFrame()
+{
+    Width = 20,
+    Height = 7,
+    Left = 24,
+    Top = 13,
+    Rulers =
+    [
+        new(3, RulerOrientation.Horizontal),
+        new(8, RulerOrientation.Vertical),
+    ]
+};
+var frame5 = new BoxFrame()
+{
+    Width = 20,
+    Height = 7,
+    Left = 46,
+    Top = 4,
+    Rulers =
+    [
+        new(3, RulerOrientation.Horizontal),
+        new(8, RulerOrientation.Vertical, 1),
+        new(13, RulerOrientation.Vertical, 1, true),
+    ]
+};
+var frame6 = new BoxFrame()
+{
+    Width = 20,
+    Height = 7,
+    Left = 46,
+    Top = 13,
+    Rulers =
+    [
+        new(16, RulerOrientation.Vertical),
+        new(8, RulerOrientation.Vertical),
+        new(4, RulerOrientation.Horizontal, 1),
+        new(2, RulerOrientation.Horizontal, 2, true),
+    ]
+};
+TextWriterRaw.WriteRaw(frame1.Render());
+TextWriterRaw.WriteRaw(frame2.Render());
+TextWriterRaw.WriteRaw(frame3.Render());
+TextWriterRaw.WriteRaw(frame4.Render());
+TextWriterRaw.WriteRaw(frame5.Render());
+TextWriterRaw.WriteRaw(frame6.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (76).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
 {% endtabs %}
 
 ## Canvas

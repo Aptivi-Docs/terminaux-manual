@@ -12,6 +12,7 @@ The following informational box styles are presented in this way:
 * Modal informational boxes
   * Buttons
   * Input
+  * Multi-input (using input modules)
   * Modal dialog box
   * Slider
   * Selection
@@ -19,6 +20,18 @@ The following informational box styles are presented in this way:
 * Non-modal informational boxes
   * Non-modal dialog box
   * Progress
+
+You can configure the infoboxes and how they appear and/or behave using the `InfoBoxSettings` class. You can access the global settings using the `GlobalSettings` property. This class contains the following properties:
+
+* `Title`: A short title to describe the infobox
+* `BorderSettings`: Controls how the borders are rendered
+* `ForegroundColor`: Foreground color of the infobox (including border, title, and content)
+* `BackgroundColor`: Background color of the infobox
+* `UseColors`: Whether to use the colors or not (default is `true`)
+
+{% hint style="info" %}
+Until Terminaux 7.0, you can still use the argument-based overloads when making a new infobox. Those overloads, however, are deprecated and you should use the `InfoBoxSettings` instance instead.
+{% endhint %}
 
 ## Modal informational boxes
 
@@ -50,7 +63,13 @@ This style uses the input reader to tell the user to write something, based on t
 
 <figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-This style uses the input reader masked with the password to tell the user to write something, based on the informational box contents. For example, if this informational box tells an end-user to write a password of an account when logging in to the SFTP server, the user will have to write the password. You can use this style with `InfoBoxInputColor` with functions labelled with `Password`.
+This style uses the input reader masked with the password to tell the user to write something, based on the informational box contents. For example, if this informational box tells an end-user to write a password of an account when logging in to the SFTP server, the user will have to write the password. You can use this style with `InfoBoxInputColor` with passing the `password` argument as true.
+
+### Multi-input
+
+<figure><img src="../../../.gitbook/assets/image (75).png" alt=""><figcaption></figcaption></figure>
+
+This style uses the input modules to describe multiple ways to present input to the user using different modules, such as having a text box and a combo box at the same time. You can use this style with `InfoBoxMultiInputColor`.
 
 ### Normal modal info box
 

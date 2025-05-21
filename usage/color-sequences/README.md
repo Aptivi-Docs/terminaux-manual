@@ -179,6 +179,24 @@ Depending on the `Render()` implementation of the transformation formula classes
 
 Once the new class instance is created with the above property being populated with several transformations, you can get a transformed color.
 
+The following transformation formulas are available:
+
+* `ColorBlind`: Color blindness simulation with Vienot and Brettel's formula.
+  * `Protan`: Red/green color blindness. It makes red look more green.
+  * `Deutan`: Red/green color blindness. It makes green look more red.
+  * `Tritan`: Blue/yellow color blindness.
+* `Cyanotype`: Makes all colors represent just the cyan shades.
+* `Inverse`: Reverse video.
+* `Monochromacy`: All grayscale and colored shade colors.
+  * `Monochrome`: Grayscale
+  * `Red`: Red shades
+  * `Green`: Green shades
+  * `Blue`: Blue shades
+  * `Cyan`: Cyan shades
+  * `Magenta`: Magenta shades
+  * `Yellow`: Yellow shades
+* `Sepia`: Takes you to the old times.
+
 ### Getting a color contrast ratio
 
 If you want to get a color contrast ratio, you can use the `GetContrast()` function found in the `TransformationTools` class that returns a contrast ratio in double-precision floating point value.
