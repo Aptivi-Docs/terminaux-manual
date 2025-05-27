@@ -335,3 +335,17 @@ else if (key is ConsoleKeyInfo cki && !Input.PointerActive)
 }
 ```
 {% endhint %}
+
+### Removed icon quality, keeping the normal version
+
+{% code title="IconsQuality.cs" lineNumbers="true" %}
+```csharp
+public enum IconsQuality
+```
+{% endcode %}
+
+We've removed the icons quality enumeration because it's useful only in actual GUIs. As for the console, the icon quality doesn't matter, so we've removed the icons quality enumeration, which causes all the functions in the `IconsManager` class to no longer hold the option parameter, `quality`.
+
+{% hint style="danger" %}
+There is no alternative for this enum, and we're planning to roll out this change to Terminaux 6.1.x and older.
+{% endhint %}

@@ -15,7 +15,6 @@ In order to be able to use the icons in your interactive applications, you can g
 
 You can choose one of the two following properties:
 
-* Quality: Normal quality (72x72), high quality (618x618), or scalable quality (SVG)
 * Color: Colored or Black
 
 The icon selector allows you to interactively select an icon while showing it to you at the same time to review your icon choice. This can be accessed in the `IconsSelector` class.
