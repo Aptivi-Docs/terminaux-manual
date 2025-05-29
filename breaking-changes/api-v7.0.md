@@ -349,3 +349,19 @@ We've removed the icons quality enumeration because it's useful only in actual G
 {% hint style="danger" %}
 There is no alternative for this enum, and we're planning to roll out this change to Terminaux 6.1.x and older.
 {% endhint %}
+
+### Aligned text writer improved
+
+{% code title="AlignedText.cs and AlignedFigletText.cs" lineNumbers="true" %}
+```csharp
+public int LeftMargin
+public int RightMargin
+public bool OneLine (AlignedFigletText)
+```
+{% endcode %}
+
+The aligned text writer and the figlet counterpart have been improved to get rid of the old margin system that has been causing problems in certain situations. We shouldn't assume that such text is written in the center of the console, so we've decided to make a radical change in `AlignedText` to reflect that in the figlet counterpart.
+
+{% hint style="info" %}
+You can use the `Left` and the `Width` properties to replace the older `LeftMargin` and `RightMargin` properties.
+{% endhint %}

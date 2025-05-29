@@ -40,7 +40,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Text only" %}
@@ -56,7 +56,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Title + text" %}
@@ -750,3 +750,81 @@ TextWriterRaw.WriteRaw(artistic.Render());
 ## Animated canvases
 
 You can make animated canvases using the `AnimatedCanvas` class. It allows you to define canvas frames that describe a group of arrays of cell properties. They are changed sequentially to form an animated canvas. The example below is taken from [this file](https://github.com/Aptivi/Terminaux/blob/main/Terminaux.Console/Fixtures/Cases/Writer/TestAnimatedCanvas.cs).
+
+## Rulers
+
+You can render the rulers in your console either horizontally or vertically using the `Ruler` simple renderer.
+
+{% tabs %}
+{% tab title="Horizontal - with indicator" %}
+```csharp
+var ruler1 = new Ruler()
+{
+    ForegroundColor = ConsoleColors.White,
+    IntersectionIndicator = true
+};
+var ruler2 = new Ruler()
+{
+    ForegroundColor = ConsoleColors.Red,
+    Text = "Ruler at left alignment",
+    IntersectionIndicator = true
+};
+var ruler3 = new Ruler()
+{
+    ForegroundColor = ConsoleColors.Lime,
+    Text = "Ruler at center alignment",
+    Alignment = TextAlignment.Middle,
+    IntersectionIndicator = true
+};
+var ruler4 = new Ruler()
+{
+    ForegroundColor = ConsoleColors.Blue,
+    Text = "Ruler at right alignment",
+    Alignment = TextAlignment.Right,
+    IntersectionIndicator = true
+};
+
+// Render the rulers
+TextWriterRaw.WritePlain(ruler1.Render());
+TextWriterRaw.WritePlain(ruler2.Render());
+TextWriterRaw.WritePlain(ruler3.Render());
+TextWriterRaw.WritePlain(ruler4.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Horizontal - without indicator" %}
+```csharp
+var ruler1 = new Ruler()
+{
+    ForegroundColor = ConsoleColors.White
+};
+var ruler2 = new Ruler()
+{
+    ForegroundColor = ConsoleColors.Red,
+    Text = "Ruler at left alignment"
+};
+var ruler3 = new Ruler()
+{
+    ForegroundColor = ConsoleColors.Lime,
+    Text = "Ruler at center alignment",
+    Alignment = TextAlignment.Middle
+};
+var ruler4 = new Ruler()
+{
+    ForegroundColor = ConsoleColors.Blue,
+    Text = "Ruler at right alignment",
+    Alignment = TextAlignment.Right
+};
+
+// Render the rulers
+TextWriterRaw.WritePlain(ruler1.Render());
+TextWriterRaw.WritePlain(ruler2.Render());
+TextWriterRaw.WritePlain(ruler3.Render());
+TextWriterRaw.WritePlain(ruler4.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}

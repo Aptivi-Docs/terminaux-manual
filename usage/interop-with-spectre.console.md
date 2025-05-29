@@ -16,6 +16,16 @@ You can translate Terminaux's renderables into Spectre.Console's renderables, bu
 * `Mark` (Terminaux) -> [`Markup`](https://spectreconsole.net/markup) (Spectre.Console)
 * `BoxFrame` (Terminaux) -> [`Panel`](https://spectreconsole.net/widgets/panel) (Spectre.Console)
 * `Table` (Terminaux) -> [`Table`](https://spectreconsole.net/widgets/table) (Spectre.Console)
+* `BarChart` (Terminaux) -> [`BarChart`](https://spectreconsole.net/widgets/barchart) (Spectre.Console)
+* `BreakdownChart` (Terminaux) -> [`BreakdownChart`](https://spectreconsole.net/widgets/breakdownchart) (Spectre.Console)
+* `Calendars` (Terminaux) -> [`Calendar`](https://spectreconsole.net/widgets/calendar) (Spectre.Console)
+* `AlignedFigletText` (Terminaux) -> [`FigletText`](https://spectreconsole.net/widgets/figlet) (Spectre.Console)
+* `Canvas` (Terminaux) -> [`Canvas`](https://spectreconsole.net/widgets/canvas) (Spectre.Console)
+* `TextPath` (Terminaux) -> [`TextPath`](https://spectreconsole.net/widgets/text-path) (Spectre.Console)
+* `TextAlignment` (Terminaux) -> `Justify` (Spectre.Console)
+* `Justify` (Spectre.Console) -> `TextAlignment` (Terminaux)
+* `Color` (Terminaux) -> [`Color`](https://spectreconsole.net/appendix/colors) (Spectre.Console)
+* [`Color`](https://spectreconsole.net/appendix/colors) (Spectre.Console) -> `Color` (Terminaux)
 
 {% hint style="info" %}
 You can't use Terminaux's writers to write the resulting Spectre's [`IRenderable`](https://spectreconsole.net/api/spectre.console.rendering/irenderable/). You'll have to use the [`AnsiConsole`](https://spectreconsole.net/api/spectre.console/ansiconsole/) class.

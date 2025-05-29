@@ -456,7 +456,7 @@ var chart = new LineChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Wins and Losses
 
@@ -483,7 +483,7 @@ var chart = new WinsLosses()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Pie charts
 
@@ -608,4 +608,4 @@ var chart = new LinesChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
