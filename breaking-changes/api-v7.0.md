@@ -365,3 +365,43 @@ The aligned text writer and the figlet counterpart have been improved to get rid
 {% hint style="info" %}
 You can use the `Left` and the `Width` properties to replace the older `LeftMargin` and `RightMargin` properties.
 {% endhint %}
+
+### VT sequence tools refactored
+
+{% code title="VtSequenceTools.cs" lineNumbers="true" %}
+```csharp
+public static (VtSequenceType type, Match[] matches)[] MatchVTSequences(string Text, VtSequenceType type = VtSequenceType.All)
+public static Dictionary<VtSequenceType, bool> IsMatchVTSequencesSpecific(string Text, VtSequenceType type = VtSequenceType.All)
+```
+{% endcode %}
+
+We have made several refactors that made the VT sequence tools use the new VT sequence tokenizer instead of the regular expression method that we had first introduced around Q3 2022. We are now using read-only dictionaries to make sure that you get solid results, while maintaining performance.
+
+As a result, we've removed all VT sequence tools code that have to do with the regular expressions. If you still want a list of regular expressions for some reason, you'll be able to find them [here](https://github.com/Aptivi/Terminaux/blob/x/exp/ng-te-b3/private/Terminaux.SequenceTypesGen/Resources/sequences.json).
+
+```csharp
+// The following classes have been removed:
+public static class VtSequenceRegexes {}
+
+// These were removed:
+public static class TYPESequences
+{
+    public static Regex SEQSequenceRegex { get; }
+}
+
+public static partial class VtSequenceTools
+{
+    public static partial Regex GetSequenceFilterRegexFromType(VtSequenceType type) {}
+    public static Regex GetSequenceFilterRegexFromType() {}
+    public static Regex GetSequenceFilterRegexFromTypes(VtSequenceType types = VtSequenceType.All) {}
+}
+
+public static class VtSequenceBuilderTools
+{
+    public static (VtSequenceType, VtSequenceSpecificTypes) DetermineTypeFromSequence(string sequence) {}
+}
+```
+
+{% hint style="info" %}
+For increased flexbility, `MatchVTSequences()` and `IsMatchVTSequencesSpecific()` both return a full dictionary that contain info about every single sequence type, even if there are no entries. This makes sure that you can now safely use the indexer in the resulting variable without worrying about its existence.
+{% endhint %}

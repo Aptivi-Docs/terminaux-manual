@@ -9,27 +9,23 @@ In your own terminal emulator, VT sequences are the power of any terminal emulat
 
 This feature provides several filtering and manipulation tools which allow you to perform these operations on strings that contain escape sequences under the `Terminaux.Sequences` namespace. Currently, these tools are provided:
 
-| Function                            | Description                                                                                        |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `FilterVTSequences()`               | Filters all of the VT sequences that are of either a single type or of multiple types              |
-| `MatchVTSequences()`                | Matches all of the VT sequences that are of either a single type or of multiple types              |
-| `IsMatchVTSequences()`              | Does the string contain all of the VT sequences or a VT sequence of one or more types?             |
-| `IsMatchVTSequencesSpecific()`      | Does the string contain all of the VT sequences or a VT sequence of any specific type?             |
-| `SplitVTSequences()`                | Splits all of the VT sequences that are either of a single type or of multiple types               |
-| `DetermineTypeFromText()`           | Determines the VT sequence type from the given text                                                |
-| `GetSequenceFilterRegexFromType()`  | Gets the sequence filter regular expression from the provided VT sequence type                     |
-| `GetSequenceFilterRegexFromTypes()` | Gets the sequence filter regular expression list from the provided VT sequence types (one or more) |
+| Function                       | Description                                                                            |
+| ------------------------------ | -------------------------------------------------------------------------------------- |
+| `FilterVTSequences()`          | Filters all of the VT sequences that are of either a single type or of multiple types  |
+| `MatchVTSequences()`           | Matches all of the VT sequences that are of either a single type or of multiple types  |
+| `IsMatchVTSequences()`         | Does the string contain all of the VT sequences or a VT sequence of one or more types? |
+| `IsMatchVTSequencesSpecific()` | Does the string contain all of the VT sequences or a VT sequence of any specific type? |
+| `SplitVTSequences()`           | Splits all of the VT sequences that are either of a single type or of multiple types   |
+| `DetermineTypeFromText()`      | Determines the VT sequence type from the given text                                    |
 
 ## Usage
 
 Place the `using Terminaux.Sequences;` clause at the top of the file that you want to call these functions in. You need to put the class name `VtSequenceTools` before the function name mentioned above so that it looks like this:
 
-<pre class="language-csharp"><code class="lang-csharp">char BellChar = Convert.ToChar(0x7);
-char EscapeChar = Convert.ToChar(0x1b);
-char StringTerminator = Convert.ToChar(0x9c);
+<pre class="language-csharp"><code class="lang-csharp">char EscapeChar = Convert.ToChar(0x1b);
 string vtSequence1 = $"{EscapeChar}[38;5;43m";
 <strong>string filtered = VtSequenceTools.FilterVTSequences($"Hello!{vtSequence1}");
-</strong><strong>Console.WriteLine(filtered);
+</strong><strong>TextWriterRaw.WritePlain(filtered);
 </strong></code></pre>
 
 ### Sequence builder
@@ -49,8 +45,13 @@ It starts with `VtSequenceBasicChars` which allows you to get a variety of start
 * `SP (" " - SPACE - SpaceChar)`
 * `TAB (\x09 - CTRL+I - HorizontalTabChar)`
 * `VT (\x0B - CTRL+K - VerticalTabChar)`
-* `ESC (\x1B - VerticalTabChar)`
-* `ST (\x9C - VerticalTabChar)`
+* `ESC (\x1B - EscapeChar)`
+* `ST (\x9C - StChar)`
+* `CSI (\x9B - CsiChar)`
+* `OSC (\x9D - OSCChar)`
+* `APC (\x9F - APCChar)`
+* `DCS (\x90 - DCSChar)`
+* `PM (\x9E - PMChar)`
 
 Each type of VT sequence contain their own class files that stores both the regex match information about specific actions and sequence generation functions based on the given action and argument. Here are a list of supported sequence types:
 
@@ -80,9 +81,6 @@ Currently, it provides these tools:
 * `BuildVtSequence(VtSequenceSpecificTypes specificType, params object[] arguments)`
   * Allows you to build your VT sequence
   * Returns a string consisting of a VT sequence of the requested type with the requested arguments
-* `DetermineTypeFromSequence(string sequence)`
-  * Allows you to determine the type from a specific VT sequence
-  * Returns a tuple of `(VtSequenceType, VtSequenceSpecificTypes)` which holds both the broad VT sequence type (CSI for example) and the specific type (Character attribute for example).
 
 ## Techniques
 
@@ -105,26 +103,6 @@ Additionally, it contains `IsMatchVTSequencesSpecific()`, which helps to check t
 ### Splits
 
 Found in `VtSequenceTools.SplitVTSequences()`, when this function is called, Terminaux selects the appropriate regular expression for the sequence type and splits the text with the matched VT sequences as delimiters.
-
-## Regex of VT expressions
-
-Each type of VT sequences listed below by the `VtSequenceRegexes` class are supported by Terminaux for the above operations.
-
-* CSI sequences (`CSISequences`)
-  * `(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]`
-* OSC sequences (`OSCSequences`)
-  * `(\x9D|\x1B\]).+(\x07|\x9c)`
-* ESC sequences (`ESCSequences`)
-  * ``\x1b [F-Nf-n]|\x1b#[3-8]|\x1b%[@Gg]|\x1b[()*+][A-Za-z0-9=`<>]|\x1b[()*+]""[>4?]|\x1b[()*+]%[0-6=]|\x1b[()*+]&[4-5]|\x1b[-.\/][ABFHLM]|\x1b[6-9Fcl-o=>\|\}~]``
-* APC sequences (`APCSequences`)
-  * `(\x9f|\x1b_).+\x9c`
-* DCS sequences (`DCSSequences`)
-  * `(\x90|\x1bP).+\x9c`
-* PM sequences (`PMSequences`)
-  * `(\x9e|\x1b\^).+\x9c`
-* C1 sequences (`C1Sequences`)
-  * `\x1b[DEHMNOVWXYZ78]`
-* All VT sequences (`AllVTSequences`)
 
 ## Usage in console writers
 
