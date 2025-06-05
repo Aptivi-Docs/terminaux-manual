@@ -84,7 +84,7 @@ var arc = new Arc(20, 4, 2, ConsoleColors.Red)
 TextWriterRaw.WriteRaw(arc.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (81).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full Donut" %}
@@ -101,7 +101,7 @@ var arc2 = new Arc(20, 4, 2, ConsoleColors.Lime)
     InnerRadius = 6,
     OuterRadius = 9,
     AngleStart = 150,
-    AngleEnd = 300,
+    AngleEnd = 360,
 };
 var arc3 = new Arc(20, 4, 2, ConsoleColors.Blue)
 {
@@ -115,7 +115,7 @@ TextWriterRaw.WriteRaw(arc2.Render());
 TextWriterRaw.WriteRaw(arc3.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (82).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Partial Pie" %}
@@ -130,7 +130,7 @@ var arc = new Arc(20, 4, 2, ConsoleColors.Red)
 TextWriterRaw.WriteRaw(arc.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (83).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full Pie" %}
@@ -153,7 +153,34 @@ TextWriterRaw.WriteRaw(arc.Render());
 TextWriterRaw.WriteRaw(arc2.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (71).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (84).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Elliptical" %}
+```csharp
+var arc = new Arc(20, 4, 2, ConsoleColors.Red)
+{
+	InnerRadius = 0,
+	OuterRadius = 9,
+	RadiusX = 6,
+	RadiusY = 9,
+	AngleStart = 170,
+	AngleEnd = 120,
+};
+var arc2 = new Arc(20, 4, 2, ConsoleColors.Aqua)
+{
+	InnerRadius = 0,
+	OuterRadius = 9,
+	RadiusX = 6,
+	RadiusY = 9,
+	AngleStart = 120,
+	AngleEnd = 170,
+};
+TextWriterRaw.WriteRaw(arc.Render());
+TextWriterRaw.WriteRaw(arc2.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (85).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -168,7 +195,7 @@ var shape = new Ellipsis(20, 15, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (86).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Full" %}
@@ -177,7 +204,7 @@ var shape = new Ellipsis(20, 15, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (87).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 

@@ -14,6 +14,9 @@ The following built-in input methods are available:
 * `MultiComboBoxModule`
 * `SliderBoxModule`
 * `TextBoxModule`
+* `CharBoxModule`
+* `TimeBoxModule`
+* `DateBoxModule`
 
 You can use an information box that supports input modules, called `InfoBoxMultiInputColor`. It allows you to specify an array of input modules. You can also make presentations use the input modules to customize the flow of the presentations according to the user input.
 

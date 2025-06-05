@@ -76,3 +76,20 @@ You can optionally specify a background color that the image renderer will use t
 {% hint style="info" %}
 You can also use the `OpenImage()` function, which returns a `MagickImage` instance. It accepts either a file path, an array of bytes, or a stream.
 {% endhint %}
+
+## Image Viewer TUI
+
+<figure><img src="../../.gitbook/assets/image (80).png" alt=""><figcaption></figcaption></figure>
+
+The image viewer TUI can be used to give your console applications an image preview interface that allows you to peek in a specific image, just like conventional image viewers in your PC, your phone, and so on.&#x20;
+
+In order to be able to use this feature, you must open an image to get the `MagickImage` object instance containing data about your picture before being able to use this viewer. A simple example of doing this, assuming that you have a stream of some picture called `stream`, is:
+
+```csharp
+var image = ImageProcessor.OpenImage(stream);
+ImageViewInteractive.OpenInteractive(image);
+```
+
+{% hint style="info" %}
+You can use the arrow keys to move around the image, page up/down keys to move up and down quickly, and home/end keys to go to the beginning and the ending, respectively. Those keys are enabled only if you turn on the "Scaled" mode using the <kbd>F</kbd> key.
+{% endhint %}

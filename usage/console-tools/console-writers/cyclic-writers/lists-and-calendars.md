@@ -250,4 +250,82 @@ TextWriterRaw.WriteRaw(selections.Render());
 
 <figure><img src="../../../../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
+
+{% tab title="Radio" %}
+```csharp
+var finalSelections = new InputChoiceInfo[]
+{
+	new("Choice one", "The first choice"),
+	new("Choice two", "The second choice"),
+	new("Choice three", "The third choice"),
+	new("Choice four", "The fourth choice"),
+	new("Choice five", "The fifth choice"),
+	new("Choice six", "The sixth choice"),
+	new("Choice seven", "The seventh choice"),
+	new("Choice eight", "The eighth choice"),
+};
+var selections = new Selection(finalSelections)
+{
+	Left = 2,
+	Top = 1,
+	CurrentSelection = 2,
+	SelectedChoice = 3,
+	Height = 7,
+	Width = 30,
+	ShowRadioButtons = true,
+};
+TextWriterRaw.WriteRaw(selections.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (77).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
+
+## Simple Selection
+
+You can render a list of selection elements using this renderable. This renders choices one by one, while still maintaining flexibility of the regular selections, making it suitable for CLIs.
+
+{% tabs %}
+{% tab title="No Alt Choices" %}
+```csharp
+var finalSelections = new InputChoiceInfo[]
+{
+	new("Choice one", "The first choice"),
+	new("Choice two", "The second choice"),
+	new("Choice three", "The third choice"),
+	new("Choice four", "The fourth choice"),
+	new("Choice five", "The fifth choice"),
+	new("Choice six", "The sixth choice"),
+	new("Choice seven", "The seventh choice"),
+	new("Choice eight", "The eighth choice"),
+};
+var selections = new PassiveSelection(finalSelections);
+TextWriterRaw.WriteRaw(selections.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (78).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="With Alt Choices" %}
+```csharp
+var finalSelections = new InputChoiceInfo[]
+{
+	new("Choice one", "The first choice"),
+	new("Choice two", "The second choice"),
+	new("Choice three", "The third choice"),
+	new("Choice four", "The fourth choice"),
+	new("Choice five", "The fifth choice"),
+	new("Choice six", "The sixth choice"),
+	new("Choice seven", "The seventh choice"),
+	new("Choice eight", "The eighth choice"),
+};
+var selections = new PassiveSelection(finalSelections)
+{
+	AltChoicePos = 5
+};
+TextWriterRaw.WriteRaw(selections.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (79).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
 {% endtabs %}
