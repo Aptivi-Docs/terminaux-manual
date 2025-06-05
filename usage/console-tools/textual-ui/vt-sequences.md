@@ -53,7 +53,7 @@ It starts with `VtSequenceBasicChars` which allows you to get a variety of start
 * `DCS (\x90 - DCSChar)`
 * `PM (\x9E - PMChar)`
 
-Each type of VT sequence contain their own class files that stores both the regex match information about specific actions and sequence generation functions based on the given action and argument. Here are a list of supported sequence types:
+Each type of VT sequence contain their own class files that stores sequence generation functions based on the given action and argument. Here are a list of supported sequence types:
 
 * APC sequences
   * Application program command
@@ -88,21 +88,21 @@ There are currently four types of operations.
 
 ### Filters
 
-Found in `VtSequenceTools.FilterVTSequences()`, when this function is called, Terminaux selects the appropriate regular expression for the sequence type and replaces the found sequences with blanks. You can optionally replace it with something, like a text, a syntax, or even another VT sequence.
+Found in `VtSequenceTools.FilterVTSequences()`, when this function is called, Terminaux tokenizes all VT sequences found in a target text and replaces the found sequences with blanks. You can optionally replace it with something, like a text, a syntax, or even another VT sequence.
 
 ### Matches
 
-Found in `VtSequenceTools.MatchVTSequences()`, when this function is called, Terminaux selects the appropriate regular expression for the sequence type and gets all the matched regular expressions. You can then wrap the values in the `for` or the `foreach` loop to get match information for each matched sequence.
+Found in `VtSequenceTools.MatchVTSequences()`, when this function is called, Terminaux tokenizes all VT sequences found in a target text and gets all the matched sequences. You can then wrap the values in the `for` or the `foreach` loop to get information for each sequence.
 
 ### Queries
 
-Found in `VtSequenceTools.IsMatchVTSequences()`, when this function is called, Terminaux selects the appropriate regular expression for the sequence type and checks the text to see if any part of the text is a VT sequence.
+Found in `VtSequenceTools.IsMatchVTSequences()`, when this function is called, Terminaux tokenizes all VT sequences found in a target text and checks the text to see if any part of the text is a VT sequence.
 
 Additionally, it contains `IsMatchVTSequencesSpecific()`, which helps to check the text for any specific VT sequence type.
 
 ### Splits
 
-Found in `VtSequenceTools.SplitVTSequences()`, when this function is called, Terminaux selects the appropriate regular expression for the sequence type and splits the text with the matched VT sequences as delimiters.
+Found in `VtSequenceTools.SplitVTSequences()`, when this function is called, Terminaux tokenizes all VT sequences found in a target text and splits the text with the VT sequences as delimiters.
 
 ## Usage in console writers
 
