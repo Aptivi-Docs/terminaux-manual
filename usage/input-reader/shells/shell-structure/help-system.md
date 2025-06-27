@@ -11,7 +11,13 @@ The help system is what every shell uses, invoked by the unified `help` command 
 
 When the user requests the `help` command in any shell, the above function gets called, querying the current shell type (`Shell.CurrentShellType`) as discussed previously.
 
-The function gets all the commands, including the unified ones, from the command type, but also takes care of the aliased commands. The help system then prints the list of commands to the console.
+The function gets all the commands, including the unified ones, from the command type, but hides all the hidden commands (commands that are flagged with the `CommandFlags.Hidden` flag). It also takes care of the modded and aliased commands.
+
+The help system then prints the list of commands to the console.
+
+{% hint style="info" %}
+Some of the shells implement too many commands, potentially requiring you to either wrap its output using the `wrap` command, or turn on the simplified help using the `-simplified` switch.
+{% endhint %}
 
 ## Command help
 

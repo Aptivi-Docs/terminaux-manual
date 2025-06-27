@@ -142,6 +142,8 @@ The following extensions that don't fit in any of the categories can be used in 
 * `Truncate()`
 * `ShowMainBuffer()`
 * `ShowAltBuffer()`
+* `PreviewMainBuffer()`
+* `PreviewAltBuffer()`
 * `Flash()` and `Flash(int)`
 * `Bell()`
 * `IsOnAltBuffer`

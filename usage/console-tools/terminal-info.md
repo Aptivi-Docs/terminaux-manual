@@ -1,6 +1,6 @@
 ---
-icon: square-terminal
 description: What's your terminal type and its capabilities?
+icon: square-terminal
 ---
 
 # Terminal Info
@@ -109,3 +109,14 @@ For example, we have this string: `<ESCAPE>=%p1%' '%+%c%p2%' '%+%c`, with `<ESCA
 {% hint style="info" %}
 For now, it's up to you how to process such strings to manipulate with the parameters. However, in a future Terminaux release, we'll release features that will assist you.
 {% endhint %}
+
+## Tabsets
+
+Tabsets (or tab stops) are numbers that determine the tab width and a stop for each equal width. They are distributed with NCurses under the four types:
+
+* `std`
+* `stdcrt`
+* `vt100`
+* `vt300`
+
+`TabsetParser` allows you to get information about the tabsets from one of the four types, as well as a custom tabset that you've registered and parsed. Once you've parsed a tabset file, you can utilize the `TabStops` property inside the class instance to get the number of tab stops and their positions, as well as the initialization sequence property.

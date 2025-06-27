@@ -1,6 +1,6 @@
 ---
-icon: square-terminal
 description: Explaining the inner workings of all the kernel shells
+icon: square-terminal
 ---
 
 # Shell Structure
@@ -12,7 +12,7 @@ Shells can be built by implementing two different interfaces and base classes. W
 
 ## Shell Handler
 
-The shell handler, `ShellManager`, uses the available shell list, which holds the `BaseShellInfo` abstract class, to manipulate with that shell. That class can be get, depending on the needed type, with the `ShellManager.GetShellInfo()` function in the ︎`Nitrocid.Shell` namespace.
+The shell handler, `ShellManager`, uses the available shell list, which holds the `BaseShellInfo` abstract class, to manipulate with that shell. That class can be get, depending on the needed type, with the `ShellManager.GetShellInfo()` function in the ︎`Terminaux.Shell.Shells` namespace.
 
 The shell handler also contains two properties: `CurrentShellType` and `LastShellType`. The former property holds the current shell type, which can be used with the shell management functions. The latter property holds the last shell type, which is usually the shell that you exited. However, there are three cases:
 
@@ -21,6 +21,14 @@ The shell handler also contains two properties: `CurrentShellType` and `LastShel
 * If there are two or more shells in the stack, it returns the last shell type
 
 Additionally, when `GetLine()` is called, it sets Terminaux's reader history to point to the shell's history list. After it's done getting the input, it reverts back to the `General` history buffer. They are loaded on boot and saved on shutdown or reboot.
+
+{% hint style="info" %}
+You can force a reload on the history by using the `loadhistories` command across all the shells.
+
+You can manually save the history list for all the shells using the `savehistories` command.
+{% endhint %}
+
+To add an alternate thread in your command, you can execute `AddAlternateThread()`, then call `GetLine()`. Additionally, you can get how many shells that are currently running using the `ShellCount()` property.
 
 ## Base Shell
 
@@ -53,7 +61,7 @@ while (!Bail)
 }
 ```
 
-* All shells **must** also handle both the `ThreadInterruptedException`, which must set `Bail` to `true`, and the general exceptions, which must call `continue` after dumping the exception to the debugger or to the console. For example, the below example code, inside the `InitializeShell()` function:
+* All shells **must** also handle both the `ThreadInterruptedException`, which must set `Bail` to `true`, and the general exceptions, which must also set `Bail` to `true` after dumping the exception to the debugger or to the console. For example, the below example code, inside the `InitializeShell()` function:
 
 ```csharp
 while (!Bail)
@@ -64,12 +72,16 @@ while (!Bail)
     }
     catch (ThreadInterruptedException)
     {
+        CancellationHandlers.DismissRequest();
         Bail = true;
     }
     catch (Exception ex)
     {
-        TextWriterRaw.WritePlain("There was an error in the shell." + CharManager.NewLine + "Error {0}: {1}", ex.GetType().FullName ?? "<null>", ex.Message);
-        continue;
+        TextWriterColor.Write("There was an error in the shell. {0}", true, ThemeColorType.Error, ex.Message);
+        DebugWriter.WriteDebug(DebugLevel.E, "Shell will have to exit: {0}", vars: [ex.Message]);
+        DebugWriter.WriteDebugStackTrace(ex);
+        InputTools.DetectKeypress();
+        Bail = true;
     }
 }
 ```
@@ -78,6 +90,10 @@ The shell registration is required once you're done implementing the shell and a
 
 {% hint style="danger" %}
 Be sure to unregister your shell using the `UnregisterShell()` function, or the shell registry function will not update your `BaseShellInfo` class in the available shell lists!
+{% endhint %}
+
+{% hint style="danger" %}
+Never call `continue` on the general `catch` clause shown above; the shell will enter an infinite loop, depending on how the exception occurs. If you really have to do this, you can use exception filtering to determine whether `continue` should be called on a specific exception type.
 {% endhint %}
 
 ### Shell Information
@@ -93,7 +109,7 @@ This is where your commands get together by overriding the `Commands` variable w
 ```csharp
 public override List<CommandInfo> Commands => new()
 {
-    new CommandInfo("adduser", /* Localizable */ "Adds users",
+    new CommandInfo("adduser", "Adds users",
         new[] {
             new CommandArgumentInfo(new[]
             {
@@ -125,6 +141,12 @@ The `ShellType` variable found within the `BaseShellInfo` class is a wrapper for
 public string ShellType => ShellBase.ShellType;
 ```
 
+By default, your shells don't accept network connections. To make them accept network connections, you must override the `AcceptsNetworkConnection` so that it holds the value of `true` instead of `false`. This causes the network connection selector, especially `OpenConnectionForShell()` which can be invoked in your networked shell launch code in your command class, to be able to acknowledge your shell.
+
+```csharp
+public override bool AcceptsNetworkConnection => true;
+```
+
 By default, all the shells provide you a multi-line prompt, but if you want your input to be in one line wrapped mode, you can override the below property:
 
 ```csharp
@@ -146,6 +168,25 @@ public override CommandInfo NonSlashCommandInfo => new CommandInfo(...);
 {% hint style="info" %}
 If you need to know how to define a command information class, consult [here](command-information.md).
 {% endhint %}
+
+You'll have to adapt your shell to take the first argument, `ShellArgs[0]`, as the network connection instance in your `Shell` instance. For example, we've done this to the FTP shell and shell info instances:
+
+<pre class="language-csharp" data-title="FTPShell.cs" data-line-numbers><code class="lang-csharp">public override void InitializeShell(params object[] ShellArgs)
+{
+    // Parse shell arguments
+<strong>    NetworkConnection ftpConnection = (NetworkConnection)ShellArgs[0];
+</strong><strong>    FtpClient clientFTP = (FtpClient)ftpConnection.ConnectionInstance;
+</strong>
+    // Finalize current connection
+    FTPShellCommon.clientConnection = ftpConnection;
+</code></pre>
+
+<pre class="language-csharp" data-title="FTPShellInfo.cs" data-line-numbers><code class="lang-csharp">internal class FTPShellInfo : BaseShellInfo&#x3C;FTPShell>, IShellInfo
+{
+    (...)
+<strong>    public override bool AcceptsNetworkConnection => true;
+</strong>}
+</code></pre>
 
 ## Base Command
 
@@ -199,29 +240,60 @@ The following wrappers should not be called (explicitly and implicitly) on that 
 
 ### Registering your command
 
-In order for your command to be usable, your mods are now required to register the commands manually using a function that helps doing this. That function is defined in the `CommandManager` class.
+In order for your command to be usable, applications are now required to register the commands manually using a function that helps doing this. That function is defined in the `CommandManager` class.
 
 {% code title="CommandManager.cs" lineNumbers="true" %}
 ```csharp
-public static void RegisterCustomCommand(ShellType ShellType, CommandInfo commandBase)
 public static void RegisterCustomCommand(string ShellType, CommandInfo commandBase)
-public static void RegisterCustomCommands(ShellType ShellType, CommandInfo[] commandBases)
 public static void RegisterCustomCommands(string ShellType, CommandInfo[] commandBases)
 ```
 {% endcode %}
 
-Similarly, if your mod is going to stop, you must unregister all your mod commands, including those that it created in the middle of the kernel uptime. You can use the following functions:
+Similarly, if your application is going to stop, or if a command is to be unregistered, you can unregister all your commands. You can use the following functions:
 
 {% code title="CommandManager.cs" lineNumbers="true" %}
 ```csharp
-public static void UnregisterCustomCommand(ShellType ShellType, string commandName)
 public static void UnregisterCustomCommand(string ShellType, string commandName)
-public static void UnregisterCustomCommands(ShellType ShellType, string[] commandNames)
 public static void UnregisterCustomCommands(string ShellType, string[] commandNames)
 ```
 {% endcode %}
 
-If you've registered your commands correctly, the `help` command list should list your mod command that you've registered using one of the `RegisterCustomCommand` functions.
+If you've registered your commands correctly, the `help` command list should list your commands that you've registered using one of the `RegisterCustomCommand` functions.
+
+### Setting command values
+
+There is a special switch called `set` that allows your command to set the final variable value to any value. For example, if you run `calc` with the `-set` switch to a variable called `result`, that variable will be set to an output value (in this case an arithmetic result) using the `variableValue` argument.
+
+To take advantage of the feature, just write the following code at the end of `Execute()`:
+
+```csharp
+variableValue = myValue;
+```
+
+...where `myValue` is a string representation of the resulting value that the command produces. A real-world example of this is provided (from the `echo` command code):
+
+```csharp
+string result = PlaceParse.ProbePlaces(StringArgs);
+TextWriterColor.Write(result);
+variableValue = result;
+```
+
+### Return codes
+
+Your commands all feature return codes. The return code is zero by default, which means that the command has executed successfully. In case of a failure, some commands may return numbers other than zero, which indicate that there is something wrong when executing a command, possibly due to either a failed operation, a general error, or some other error.
+
+You can change the return code of a command by writing `return 1` or any other number other than zero to indicate failure, or `return 0` to indicate success.
+
+### Command flags
+
+Finally, the command flags (`CommandFlags`) can be defined. One or more of the command flags can be defined using the OR (`|`) operator when defining the command flags. These flags are available:
+
+* `Obsolete`: The command is obsolete.
+  * The flag value is 1
+* `RedirectionSupported`: Redirection is supported, meaning that all the output to the commands can be redirected to a file.
+  * The flag value is 2
+* `Wrappable`: This command is wrappable to pages.
+  * The flag value is 4
 
 ## More?
 
@@ -249,14 +321,20 @@ For command parsing, click the below button:
 [command-parsing.md](command-parsing.md)
 {% endcontent-ref %}
 
+For shell scripting, click the below button:
+
+{% content-ref url="shell-scripting.md" %}
+[shell-scripting.md](shell-scripting.md)
+{% endcontent-ref %}
+
 For shell presets, click the below button:
 
 {% content-ref url="shell-presets.md" %}
 [shell-presets.md](shell-presets.md)
 {% endcontent-ref %}
 
-For command aliasing, click the below button:
+For extra shell features, click the below button:
 
-{% content-ref url="command-aliasing.md" %}
-[command-aliasing.md](command-aliasing.md)
+{% content-ref url="extra-shell-features.md" %}
+[extra-shell-features.md](extra-shell-features.md)
 {% endcontent-ref %}

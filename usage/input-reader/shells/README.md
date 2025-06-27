@@ -1,6 +1,6 @@
 ---
-icon: square-terminal
 description: What is a shell?
+icon: square-terminal
 ---
 
 # Shells
@@ -22,3 +22,5 @@ For more information about its inner workings and how you can build your own com
 {% content-ref url="shell-structure/" %}
 [shell-structure](shell-structure/)
 {% endcontent-ref %}
+
+Unified commands are found in every single shell, and can't be overridden. They are available in the command list using `help -unified` or `help -all`.

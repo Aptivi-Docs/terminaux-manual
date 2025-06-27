@@ -1,6 +1,6 @@
 ---
-icon: badge-check
 description: How command parsing works
+icon: badge-check
 ---
 
 # Command Parsing
@@ -34,9 +34,23 @@ This class contains these variables:
 * `RequiredSwitchesProvided`: Checks to see if the required switches are provided or not
 * `RequiredSwitchArgumentsProvided`: Checks to see if the required switch arguments are provided or not
 
-After the above class constructor is called, the shell attempts to execute an alias command, if found. Else, the built-in command is going to be executed.
+After the above class constructor is called, the shell attempts to execute a mod or alias command, if found. Else, the built-in command is going to be executed. It checks for these redirection flags:
+
+* `>>`: Redirects the output to a file, overwriting the target file, such as `command >> target.txt`.
+* `>>>`: Redirects the output to a file, appending to the target file, such as `command >>> target.txt`.
+* `|SILENT|`: Redirects the output to a null console driver, which means no output, such as `command |SILENT|`.
+
+If these flags are found, the shell sets the console driver as appropriate.
 
 Finally, the command executor thread is fired up with the `ExecuteCommandParameters` instance to hold command execution parameters for the same thread. The thread is then started.
+
+However, the command executor checks for these:
+
+* If the provided command is an MESH script, the shell invokes a script executor.
+* If the command is an external program found in the shell lookup path, which is usually `$PATH`, the shell attempts to scan these directories for the program and execute it.
+* If the command is an internal command, it creates a separate thread for the command.
+
+The `ExecuteCommandWrapped()` function allows you to execute a command in wrapped mode from your mod commands. However, your mods must execute a command that has one of the flags, called `CommandFlags.Wrappable`, otherwise, this function prints the list of wrappable commands.
 
 ## Command-line Arguments
 
@@ -52,12 +66,6 @@ To parse the arguments, you'll have to define a statically defined dictionary in
 
 Afterwards, you can use the `ParseArguments()` function somewhere in the main application code. You can find the relevant classes in the `Terminaux.Shell.Arguments.Base` namespace.
 
-{% hint style="info" %}
-If you want to retain the behavior of Nitrocid KS 0.1.1 or earlier by considering every word as an argument, you can use the `ParseArgumentsLegacy()` function.
-
-However, if you want to use the behavior of Nitrocid KS 0.1.2 or later by considering every word that matches one of the arguments as an argument, you can use the `ParseArguments()` function.
-{% endhint %}
-
 ## Switch Management
 
 You can know more about switch management by clicking on the below button:
@@ -65,6 +73,22 @@ You can know more about switch management by clicking on the below button:
 {% content-ref url="command-switches.md" %}
 [command-switches.md](command-switches.md)
 {% endcontent-ref %}
+
+### Local Variables and Commands
+
+<figure><img src="../../../../.gitbook/assets/104-shell.png" alt=""><figcaption></figcaption></figure>
+
+Occasionally, you may run into conditions where you may have to set an environment variable locally before running a command. For example, on your Linux system, if you run a VNC server running on display `:1` and you want to show a GUI application there from the terminal emulator, you'll have to run the command like this:
+
+```shell-session
+$ DISPLAY=:1 x_gui_app
+```
+
+The same thing can be done for local shell commands on Nitrocid, but the syntax is slightly different. You can assign local environment variables before running the command either by using the `set` command, which affects both the current and the future command runs, or you can limit it to just the command that you're going to run using the below syntax:
+
+```
+($env=value $env2="value with space") my_mod_command
+```
 
 ### Special characters
 
@@ -75,3 +99,19 @@ If a command, such as `wrap`, is set to use the arguments string, you can escape
 ```
 wrap help \-addon
 ```
+
+### `-set` switch property
+
+<figure><img src="../../../../.gitbook/assets/106-shell.png" alt=""><figcaption></figcaption></figure>
+
+Your commands can now change their behavior, depending on if the `-set` switch was passed to the command. You can use the `parameters.SwitchSetPassed` value just like below:
+
+{% code title="SetRange.cs" lineNumbers="true" %}
+```csharp
+if (!parameters.SwitchSetPassed)
+{
+    TextWriters.Write(Translate.DoTranslation("You must pass the -set switch with the variable that you want to set this value to."), KernelColorType.Error);
+    return KernelExceptionTools.GetErrorCode(KernelExceptionType.ShellOperation);
+}
+```
+{% endcode %}

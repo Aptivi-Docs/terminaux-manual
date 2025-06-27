@@ -21,7 +21,7 @@ The switches can be set to conflict with each other by passing an array of incom
 
 <figure><img src="../../../../.gitbook/assets/109-shell.png" alt=""><figcaption></figcaption></figure>
 
-For example, if you want a command to have three switches (`-s`, `-t`, `-u`) that conflict with each other, you can specify three SwitchInfo instances with the following properties (assuming that you've already set the `HelpDefinition`, `IsRequired`, and `ArgumentsRequired` parameters):
+For example, if you want a command to have three switches (`-s`, `-t`, `-u`) that conflict with each other, you can specify three `SwitchInfo` instances with the following properties (assuming that you've already set the `HelpDefinition`, `IsRequired`, and `ArgumentsRequired` parameters):
 
 * `-s`
   * Switch: `s`

@@ -1,6 +1,6 @@
 ---
-icon: plug
 description: How do I wrap the console?
+icon: plug
 ---
 
 # Console Wrapper
@@ -38,9 +38,23 @@ To use this console wrapper, just replace all the calls to `Console` with our re
 
 ## Setting the Wrappers
 
-You can customize the console wrappers so that applications that call the Terminaux console wrapper can make use of your own custom wrapper function by setting the action properties found in `ConsoleWrapperTools`. You can make changes to the following wrappers (all prefixed by the `Action` word in all the properties):
+You can customize the console wrappers so that applications that call the Terminaux console wrapper can make use of your own custom wrapper function by setting the wrapper using `SetWrapper()` found in the `ConsoleWrapperTools` class once you register it using `RegisterWrapper()`. You need to make a new class that inherits from `BaseConsoleWrapper`. A very simple example of this is:
+
+```csharp
+internal class Null : BaseConsoleWrapper
+{
+    public override bool IsDumb => true;
+    public override int CursorLeft { get => 0; set => throw new NotImplementedException(); }
+    public override int CursorTop { get => 0; set => throw new NotImplementedException(); }
+    public override Coordinate GetCursorPosition => new(CursorLeft, CursorTop);
+    // other overrides
+}
+```
+
+You can make changes to the following wrappers by overriding a function in your console wrapper class:
 
 * `IsDumb`
+* `MovementDetected`
 * `CursorLeft`
 * `SetCursorLeft`
 * `CursorTop`

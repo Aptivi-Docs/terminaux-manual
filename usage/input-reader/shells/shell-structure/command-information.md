@@ -1,6 +1,6 @@
 ---
-icon: info
 description: Define this command for me!
+icon: info
 ---
 
 # Command Information
@@ -8,8 +8,8 @@ description: Define this command for me!
 Each command you define in your shell must provide a new instance of the `CommandInfo` class holding details about the specified command. The new instance of the class can be made using one of the constructors defined below:
 
 ```csharp
-public CommandInfo(string Command, string HelpDefinition, CommandArgumentInfo[] CommandArgumentInfo, BaseCommand CommandBase)
-public CommandInfo(string Command, string HelpDefinition, BaseCommand CommandBase)
+public CommandInfo(string Command, string HelpDefinition, CommandArgumentInfo[] CommandArgumentInfo, BaseCommand CommandBase, CommandFlags Flags = CommandFlags.None)
+public CommandInfo(string Command, string HelpDefinition, BaseCommand CommandBase, CommandFlags Flags = CommandFlags.None)
 ```
 
 where:
@@ -18,6 +18,7 @@ where:
 * `HelpDefinition`: The brief summary of what the command does
 * `CommandArgumentInfo`: Array of argument information about your command (can be omitted)
 * `CommandBase`: An instance of the `BaseCommand` containing command execution information
+* `CommandFlags`: All command flags
 
 To implement `CommandArgumentInfo`, call the constructor either with no parameters, which implies that there is no argument required to run this command, or with the following options listed below.
 
@@ -42,6 +43,34 @@ where:
 * `Switches`: Defines the command switches
 * `AcceptsSet`: Whether to accept the `-set` switch
 * `infiniteBounds`: Whether to accept infinite number of arguments or not
+
+{% hint style="info" %}
+For commands that require more than just simple argument checking as specified in the `CommandArgumentPart` instances, you can use the `ArgChecker` property to set it to a function delegate that checks all the arguments, with the command parameter info as the first argument. Such functions must return 0 to continue execution. Else, the command execution will not continue and the last error code will be set to what the function returns.
+
+This is an example for the `alarm` command:
+
+<pre class="language-csharp" data-title="CommandInfo for alarm" data-line-numbers><code class="lang-csharp">new CommandInfo("alarm", /* Localizable */ "Manage your alarms",
+    [
+        new CommandArgumentInfo(
+        [
+            (...)
+        ])
+        {
+<strong>            ArgChecker = (cp) => AlarmCommand.CheckArgument(cp, "start")
+</strong>        },
+        (...)
+    ], new AlarmCommand(), CommandFlags.Strict),
+</code></pre>
+
+{% code title="Alarm command code" lineNumbers="true" %}
+```csharp
+internal static int CheckArgument(CommandParameters parameters)
+{
+    (...)
+}
+```
+{% endcode %}
+{% endhint %}
 
 For `CommandArgumentPart` instances, consult the below constructor to create an array of `CommandArgumentPart` instances when defining your commands:
 
@@ -70,7 +99,7 @@ When it comes to auto-completion, if you press `TAB` on any of the argument posi
     * `shell`: List of all available shells
   * If the expression is not listed in any of the known expressions list, it'll check for the selection indicator characters (the slash `/` key).
     * For example, the `true/false` expression will generate an autocompleter that completes the two words: `true` and `false`.
-  * In case there is none, the shell will use the default auto completer, which returns nothing.
+  * In case there is none, the shell will use the default auto completer, which fetches possible files and folders on your current working directory.
 {% endhint %}
 
 {% hint style="success" %}

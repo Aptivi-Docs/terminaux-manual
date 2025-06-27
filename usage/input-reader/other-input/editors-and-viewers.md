@@ -9,12 +9,8 @@ Terminaux provides a way to edit or view a hexadecimal representation of bytes o
 
 * `HexEditInteractive`
   * Represents an interactive hex editor
-* `HexViewInteractive`
-  * Represents an interactive hex viewer
 * `TextEditInteractive`
   * Represents an interactive text editor
-* `TextViewInteractive`
-  * Represents an interactive text viewer
 
 ## Hex editor and viewer
 
@@ -41,4 +37,8 @@ In the other hand, the interactive text viewer only allows you to view what's wr
 
 {% hint style="info" %}
 You can consult the list of keybindings through the `K` key.
+{% endhint %}
+
+{% hint style="info" %}
+The wrapped writer, `WrappedWriter`, can be found in the `Terminaux.Writer.ConsoleWriters` namespace. You can use the older wrapped writer originated from Nitrocid.
 {% endhint %}

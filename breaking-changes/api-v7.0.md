@@ -405,3 +405,39 @@ public static class VtSequenceBuilderTools
 {% hint style="info" %}
 For increased flexbility, `MatchVTSequences()` and `IsMatchVTSequencesSpecific()` both return a full dictionary that contain info about every single sequence type, even if there are no entries. This makes sure that you can now safely use the indexer in the resulting variable without worrying about its existence.
 {% endhint %}
+
+### Shell features backported from Nitrocid
+
+The initial migration of the UESH shell started when working on Terminaux 6.0. Since then, the Nitrocid shell has been evaluated for the second time, and found that we needed to make the shell more complete and consistent with Nitrocid and other Terminaux applications.
+
+As a result, we've added new features to Terminaux's shell implementation. However, for this shell to work properly, we've changed how the console wrapper worked by replacing the action-based implementation with the class-based one that doesn't use the actions. Because of the design change, we've removed all necessary properties from the `ConsoleWrapperTools` class.
+
+In addition to that, Nitrocid's codebase has been stripped to meet this requirement by removing Nitrocid's implementation since the Terminaux one has almost all the features.
+
+### Removed color templates to precede the themes feature
+
+```csharp
+public class TemplateInfo { }
+public static class TemplateTools { }
+```
+
+The color template feature introduced in Terminaux wasn't meeting all the requirements of Nitrocid, so we've decided to move the feature over from Nitrocid to Terminaux as-is, removing the legacy templates feature in the process.
+
+{% hint style="info" %}
+Use the improved themes feature to take advantage of all the improvements that the writers have undergone.
+{% endhint %}
+
+### Removed legacy argument parsing
+
+{% code title="ArgumentParse.cs" lineNumbers="true" %}
+```csharp
+public static void ParseArgumentsLegacy(string[]? ArgumentsInput, Dictionary<string, ArgumentInfo> arguments)
+public static bool IsArgumentPassedLegacy(string[]? ArgumentsInput, string argumentName, Dictionary<string, ArgumentInfo> arguments)
+```
+{% endcode %}
+
+As we've improved the methodology of processing arguments that are passed to the Terminaux application using the `--` prefix, the legacy argument parsing relied on processing them in the same way without said prefix. As this could cause issues and confusion, we've removed the legacy argument parsing.
+
+{% hint style="info" %}
+Use `ParseArguments()` and `IsArgumentPassed()` functions instead.
+{% endhint %}
