@@ -441,3 +441,44 @@ As we've improved the methodology of processing arguments that are passed to the
 {% hint style="info" %}
 Use `ParseArguments()` and `IsArgumentPassed()` functions instead.
 {% endhint %}
+
+### Removed hex and text viewer classes
+
+```csharp
+public static class HexViewInteractive { }
+public static class TextViewInteractive { }
+```
+
+The hex and text editors have undergone many recent improvements to the point that having the viewer felt like repeating the code. In order to reduce double effort, we've decided to remove the two classes in preparation for the final release of Terminaux 7.0.
+
+{% hint style="info" %}
+You can still open the viewer, but use the `HexEditInteractive` and `TextEditInteractive` respectively with passing `false` to the `edit` argument.
+{% endhint %}
+
+### Removed obsolete infobox functions
+
+```csharp
+public static int WriteInfoBoxButtonsPlain(InputChoiceInfo[] buttons, string text, params object[] vars) =>
+public static int WriteInfoBoxButtonsPlain(InputChoiceInfo[] buttons, string text, BorderSettings settings, params object[] vars) =>
+public static int WriteInfoBoxButtonsColor(InputChoiceInfo[] buttons, string text, Color InfoBoxButtonsColor, params object[] vars) =>
+public static int WriteInfoBoxButtonsColorBack(InputChoiceInfo[] buttons, string text, Color InfoBoxButtonsColor, Color BackgroundColor, params object[] vars) =>
+public static int WriteInfoBoxButtons(InputChoiceInfo[] buttons, string text, BorderSettings settings, params object[] vars) =>
+public static int WriteInfoBoxButtonsColor(InputChoiceInfo[] buttons, string text, BorderSettings settings, Color InfoBoxButtonsColor, params object[] vars) =>
+public static int WriteInfoBoxButtonsColorBack(InputChoiceInfo[] buttons, string text, BorderSettings settings, Color InfoBoxButtonsColor, Color BackgroundColor, params object[] vars) =>
+public static int WriteInfoBoxButtonsPlain(string title, InputChoiceInfo[] buttons, string text, params object[] vars) =>
+public static int WriteInfoBoxButtonsPlain(string title, InputChoiceInfo[] buttons, string text, BorderSettings settings, params object[] vars) =>
+public static int WriteInfoBoxButtons(string title, InputChoiceInfo[] buttons, string text, params object[] vars) =>
+public static int WriteInfoBoxButtonsColor(string title, InputChoiceInfo[] buttons, string text, Color InfoBoxTitledButtonsColor, params object[] vars) =>
+public static int WriteInfoBoxButtonsColorBack(string title, InputChoiceInfo[] buttons, string text, Color InfoBoxTitledButtonsColor, Color BackgroundColor, params object[] vars) =>
+public static int WriteInfoBoxButtons(string title, InputChoiceInfo[] buttons, string text, BorderSettings settings, params object[] vars) =>
+public static int WriteInfoBoxButtonsColor(string title, InputChoiceInfo[] buttons, string text, BorderSettings settings, Color InfoBoxTitledButtonsColor, params object[] vars) =>
+public static int WriteInfoBoxButtonsColorBack(string title, InputChoiceInfo[] buttons, string text, BorderSettings settings, Color InfoBoxTitledButtonsColor, Color BackgroundColor, params object[] vars) =>
+
+// ...and other similar functions in all infobox classes
+```
+
+We have introduced `InfoBoxSettings`. As a result, we've decided to remove all those functions so that you can be more expressive in describing what setting to edit and to minimize ambiguity for arguments. Also, the effort will be reduced to just adding a property and using it.
+
+{% hint style="info" %}
+Move the arguments to their relevant fields by creating a new instance of `InfoBoxSettings` and using the properties to assign their correct values. For example, `InfoBoxSettings` contains a property called `Title` that you can use to set the title.
+{% endhint %}
