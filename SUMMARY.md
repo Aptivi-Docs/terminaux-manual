@@ -55,6 +55,7 @@
       * [Shell Scripting](usage/input-reader/shells/shell-structure/shell-scripting.md)
       * [Shell Presets](usage/input-reader/shells/shell-structure/shell-presets.md)
       * [Extra Shell Features](usage/input-reader/shells/shell-structure/extra-shell-features.md)
+    * [Command-Line Arguments](usage/input-reader/shells/command-line-arguments.md)
   * [Other Input](usage/input-reader/other-input/README.md)
     * [Keybindings](usage/input-reader/other-input/keybindings.md)
     * [Choice-based inputs](usage/input-reader/other-input/choice-based-inputs.md)
