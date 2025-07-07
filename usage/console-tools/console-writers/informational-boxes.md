@@ -12,6 +12,8 @@ The following informational box styles are presented in this way:
 * Modal informational boxes
   * Buttons
   * Input
+  * Input (password)
+  * Input (character)
   * Multi-input (using input modules)
   * Modal dialog box
   * Slider
@@ -57,35 +59,43 @@ For informational boxes that use choice-based input styles, you can discover how
 
 ### Buttons
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (90).png" alt=""><figcaption></figcaption></figure>
 
 This style utilizes choice-based input to render the buttons inside the informational box of this style, which makes them look like a conventional dialog box. This style can render up to three buttons from the right to the left, which means three instances of `InputChoiceInfo`. You can use this style with the `InfoBoxButtonsColor` class.
 
 ### Input
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
 
 This style uses the input reader to tell the user to write something, based on the informational box contents. For example, if this informational box tells an end-user to write a hostname of an SFTP server, the user will have to write the hostname. You can use this style with `InfoBoxInputColor`.
 
 ### Input (password)
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (92).png" alt=""><figcaption></figcaption></figure>
 
-This style uses the input reader masked with the password to tell the user to write something, based on the informational box contents. For example, if this informational box tells an end-user to write a password of an account when logging in to the SFTP server, the user will have to write the password. You can use this style with `InfoBoxInputColor` with passing the `password` argument as true.
+This style uses the input reader masked with the password to tell the user to write something, based on the informational box contents. For example, if this informational box tells an end-user to write a password of an account when logging in to the SFTP server, the user will have to write the password. You can use this style with `InfoBoxInputColor` with specifying the `InfoBoxInputType` as `Password`.
+
+### Input (character)
+
+<figure><img src="../../../.gitbook/assets/image (93).png" alt=""><figcaption></figcaption></figure>
+
+This style uses the input reader that takes the first character from the input string, based on the informational box contents. For example, if this informational box tells an end-user to write a character to specify a box border character, the user will have to write it. You can use this style with `InfoBoxInputColor` with specifying the `InfoBoxInputType` as `Character`.
 
 ### Multi-input
 
-<figure><img src="../../../.gitbook/assets/image (75).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (94).png" alt=""><figcaption></figcaption></figure>
 
 This style uses the input modules to describe multiple ways to present input to the user using different modules, such as having a text box and a combo box at the same time. You can use this style with `InfoBoxMultiInputColor`.
 
 ### Normal modal info box
 
+<figure><img src="../../../.gitbook/assets/image (95).png" alt=""><figcaption></figcaption></figure>
+
 This style only prints information that the end user needs to read. This is suitable for information that doesn't need any action. You can use this style with the `InfoBoxModalColor` class.
 
 ### Slider
 
-<figure><img src="../../../.gitbook/assets/image (11) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (100).png" alt=""><figcaption></figcaption></figure>
 
 This style allows you to define a minimum, a current, and a maximum value of an integral value that can only be described as surrounded between the minimum value and the maximum value. For example, a slider that has a minimum value of 5 and a maximum value of 10 can only accept values of between 5 and 10, which means 5, 6, 7, 8, 9, and 10. You can use this style with the `InfoBoxSliderColor` class.
 
@@ -98,13 +108,17 @@ There are two styles in this category:
 
 #### Single selection informational box
 
-<figure><img src="../../../.gitbook/assets/image (9) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (96).png" alt=""><figcaption></figcaption></figure>
 
 This info box style uses the choice-based input to define choices that the end user will have to select one of them. Plus, you can search for a choice using the `F` key to initiate a regex-based search for maximum flexibility. You can use this style with the `InfoBoxSelectionColor` class.
 
+<figure><img src="../../../.gitbook/assets/image (97).png" alt=""><figcaption></figcaption></figure>
+
+You can additionally enable radio buttons using the `RadioButtons` property in the infobox settings.
+
 #### Multiple selection informational box
 
-<figure><img src="../../../.gitbook/assets/image (10) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (98).png" alt=""><figcaption></figcaption></figure>
 
 This info box style uses the choice-based input to define multiple choices that the end user will have to select one of them. Plus, you can search for a choice using the `F` key to initiate a regex-based search for maximum flexibility. You can use this style with the `InfoBoxSelectionMultipleColor` class.
 
@@ -120,7 +134,7 @@ This is used to convey information to the end user that some progress is being m
 
 ### Progress
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (99).png" alt=""><figcaption></figcaption></figure>
 
 This is used to tell the end user through an informational box with a progress bar that something is happening, and that the progress is being done all the way to 100%. This infobox needs to be in a loop while progress is being made.
 
