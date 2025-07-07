@@ -1,6 +1,6 @@
 ---
-icon: display
 description: Your screen in front of you.
+icon: display
 ---
 
 # Console Screen
@@ -26,7 +26,7 @@ The screen part instance allows you to add text and sequences in different ways:
 * `Visible`: Controls the visibility of the entire part
 
 {% hint style="info" %}
-`AddDynamicText()` is needed if you want to display anything that changes, including a box that changes when the console is resized.
+`AddDynamicText()` is needed if you want to display anything that changes, including a box that changes when the console is resized. You can require refresh using the `RequireRefresh()` function on the screen instance, and your renderer can use `NeedsRefresh` to check to see whether we need to refresh the entire screen or not.
 {% endhint %}
 
 ## Screen Management
