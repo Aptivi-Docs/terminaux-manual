@@ -28,10 +28,18 @@ You can configure the infoboxes and how they appear and/or behave using the `Inf
 * `ForegroundColor`: Foreground color of the infobox (including border, title, and content)
 * `BackgroundColor`: Background color of the infobox
 * `UseColors`: Whether to use the colors or not (default is `true`)
+* `RadioButtons`: Whether to use the radio buttons or not (for single-choice selection infoboxes)
+* `Positioning`: Determines the positioning of the infobox
 
 {% hint style="info" %}
 Until Terminaux 7.0, you can still use the argument-based overloads when making a new infobox. Those overloads, however, are deprecated and you should use the `InfoBoxSettings` instance instead.
 {% endhint %}
+
+{% hint style="info" %}
+You can use `SetForegroundColor()` and `SetBackgroundColor()` functions to reset the colors to a color determined by the theme and updated accordingly by passing `null` to those functions.
+{% endhint %}
+
+All informational boxes, modal or non-modal, utilizes the `InfoBox` class to specify how to write the informational box to the console, such as positioning, text, and settings. If you want to create a custom infobox not covered in any of the below pre-defined infobox styles, you'll have to refer to their [source code](https://github.com/Aptivi/Terminaux/tree/main/public/Terminaux/Inputs/Styles/Infobox) and create the style handler yourself.
 
 ## Modal informational boxes
 
@@ -115,3 +123,20 @@ This is used to convey information to the end user that some progress is being m
 <figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This is used to tell the end user through an informational box with a progress bar that something is happening, and that the progress is being done all the way to 100%. This infobox needs to be in a loop while progress is being made.
+
+## Infobox positioning
+
+All informational boxes support positioning, because they expose a writable property called `Positioning` in the `InfoBoxSettings` class. It can be configured globally using the `GlobalSettings` property found in the `InfoBoxPositioning` class.
+
+The following properties can be used to position the informational box however you want:
+
+* `Autofit`: If turned on, the informational box will be automatically placed in the middle of the screen, growing according to the textual content. If turned off, the informational box will be rendered based on the below positioning values.
+* `Left`: Zero-based left position of the infobox
+* `Top`: Zero-based top position of the infobox
+* `Width`: Width of the infobox (default: `50`)
+* `Height`: Height of the infobox (excluding the extra height) (default: `5`)
+* `ExtraHeight`: Reserved height for elements that will be placed after the information text (keep zero for text only)
+
+Turning off autofit for infoboxes, while keeping default configuration, will result in this:
+
+<figure><img src="../../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
