@@ -104,17 +104,19 @@ All selection style answers return the following:
 Write your code accordingly to avoid errors.
 {% endhint %}
 
-Your selection style is customizable, because these classes contain a settings argument that uses `SelectionStyleSettings`. You can easily make a class instance out of it to customize the selection style to match your application's aesthetics. This class contains a singleton property that serves as a global settings for the selection input settings. This class currently contains the following color settings:
+Your selection style is customizable, because these classes contain a settings argument that uses `SelectionStyleSettings`. You can easily make a class instance out of it to customize the selection style to match your application's aesthetics. This class contains a singleton property that serves as a global settings for the selection input settings. This class currently contains the following settings:
 
-* Question
-* Slider
-* Input
-* Option
-* Alternative Option
-* Selected Option
-* Disabled Option
-* Separator
-* Text
+* `RadioButtons`: enables the radio buttons for single-selection style
+* `Title`: Selection style border title
+* `QuestionColor`: Color of the question text
+* `SliderColor`: Color of the slider
+* `InputColor`: Color of the input text
+* `OptionColor`: Color of the option text
+* `AltOptionColor`: Color of the alternative option text
+* `SelectedOptionColor`: Color of the selected option text
+* `DisabledOptionColor`: Color of the disabled option text
+* `SeparatorColor`: Color of the separator
+* `TextColor`: Color of the text
 
 {% hint style="info" %}
 Here are some tips that apply to selection style inputs:

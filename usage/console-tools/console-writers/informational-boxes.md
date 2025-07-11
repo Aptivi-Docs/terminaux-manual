@@ -32,6 +32,7 @@ You can configure the infoboxes and how they appear and/or behave using the `Inf
 * `UseColors`: Whether to use the colors or not (default is `true`)
 * `RadioButtons`: Whether to use the radio buttons or not (for single-choice selection infoboxes)
 * `Positioning`: Determines the positioning of the infobox
+* `UsePopover`: Uses the popover for multi-input selection infoboxes (input modules should handle popovers)
 
 {% hint style="info" %}
 Until Terminaux 7.0, you can still use the argument-based overloads when making a new infobox. Those overloads, however, are deprecated and you should use the `InfoBoxSettings` instance instead.
@@ -86,6 +87,12 @@ This style uses the input reader that takes the first character from the input s
 <figure><img src="../../../.gitbook/assets/image (94).png" alt=""><figcaption></figcaption></figure>
 
 This style uses the input modules to describe multiple ways to present input to the user using different modules, such as having a text box and a combo box at the same time. You can use this style with `InfoBoxMultiInputColor`.
+
+{% hint style="info" %}
+To learn more about input modules, consult the page below:
+
+<a href="../../input-reader/other-input/input-modules.md" class="button primary">Input Modules</a>
+{% endhint %}
 
 ### Normal modal info box
 

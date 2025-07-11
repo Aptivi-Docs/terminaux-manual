@@ -23,6 +23,12 @@ To implement the `PresentationPage` instances, you must call its constructor wit
 * `Pages`
   * Presentation page elements (List of `IElement` instances)
 
+{% hint style="info" %}
+You can make cyclic presentation pages by assigning a non-zero value to the `CycleFrequency` property in your presentation page. To learn more about how it works, consult the below page:
+
+<a href="textual-ui/console-screen.md" class="button primary">Console Screen</a>
+{% endhint %}
+
 To implement the page elements, make new instances of the elements. Base elements that Nitrocid KS implements are:
 
 * `TextElement`

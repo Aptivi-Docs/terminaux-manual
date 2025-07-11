@@ -103,6 +103,10 @@ public override string RenderInput(int width)
 * Render over the rendered input placeholder with `RenderInput()`, or
 * Render under the input placeholder, such as combo boxes with selection choices.
 
+{% hint style="info" %}
+Some of the components that use input modules handle extra popover height, which you can handle it yourself using the `ExtraPopoverHeight` property. You can override it when declaring a new input module.
+{% endhint %}
+
 In customized applications, you may have to render the input yourself using the `RenderInput()` function and to process the input yourself using the above function. Additionally, you may have to calculate the popover position yourself. It's usually located at the same position as the rendered input, but there are cases where you may need to render it just below the rendered input.
 
 ```csharp
