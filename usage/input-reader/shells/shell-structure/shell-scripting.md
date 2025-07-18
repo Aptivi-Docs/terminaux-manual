@@ -239,7 +239,7 @@ To register your condition, you must call `MESHConditional.RegisterCondition()` 
 
 To unregister your condition, you must call `MESHConditional.UnregisterCondition()` in your mod cleanup code to remove your condition from the list of custom conditions. After that, you won't be able to use scripts that use your custom condition.
 
-### Error codes
+## Error codes
 
 The error code variable, `UESHErrorCode`, holds information about the last process error code, whether it's a success (a zero value) or a failure (non-zero value). Currently, these values are supported:
 
@@ -270,3 +270,7 @@ The error code variable, `UESHErrorCode`, holds information about the last proce
 #### Other error codes
 
 Consult your application's manual for further information about other error codes emitted from the commands.
+
+{% hint style="warning" %}
+While the shell provides you a way to see the last error code from the last command that ran either successfully or unsuccessfully using the `LastErrorCode` property, the underlying shell stack info is not available to the public to ensure integrity. We'll correct this in the next Terminaux 7.0 release.
+{% endhint %}

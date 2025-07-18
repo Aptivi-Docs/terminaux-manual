@@ -44,6 +44,8 @@ TextWriterRaw.WriteRaw(rendered);
 
 {% hint style="info" %}
 You don't need to install ImageMagick to your system; it's embedded in the Magick.NET package!
+
+You can also use the `OpenImage()` function, which returns a `MagickImage` instance. It accepts either a file path, an array of bytes, or a stream.
 {% endhint %}
 
 You can demonstrate this by running the `Terminaux.Console` app (build from source) and running the `RenderImage` test fixture:
@@ -54,11 +56,7 @@ You can demonstrate this by running the `Terminaux.Console` app (build from sour
 In some cases, you don't actually need to specify the left and the top position of the upper left corner of the image, such as interactive TUIs that print text and informational boxes.
 {% endhint %}
 
-You can also get colors for each pixel in the image using a file path, a byte array, or a stream that contains image data that ImageMagick can process, using the `GetColorsFromImage()` function that returns a 2D array representing the full image width and height.
-
-{% hint style="info" %}
-Depending on the image size, it may take time to process the color data for each pixel. For the best results, try to make your images as small as possible.
-{% endhint %}
+You can get the individual colors each pixel uses using the `GetColorsFromImage()` function which returns a two-dimensional array of Terminaux's `Color` instance that represents each pixel, where the first dimension specifies the column, and the second one specifies the row. You can also optionally specify a width and a height to override the built-in image dimensions.
 
 If you don't want to provide an image file, stream, or array of bytes, or if you're making a UI concept, you can use the placeholder graphic renderer that can be easily be used like this:
 
@@ -70,11 +68,7 @@ TextWriterRaw.WriteRaw(rendered);
 {% endcode %}
 
 {% hint style="info" %}
-You can optionally specify a background color that the image renderer will use to render a transparent image with the background color that you've specified by passing a Color instance to the last argument of the `RenderImage()` functions. If not specified, it'll use your current background color.
-{% endhint %}
-
-{% hint style="info" %}
-You can also use the `OpenImage()` function, which returns a `MagickImage` instance. It accepts either a file path, an array of bytes, or a stream.
+You can optionally specify a background color that the image renderer will use to render a transparent image with the background color that you've specified by passing a `Color` instance to the last argument of the `RenderImage()` functions. If not specified, it'll use your current background color.
 {% endhint %}
 
 ## Image Viewer TUI

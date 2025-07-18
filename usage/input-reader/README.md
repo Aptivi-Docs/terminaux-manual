@@ -1,6 +1,6 @@
 ---
-icon: book-open
 description: May I read what you've written, please?
+icon: book-open
 ---
 
 # Input Reader
@@ -200,12 +200,56 @@ If either of these functions' assertions have failed, either your computer or yo
 
 ## History tools
 
-You can now set the history entry list with your array of history entries or clear the history list using the following functions:
+Terminaux applications can access tools that are related to the shell history using the `HistoryTools` class found in the `Terminaux.Reader.History` namespace. It contains a variety of tools that are easy to use. This class contains functions that allow you to manipulate with the history.
 
-* `SetHistory(List<string> History)`
-  * Sets the history to the chosen history list
-* `ClearHistory()`
-  * Clears all history entries
+### Loading, saving, and unloading
+
+You can load the history instances using one of the following functions:
+
+* `LoadFromFile()`: This loads the histories from a JSON file
+* `LoadFromJson()`: This loads the histories from a JSON string
+* `LoadFromInstance()`: This loads the histories from a `HistoryInfo` instance
+
+Once history instances get loaded, you can use the histories that may contain history entries for the terminal reader by setting the history name in the terminal reader settings using the following properties:
+
+* `HistoryEnabled`
+  * Whether the history is enabled or not.
+* `HistoryName`
+  * Select what history to use
+
+You can save the history instances to a JSON representation using one of the following functions:
+
+* `SaveToString(string)`: Saves the history instance to a JSON string using the history name
+* `SaveToString(HistoryInfo)`: Saves the history instance to a JSON string using the history info instance
+
+Once you're done with those instances, you can unload them using one of the following functions:
+
+* `Unload(string)`: Removes the history instance from the list of registered instances using the history name
+* `Unload(HistoryInfo)`: Removes the history instance from the list of registered instances using the history info instance
+
+### `HistoryInfo` instance
+
+The history info class can be constructed using a name and a list of history entries that will be pre-installed. This class contains the following properties:
+
+* `HistoryName`: Name of the history
+* `HistoryEntries`: A list of history entries
+
+### History entry manipulation
+
+In addition to the above tools, you can also manipulate with the history entry list using one of the following functions and properties:
+
+* `HistoryNames`: Returns the name of all the history instances
+* `GetHistoryEntries()`: Gets an array of history entries that are added to the history instance
+* `IsHistoryRegistered()`: Checks to see whether a history instance is registered or not
+* `Switch()`: Replaces the list of history entries with a new set of entries
+* `Append()`: Appends a new history entry at the end of the list
+* `Insert()`: Inserts a new history entry somewhere in the list using a specified index
+* `Remove()`: Removes a history entry using a specified index
+* `Clear()`: Clears the list of history entries in a history instance
+
+{% hint style="info" %}
+The above functions require that a target history entry be registered, with the exception of `HistoryNames` and `IsHistoryRegistered()`.
+{% endhint %}
 
 ## State tools
 

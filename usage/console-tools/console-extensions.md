@@ -147,3 +147,8 @@ The following extensions that don't fit in any of the categories can be used in 
 * `Flash()` and `Flash(int)`
 * `Bell()`
 * `IsOnAltBuffer`
+* `TabWidth`
+
+### Tab width
+
+You can set the tab width to replace the actual tab characters with the needed amount of space characters to render using the `TabWidth` property. The default tab width is set to 4.
