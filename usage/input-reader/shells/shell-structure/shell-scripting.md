@@ -5,7 +5,7 @@ icon: scroll-old
 
 # Shell Scripting
 
-<figure><img src="../../../../.gitbook/assets/image (88).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (173).png" alt=""><figcaption></figcaption></figure>
 
 The MESH shell contains scripting support. The shell scripts have the `.mesh` extension containing a subset of MESH commands inside it. A simple MESH script containing a command that sets a MESH variable is as follows:
 

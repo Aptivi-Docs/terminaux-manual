@@ -48,7 +48,7 @@ var misc = new Table()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Calendar (Gregorian)" %}
@@ -65,7 +65,7 @@ var calendar = new Calendars()
 TextWriterRaw.WriteRaw(calendar.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Calendar (Hijri)" %}
@@ -85,7 +85,7 @@ var calendar = new Calendars()
 TextWriterRaw.WriteRaw(calendar.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -109,7 +109,7 @@ var misc = new Listing()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Dictionaries" %}
@@ -126,7 +126,7 @@ var misc = new Listing()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Leveled lists" %}
@@ -187,7 +187,7 @@ TextWriterRaw.WritePlain(misc7.Render());
 TextWriterRaw.WritePlain(misc8.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -220,7 +220,7 @@ var selections = new Selection(finalSelections)
 TextWriterRaw.WriteRaw(selections.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (59).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Multiple" %}
@@ -248,7 +248,7 @@ var selections = new Selection(finalSelections)
 TextWriterRaw.WriteRaw(selections.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (145).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Radio" %}
@@ -277,7 +277,7 @@ var selections = new Selection(finalSelections)
 TextWriterRaw.WriteRaw(selections.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (77).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (162).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -303,7 +303,7 @@ var selections = new PassiveSelection(finalSelections);
 TextWriterRaw.WriteRaw(selections.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (78).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (163).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="With Alt Choices" %}
@@ -326,6 +326,6 @@ var selections = new PassiveSelection(finalSelections)
 TextWriterRaw.WriteRaw(selections.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (79).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (164).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
