@@ -89,22 +89,43 @@ where:
 * `exactWording`: If not empty, the user must write one of the words declared in this variable for this argument to be satisfied
 * `argumentDesc`: Argument description that shows up in the help entry
 
-{% hint style="info" %}
-When it comes to auto-completion, if you press `TAB` on any of the argument positions, the shell will select the following completers as appropriate:
+{% hint style="success" %}
+Usually, there is no need for you to cut the string to the required position; the shell does it to every single autocomplete result that is given.
+{% endhint %}
+
+### Auto-completion for commands
+
+Commands can have auto-completion set up, so that program users can use their TAB key as means to automatically complete the expression for a command, depending on argument positioning. The shell, when TAB is pressed, will select one of the following completers:
 
 * If the auto completer is specified, then, regardless of whether the expression represents the selection (expressions containing the slash `/` character) or not, the auto completer specified in the constructor will be called.
 * If the auto completer is not specified, then it will go through the following completers:
   * The shell goes through the list of known completion expressions according to the argument expression, which are the following:
     * `cmd`, `command`: List of all available commands
     * `shell`: List of all available shells
+    * `$variable`: List of all MESH variables
   * If the expression is not listed in any of the known expressions list, it'll check for the selection indicator characters (the slash `/` key).
-    * For example, the `true/false` expression will generate an autocompleter that completes the two words: `true` and `false`.
+    * For example, the `true/false` expression will generate an auto completer that completes the two words: `true` and `false`.
   * In case there is none, the shell will use the default auto completer, which fetches possible files and folders on your current working directory.
-{% endhint %}
 
-{% hint style="success" %}
-Usually, there is no need for you to cut the string to the required position; the shell does it to every single autocomplete result that is given.
-{% endhint %}
+The known expressions list can be manipulated, by registering and unregistering a completion expression. You can use one of the following functions found in the `CommandAutoCompletionList` class:
+
+* `RegisterCompletionFunction()`: Registers the completion function using a name and a function that returns a list of possible completions.
+* `UnregisterCompletionFunction()`: Unregisters the completion function by name
+* `IsCompletionFunctionRegistered()`: Determines whether the completion function is registered or not
+* `IsCompletionFunctionBuiltin()`: Determines whether the completion function is registered as a built-in completer or not
+
+Here's a simple example as to how to define such completion function:
+
+<pre class="language-csharp"><code class="lang-csharp"><strong>// Completion function registration
+</strong><strong>CommandAutoCompletionList.RegisterCompletionFunction("text", (_) => { return ["Hello", "Hi"]; });
+</strong>
+ShellManager.RegisterShell("TestShell", new TestShellInfo());
+ShellManager.StartShell("TestShell");
+ShellManager.UnregisterShell("TestShell");
+
+<strong>// Completion function unregistration
+</strong><strong>CommandAutoCompletionList.UnregisterCompletionFunction("text");
+</strong></code></pre>
 
 ### Command argument part with options
 
