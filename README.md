@@ -6,9 +6,11 @@ icon: hand-wave
 # Welcome!
 
 {% hint style="info" %}
-Terminaux 7.x is currently under active development.
+Terminaux 8.x is currently under active development.
 
 If you still use old versions of Terminaux in your projects, go to the below links:
+
+[Terminaux 7.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/e0LJJIYap5gz0hAolH6J/ "mention")
 
 [Terminaux 6.x - Manual](https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/TQS2U00Papqc2LMhftr5/ "mention")
 
