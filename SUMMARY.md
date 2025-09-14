@@ -65,6 +65,7 @@
     * [Color Wheel](usage/input-reader/other-input/color-wheel.md)
     * [Spinner Selector](usage/input-reader/other-input/spinner-selector.md)
     * [Input Modules](usage/input-reader/other-input/input-modules.md)
+    * [Audio cues](usage/input-reader/other-input/audio-cues.md)
   * [Reader State](usage/input-reader/reader-state.md)
   * [Reader Settings](usage/input-reader/reader-settings.md)
   * [Syntax Highlighting](usage/input-reader/syntax-highlighting.md)
