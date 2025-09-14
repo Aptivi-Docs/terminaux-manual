@@ -77,6 +77,6 @@
 
 ***
 
-* [Report an issue](https://gitlab.com/aptivi/main/Terminaux/-/issues)
-* [Source code](https://gitlab.com/aptivi/main/Terminaux)
+* [Report an issue](https://github.com/Aptivi/Terminaux/issues/new)
+* [Source code](https://github.com/Aptivi/Terminaux)
 * [API Reference](https://aptivi.github.io/Terminaux/)
