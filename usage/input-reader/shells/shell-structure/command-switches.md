@@ -99,6 +99,8 @@ public static bool IsSwitchValueNumeric(string[] switches, string switchKey)
 ```
 {% endcode %}
 
+Additionally, you can check to see if a group of passed switches contains any of or all of the switches or not, with the `ContainsAllSwitches()` and the `ContainsAnySwitches()` functions.
+
 ## Switch information definition
 
 For `SwitchInfo` instances, consult the below constructors to create an array of `SwitchInfo` instances when defining your commands:

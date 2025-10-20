@@ -167,5 +167,5 @@ For each test, there is a status box that indicates whether the test has been ru
 You can press ENTER to start a test fixture. If the test has succeeded, you'll get a green text saying that the test has passed. If the test has failed, you'll get a red text saying that the test has failed with an error message that may tell you why.
 
 {% hint style="info" %}
-The fixture selector requires a working terminal which meets [Terminaux](console-checker/)'s requirements.
+The fixture selector requires a working terminal which meets [Terminaux](console-checker.md)'s requirements.
 {% endhint %}

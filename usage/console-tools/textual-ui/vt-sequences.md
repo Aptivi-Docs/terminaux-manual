@@ -81,6 +81,9 @@ Currently, it provides these tools:
 * `BuildVtSequence(VtSequenceSpecificTypes specificType, params object[] arguments)`
   * Allows you to build your VT sequence
   * Returns a string consisting of a VT sequence of the requested type with the requested arguments
+* `DetermineTypesFromSequence(string sequence)`
+  * Allows you to determine the types from a VT sequence
+  * Returns an enumerable containing a list of types and specific types
 
 ## Techniques
 

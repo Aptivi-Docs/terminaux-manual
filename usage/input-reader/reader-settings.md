@@ -1,6 +1,6 @@
 ---
-icon: gear
 description: In case you want to set things up
+icon: gear
 ---
 
 # Reader Settings
@@ -10,7 +10,7 @@ The reader currently has a global settings instance session-wide. However, it ca
 Here are the available settings that you can set:
 
 * `PasswordMaskChar`
-  * Sets the password masking character.
+  * Sets the password masking character (overrides the global input settings).
 * `HistoryEnabled`
   * Whether the history is enabled or not.
 * `HistoryName`

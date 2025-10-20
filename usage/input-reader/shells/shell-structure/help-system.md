@@ -11,13 +11,15 @@ The help system is what every shell uses, invoked by the unified `help` command 
 
 When the user requests the `help` command in any shell, the above function gets called, querying the current shell type (`Shell.CurrentShellType`) as discussed previously.
 
-The function gets all the commands, including the unified ones, from the command type, but hides all the hidden commands (commands that are flagged with the `CommandFlags.Hidden` flag). It also takes care of the modded and aliased commands.
+The function gets all the commands, including the unified ones, from the command type, but hides all the hidden commands (commands that are flagged with the `CommandFlags.Hidden` flag). It also takes care of other commands, such as aliases.
 
 The help system then prints the list of commands to the console.
 
 {% hint style="info" %}
-Some of the shells implement too many commands, potentially requiring you to either wrap its output using the `wrap` command, or turn on the simplified help using the `-simplified` switch.
+Some of the shells implement too many commands, potentially requiring you to either wrap its output using the `wrap` command, or turn on the simplified help using the `-simplified` switch. You can also show hidden commands using the `-help` switch.
 {% endhint %}
+
+To export a list of commands to the Markdown table format, you'll need to use the `-markdown` switch with the help command, as long as you don't pass a command to it, in order to obtain a group of tables that contain a list of commands. This is going to help you with documenting a list of commands in your project documentation. You can also programmatically export a list of commands to the Markdown group of tables using the `HelpExporter` class.
 
 ## Command help
 

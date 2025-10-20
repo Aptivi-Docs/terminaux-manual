@@ -1,6 +1,6 @@
 ---
-icon: computer
 description: Everything about the console
+icon: computer
 ---
 
 # Console Tools
@@ -17,8 +17,8 @@ Terminaux provides you with a plethora of console tools, such as a console wrapp
 [console-writers](console-writers/)
 {% endcontent-ref %}
 
-{% content-ref url="console-checker/" %}
-[console-checker](console-checker/)
+{% content-ref url="console-checker.md" %}
+[console-checker.md](console-checker.md)
 {% endcontent-ref %}
 
 {% content-ref url="console-wrapper.md" %}

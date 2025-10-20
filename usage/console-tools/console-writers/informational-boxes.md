@@ -154,8 +154,9 @@ The following properties can be used to position the informational box however y
 * `Autofit`: If turned on, the informational box will be automatically placed in the middle of the screen, growing according to the textual content. If turned off, the informational box will be rendered based on the below positioning values.
 * `Left`: Zero-based left position of the infobox
 * `Top`: Zero-based top position of the infobox
-* `Width`: Width of the infobox (default: `50`)
+* `Width`: Width of the infobox (excluding the extra width) (default: `50`)
 * `Height`: Height of the infobox (excluding the extra height) (default: `5`)
+* `ExtraWidth`: Reserved width for the informational box that may store wider elements than the text itself (keep zero for text only)
 * `ExtraHeight`: Reserved height for elements that will be placed after the information text (keep zero for text only)
 
 Turning off autofit for infoboxes, while keeping default configuration, will result in this:

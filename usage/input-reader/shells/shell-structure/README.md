@@ -238,6 +238,12 @@ The following wrappers should not be called (explicitly and implicitly) on that 
 * `SetOut()`
 {% endhint %}
 
+The `CommandParameters` class contains information about the passed command parameters, such as the command text, the argument list, and more. Additionally, you can get the switch value or values, check if a switch is passed or not, and check to see if a switch's value is numeric using available functions in the class. To learn more about switches, consult below page:
+
+{% content-ref url="command-switches.md" %}
+[command-switches.md](command-switches.md)
+{% endcontent-ref %}
+
 ### Registering your command
 
 In order for your command to be usable, applications are now required to register the commands manually using a function that helps doing this. That function is defined in the `CommandManager` class.
@@ -294,6 +300,8 @@ Finally, the command flags (`CommandFlags`) can be defined. One or more of the c
   * The flag value is 2
 * `Wrappable`: This command is wrappable to pages.
   * The flag value is 4
+* `Hidden`: This command is hidden from the help page.
+  * The flag value is 8
 
 ## More?
 

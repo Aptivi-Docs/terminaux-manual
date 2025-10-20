@@ -31,6 +31,11 @@ In the class, there are several properties that you can modify at your discretio
 * `Keybindings`: List of keybindings that you can use within the TUI.
 * `Fallback`: Fallback binding in case a key doesn't bind to anything.
 * `Renderables`: List of renderables that get rendered on top of what the `Render()` function has rendered.
+* `HelpPages`: List of help pages for the interactive TUI.
+
+{% hint style="info" %}
+For the help pages, you'll have to override the `HelpPages` property with an array of `InteractiveTuiHelpPage` classes, which consist of a title, a description, and a body text.
+{% endhint %}
 
 If you want the TUI to refresh in the next render, you'll have to call the `RequireRefresh()` function, which calls the refresh requirement function on the screen instance.
 
