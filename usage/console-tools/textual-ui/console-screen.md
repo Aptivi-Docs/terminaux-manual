@@ -27,6 +27,8 @@ The screen part instance allows you to add text and sequences in different ways:
 
 {% hint style="info" %}
 `AddDynamicText()` is needed if you want to display anything that changes, including a box that changes when the console is resized. You can require refresh using the `RequireRefresh()` function on the screen instance, and your renderer can use `NeedsRefresh` to check to see whether we need to refresh the entire screen or not.
+
+During the render process, if `NeedsRefresh` was true, the refresh manager would set the "refresh was done" flag to true, causing all dynamic text renderers to understand that the refresh was done. From there, you can use the `RefreshWasDone` flag to change the behavior of the renderer function.
 {% endhint %}
 
 ## Screen Management
