@@ -117,6 +117,12 @@ You can also use the acoustic tools for your console, such as beep synth feature
 }
 ```
 
+As for audio cues, you can consult the following page:
+
+{% content-ref url="../input-reader/other-input/audio-cues.md" %}
+[audio-cues.md](../input-reader/other-input/audio-cues.md)
+{% endcontent-ref %}
+
 ## Console mode
 
 You can adjust the console mode by using the following functions:

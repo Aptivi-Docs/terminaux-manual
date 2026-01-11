@@ -19,6 +19,8 @@ Here are the available settings that you can set:
   * Sets the left margin of the input.
 * `RightMargin`
   * Sets the right margin of the input.
+* `Width`
+  * Sets the width of the input reader as either the specified value or the available width
 * `InputForegroundColor`
   * The foreground color for the input text, as well as the input prompt.
 * `InputBackgroundColor`
@@ -35,8 +37,10 @@ Here are the available settings that you can set:
   * Whether to print the default value or not. Disables `WriteDefaultValue`.
 * `WriteDefaultValue`
   * Whether to make the default value part of the input or not. Disables `PrintDefaultValue`.
+* `AutoInitialPosition`
+  * When writing default value, automatically set the initial position to the end of the input (only works when there is a default value and `WriteDefaultValue` is on)
 * `InitialPosition`
-  * Where to set the initial cursor position for the reader (only works when there is a default value and `WriteDefaultValue` is on)
+  * Where to set the initial cursor position for the reader (only works when there is a default value and `WriteDefaultValue` is on, in addition to `AutoInitialPosition` being off)
 * `DefaultValueFormat`
   * The default value format to print if `PrintDefaultValue` is enabled and there is a prompt.
 * `KeyboardCues`

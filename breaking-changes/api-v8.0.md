@@ -61,3 +61,73 @@ We have removed the console filter feature as part of an ongoing effort to prope
 {% hint style="danger" %}
 If you are still using the console filter, you'll either have to downgrade to Terminaux 7.x, or you'll have to re-implement the filter yourself according to your requirements.
 {% endhint %}
+
+## From 8.0.x to 8.1.x
+
+Between the 8.0.x and 8.1.x version range, we've made the following breaking changes:
+
+### Decoupling color class prepared
+
+```csharp
+// Moved to ColorExtensions as functions
+public string VTSequenceForeground { get; set; }
+public string VTSequenceForegroundOriginal { get; set; }
+public string VTSequenceForegroundTrueColor { get; set; }
+public string VTSequenceBackground { get; set; }
+public string VTSequenceBackgroundOriginal { get; set; }
+public string VTSequenceBackgroundTrueColor { get; set; }
+```
+
+```csharp
+// Moved to ConsoleColoring from ColorTools for Colorimetry
+public static Color CurrentForegroundColor { get; }
+public static Color CurrentBackgroundColor { get; }
+public static bool ConsoleSupportsTrueColor { get; set; }
+public static bool AllowBackground { get; set; }
+public static void LoadBack() { }
+public static void LoadBack(Color ColorSequence, bool Force = false) { }
+public static void LoadBackDry() { }
+public static void LoadBackDry(Color ColorSequence, bool Force = false) { }
+public static Color GetGray(ColorContrastType contrastType = ColorContrastType.Light) { }
+public static void SetConsoleColor(Color ColorSequence, bool Background) { }
+public static void SetConsoleColor(Color ColorSequence, bool Background = false, bool ForceSet = false, bool canSet = true) { }
+public static bool TrySetConsoleColor(Color ColorSequence, bool Background = false, bool ForceSet = false, bool canSet = true) { }
+public static void SetConsoleColorDry(Color ColorSequence, bool Background) { }
+public static void SetConsoleColorDry(Color ColorSequence, bool Background = false, bool ForceSet = false, bool canSet = true) { }
+public static bool TrySetConsoleColorDry(Color ColorSequence, bool Background = false, bool ForceSet = false, bool canSet = true) { }
+public static string RenderSetConsoleColor(Color ColorSequence) { }
+public static string RenderSetConsoleColor(Color ColorSequence, bool Background) { }
+public static string RenderSetConsoleColor(Color ColorSequence, bool Background = false, bool ForceSet = false, bool canSet = true) { }
+public static void ResetColors() { }
+public static void ResetForeground() { }
+public static void ResetBackground() { }
+public static string RenderResetColors() { }
+public static string RenderResetForeground() { }
+public static string RenderResetBackground() { }
+public static void RevertColors() { }
+public static void RevertForeground() { }
+public static void RevertBackground() { }
+public static string RenderRevertColors() { }
+public static string RenderRevertForeground() { }
+public static string RenderRevertBackground() { }
+public static void DetermineTrueColorFromUser() { }
+```
+
+To prepare the Color class for decoupling, we've managed to move all Terminaux-specific functions and properties, alongside the functionality, to independent classes that Terminaux applications can rely on. Those classes extend Colorimetry's original color class that was taken straight from Terminaux after the preparation stage.
+
+{% hint style="info" %}
+You'll need to update all references to those functions to point to the new class. Additionally, if you're using `VTSequence*` properties, they have now become extension functions, which means that you'll have to add the `()` marks at the end of each call.
+{% endhint %}
+
+### Moved the themes system to Terminaux.Themes
+
+```csharp
+namespace Terminaux.Colors.Themes { }
+namespace Terminaux.Colors.Themes.Colors { }
+```
+
+As the themes system is not going to be part of Colorimetry due to large portions of the theme system using Terminaux-specific console features, we've decided to move the themes system and their classes to a new namespace, which is `Terminaux.Themes`.
+
+{% hint style="info" %}
+You'll need to update all using clauses to point to `Terminaux.Themes` and `Terminaux.Themes.Colors`.
+{% endhint %}

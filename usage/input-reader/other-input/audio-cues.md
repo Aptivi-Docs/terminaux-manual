@@ -3,7 +3,7 @@ description: Click, click, click!
 icon: waveform
 ---
 
-# Audio cues
+# Audio Cues
 
 Audio cues on Terminaux give your terminal applications an ability to emit audible feedback when a key is pressed. This makes sure that your terminal applications notify you what kind of key you pressed.
 
@@ -21,3 +21,11 @@ Make sure that your computer has the sound drivers installed. For more informati
 {% endhint %}
 
 The terminal reader overrides the above settings and uses its own settings, depending on the settings instance. For more information, you can consult [this page here](../reader-settings.md).
+
+## Independent audio cues
+
+Additionally, you can play an audio cue manually and independently by calling the `PlayKeyAudioCue()` function from the `ConsoleAcoustic` class. It allows you to select an audio cue to play, while you can optionally specify a terminal reader settings instance.
+
+{% hint style="info" %}
+Since this feature uses BassBoom, you'll need to make sure that your computer has sound drivers installed. If an audio cue failed to play, you'll not be able to play further audio cues, and you'll have to use the `ForceRecheck()` function to tell Terminaux to check BassBoom again when an audio cue plays for the next time.
+{% endhint %}

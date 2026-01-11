@@ -78,3 +78,15 @@ A structure that describes vertical margin is called `VerticalPad`, which the `M
 A structure that describes horizontal margin is called `HorizontalPad`, which the `Margin` structure uses internally. It's a measurement structure that returns a total width when both the left and the right margins are applied. It contains the following properties:
 
 * `Width`: Processed width with margin padding applied
+
+## Rectangle
+
+A structure that defines the rectangle and its coordinates for each corner is called `Rect`. It specifies the four coordinates for each corner, as well as the rectangle width and height, starting from the upper left corner. For example, if a rectangle is located at (2,1), and the size is 8x5, the following properties will be set:
+
+* `Coordinate`: 2,1
+* `CoordinateEnd`: 10,6
+* `CoordinateUpperRight`: 10,1
+* `CoordinateLowerLeft`: 2,6
+* `Size`: 8x5
+
+This helps in determining the positions of the corners without having to perform complex calculations.

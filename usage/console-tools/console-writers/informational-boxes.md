@@ -44,6 +44,17 @@ You can use `SetForegroundColor()` and `SetBackgroundColor()` functions to reset
 
 All informational boxes, modal or non-modal, utilizes the `InfoBox` class to specify how to write the informational box to the console, such as positioning, text, and settings. If you want to create a custom infobox not covered in any of the below pre-defined infobox styles, you'll have to refer to their [source code](https://github.com/Aptivi/Terminaux/tree/main/public/Terminaux/Inputs/Styles/Infobox) and create the style handler yourself.
 
+Non-modal informational boxes can also be used as a pseudo-cyclic writer because it has a function called `Render()`, which behaves similarly to that of a cyclic writer by returning a buffer that would get printed to a console as a string. This function allows you to provide the following arguments:
+
+* `increment`: Incrementation rate for paged text in the text area (usually passed initialized to 0)
+* `currIdx`: Current index of text line in the text area
+* `drawBar`: Whether to draw the slider bar for the text area or not
+* `writeBinding`: Whether to write the key bindings in the upper right corner of the box or not
+
+{% hint style="info" %}
+If you provided increment as a ref variable, all the arguments that come after it will be required.
+{% endhint %}
+
 ## Modal informational boxes
 
 Informational box styles of this nature are modal. They require input from the end user in order to present information to the user with action. These boxes are common in interactive console applications where information is to be conveyed to the user. They are presented in a different style, based on how or what action the user needs to take, and their borders are customizable with the `BorderSettings` instance.
@@ -105,6 +116,8 @@ This style only prints information that the end user needs to read. This is suit
 <figure><img src="../../../.gitbook/assets/image (185).png" alt=""><figcaption></figcaption></figure>
 
 This style allows you to define a minimum, a current, and a maximum value of an integral value that can only be described as surrounded between the minimum value and the maximum value. For example, a slider that has a minimum value of 5 and a maximum value of 10 can only accept values of between 5 and 10, which means 5, 6, 7, 8, 9, and 10. You can use this style with the `InfoBoxSliderColor` class.
+
+You can use left arrow to decrement a value by 1, and you can use right arrow to increment a value by 1. Additionally, if you're holding the SHIFT key while pressing the mentioned arrow keys, you'll decrement or increment a value by 100. Additionally, you can use the spacebar to manually enter the value, in case using arrow keys is unfeasible even with SHIFT.
 
 ### Selection styles
 

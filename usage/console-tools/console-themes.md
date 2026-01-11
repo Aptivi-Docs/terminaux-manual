@@ -224,18 +224,6 @@ Each of these two functions get a list of kernel color types known by the color 
 * <kbd>Arrow Left</kbd>: Switches to the previous color type
 * <kbd>Arrow Right</kbd>: Switches to the next color type
 
-## Other tools
-
-There are other color-related tools that are relevant when making themes, such as the color conversion.
-
-### Color conversion
-
-Your theme files can also support any specifier, as long as the specifier is supported by Terminaux. You can consult the page below:
-
-{% content-ref url="../color-sequences/" %}
-[color-sequences](../color-sequences/)
-{% endcontent-ref %}
-
 ## Color types <a href="#color-types" id="color-types"></a>
 
 Terminaux provides you with the following color types to help you make an inspiring theme with nice colors for each type:
@@ -291,7 +279,22 @@ Terminaux provides you with the following color types to help you make an inspir
 | `TuiKeyBindingBuiltinBackgroundColor` | Interactive TUI builtin key binding background color  |
 | `TuiKeyBindingBuiltinForegroundColor` | Interactive TUI builtin key binding foreground color  |
 | `TuiKeyBindingBuiltinColor`           | Interactive TUI builtin key binding color             |
+| `ProgressFailed`                      | Progress failed text                                  |
+| `ProgressPaused`                      | Progress paused text                                  |
+| `ProgressWarning`                     | Progress warning text                                 |
 
 ### Custom types
 
 In addition to the above types, the custom types can also be populated in the same way a built-in type would in the theme structure file. You can use any name as a custom theme color type, and the theme manager will automatically determine what color to use based on a custom type.
+
+## Other tools
+
+There are other color-related tools that are relevant when making themes, such as the color conversion.
+
+### Color conversion
+
+Your theme files can also support any specifier, as long as the specifier is supported by Colorimetry. You can consult the page below:
+
+{% content-ref url="../color-sequences/" %}
+[color-sequences](../color-sequences/)
+{% endcontent-ref %}

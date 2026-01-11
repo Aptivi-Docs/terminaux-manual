@@ -14,6 +14,7 @@ The terminal reader state class contains the below most important variables that
 * `InputPromptLeftBegin` and `InputPromptTopBegin`: Specifies the zero-based X and Y position that indicates the first character of where the first line of the input prompt is being written.
 * `InputPromptLeft` and `InputPromptTop`: Specifies the zero-based X and Y position that indicates the first character of the input text in the first line of the input. It includes the left margin and the length of the last input prompt line.
 * `LeftMargin` and `RightMargin`: Specifies the left margin and the right margin.
+* `Width`: Sets the width of the input reader as either the specified value or the available width
 * `CurrentCursorPosLeft` and `CurrentCursorPosTop`: Specifies the current console cursor position relative to the current text position.
 * `MaximumInputPositionLeft`: Specifies the maximum zero-based X position of the input that indicates the boundary of the input according to the right margin.
 * `LongestSentenceLengthFromLeft`: Specifies the longest sentence length from the leftmost position with respect to the right margin.

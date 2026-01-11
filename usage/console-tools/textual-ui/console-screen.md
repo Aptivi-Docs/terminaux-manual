@@ -61,7 +61,7 @@ The screen instance in question shows you two rulers:
 * A horizontal ruler that shows you the width of the console window
 * A vertical ruler that shows you the height of the console window
 
-{% @github-files/github-code-block url="https://github.com/Aptivi/Terminaux/blob/main/Terminaux.Console/Fixtures/Cases/TestScreen.cs" %}
+{% @github-files/github-code-block url="https://github.com/Aptivi/Terminaux/blob/main/private/Terminaux.Console/Fixtures/Cases/Screens/TestScreen.cs" visible="true" %}
 
 ### More details
 
@@ -128,6 +128,23 @@ In addition to these functions, you can use some of the console manipulation too
 
 If you want to clear the queue list without printing the buffers to the console, you can clear the list of dynamic buffers using the `Clear()` function. You can also control its visibility using the Visible property.
 
+#### Screen overlays
+
+Screen overlays render on top of whatever gets rendered on the screen to act as an overlay, and uses a completely independent screen part as the overlay, but there are two types of screen overlays:
+
+* Screen-specific overlays (`OverlayPart`): These overlays are specific to a screen instance, and you can choose a screen part that will act as an overlay.
+* Global screen overlays (`GlobalOverlayPart`): These overlays are just a single overlay for all screen instances, and there can only be one screen part that can act as this overlay. Global screen overlays also act as an overlay on top of screen-specific overlays.
+
+You can set a screen overlay by setting any of the two properties in the screen instance, knowing that you'll have to refer to a base screen class for the global overlay.
+
+```csharp
+// Screen-specific overlays
+stickScreen.OverlayPart = pinkOverlayBox;
+
+// Global screen overlays
+Screen.GlobalOverlayPart = cyanOverlayBox;
+```
+
 #### Screen Tools
 
 The screen feature contains a set of tools that allow you to manipulate with a screen and its associated parts.
@@ -135,10 +152,10 @@ The screen feature contains a set of tools that allow you to manipulate with a s
 Setting a current screen requires you to provide `SetCurrent()` with a console screen instance once you're done making your own screen and filling it with necessary printing strings, such as an interactive TUI or a simple two rulers resizable application as provided in the example at the top of the page. Once the current screen is set, `CurrentScreen` returns your screen instance.
 
 {% hint style="info" %}
-`CurrentScreen` returns `null` upon calling it with no screen set. Therefore, it's advisable to check for this case when trying to access it if you don't set more than one screen as a default.
+`CurrentScreen` returns `null` upon calling it with no screen set. Therefore, it's advisable to check for this case when trying to access it if you don't set more than one screen as a default. The easy way to perform such a check is using `IsOnScreen`.
 {% endhint %}
 
-Once you set the current screen to render, you've made that screen the default screen. As a result, if your console has enabled Terminaux's console resize listener, once it detects that your console has resized itself, the screen will be re-drawn to accommodate with the new console size. To turn on this listener, follow the instructions highlighted in the below page:
+Once you set the current screen to render, you've made that screen the default screen. The default screen will be added as a last entry to the list of screens, which you can easily access via the `Screens` property. As a result, if your console has enabled Terminaux's console resize listener, once it detects that your console has resized itself, the screen will be re-drawn to accommodate with the new console size. To turn on this listener, follow the instructions highlighted in the below page:
 
 {% content-ref url="console-resize-listener.md" %}
 [console-resize-listener.md](console-resize-listener.md)

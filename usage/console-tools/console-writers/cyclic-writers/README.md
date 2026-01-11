@@ -82,7 +82,7 @@ The following built-in cyclic writers are available:
 You can define a container by creating a new instance of the `Container` class and adding some of the renderables that can be identified by their name. You can also set their positions using the `SetRenderablePosition()` function, and you can set their sizes using the `SetRenderableSize()` function. If you don't want to use a container, you can use the `RenderRenderable()` function or the `WriteRenderable()` function from the `RendererTools` class to render a specific renderable in a specific position and to write the result to the console, respectively.
 
 {% hint style="info" %}
-Some of the renderables may override the position variable for a renderable and may use the values from the renderables' properties.
+Some of the renderables may override the position variable for a renderable and may use the values from the renderables' properties. You can, however, control this behavior by setting any of the `ignoreSetPositions` (ignores the renderable positions and sets them to 0,0) and `ignoreSetSize` (ignores the renderable sizes and sets them to the maximum console dimensions) arguments.
 {% endhint %}
 
 In addition to that, you can manipulate with a renderable using the following functions:

@@ -275,14 +275,12 @@ In addition to the above features, you can also make use of the other tools belo
 
 In the `ColorTools` class, you can find two functions that translate between the two color mappings:
 
-*   If you want to translate from `ConsoleColor` to X11's representation (`ConsoleColors`), use the `TranslateToX11ColorMap()` function, provided that its signature is:\
-
+*   If you want to translate from `ConsoleColor` to X11's representation (`ConsoleColors`), use the `TranslateToX11ColorMap()` function, provided that its signature is:<br>
 
     ```csharp
     public static ConsoleColors TranslateToX11ColorMap(ConsoleColor color)
     ```
-*   If you want to translate from `ConsoleColors` to .NET's representation (`ConsoleColor`), use the `TranslateToStandardColorMap()` function, provided that its signature is:\
-
+*   If you want to translate from `ConsoleColors` to .NET's representation (`ConsoleColor`), use the `TranslateToStandardColorMap()` function, provided that its signature is:<br>
 
     ```csharp
     public static ConsoleColor TranslateToStandardColorMap(ConsoleColors color)
@@ -408,7 +406,7 @@ public Color OpacityColor
 ```
 {% endcode %}
 
-When the opacity is set to 255, you're making a completely opaque color that holds just the color that you've chosen. However, when you choose any other opacity, such as 50% transparent (128), you're mixing 50% of your color with 50% of either the current console background color or your selected opacity blending color. If you choose 0%, you're essentially getting the opacity color that is opaque.
+When the opacity is set to 255, you're making a completely opaque color that holds just the color that you've chosen. However, when you choose any other opacity, such as 50% transparent (128), you're mixing 50% of your color with 50% of either the black color or your selected opacity blending color. If you choose 0%, you're essentially getting the opacity color that is opaque.
 
 {% hint style="info" %}
 Generally, it's recommended to set these two properties in a separate `ColorSettings` instance, unless you're making experiments. The color selector allows you to select the global transparency, but it may affect all the colors, even if closed.
@@ -416,6 +414,8 @@ Generally, it's recommended to set these two properties in a separate `ColorSett
 
 {% hint style="warning" %}
 This is not a real transparency, but a simulated one. That doesn't make text and elements rendered on top of the elements visible for the opacity that you choose. For example, you don't get to see text that is over-written by another text if you set the opacity.
+
+Additionally, the default color that gets chosen is the black color, which may not match the background color of the terminal. In this case, you'll have to manually set the opacity color to the current background color. This is because the migration to Colorimetry was planned at the time.
 {% endhint %}
 
 ### Gradients

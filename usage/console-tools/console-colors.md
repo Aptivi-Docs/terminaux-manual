@@ -5,13 +5,13 @@ icon: palette
 
 # Console Colors
 
-In addition to all of the Terminaux's features, we also provide you with a rich class for console color tools. Here are the supported properties and functions that you can use in your console applications:
+In addition to all of the Terminaux's features, we also provide you with a rich class, `ConsoleColoring`, for console color tools. Here are the supported properties and functions that you can use in your console applications:
 
 * Setting the console color
 * Setting the console color dryly
 * ...and more
 
-For more color functions and to get started making the color sequences, you can consult the below page:
+For more color functions and to get started making the color sequences, you can consult the below page from Colorimetry:
 
 {% content-ref url="../color-sequences/" %}
 [color-sequences](../color-sequences/)
@@ -21,7 +21,7 @@ For more color functions and to get started making the color sequences, you can 
 
 The console tools class provides you with two properties that allow you to get the current foreground and the background color.
 
-{% code title="ColorTools.cs" lineNumbers="true" %}
+{% code title="ConsoleColoring.cs" lineNumbers="true" %}
 ```csharp
 public static Color CurrentForegroundColor
 public static Color CurrentBackgroundColor
@@ -32,7 +32,7 @@ public static Color CurrentBackgroundColor
 
 The console tools class provides you with two functions that set the console foreground and background colors both dryly and permanently.
 
-{% code title="ColorTools.cs" lineNumbers="true" %}
+{% code title="ConsoleColoring.cs" lineNumbers="true" %}
 ```csharp
 public static void SetConsoleColor(Color ColorSequence, bool Background = false, bool ForceSet = false, bool canSetBackground = true)
 public static void SetConsoleColorDry(Color ColorSequence, bool Background = false, bool ForceSet = false, bool canSetBackground = true)
@@ -67,7 +67,7 @@ if you don't want the color to leak. As for the background colors, consider thes
 
 The console color tools class also provides you with background loading functions that allow you to quickly clear the console with the selected background color.
 
-{% code title="ColorTools.cs" lineNumbers="true" %}
+{% code title="ConsoleColoring.cs" lineNumbers="true" %}
 ```csharp
 public static void LoadBack()
 public static void LoadBack(Color ColorSequence, bool Force = false)
