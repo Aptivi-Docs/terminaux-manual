@@ -295,6 +295,6 @@ There are other color-related tools that are relevant when making themes, such a
 
 Your theme files can also support any specifier, as long as the specifier is supported by Colorimetry. You can consult the page below:
 
-{% content-ref url="/broken/pages/czIMWQ4eW2EKpKUoCp3b" %}
-[Broken link](/broken/pages/czIMWQ4eW2EKpKUoCp3b)
+{% content-ref url="https://app.gitbook.com/s/BdESDsiuTO9fbDXLJ8HV/usage/color-sequences/color-model-conversions" %}
+[Color Model Conversions](https://app.gitbook.com/s/BdESDsiuTO9fbDXLJ8HV/usage/color-sequences/color-model-conversions)
 {% endcontent-ref %}

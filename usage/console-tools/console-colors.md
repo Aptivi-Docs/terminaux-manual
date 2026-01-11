@@ -23,8 +23,8 @@ Support for 16-bit colors and 256-colors requires a compatible terminal emulator
 
 For more color functions and to get started making the color sequences, you can consult the below page from Colorimetry:
 
-{% content-ref url="/broken/pages/czIMWQ4eW2EKpKUoCp3b" %}
-[Broken link](/broken/pages/czIMWQ4eW2EKpKUoCp3b)
+{% content-ref url="https://app.gitbook.com/s/BdESDsiuTO9fbDXLJ8HV/usage/color-sequences" %}
+[Color Sequences](https://app.gitbook.com/s/BdESDsiuTO9fbDXLJ8HV/usage/color-sequences)
 {% endcontent-ref %}
 
 ## Current colors
