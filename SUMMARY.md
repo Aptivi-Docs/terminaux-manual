@@ -44,6 +44,7 @@
   * [Test Fixtures](usage/console-tools/test-fixtures.md)
   * [Terminal Structures](usage/console-tools/terminal-structures.md)
   * [Console Logging](usage/console-tools/console-logging.md)
+  * [Interop with Spectre.Console](usage/console-tools/interop-with-spectre.console.md)
 * [Input Reader](usage/input-reader/README.md)
   * [Shells](usage/input-reader/shells/README.md)
     * [Shell Structure](usage/input-reader/shells/shell-structure/README.md)
@@ -71,11 +72,6 @@
   * [Reader Settings](usage/input-reader/reader-settings.md)
   * [Syntax Highlighting](usage/input-reader/syntax-highlighting.md)
   * [Pointer Events](usage/input-reader/pointer-events.md)
-* [Color Sequences](usage/color-sequences/README.md)
-  * [Color Model Conversions](usage/color-sequences/color-model-conversions.md)
-  * [Color Model Parsing](usage/color-sequences/color-model-parsing.md)
-  * [Interop with System.Drawing.Color](usage/color-sequences/interop-with-system.drawing.color.md)
-* [Interop with Spectre.Console](usage/interop-with-spectre.console.md)
 
 ***
 

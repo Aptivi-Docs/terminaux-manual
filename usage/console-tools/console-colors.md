@@ -11,10 +11,20 @@ In addition to all of the Terminaux's features, we also provide you with a rich 
 * Setting the console color dryly
 * ...and more
 
+{% hint style="info" %}
+Please note that some consoles don't support 256 colors and/or 16-bit colors, and some of them might implement these poorly (Terminal.app (`Apple_Terminal`) for example).
+
+Support for 16-bit colors and 256-colors requires a compatible terminal emulator.
+
+* Windows systems: ConEmu, Windows 10 cmd.exe with VT sequences enabled
+* Linux systems: xterm, GNOME Terminal, Konsole, etc.
+* macOS systems: iTerm2 only
+{% endhint %}
+
 For more color functions and to get started making the color sequences, you can consult the below page from Colorimetry:
 
-{% content-ref url="../color-sequences/" %}
-[color-sequences](../color-sequences/)
+{% content-ref url="/broken/pages/czIMWQ4eW2EKpKUoCp3b" %}
+[Broken link](/broken/pages/czIMWQ4eW2EKpKUoCp3b)
 {% endcontent-ref %}
 
 ## Current colors
@@ -90,7 +100,20 @@ If you have a Windows system, you can call a function that allows you to initial
 If you have already set the VT sequence processing using a registry key found in `HKEY_CURRENT_USER\Console\VirtualTerminalLevel`, this function does nothing.
 {% endhint %}
 
-## Resetting the colors
+## Resetting the colors and the console
+
+Terminaux provides a console extension that allows you to perform a hard reset using the two VT sequences. When invoked, the terminal will perform two resets:
+
+* Full reset (ESC sequence)
+* Soft reset (CSI sequence)
+
+After the reset is done, the screen will be cleared with all the colors reverted to their initial state. The signature is defined below:
+
+```csharp
+public static void ResetAll()
+```
+
+### Resetting the colors
 
 You can also reset the colors either fully or selectively (foreground or background) by calling one of the following functions:
 
@@ -98,7 +121,7 @@ You can also reset the colors either fully or selectively (foreground or backgro
 * `ResetForeground()`: Resets the foreground color.
 * `ResetBackground()`: Resets the background color.
 
-## Reverting the colors
+### Reverting the colors
 
 Reverting the colors to their currently set colors monitored by Terminaux can be done easily by calling one of the following functions:
 

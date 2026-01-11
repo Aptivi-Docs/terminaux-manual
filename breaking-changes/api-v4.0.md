@@ -147,7 +147,7 @@ The `Hsl` property and the class have been removed because it's unnecessary, giv
 This is to simplify the console color data by removing extraneous entries from the color data JSON file itself that Terminaux uses to fetch the color data.
 
 {% hint style="info" %}
-If you want to access the HSL info of a console color, you should convert the RGB instance that the `RGB` property returns using the available conversion tools pinpointed in [this page](../usage/color-sequences/color-model-conversions.md).
+If you want to access the HSL info of a console color, you should convert the RGB instance that the `RGB` property returns using the available conversion tools pinpointed in [this page](/broken/pages/NZgFd0DhwOvMQodzqQ6z).
 {% endhint %}
 
 ### Simplified the color blindness formula

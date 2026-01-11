@@ -1,6 +1,6 @@
 ---
-icon: pen
 description: We need to write to the console
+icon: pen
 ---
 
 # Console Writers
@@ -31,4 +31,4 @@ This is all found in the `Terminaux.Writer.CyclicWriters.Renderer.Markup` namesp
   * `standout`
   * `strikethrough`
   * `underline`
-* [Color specifiers](../../color-sequences/) that Terminaux can parse, such as `Red`, `#FF0000`, or `255;0;0`.
+* [Color specifiers](/broken/pages/czIMWQ4eW2EKpKUoCp3b) that Terminaux can parse, such as `Red`, `#FF0000`, or `255;0;0`.

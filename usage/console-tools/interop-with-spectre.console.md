@@ -9,7 +9,7 @@ If you are using [Spectre.Console](https://www.nuget.org/packages/Spectre.Consol
 
 In a separate library, [Terminaux.Spectre](https://www.nuget.org/packages/Terminaux.Spectre/), you can perform translation operations. Please note that, when installing this package, Spectre.Console is also installed as a dependency.
 
-<figure><img src="../.gitbook/assets/image (151).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (151).png" alt=""><figcaption></figcaption></figure>
 
 You can translate Terminaux's renderables into Spectre.Console's renderables, but you can't translate the other way around due to how Spectre.Console implements them. The following translation methods are supported:
 

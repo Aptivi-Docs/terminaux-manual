@@ -60,8 +60,8 @@ The following color categories are supported:
 
 What follows the metadata is a list of available color types and their color representations using Terminaux's supported color formats, which are linked in the below page:
 
-{% content-ref url="../color-sequences/" %}
-[color-sequences](../color-sequences/)
+{% content-ref url="/broken/pages/czIMWQ4eW2EKpKUoCp3b" %}
+[Broken link](/broken/pages/czIMWQ4eW2EKpKUoCp3b)
 {% endcontent-ref %}
 
 {% hint style="warning" %}
@@ -295,6 +295,6 @@ There are other color-related tools that are relevant when making themes, such a
 
 Your theme files can also support any specifier, as long as the specifier is supported by Colorimetry. You can consult the page below:
 
-{% content-ref url="../color-sequences/" %}
-[color-sequences](../color-sequences/)
+{% content-ref url="/broken/pages/czIMWQ4eW2EKpKUoCp3b" %}
+[Broken link](/broken/pages/czIMWQ4eW2EKpKUoCp3b)
 {% endcontent-ref %}
