@@ -98,7 +98,7 @@ Selection style input method uses choices to present you with a full-screen inte
 {% hint style="info" %}
 All selection style answers return the following:
 
-* A one-based answer number if it's a single selection.
+* A zero-based answer index if it's a single selection in Terminaux 8.1 or higher, and a one-based answer number if it's a single selection in Terminaux 8.0 or lower.
 * A zero-based array of answer numbers if it's a multiple selection.
 
 Write your code accordingly to avoid errors.

@@ -58,18 +58,14 @@ The following color categories are supported:
 * `Linux`: Themes that describe the Linux distro logo colors
 {% endhint %}
 
-What follows the metadata is a list of available color types and their color representations using Terminaux's supported color formats, which are linked in the below page:
+What follows the metadata is a list of available color types and their color representations using the following supported color formats that Colorimetry supports.
 
-{% content-ref url="/broken/pages/czIMWQ4eW2EKpKUoCp3b" %}
-[Broken link](/broken/pages/czIMWQ4eW2EKpKUoCp3b)
+{% content-ref url="https://app.gitbook.com/s/BdESDsiuTO9fbDXLJ8HV/usage/color-sequences" %}
+[Color Sequences](https://app.gitbook.com/s/BdESDsiuTO9fbDXLJ8HV/usage/color-sequences)
 {% endcontent-ref %}
 
 {% hint style="warning" %}
 Make sure that the event start month and day is earlier than the end month and day. The theme parser will swap the day values and will add a year (end month is bigger than the start) if it detects that the start date is later than the end date (i.e. events can't end before they start).
-{% endhint %}
-
-{% hint style="info" %}
-For themes with accent colors, you have to re-apply the theme using `themeset` after setting the accent color.
 {% endhint %}
 
 ## Theme tools
@@ -118,6 +114,30 @@ Each function does the following:
 
 * The first function gets the theme name and fetches its `ThemeInfo` instance. Then, it calls the second one.
 * The second function gets all the colors from a theme and updates them if there are color types that use the color accent.
+
+### Editing a theme
+
+You can edit a theme using a modified `ThemeInfo` instance to overwrite it with a new theme using `EditTheme()` that is defined below:
+
+{% code title="ThemeTools.cs" lineNumbers="true" %}
+```csharp
+public static void EditTheme(string theme, ThemeInfo themeInfo) { }
+```
+{% endcode %}
+
+This function replaces an existing theme with the new `ThemeInfo` instance. This is useful if you want to save changes to the existing theme or override its colors.
+
+### Resetting a theme
+
+You can reset a theme using the `ResetTheme()` function:
+
+{% code title="ThemeTools.cs" lineNumbers="true" %}
+```csharp
+public static void ResetTheme(string theme) { }
+```
+{% endcode %}
+
+This function resets all theme colors to their default settings according to the metadata token that holds initial theme color type definitions.
 
 ### Using `ThemeInfo` or `GetThemeInfo()` to get theme information
 
@@ -184,6 +204,21 @@ Each function takes either a theme name, an instance of `ThemeInfo`, or a dictio
 
 * The 255-color requirement functions check the `Color` instance for the type and return `true` if the type is 255 colors. Also, they return `true` if the theme requires true colors.
 * The true color requirement functions check the `Color` instance for the type and return `true` if the type is true colors.
+
+### Getting and setting theme colors
+
+You can get and set theme colors individually from the `ThemeInfo` instance using a specific type as an argument. Getting colors from a theme can be achieved using the `GetColor()` function, and setting colors in a theme can be achieved using the `SetColor()` function.
+
+{% code title="ThemeInfo.cs" lineNumbers="true" %}
+```csharp
+public Color GetColor(ThemeColorType type) { }
+public Color GetColor(string type) { }
+public void SetColor(ThemeColorType type, Color color) { }
+public void SetColor(string type, Color color) { }
+```
+{% endcode %}
+
+Each function takes either a named theme color type or an enumerated type that is of type `ThemeColorType` to specify what theme color type you want to get the color from. The `SetColor()` functions require that the color be specified.
 
 ## Theme preview tools
 

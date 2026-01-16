@@ -131,3 +131,13 @@ As the themes system is not going to be part of Colorimetry due to large portion
 {% hint style="info" %}
 You'll need to update all using clauses to point to `Terminaux.Themes` and `Terminaux.Themes.Colors`.
 {% endhint %}
+
+### Consistency in selection style TUI indexes
+
+In the `SelectionStyle` class, we've made the experience more consistent by letting all returned answer numbers in the single-selection style TUIs become zero-based. This was because the multiple selection style TUI used zero-based numbers, while the single selection style TUI originally used the one-based answer numbers, and this traces back to when Nitrocid 0.0.20.0 was under early development on October 2021 as per [this commit](https://github.com/Aptivi/Nitrocid/commit/9b6c35515d1ad2b5d9397e0a752b845c21f7a08d).
+
+Now, we've cleaned that up by making the numbers become indexes, thus making them zero-based.
+
+{% hint style="warning" %}
+You'll need to adjust the code to handle the new logic. For example, you used to subtract 1 from the resultant number (for example, `selected - 1`). Now, you don't subtract the number itself (for example, `selected`).
+{% endhint %}
