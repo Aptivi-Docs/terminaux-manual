@@ -154,6 +154,7 @@ The following extensions that don't fit in any of the categories can be used in 
 * `Bell()`
 * `IsOnAltBuffer`
 * `TabWidth`
+* `SetEncoding()` (Windows only) &#x20;
 
 ### Tab width
 
