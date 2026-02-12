@@ -10,13 +10,12 @@
   * [API v6.0](breaking-changes/api-v6.0.md)
   * [API v7.0](breaking-changes/api-v7.0.md)
   * [API v8.0](breaking-changes/api-v8.0.md)
+* [Installation and Upgrade](https://app.gitbook.com/s/Id4bob6wnHvpX4zbVVtI/csharp-libraries/installation-and-upgrade)
 
 ## Usage
 
 * [Preface](usage/preface.md)
 * [Console Tools](usage/console-tools/README.md)
-  * [Image Rendering](usage/console-tools/image-rendering/README.md)
-    * [Icons](usage/console-tools/image-rendering/icons.md)
   * [Console Writers](usage/console-tools/console-writers/README.md)
     * [Individual Writers](usage/console-tools/console-writers/individual-writers.md)
     * [Cyclic Writers](usage/console-tools/console-writers/cyclic-writers/README.md)
@@ -33,6 +32,7 @@
     * [Console Screen](usage/console-tools/textual-ui/console-screen.md)
     * [Console Resize Listener](usage/console-tools/textual-ui/console-resize-listener.md)
     * [VT Sequences](usage/console-tools/textual-ui/vt-sequences.md)
+  * [Image Rendering](usage/console-tools/image-rendering.md)
   * [Console Checker](usage/console-tools/console-checker.md)
   * [Console Wrapper](usage/console-tools/console-wrapper.md)
   * [Console Colors](usage/console-tools/console-colors.md)

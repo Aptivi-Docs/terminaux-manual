@@ -7,11 +7,15 @@ icon: up
 
 Here is a list of breaking changes that happened during the API v8.0 period when differing versions of Terminaux introduced breaking changes.
 
-## From 7.0.x to 8.0.x
+***
+
+## <mark style="color:$primary;">From 7.0.x to 8.0.x</mark>
 
 Between the 7.0.x and 8.0.x version range, we've made the following breaking changes:
 
-### BassBoom library path settings moved
+<details>
+
+<summary>BassBoom library path settings moved</summary>
 
 {% code title="TermReaderSettings.cs" lineNumbers="true" %}
 ```csharp
@@ -29,13 +33,17 @@ The BassBoom library path is supposed to be set once, because BassBoom loads the
 Update all references to this property to use the new location.
 {% endhint %}
 
-### General console checker removed
+</details>
+
+<details>
+
+<summary>General console checker removed</summary>
 
 {% code title="ConsoleChecker.cs" lineNumbers="true" %}
 ```csharp
-public static void CheckConsole() {}
-public static void AddToCheckWhitelist(Assembly asm) {}
-public static void RemoveFromCheckWhitelist(Assembly asm) {}
+public static void CheckConsole() { }
+public static void AddToCheckWhitelist(Assembly asm) { }
+public static void RemoveFromCheckWhitelist(Assembly asm) { }
 ```
 {% endcode %}
 
@@ -45,14 +53,18 @@ We have removed the general console checker as part of an ongoing effort to prop
 If you are still using the console checker, you'll either have to downgrade to Terminaux 7.x, or you'll have to re-implement the checker yourself according to your requirements.
 {% endhint %}
 
-### Console filter removed
+</details>
+
+<details>
+
+<summary>Console filter removed</summary>
 
 {% code title="ConsoleFilter*.cs" lineNumbers="true" %}
 ```csharp
-public static class ConsoleFilter {}
-public class ConsoleFilterInfo {}
-public enum ConsoleFilterSeverity {}
-public enum ConsoleFilterType {}
+public static class ConsoleFilter { }
+public class ConsoleFilterInfo { }
+public enum ConsoleFilterSeverity { }
+public enum ConsoleFilterType { }
 ```
 {% endcode %}
 
@@ -62,11 +74,17 @@ We have removed the console filter feature as part of an ongoing effort to prope
 If you are still using the console filter, you'll either have to downgrade to Terminaux 7.x, or you'll have to re-implement the filter yourself according to your requirements.
 {% endhint %}
 
-## From 8.0.x to 8.1.x
+</details>
+
+***
+
+## <mark style="color:$primary;">From 8.0.x to 8.1.x</mark>
 
 Between the 8.0.x and 8.1.x version range, we've made the following breaking changes:
 
-### Decoupling color class prepared
+<details>
+
+<summary>Decoupling color class prepared</summary>
 
 ```csharp
 // Moved to ColorExtensions as functions
@@ -119,7 +137,11 @@ To prepare the Color class for decoupling, we've managed to move all Terminaux-s
 You'll need to update all references to those functions to point to the new class. Additionally, if you're using `VTSequence*` properties, they have now become extension functions, which means that you'll have to add the `()` marks at the end of each call.
 {% endhint %}
 
-### Moved the themes system to Terminaux.Themes
+</details>
+
+<details>
+
+<summary>Moved the themes system to <code>Terminaux.Themes</code></summary>
 
 ```csharp
 namespace Terminaux.Colors.Themes { }
@@ -132,12 +154,20 @@ As the themes system is not going to be part of Colorimetry due to large portion
 You'll need to update all using clauses to point to `Terminaux.Themes` and `Terminaux.Themes.Colors`.
 {% endhint %}
 
-### Consistency in selection style TUI indexes
+</details>
 
-In the `SelectionStyle` class, we've made the experience more consistent by letting all returned answer numbers in the single-selection style TUIs become zero-based. This was because the multiple selection style TUI used zero-based numbers, while the single selection style TUI originally used the one-based answer numbers, and this traces back to when Nitrocid 0.0.20.0 was under early development on October 2021 as per [this commit](https://github.com/Aptivi/Nitrocid/commit/9b6c35515d1ad2b5d9397e0a752b845c21f7a08d).
+<details>
+
+<summary>Consistency in selection style TUI indexes</summary>
+
+In the `SelectionStyle` class, we've made the experience more consistent by letting all returned answer numbers in the single-selection style TUIs become zero-based.
+
+This was because the multiple selection style TUI used zero-based numbers, while the single selection style TUI originally used the one-based answer numbers, and this traces back to when Nitrocid 0.0.20.0 was under early development on October 2021 as per [this commit](https://github.com/Aptivi/Nitrocid/commit/9b6c35515d1ad2b5d9397e0a752b845c21f7a08d).
 
 Now, we've cleaned that up by making the numbers become indexes, thus making them zero-based.
 
 {% hint style="warning" %}
 You'll need to adjust the code to handle the new logic. For example, you used to subtract 1 from the resultant number (for example, `selected - 1`). Now, you don't subtract the number itself (for example, `selected`).
 {% endhint %}
+
+</details>
