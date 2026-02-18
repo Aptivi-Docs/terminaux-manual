@@ -305,4 +305,38 @@ ContainerTools.WriteRenderable(misc, pos);
 
 <figure><img src="../../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">QR code</mark>
+
+Terminaux provides two writers: the normal QR code writer and the micro QR code writer.
+
+{% tabs %}
+{% tab title="QR code" %}
+```csharp
+var qrCode = new QrCode()
+{
+    ForegroundColor = ConsoleColors.Aqua,
+    Text = "Congrats! You've scanned me!",
+};
+TextWriterRaw.WriteRaw(qrCode.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Micro QR code" %}
+```csharp
+var qrCode = new MicroQrCode()
+{
+    ForegroundColor = ConsoleColors.Aqua,
+    Text = "Congrats!",
+};
+TextWriterRaw.WriteRaw(qrCode.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
+{% endstep %}
 {% endstepper %}

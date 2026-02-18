@@ -171,3 +171,25 @@ You'll need to adjust the code to handle the new logic. For example, you used to
 {% endhint %}
 
 </details>
+
+***
+
+## <mark style="color:$primary;">From 8.1.x to 8.2.x</mark>
+
+Between the 8.1.x and 8.2.x version range, we've made the following breaking changes:
+
+<details>
+
+<summary>Moved color tools to Colorimetry</summary>
+
+We've moved all color tools and classes to the Colorimetry library as a result of the previous changes made to Terminaux in v8.1 during the decoupling process. This allows non-Terminaux apps to use the color features that were originally found within Terminaux.
+
+You can consult the Colorimetry library documentation here:
+
+<a href="https://app.gitbook.com/o/fj052nYlsxW9IdL3bsZj/s/BdESDsiuTO9fbDXLJ8HV/" class="button primary">Colorimetry</a>
+
+{% hint style="info" %}
+In order to continue using color tools and classes, you'll need to use the Colorimetry library.
+{% endhint %}
+
+</details>
