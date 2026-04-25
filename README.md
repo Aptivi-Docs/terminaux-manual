@@ -14,6 +14,18 @@ Terminaux is a library that contains all the common and the extra console tools 
 Below is the release history of the library:
 
 {% updates format="full" %}
+{% update date="2026-04-25" %}
+## <mark style="color:$primary;">v7.0.23</mark>
+
+<mark style="color:yellow;">Fixed ImageMagick security bugs</mark>
+{% endupdate %}
+
+{% update date="2026-04-25" %}
+## <mark style="color:$primary;">v6.1.40</mark>
+
+<mark style="color:yellow;">Fixed ImageMagick security bugs</mark>
+{% endupdate %}
+
 {% update date="2026-04-01" %}
 ## <mark style="color:$primary;">v8.2.1</mark>
 
