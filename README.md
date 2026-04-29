@@ -14,6 +14,20 @@ Terminaux is a library that contains all the common and the extra console tools 
 Below is the release history of the library:
 
 {% updates format="full" %}
+{% update date="2026-04-30" %}
+## <mark style="color:$primary;">v8.3.0</mark>
+
+<mark style="color:green;">Added accurate progress bar design</mark>
+
+<mark style="color:green;">Added pane-specific keybindings</mark>
+
+<mark style="color:green;">Added link markup</mark>
+
+<mark style="color:yellow;">Fixed ImageMagick security bugs</mark>
+
+<mark style="color:yellow;">General improvements and bug fixes</mark>
+{% endupdate %}
+
 {% update date="2026-04-25" %}
 ## <mark style="color:$primary;">v7.0.23</mark>
 
