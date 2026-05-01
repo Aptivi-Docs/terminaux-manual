@@ -14,6 +14,12 @@ Terminaux is a library that contains all the common and the extra console tools 
 Below is the release history of the library:
 
 {% updates format="full" %}
+{% update date="2026-05-01" %}
+## <mark style="color:$primary;">v8.3.0.1</mark>
+
+<mark style="color:yellow;">Fixed accurate progress bar being too wide when it reaches 100%</mark>
+{% endupdate %}
+
 {% update date="2026-04-30" %}
 ## <mark style="color:$primary;">v8.3.0</mark>
 
