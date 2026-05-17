@@ -15,6 +15,24 @@ Below is the release history of the library:
 
 {% updates format="full" %}
 {% update date="2026-05-17" %}
+## <mark style="color:$primary;">v8.4.0.1</mark>
+
+<mark style="color:yellow;">Fixed input issues on FreeBSD systems</mark>
+{% endupdate %}
+
+{% update date="2026-05-17" %}
+## <mark style="color:$primary;">v7.0.24.1</mark>
+
+<mark style="color:yellow;">Fixed input issues on FreeBSD systems</mark>
+{% endupdate %}
+
+{% update date="2026-05-17" %}
+## <mark style="color:$primary;">v6.1.41.1</mark>
+
+<mark style="color:yellow;">Fixed input issues on FreeBSD systems</mark>
+{% endupdate %}
+
+{% update date="2026-05-17" %}
 ## <mark style="color:$primary;">v8.4.0</mark>
 
 <mark style="color:green;">Added timed input</mark>
