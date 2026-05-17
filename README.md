@@ -26,6 +26,22 @@ Below is the release history of the library:
 <mark style="color:yellow;">General improvements and bug fixes</mark>
 {% endupdate %}
 
+{% update date="2026-05-17" %}
+## <mark style="color:$primary;">v7.0.24</mark>
+
+<mark style="color:green;">Added FreeBSD support</mark>
+
+<mark style="color:yellow;">General improvements and bug fixes</mark>
+{% endupdate %}
+
+{% update date="2026-05-17" %}
+## <mark style="color:$primary;">v6.1.41</mark>
+
+<mark style="color:green;">Added FreeBSD support</mark>
+
+<mark style="color:yellow;">General improvements and bug fixes</mark>
+{% endupdate %}
+
 {% update date="2026-05-01" %}
 ## <mark style="color:$primary;">v8.3.0.1</mark>
 
