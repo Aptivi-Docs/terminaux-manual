@@ -13,7 +13,7 @@ To get started, select one of the font types below:
 
 <summary>Cowsay</summary>
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The Cowsay selector allows you to flexibly select a Cowsay font to make reading text more amusing. It provides virtual characters' ASCII art that speaks or thinks, and it shows you a live preview of the font to show how your selected font looks like prior to submission.
 

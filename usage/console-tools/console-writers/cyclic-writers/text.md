@@ -167,6 +167,8 @@ TextWriterRaw.WriteRaw(cowsay2.Render());
 TextWriterRaw.WriteRaw(cowsay3.Render());
 ```
 
+<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
 </details>
 
 <details>
@@ -203,6 +205,8 @@ TextWriterRaw.WriteRaw(cowsay2.Render());
 TextWriterRaw.WriteRaw(cowsay3.Render());
 ```
 
+<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
 </details>
 
 <details>
@@ -238,6 +242,8 @@ TextWriterRaw.WriteRaw(cowsay.Render());
 TextWriterRaw.WriteRaw(cowsay2.Render());
 TextWriterRaw.WriteRaw(cowsay3.Render());
 ```
+
+<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -518,7 +524,7 @@ var cowsay = new CowsayText(CowName.Default, "Hello world!");
 TextWriterRaw.WriteRaw(cowsay.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}

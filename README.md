@@ -15,7 +15,7 @@ Below is the release history of the library:
 
 {% updates format="full" %}
 {% update date="2026-05-17" %}
-## <mark style="color:$primary;">v8.4.0 (WIP)</mark>
+## <mark style="color:$primary;">v8.4.0</mark>
 
 <mark style="color:green;">Added timed input</mark>
 
