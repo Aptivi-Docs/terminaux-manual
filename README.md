@@ -15,6 +15,18 @@ Below is the release history of the library:
 
 {% updates format="full" %}
 {% update date="2026-06-09" %}
+## <mark style="color:$primary;">v6.1.42</mark>
+
+<mark style="color:yellow;">Updated ImageMagick</mark>
+{% endupdate %}
+
+{% update date="2026-06-09" %}
+## <mark style="color:$primary;">v7.0.25</mark>
+
+<mark style="color:yellow;">Updated ImageMagick</mark>
+{% endupdate %}
+
+{% update date="2026-06-09" %}
 ## <mark style="color:$primary;">v8.5.0</mark>
 
 <mark style="color:green;">Added new color models (Colorimetry v1.1.0)</mark>
