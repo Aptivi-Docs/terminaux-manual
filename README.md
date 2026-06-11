@@ -14,6 +14,20 @@ Terminaux is a library that contains all the common and the extra console tools 
 Below is the release history of the library:
 
 {% updates format="full" %}
+{% update date="2026-06-11" %}
+## <mark style="color:$primary;">v8.5.1.1</mark>
+
+<mark style="color:yellow;">Fixed critical bug causing Terminaux applications to crash at startup</mark>
+{% endupdate %}
+
+{% update date="2026-06-11" %}
+## <mark style="color:$primary;">v8.5.1</mark>
+
+<mark style="color:yellow;">Updated terminal info</mark>
+
+<mark style="color:yellow;">Updated Colorimetry</mark>
+{% endupdate %}
+
 {% update date="2026-06-09" %}
 ## <mark style="color:$primary;">v6.1.42</mark>
 
