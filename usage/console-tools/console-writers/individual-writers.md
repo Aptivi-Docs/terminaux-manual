@@ -39,7 +39,7 @@ This class provides you with the necessary functions to allow you to write the t
 
 This writer is the simplest writer with color support, and can be used to write general text to the console effortlessly.
 
-<figure><img src="../../../.gitbook/assets/image (63).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (86).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 The console writers have three variants of writing functions:
@@ -69,7 +69,7 @@ This class provides you with the necessary functions to let you write the list e
 
 This writer allows you to easily write list entries from either an array or an enumerable, such as lists and dictionaries, to the console without having to write loop statements. This is available in both the generic and the non-generic versions.
 
-<figure><img src="../../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (85).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -81,7 +81,7 @@ This class provides you with the necessary functions to allow you to write the h
 
 This writer takes the colors and reverts the background and the foreground colors to make text look like as if it's highlighted.
 
-<figure><img src="../../../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (87).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 By default, the modern way of highlighting specific text using `TextWriterHighlightedColor` is enabled by using a VT sequence intended to reverse the colors. If you still want to use the legacy way, you'll have to set the `legacy` argument to `true` before passing in all the usual parameters.
@@ -97,7 +97,7 @@ This class provides you with the necessary functions to write the text in a spec
 
 This text writer allows you to write text at any position to the console. This moves the cursor to the destination, writes text to the console, and, if instructed, to return to the original position that the cursor was on before the writing process.
 
-<figure><img src="../../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (88).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 

@@ -73,7 +73,7 @@ var chart = new BreakdownChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (119).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (142).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -114,7 +114,7 @@ var chart = new BreakdownChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (120).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (143).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -158,7 +158,7 @@ var chart = new BreakdownChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (130).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (153).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -201,7 +201,7 @@ var chart = new BreakdownChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (131).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (154).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -249,7 +249,7 @@ var chart = new BarChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (122).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (145).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -290,7 +290,7 @@ var chart = new BarChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -339,7 +339,7 @@ var chart = new StickChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (123).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (146).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -381,7 +381,7 @@ var chart = new StickChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (124).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (147).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -420,7 +420,7 @@ var chart = new StemLeafChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (142).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (165).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -514,7 +514,7 @@ var chart = new LineChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -549,7 +549,7 @@ var chart = new WinsLosses()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -643,7 +643,7 @@ var chart = new PieChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (159).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (182).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -690,7 +690,7 @@ var chart = new LinesChart()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}

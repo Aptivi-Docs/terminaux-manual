@@ -80,7 +80,7 @@ TextWriterRaw.WriteRaw(rendered);
 
 You can demonstrate this by running the `Terminaux.Console` app (build from source) and running the `RenderImage` test fixture:
 
-<figure><img src="../../.gitbook/assets/image (100).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (123).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 In some cases, you don't actually need to specify the left and the top position of the upper left corner of the image, such as interactive TUIs that print text and informational boxes.
@@ -137,7 +137,7 @@ The icon selector allows you to interactively select an icon while showing it to
 
 <summary>Using the image viewer TUI</summary>
 
-<figure><img src="../../.gitbook/assets/image (165).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (188).png" alt=""><figcaption></figcaption></figure>
 
 The image viewer TUI can be used to give your console applications an image preview interface that allows you to peek in a specific image, just like conventional image viewers in your PC, your phone, and so on.&#x20;
 

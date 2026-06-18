@@ -34,7 +34,7 @@ TextWriterRaw.WriteRaw(rect2.Render());
 ```
 {% endcode %}
 
-<figure><img src="../../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 It's up to your shape class to have a constructor that doesn't necessarily require all the shape arguments as outlined above.
@@ -69,7 +69,7 @@ var shape = new Circle(20, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (157).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (180).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -82,7 +82,7 @@ var shape = new Circle(20, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (158).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (181).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -115,7 +115,7 @@ var arc = new Arc(20, 4, 2, ConsoleColors.Red)
 TextWriterRaw.WriteRaw(arc.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (166).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (189).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -150,7 +150,7 @@ TextWriterRaw.WriteRaw(arc2.Render());
 TextWriterRaw.WriteRaw(arc3.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (167).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (190).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -169,7 +169,7 @@ var arc = new Arc(20, 4, 2, ConsoleColors.Red)
 TextWriterRaw.WriteRaw(arc.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (168).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (191).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -196,7 +196,7 @@ TextWriterRaw.WriteRaw(arc.Render());
 TextWriterRaw.WriteRaw(arc2.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (169).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (192).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -227,7 +227,7 @@ TextWriterRaw.WriteRaw(arc.Render());
 TextWriterRaw.WriteRaw(arc2.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (170).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (193).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -254,7 +254,7 @@ var shape = new Ellipsis(20, 15, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (171).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (194).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -267,7 +267,7 @@ var shape = new Ellipsis(20, 15, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (172).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (195).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -286,7 +286,7 @@ var shape = new Parallelogram(20, 10, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -299,7 +299,7 @@ var shape = new Parallelogram(20, 10, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -318,7 +318,7 @@ var shape = new Rectangle(20, 10, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -331,7 +331,7 @@ var shape = new Rectangle(20, 10, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -350,7 +350,7 @@ var shape = new Square(20, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (113).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (136).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -363,7 +363,7 @@ var shape = new Square(20, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (114).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (137).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -382,7 +382,7 @@ var shape = new Trapezoid(10, 30, 20, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -395,7 +395,7 @@ var shape = new Trapezoid(10, 30, 20, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (139).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (162).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -414,7 +414,7 @@ var shape = new Triangle(30, 20, 2, 1);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (47).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -427,7 +427,7 @@ var shape = new Triangle(30, 20, 2, 1, true);
 TextWriterRaw.WriteRaw(shape.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -450,7 +450,7 @@ var line = new Line()
 TextWriterRaw.WriteRaw(line.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (150).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (173).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -468,7 +468,7 @@ var line = new Line()
 TextWriterRaw.WriteRaw(line.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (149).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (172).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}

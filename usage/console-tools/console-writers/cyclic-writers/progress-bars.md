@@ -65,7 +65,7 @@ finally
 }
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (78).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -116,7 +116,7 @@ finally
 }
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -167,7 +167,7 @@ finally
 }
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (58).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (81).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -222,7 +222,7 @@ finally
 }
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (79).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -272,7 +272,7 @@ finally
 }
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -322,7 +322,7 @@ finally
 }
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (80).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -377,7 +377,7 @@ finally
 }
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (132).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (155).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -427,7 +427,7 @@ finally
 }
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -477,7 +477,7 @@ finally
 }
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (133).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (156).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -532,7 +532,7 @@ finally
 }
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (134).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (157).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -588,7 +588,7 @@ finally
 }
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -644,7 +644,7 @@ finally
 }
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (135).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (158).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -723,7 +723,7 @@ finally
 }
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (136).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (159).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -799,7 +799,7 @@ finally
 }
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (137).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (160).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -846,7 +846,7 @@ finally
 }
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (59).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (82).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Built-in spinners are available in the `BuiltinSpinners` class.

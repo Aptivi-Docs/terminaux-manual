@@ -49,7 +49,7 @@ var table = new Table()
 TextWriterRaw.WriteRaw(table.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -70,7 +70,7 @@ var calendar = new Calendars()
 TextWriterRaw.WriteRaw(calendar.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -94,7 +94,7 @@ var calendar = new Calendars()
 TextWriterRaw.WriteRaw(calendar.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -122,7 +122,7 @@ var misc = new Listing()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -143,7 +143,7 @@ var misc = new Listing()
 TextWriterRaw.WriteRaw(misc.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -208,7 +208,7 @@ TextWriterRaw.WritePlain(misc7.Render());
 TextWriterRaw.WritePlain(misc8.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -245,7 +245,7 @@ var selections = new Selection(finalSelections)
 TextWriterRaw.WriteRaw(selections.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (167).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -277,7 +277,7 @@ var selections = new Selection(finalSelections)
 TextWriterRaw.WriteRaw(selections.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (145).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (168).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -310,7 +310,7 @@ var selections = new Selection(finalSelections)
 TextWriterRaw.WriteRaw(selections.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (162).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (185).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -340,7 +340,7 @@ var selections = new PassiveSelection(finalSelections);
 TextWriterRaw.WriteRaw(selections.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (163).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (186).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -367,7 +367,7 @@ var selections = new PassiveSelection(finalSelections)
 TextWriterRaw.WriteRaw(selections.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (164).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (187).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}

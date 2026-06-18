@@ -38,7 +38,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -58,7 +58,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -78,7 +78,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -99,7 +99,7 @@ var artistic = new Border()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (47).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -125,7 +125,7 @@ var artistic = new Box()
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (71).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -150,7 +150,7 @@ var artistic = new BoxFrame("")
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -169,7 +169,7 @@ var artistic = new BoxFrame("Text")
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (49).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (72).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -193,7 +193,7 @@ var artistic = new BoxFrame("")
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (146).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (169).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -217,7 +217,7 @@ var artistic = new BoxFrame("Hello world!")
 TextWriterRaw.WriteRaw(artistic.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (147).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (170).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -274,7 +274,7 @@ TextWriterRaw.WriteRaw(frame3.Render());
 TextWriterRaw.WriteRaw(frame4.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (152).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (175).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -359,7 +359,7 @@ TextWriterRaw.WriteRaw(frame5.Render());
 TextWriterRaw.WriteRaw(frame6.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (161).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (184).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -478,7 +478,7 @@ var canvas = new Canvas()
 TextWriterRaw.WriteRaw(canvas.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (76).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -590,7 +590,7 @@ var canvas = new Canvas()
 TextWriterRaw.WriteRaw(canvas.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (77).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -702,7 +702,7 @@ var canvas = new Canvas()
 TextWriterRaw.WriteRaw(canvas.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (75).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -813,7 +813,7 @@ var canvas = new Canvas()
 TextWriterRaw.WriteRaw(canvas.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (74).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -2077,7 +2077,7 @@ TextWriterRaw.WritePlain(ruler3.Render());
 TextWriterRaw.WritePlain(ruler4.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -2115,7 +2115,7 @@ TextWriterRaw.WritePlain(ruler3.Render());
 TextWriterRaw.WritePlain(ruler4.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}

@@ -82,7 +82,7 @@ internal class CliInfoPaneTestData : BaseInteractiveTui<string>, IInteractiveTui
 
 This results in the console UI showing up like this:
 
-<figure><img src="../../../.gitbook/assets/image (102).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (125).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 You can also use this in an interactive TUI that accepts two data sources by overriding `SecondPaneInteractable` to true.
@@ -196,7 +196,7 @@ internal class CliDoublePaneTestData : BaseInteractiveTui<string, string>, IInte
 
 This results in the double pane interactive TUI showing up like this:
 
-<figure><img src="../../../.gitbook/assets/image (104).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (127).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -280,11 +280,11 @@ tui.BindingsSecondPane.Add(new InteractiveTuiBinding<string>("Length", ConsoleKe
 
 Therefore, the implementation in the first pane is:
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 The implementation in the second pane is:
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 

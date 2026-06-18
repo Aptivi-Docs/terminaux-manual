@@ -5,7 +5,7 @@ icon: arrows-spin
 
 # Spinner Selector
 
-<figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (84).png" alt=""><figcaption></figcaption></figure>
 
 Terminaux provides a selector that allows you to choose a spinner in an interactive way with live previews, powered by the [textual UI](../../console-tools/textual-ui/) feature.
 

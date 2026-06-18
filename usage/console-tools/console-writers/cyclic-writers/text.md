@@ -50,7 +50,7 @@ TextWriterRaw.WriteRaw(text2.Render());
 TextWriterRaw.WriteRaw(text3.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (125).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (148).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -88,7 +88,7 @@ TextWriterRaw.WriteRaw(text2.Render());
 TextWriterRaw.WriteRaw(text3.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -126,7 +126,7 @@ TextWriterRaw.WriteRaw(text2.Render());
 TextWriterRaw.WriteRaw(text3.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -284,7 +284,7 @@ TextWriterRaw.WriteRaw(text2.Render());
 TextWriterRaw.WriteRaw(text3.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (126).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (149).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -322,7 +322,7 @@ TextWriterRaw.WriteRaw(text2.Render());
 TextWriterRaw.WriteRaw(text3.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -360,7 +360,7 @@ TextWriterRaw.WriteRaw(text2.Render());
 TextWriterRaw.WriteRaw(text3.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (58).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -467,7 +467,7 @@ TextWriterRaw.WriteRaw(text.Render());
 TextWriterRaw.WriteRaw(text2.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (127).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (150).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -505,7 +505,7 @@ TextWriterRaw.WriteRaw(text.Render());
 TextWriterRaw.WriteRaw(text2.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (128).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (151).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -543,7 +543,7 @@ var text = new FigletText(FigletFonts.GetByName("small"), "Figlet text");
 TextWriterRaw.WriteRaw(text.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (129).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (152).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -651,7 +651,7 @@ TextWriterRaw.WritePlain("Aligned text without decoration: " + alignedTextUndeco
 TextWriterRaw.WritePlain("Aligned text with decoration:    " + alignedTextDecorated.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (140).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (163).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -686,7 +686,7 @@ var chart = new SyntaxText()
 TextWriterRaw.WriteRaw(chart.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (143).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (166).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -753,7 +753,7 @@ TextWriterRaw.WriteRaw(path3.Render());
 TextWriterRaw.WriteRaw(path4.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (141).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (164).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}

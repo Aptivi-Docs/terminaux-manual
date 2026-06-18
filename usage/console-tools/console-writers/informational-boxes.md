@@ -61,7 +61,7 @@ Informational box styles of this nature are modal. They require either a keyboar
 
 <summary>Buttons</summary>
 
-<figure><img src="../../../.gitbook/assets/image (175).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (198).png" alt=""><figcaption></figcaption></figure>
 
 This style utilizes choice-based input to render the buttons inside the informational box of this style, which makes them look like a conventional dialog box.
 
@@ -73,7 +73,7 @@ This style can render up to three buttons from the right to the left, which mean
 
 <summary>Input</summary>
 
-<figure><img src="../../../.gitbook/assets/image (176).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (199).png" alt=""><figcaption></figcaption></figure>
 
 This style uses the input reader to tell the user to write something, based on the informational box contents.
 
@@ -87,7 +87,7 @@ You can use this style with `InfoBoxInputColor`.
 
 <summary>Input (password)</summary>
 
-<figure><img src="../../../.gitbook/assets/image (177).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (200).png" alt=""><figcaption></figcaption></figure>
 
 This style uses the input reader masked with the password to tell the user to write something, based on the informational box contents.
 
@@ -101,7 +101,7 @@ You can use this style with `InfoBoxInputColor` with specifying the `InfoBoxInpu
 
 <summary>Input (character)</summary>
 
-<figure><img src="../../../.gitbook/assets/image (178).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (201).png" alt=""><figcaption></figcaption></figure>
 
 This style uses the input reader that takes the first character from the input string, based on the informational box contents.
 
@@ -115,7 +115,7 @@ You can use this style with `InfoBoxInputColor` with specifying the `InfoBoxInpu
 
 <summary>Multi-input</summary>
 
-<figure><img src="../../../.gitbook/assets/image (179).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (202).png" alt=""><figcaption></figcaption></figure>
 
 This style uses the input modules to describe multiple ways to present input to the user using different modules, such as having a text box and a combo box at the same time.
 
@@ -133,7 +133,7 @@ To learn more about input modules, consult the page below:
 
 <summary>Normal modal info box</summary>
 
-<figure><img src="../../../.gitbook/assets/image (180).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (203).png" alt=""><figcaption></figcaption></figure>
 
 This style only prints information that the end user needs to read. This is suitable for information that doesn't need any action.
 
@@ -145,7 +145,7 @@ You can use this style with the `InfoBoxModalColor` class.
 
 <summary>Slider</summary>
 
-<figure><img src="../../../.gitbook/assets/image (185).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (208).png" alt=""><figcaption></figcaption></figure>
 
 This style allows you to define the minimum, current, and maximum value of an integral value that is surrounded by the specified range.
 
@@ -180,7 +180,7 @@ There are two styles in this category:
 
 ### <mark style="color:$primary;">Single selection informational box</mark>
 
-<figure><img src="../../../.gitbook/assets/image (181).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (204).png" alt=""><figcaption></figcaption></figure>
 
 This info box style uses the choice-based input to define choices that the end user will have to select one of them. Plus, you can search for a choice using the `F` key to initiate a regex-based search for maximum flexibility.
 
@@ -189,12 +189,12 @@ You can use this style with the `InfoBoxSelectionColor` class.
 {% hint style="info" %}
 You can additionally enable radio buttons using the `RadioButtons` property in the infobox settings.
 
-<img src="../../../.gitbook/assets/image (182).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image (205).png" alt="" data-size="original">
 {% endhint %}
 
 ### <mark style="color:$primary;">Multiple selection informational box</mark>
 
-<figure><img src="../../../.gitbook/assets/image (183).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (206).png" alt=""><figcaption></figcaption></figure>
 
 This info box style uses the choice-based input to define multiple choices that the end user will have to select one of them. Plus, you can search for a choice using the `F` key to initiate a regex-based search for maximum flexibility.
 
@@ -226,7 +226,7 @@ In addition to the modal informational boxes, we also have non-modal information
 
 <summary>Normal infobox</summary>
 
-<figure><img src="../../../.gitbook/assets/image (93).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (116).png" alt=""><figcaption></figcaption></figure>
 
 This is used to convey information to the end user that some progress is being made without any percentage. Such progress is called indeterminate progress. However, this can be used to display a disclaimer or any other information within a limited time.
 
@@ -236,7 +236,7 @@ This is used to convey information to the end user that some progress is being m
 
 <summary>Progress</summary>
 
-<figure><img src="../../../.gitbook/assets/image (184).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (207).png" alt=""><figcaption></figcaption></figure>
 
 This is used to tell the end user through an informational box with a progress bar that something is happening, and that the progress is being done all the way to 100%. This infobox needs to be in a loop while progress is being made.
 
@@ -255,5 +255,5 @@ The following properties can be used to position the informational box however y
 {% hint style="info" %}
 Turning off autofit for infoboxes, while keeping default configuration, will result in this:
 
-<img src="../../../.gitbook/assets/image (174).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image (197).png" alt="" data-size="original">
 {% endhint %}

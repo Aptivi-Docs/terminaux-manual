@@ -13,7 +13,7 @@ To get started, select one of the font types below:
 
 <summary>Cowsay</summary>
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 The Cowsay selector allows you to flexibly select a Cowsay font to make reading text more amusing. It provides virtual characters' ASCII art that speaks or thinks, and it shows you a live preview of the font to show how your selected font looks like prior to submission.
 
@@ -44,7 +44,7 @@ The following controls are available for the normal Cowsay font selector:
 
 <summary>Figlet</summary>
 
-<figure><img src="../../../.gitbook/assets/image (87).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (110).png" alt=""><figcaption></figcaption></figure>
 
 The figlet font selector allows you to flexibly select a Figlet font provided by the Figlet part of Textify, powered by the [textual UI](../../console-tools/textual-ui/) feature. It shows you a live preview of the font to show you how your selected font looks like prior to submission.
 

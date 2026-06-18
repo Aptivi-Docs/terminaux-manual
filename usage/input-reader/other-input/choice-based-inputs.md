@@ -15,7 +15,7 @@ You can group instances of `InputChoiceInfo` classes using an array of `InputCho
 
 ## <mark style="color:$primary;">Choices</mark>
 
-<figure><img src="../../../.gitbook/assets/image (88).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (111).png" alt=""><figcaption></figcaption></figure>
 
 Input choices are required to make use of all choice-based input methods that use the `InputChoiceInfo` class instances, which you can define them yourself.
 
@@ -98,7 +98,7 @@ You can access information from here:
 
 <summary>Selection style</summary>
 
-<figure><img src="../../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (112).png" alt=""><figcaption></figcaption></figure>
 
 Selection style input method uses choices to present you with a full-screen interactive choice selector powered by the [textual UI](../../console-tools/textual-ui/) feature. This style allows you to select a choice interactively. This style is found in the `SelectionStyle` and the `SelectionMultipleStyle` classes for both the single-choice selection style and the multiple-choice selection style, respectively.
 
@@ -140,7 +140,7 @@ Here are some tips that apply to selection style inputs:
 * You can press `P` to show the current choice selection count and the current page count, as well as total choices and pages.
 *   If you want to get more information about an item that you've selected, either press `TAB`, or open the sidebar using the `S` key and navigate through it using the `E` and the `D` keys.
 
-    <img src="../../../.gitbook/assets/image (39).png" alt="" data-size="original">
+    <img src="../../../.gitbook/assets/image (62).png" alt="" data-size="original">
 
 </details>
 

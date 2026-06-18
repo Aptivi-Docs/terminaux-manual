@@ -9,7 +9,7 @@ If you are using [Spectre.Console](https://www.nuget.org/packages/Spectre.Consol
 
 In a separate library, [Terminaux.Spectre](https://www.nuget.org/packages/Terminaux.Spectre/), you can perform translation operations.
 
-<figure><img src="../../.gitbook/assets/image (151).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (174).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Please note that, when installing this package, `Spectre.Console` is also installed as a dependency.

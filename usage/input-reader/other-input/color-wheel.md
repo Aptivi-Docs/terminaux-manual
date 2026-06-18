@@ -5,7 +5,7 @@ icon: palette
 
 # Color Wheel
 
-<figure><img src="../../../.gitbook/assets/image (187).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (210).png" alt=""><figcaption></figcaption></figure>
 
 The new color wheel, `ColorSelector`, is now available. You can use this brand new color selector, which is powered by the [textual UI](../../console-tools/textual-ui/) feature, to get information about your selected color visually.
 
@@ -26,7 +26,7 @@ This function returns a `Color` instance containing necessary information.
 
 <summary>Color wheel mode</summary>
 
-<figure><img src="../../../.gitbook/assets/image (188).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (211).png" alt=""><figcaption></figcaption></figure>
 
 When you press `C`, you'll see a single color wheel in the middle of the console with a white blip that points to the chosen color. The color wheel changes its saturation and lighting density as per the conversion results from RGB to HSL.
 
