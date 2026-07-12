@@ -68,6 +68,7 @@
     * [Input Modules](usage/input-reader/other-input/input-modules.md)
     * [Audio Cues](usage/input-reader/other-input/audio-cues.md)
     * [Global Password Mask](usage/input-reader/other-input/global-password-mask.md)
+    * [Input Locks](usage/input-reader/other-input/input-locks.md)
   * [Reader State](usage/input-reader/reader-state.md)
   * [Reader Settings](usage/input-reader/reader-settings.md)
   * [Syntax Highlighting](usage/input-reader/syntax-highlighting.md)

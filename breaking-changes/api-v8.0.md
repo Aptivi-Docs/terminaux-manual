@@ -232,3 +232,110 @@ Rows[1, 1].ColoredCell = true;
 {% endcode %}
 
 </details>
+
+***
+
+## <mark style="color:$primary;">From 8.4.x to 8.6.x</mark>
+
+Between the 8.4.x and 8.6.x version range, we've made the following breaking changes:
+
+<details>
+
+<summary>Cyclic writer of tables changed to simple cyclic writer</summary>
+
+The cyclic writer for tables has been changed to a simple cyclic writer from a graphical variant so that command-line interface applications can render a table without taking up space for other input across the console window.
+
+The `Table` cyclic writer has been moved to `Terminaux.Writer.CyclicWriters.Simple` to reflect this change, while it now inherits from `SimpleCyclicWriter` instead of `GraphicalCyclicWriter`.
+
+The following properties have been removed:
+
+* `Left`
+* `Top`
+
+If you intend to render it somewhere, you'll now have to render it by manually specifying the position. You can do it easily with functions found in `RendererTools`.
+
+</details>
+
+<details>
+
+<summary>Cyclic writer of text path changed to simple cyclic writer</summary>
+
+The cyclic writer for text paths has been changed to a simple cyclic writer from a graphical variant so that command-line interface applications can render a text path without taking up space for other input across the console window.
+
+The `TextPath` cyclic writer has been moved to `Terminaux.Writer.CyclicWriters.Simple` to reflect this change, while it now inherits from `SimpleCyclicWriter` instead of `GraphicalCyclicWriter`.
+
+The following properties have been removed:
+
+* `Left`
+* `Top`
+* `Height`
+* `BackgroundColor`
+* `Settings`
+* `OneLine`
+* `Rainbow`
+* `RainbowBg`
+
+The following properties have been added:
+
+* `Alignment`
+
+If you intend to render it somewhere, you'll now have to render it by manually specifying the position. You can do it easily with functions found in `RendererTools`.
+
+</details>
+
+<details>
+
+<summary>Cyclic writer of syntax text changed to simple cyclic writer</summary>
+
+The cyclic writer for syntax text has been changed to a simple cyclic writer from a graphical variant so that command-line interface applications can render a syntax text without taking up space for other input across the console window.
+
+The `SyntaxText` cyclic writer has been moved to `Terminaux.Writer.CyclicWriters.Simple` to reflect this change, while it now inherits from `SimpleCyclicWriter` instead of `GraphicalCyclicWriter`.
+
+The following properties have been removed:
+
+* `Left`
+* `Top`
+* `Width`
+* `Height`
+* `LeftMargin`
+* `RightMargin`
+* `ForegroundColor`
+* `BackgroundColor`
+
+If you intend to render it somewhere, you'll now have to render it by manually specifying the position. You can do it easily with functions found in `RendererTools`.
+
+</details>
+
+<details>
+
+<summary>Cyclic writers of value showcase changed to simple cyclic writer</summary>
+
+The cyclic writers for value showcase has been changed to a simple cyclic writer from a graphical variant so that command-line interface applications can render a value showcase without taking up space for other input across the console window.
+
+The `ValueShowcase` and `ValueShowcaseDouble` cyclic writers have been moved to `Terminaux.Writer.CyclicWriters.Simple` to reflect this change, while they now inherit from `SimpleCyclicWriter` instead of `GraphicalCyclicWriter`.
+
+The following properties have been removed:
+
+* `Left`
+* `Top`
+
+If you intend to render them somewhere, you'll now have to render them by manually specifying the position. You can do it easily with functions found in `RendererTools`.
+
+</details>
+
+<details>
+
+<summary>Cyclic writer of calendars changed to simple cyclic writer</summary>
+
+The cyclic writer for calendars has been changed to a simple cyclic writer from a graphical variant so that command-line interface applications can render a calendar without taking up space for other input across the console window.
+
+The `Calendars` cyclic writer has been moved to `Terminaux.Writer.CyclicWriters.Simple` to reflect this change, while it now inherits from `SimpleCyclicWriter` instead of `GraphicalCyclicWriter`.
+
+The following properties have been removed:
+
+* `Left`
+* `Top`
+
+If you intend to render it somewhere, you'll now have to render it by manually specifying the position. You can do it easily with functions found in `RendererTools`.
+
+</details>

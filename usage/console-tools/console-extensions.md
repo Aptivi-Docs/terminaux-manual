@@ -179,5 +179,10 @@ The following extensions that don't fit in any of the categories can be used in 
 * `Bell()`
 * `IsOnAltBuffer`
 * `SetEncoding()` (Windows only)
+* `Paragraphize()`
+* `PadLeft()`
+* `PadRight()`
+* `PadMiddle()`
+* `Pad()`
 
 </details>

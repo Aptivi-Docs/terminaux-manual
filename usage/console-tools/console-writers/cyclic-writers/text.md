@@ -670,10 +670,8 @@ Please note that you must have the [`highlight`](http://andre-simon.de/zip/downl
 <summary>Example</summary>
 
 ```csharp
-var chart = new SyntaxText()
+var syntax = new SyntaxText()
 {
-    Top = 4,
-    LeftMargin = 4,
     Syntax = "rust",
     Text =
         """
@@ -683,10 +681,10 @@ var chart = new SyntaxText()
         }
         """
 };
-TextWriterRaw.WriteRaw(chart.Render());
+TextWriterRaw.WriteRaw(syntax.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (166).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (218).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}
@@ -704,8 +702,6 @@ You can render the decorated text path with this renderable so that the paths ap
 var path1 = new TextPath()
 {
     PathText = @"C:\WINDOWS\System32\very\long\path\so\that\we\can\read-this.txt",
-    Left = 4,
-    Top = 2,
     Width = 30,
 };
 var path2 = new TextPath()
@@ -716,9 +712,7 @@ var path2 = new TextPath()
     SeparatorColor = ConsoleColors.Yellow,
     RootDriveColor = ConsoleColors.Red,
     UseColors = true,
-    Settings = new() { Alignment = TextAlignment.Left },
-    Left = 4,
-    Top = 4,
+    Alignment = TextAlignment.Left,
     Width = 40,
 };
 var path3 = new TextPath()
@@ -729,9 +723,7 @@ var path3 = new TextPath()
     SeparatorColor = ConsoleColors.Yellow,
     RootDriveColor = ConsoleColors.Red,
     UseColors = true,
-    Settings = new() { Alignment = TextAlignment.Middle },
-    Left = 4,
-    Top = 5,
+    Alignment = TextAlignment.Middle,
     Width = 40,
 };
 var path4 = new TextPath()
@@ -742,18 +734,102 @@ var path4 = new TextPath()
     SeparatorColor = ConsoleColors.Yellow,
     RootDriveColor = ConsoleColors.Red,
     UseColors = true,
-    Settings = new() { Alignment = TextAlignment.Right },
-    Left = 4,
-    Top = 6,
+    Alignment = TextAlignment.Right,
     Width = 40,
 };
-TextWriterRaw.WriteRaw(path1.Render());
-TextWriterRaw.WriteRaw(path2.Render());
-TextWriterRaw.WriteRaw(path3.Render());
-TextWriterRaw.WriteRaw(path4.Render());
+TextWriterRaw.WritePlain(path1.Render());
+TextWriterRaw.WritePlain(path2.Render());
+TextWriterRaw.WritePlain(path3.Render());
+TextWriterRaw.WritePlain(path4.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (164).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (217).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Prosery and quote</mark>
+
+You can render a quote, a prose, a poetry, or any other text in a "quote block" with padding character from the left, with wrapping support.
+
+<details>
+
+<summary>Example (prosery)</summary>
+
+{% code expandable="true" %}
+```csharp
+var proseryRenderer = new Prosery()
+{
+    Prose =
+        """
+
+
+        Even if obstacles are there,
+        we still go on with prosperity.
+
+
+
+        So we try to get there,
+        to see the world with clarity.
+
+
+        """
+};
+TextWriterRaw.WriteRaw(proseryRenderer.Render() + "\n\n");
+var proseryRenderer2 = new Prosery()
+{
+    Prose =
+        """
+
+
+        Even if obstacles are there,
+        we still go on with prosperity.
+
+
+
+        So we try to get there,
+        to see the world with clarity.
+
+
+        """,
+    WrapLines = true,
+    WrapWidth = 20,
+    EnablePad = false,
+};
+TextWriterRaw.WriteRaw(proseryRenderer2.Render());
+```
+{% endcode %}
+
+<figure><img src="../../../../.gitbook/assets/image (212).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Example (quote)</summary>
+
+{% code expandable="true" %}
+```csharp
+var proseryRenderer = new Quote()
+{
+    QuoteText = "What would life be if we had no courage to attempt anything?",
+    Author = "Vincent van Gogh"
+};
+TextWriterRaw.WriteRaw(proseryRenderer.Render() + "\n\n");
+var proseryRenderer2 = new Quote()
+{
+    QuoteText = "What would life be if we had no courage to attempt anything?",
+    Author = "Vincent van Gogh",
+    WrapLines = true,
+    WrapWidth = 20,
+    EnablePad = false,
+};
+TextWriterRaw.WriteRaw(proseryRenderer2.Render());
+```
+{% endcode %}
+
+<figure><img src="../../../../.gitbook/assets/image (213).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}

@@ -19,6 +19,14 @@ Here are the renderers that you can use:
 
 This allows you to render a table that consists of rows and columns to the terminal. You can use the cell options variable to configure various cells, such as colors. Calendars internally use the table renderer to render the core elements of a calendar, and they support non-Gregorian calendars.
 
+{% hint style="info" %}
+In calendar renderers, you can specify dates which events and reminders happen using both the `EventDates` and the `ReminderDates` properties, respectively. It will be highlighted with appropriate markers and colors, where:
+
+* < and > represent days with just events assigned to them
+* ( and ) represent days with just reminders assigned to them
+* \[ and ] represent days with events and reminders assigned to them
+{% endhint %}
+
 <details>
 
 <summary>Normal tables</summary>
@@ -40,8 +48,6 @@ Rows[1, 1].ColoredCell = true;
 var table = new Table()
 {
     Rows = Rows,
-    Left = 4,
-    Top = 2,
     Width = ConsoleWrapper.WindowWidth - 7,
     Height = ConsoleWrapper.WindowHeight - 5,
     Header = true,
@@ -49,7 +55,7 @@ var table = new Table()
 TextWriterRaw.WriteRaw(table.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (214).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -62,15 +68,13 @@ var calendar = new Calendars()
 {
     Year = DateTime.Now.Year,
     Month = DateTime.Now.Month,
-    Left = 4,
-    Top = 2,
     Width = ConsoleWrapper.WindowWidth - 8,
     Height = ConsoleWrapper.WindowHeight - 4,
 };
 TextWriterRaw.WriteRaw(calendar.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (215).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -85,8 +89,6 @@ var calendar = new Calendars()
 {
     Year = DateTime.Now.Year,
     Month = DateTime.Now.Month,
-    Left = 4,
-    Top = 2,
     Width = ConsoleWrapper.WindowWidth - 8,
     Height = ConsoleWrapper.WindowHeight - 4,
     Culture = culture,
@@ -94,7 +96,7 @@ var calendar = new Calendars()
 TextWriterRaw.WriteRaw(calendar.Render());
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (216).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}

@@ -271,7 +271,7 @@ TextWriterRaw.WriteRaw(RenderableTools.RenderRenderable(misc, new(0, ConsoleWrap
 {% endstep %}
 
 {% step %}
-### <mark style="color:$primary;">`KeyShortcut`</mark>
+### <mark style="color:$primary;">Key shortcut</mark>
 
 This renderable allows you to write a keybinding shortcut descriptor, which the `Keybindings` renderable internally uses, similar to that of old text-based applications to the terminal.
 
@@ -336,7 +336,7 @@ TextWriterWhereColor.WriteWhere(misc.Render(), rng.Next(ConsoleWrapper.WindowWid
 {% endstep %}
 
 {% step %}
-### <mark style="color:$primary;">`NerdFonts`</mark>
+### <mark style="color:$primary;">Nerd Fonts</mark>
 
 This renderable allows you to render a Nerd Fonts glyph to the console.
 

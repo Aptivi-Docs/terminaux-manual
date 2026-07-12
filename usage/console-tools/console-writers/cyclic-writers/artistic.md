@@ -369,6 +369,10 @@ TextWriterRaw.WriteRaw(frame6.Render());
 
 This is your sandbox for your awesome creations. This is done by coloring individual pixels with a color of your choice.
 
+{% hint style="info" %}
+Canvases also support high-density pixel drawing, which makes your art more beautiful in consoles. Just turn on the `HighDensity` property and turn off the `DoubleWidth` property.
+{% endhint %}
+
 <details>
 
 <summary>Transparent - half-width</summary>
@@ -819,9 +823,134 @@ TextWriterRaw.WriteRaw(canvas.Render());
 {% endstep %}
 
 {% step %}
+### <mark style="color:$primary;">Simple canvas</mark>
+
+This is an alternative version of the graphical canvas. It either sizes up automatically as pixels draw, or you can manually specify the width and the height.
+
+{% hint style="info" %}
+Canvases also support high-density pixel drawing, which makes your art more beautiful in consoles. Just turn on the `HighDensity` property and turn off the `DoubleWidth` property.
+{% endhint %}
+
+<details>
+
+<summary>Example</summary>
+
+{% code expandable="true" %}
+```csharp
+var simpleCanvas = new SimpleCanvas()
+{
+    Color = ConsoleColors.Green,
+    HighDensity = true,
+    DoubleWidth = false,
+    Pixels =
+    [
+        // Draw the top part of the "T" letter
+        new(2, 2) { CellColor = ConsoleColors.Yellow },
+        new(3, 2) { CellColor = ConsoleColors.Yellow },
+        new(4, 2) { CellColor = ConsoleColors.Yellow },
+        new(5, 2) { CellColor = ConsoleColors.Yellow },
+        new(6, 2) { CellColor = ConsoleColors.Yellow },
+        new(7, 2) { CellColor = ConsoleColors.Yellow },
+        new(8, 2) { CellColor = ConsoleColors.Yellow },
+        new(9, 2) { CellColor = ConsoleColors.Yellow },
+        new(10, 2) { CellColor = ConsoleColors.Yellow },
+        new(11, 2) { CellColor = ConsoleColors.Yellow },
+        new(12, 2) { CellColor = ConsoleColors.Yellow },
+        new(13, 2) { CellColor = ConsoleColors.Yellow },
+        new(14, 2) { CellColor = ConsoleColors.Yellow },
+        new(15, 2) { CellColor = ConsoleColors.Yellow },
+        new(16, 2) { CellColor = ConsoleColors.Yellow },
+        new(17, 2) { CellColor = ConsoleColors.Yellow },
+        new(18, 2) { CellColor = ConsoleColors.Yellow },
+        new(2, 3) { CellColor = ConsoleColors.Yellow },
+        new(3, 3) { CellColor = ConsoleColors.Yellow },
+        new(4, 3) { CellColor = ConsoleColors.Yellow },
+        new(5, 3) { CellColor = ConsoleColors.Yellow },
+        new(6, 3) { CellColor = ConsoleColors.Yellow },
+        new(7, 3) { CellColor = ConsoleColors.Yellow },
+        new(8, 3) { CellColor = ConsoleColors.Yellow },
+        new(9, 3) { CellColor = ConsoleColors.Yellow },
+        new(10, 3) { CellColor = ConsoleColors.Yellow },
+        new(11, 3) { CellColor = ConsoleColors.Yellow },
+        new(12, 3) { CellColor = ConsoleColors.Yellow },
+        new(13, 3) { CellColor = ConsoleColors.Yellow },
+        new(14, 3) { CellColor = ConsoleColors.Yellow },
+        new(15, 3) { CellColor = ConsoleColors.Yellow },
+        new(16, 3) { CellColor = ConsoleColors.Yellow },
+        new(17, 3) { CellColor = ConsoleColors.Yellow },
+        new(18, 3) { CellColor = ConsoleColors.Yellow },
+        
+        // Draw the line of the "T" letter
+        new(9, 3) { CellColor = ConsoleColors.Yellow },
+        new(9, 4) { CellColor = ConsoleColors.Yellow },
+        new(9, 5) { CellColor = ConsoleColors.Yellow },
+        new(9, 6) { CellColor = ConsoleColors.Yellow },
+        new(9, 7) { CellColor = ConsoleColors.Yellow },
+        new(9, 8) { CellColor = ConsoleColors.Yellow },
+        new(9, 9) { CellColor = ConsoleColors.Yellow },
+        new(9, 10) { CellColor = ConsoleColors.Yellow },
+        new(9, 11) { CellColor = ConsoleColors.Yellow },
+        new(9, 12) { CellColor = ConsoleColors.Yellow },
+        new(9, 13) { CellColor = ConsoleColors.Yellow },
+        new(9, 14) { CellColor = ConsoleColors.Yellow },
+        new(9, 15) { CellColor = ConsoleColors.Yellow },
+        new(9, 16) { CellColor = ConsoleColors.Yellow },
+        new(9, 17) { CellColor = ConsoleColors.Yellow },
+        new(9, 18) { CellColor = ConsoleColors.Yellow },
+        new(9, 19) { CellColor = ConsoleColors.Yellow },
+        new(10, 3) { CellColor = ConsoleColors.Yellow },
+        new(10, 4) { CellColor = ConsoleColors.Yellow },
+        new(10, 5) { CellColor = ConsoleColors.Yellow },
+        new(10, 6) { CellColor = ConsoleColors.Yellow },
+        new(10, 7) { CellColor = ConsoleColors.Yellow },
+        new(10, 8) { CellColor = ConsoleColors.Yellow },
+        new(10, 9) { CellColor = ConsoleColors.Yellow },
+        new(10, 10) { CellColor = ConsoleColors.Yellow },
+        new(10, 11) { CellColor = ConsoleColors.Yellow },
+        new(10, 12) { CellColor = ConsoleColors.Yellow },
+        new(10, 13) { CellColor = ConsoleColors.Yellow },
+        new(10, 14) { CellColor = ConsoleColors.Yellow },
+        new(10, 15) { CellColor = ConsoleColors.Yellow },
+        new(10, 16) { CellColor = ConsoleColors.Yellow },
+        new(10, 17) { CellColor = ConsoleColors.Yellow },
+        new(10, 18) { CellColor = ConsoleColors.Yellow },
+        new(10, 19) { CellColor = ConsoleColors.Yellow },
+        new(11, 3) { CellColor = ConsoleColors.Yellow },
+        new(11, 4) { CellColor = ConsoleColors.Yellow },
+        new(11, 5) { CellColor = ConsoleColors.Yellow },
+        new(11, 6) { CellColor = ConsoleColors.Yellow },
+        new(11, 7) { CellColor = ConsoleColors.Yellow },
+        new(11, 8) { CellColor = ConsoleColors.Yellow },
+        new(11, 9) { CellColor = ConsoleColors.Yellow },
+        new(11, 10) { CellColor = ConsoleColors.Yellow },
+        new(11, 11) { CellColor = ConsoleColors.Yellow },
+        new(11, 12) { CellColor = ConsoleColors.Yellow },
+        new(11, 13) { CellColor = ConsoleColors.Yellow },
+        new(11, 14) { CellColor = ConsoleColors.Yellow },
+        new(11, 15) { CellColor = ConsoleColors.Yellow },
+        new(11, 16) { CellColor = ConsoleColors.Yellow },
+        new(11, 17) { CellColor = ConsoleColors.Yellow },
+        new(11, 18) { CellColor = ConsoleColors.Yellow },
+        new(11, 19) { CellColor = ConsoleColors.Yellow },
+    ]
+};
+TextWriterRaw.WriteRaw(simpleCanvas.Render());
+```
+{% endcode %}
+
+<figure><img src="../../../../.gitbook/assets/image (221).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
 ### <mark style="color:$primary;">Animated canvases</mark>
 
 You can make animated canvases using the `AnimatedCanvas` class. It allows you to define canvas frames that describe a group of arrays of cell properties. They are changed sequentially to form an animated canvas.
+
+{% hint style="info" %}
+Canvases also support high-density pixel drawing, which makes your art more beautiful in consoles. Just turn on the `HighDensity` property and turn off the `DoubleWidth` property.
+{% endhint %}
 
 <details>
 
@@ -2116,6 +2245,38 @@ TextWriterRaw.WritePlain(ruler4.Render());
 ```
 
 <figure><img src="../../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Separators</mark>
+
+They work similar to rulers, but also supports dumb consoles.
+
+<details>
+
+<summary>Example</summary>
+
+{% code expandable="true" %}
+```csharp
+var separator1 = new Separator()
+{
+    ForegroundColor = ConsoleColors.White
+};
+var separator2 = new Separator()
+{
+    ForegroundColor = ConsoleColors.Red,
+    Text = "Separator"
+};
+
+// Render the separators
+TextWriterRaw.WritePlain(separator1.Render());
+TextWriterRaw.WritePlain(separator2.Render());
+```
+{% endcode %}
+
+<figure><img src="../../../../.gitbook/assets/image (222).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 {% endstep %}

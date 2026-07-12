@@ -694,4 +694,125 @@ TextWriterRaw.WriteRaw(chart.Render());
 
 </details>
 {% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Value showcases</mark>
+
+The two renderers are actually components that charts use to render the values. It shows you either a single value or a double value for an element.
+
+<details>
+
+<summary>Single value</summary>
+
+{% code expandable="true" %}
+```csharp
+var showcase = new ValueShowcase()
+{
+    Width = ConsoleWrapper.WindowWidth - 4,
+    Height = ConsoleWrapper.WindowHeight - 8,
+    Elements =
+    [
+        new()
+        {
+            Name = "September 2023",
+            Value = 34.92,
+        },
+        new()
+        {
+            Name = "October 2023",
+            Value = 36.46,
+        },
+        new()
+        {
+            Name = "November 2023",
+            Value = 37.63,
+        },
+        new()
+        {
+            Name = "December 2023",
+            Value = 35.44,
+        },
+        new()
+        {
+            Name = "January 2024",
+            Value = 32.27,
+        },
+        new()
+        {
+            Name = "February 2024",
+            Value = 28.83,
+        },
+        new()
+        {
+            Name = "March 2024",
+            Value = 26.26,
+        },
+        new()
+        {
+            Name = "April 2024",
+            Value = 24.42,
+        },
+        new()
+        {
+            Name = "May 2024",
+            Value = 23.34,
+        },
+        new()
+        {
+            Name = "June 2024",
+            Value = 22.28,
+        },
+        new()
+        {
+            Name = "July 2024",
+            Value = 21.31,
+        },
+        new()
+        {
+            Name = "August 2024",
+            Value = 20.56,
+        },
+        new()
+        {
+            Name = "September 2024",
+            Value = 19.86,
+        },
+    ],
+};
+TextWriterRaw.WriteRaw(showcase.Render());
+```
+{% endcode %}
+
+<figure><img src="../../../../.gitbook/assets/image (219).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Double value</summary>
+
+{% code expandable="true" %}
+```csharp
+var showcase = new ValueShowcaseDouble()
+{
+    Width = ConsoleWrapper.WindowWidth - 4,
+    Height = ConsoleWrapper.WindowHeight - 8,
+    Elements =
+    [
+        ("January 2023", new(){ Name = "Win", Value = 85.29 }, new(){ Name = "Loss", Value = 43.46 }),
+        ("February 2023", new(){ Name = "Win", Value = 86.22 }, new(){ Name = "Loss", Value = 44.22 }),
+        ("March 2023", new(){ Name = "Win", Value = 89.32 }, new(){ Name = "Loss", Value = 40.20 }),
+        ("April 2023", new(){ Name = "Win", Value = 90.01 }, new(){ Name = "Loss", Value = 39.85 }),
+        ("May 2023", new(){ Name = "Win", Value = 89.43 }, new(){ Name = "Loss", Value = 42.02 }),
+        ("June 2023", new(){ Name = "Win", Value = 87.49 }, new(){ Name = "Loss", Value = 46.22 }),
+    ],
+};
+TextWriterRaw.WriteRaw(showcase.Render());
+```
+{% endcode %}
+
+<figure><img src="../../../../.gitbook/assets/image (220).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
 {% endstepper %}
