@@ -1,0 +1,475 @@
+---
+description: Drawing geometric shapes to the console!
+icon: triangle
+---
+
+# Geometric Shapes
+
+Terminaux also provides a wide assortment of classes that allow you to render different geometric shapes to the console easily.
+
+***
+
+## <mark style="color:$primary;">Implementation</mark>
+
+They implement the `GraphicalCyclicWriter` and the `CyclicWriter` classes to allow you to iteratively render different geometric shapes from arrays of shapes that you can loop through to speed up the process and to allow you to implement your custom geometric shape.
+
+{% hint style="info" %}
+You can also store these shapes in a container and render them iteratively using the [`Container`](./) class. For line rendering, we recommend that you rely on the cyclic writer and its renderables.
+{% endhint %}
+
+***
+
+## <mark style="color:$primary;">Rendering a shape</mark>
+
+To render a geometric shape, such as a rectangle, to the console, you must create a new instance of a shape class, providing the width and the height of the shape, as well as the position that tells Terminaux where to render the shape, whether to render the outline or the full shape (optional), and the selected color (optional).
+
+After creating a new instance, just call `Render()` on the shape instance.
+
+{% code title="RenderRectangle.cs" lineNumbers="true" %}
+```csharp
+var rect = new Rectangle(7, 5, 4, 2, true, ConsoleColors.Red);
+var rect2 = new Rectangle(7, 5, 21, 2, false, ConsoleColors.Aqua);
+TextWriterRaw.WriteRaw(rect.Render());
+TextWriterRaw.WriteRaw(rect2.Render());
+```
+{% endcode %}
+
+<figure><img src="../../../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+It's up to your shape class to have a constructor that doesn't necessarily require all the shape arguments as outlined above.
+{% endhint %}
+
+***
+
+## <mark style="color:$primary;">List of shapes</mark>
+
+Here are the shapes that you can use:
+
+{% stepper %}
+{% step %}
+### <mark style="color:$primary;">Circle</mark>
+
+The circle writer allows you to write a circle to the console. It also allows you to either draw just an outline or the whole filled circle.
+
+{% hint style="info" %}
+You can use the following properties to render this shape with rainbow colors:
+
+* `RainbowMode`: Whether to render this shape in a rainbow gradient or not
+* `RainbowSaturation`: Saturation of this gradient (0 to 100, default is 100)
+* `RainbowLighting`: Lighting of this gradient (0 to 100, default is 50)
+{% endhint %}
+
+<details>
+
+<summary>Outline</summary>
+
+```csharp
+var shape = new Circle(20, 2, 1);
+TextWriterRaw.WriteRaw(shape.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (180).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Full</summary>
+
+```csharp
+var shape = new Circle(20, 2, 1, true);
+TextWriterRaw.WriteRaw(shape.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (181).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Arc</mark>
+
+This writer allows you to write an arc directly to the console with some parameters, such as custom inner and outer radius, and angle ranges.
+
+{% hint style="info" %}
+You can use the following properties to render this shape with rainbow colors:
+
+* `RainbowMode`: Whether to render this shape in a rainbow gradient or not
+* `RainbowSaturation`: Saturation of this gradient (0 to 100, default is 100)
+* `RainbowLighting`: Lighting of this gradient (0 to 100, default is 50)
+{% endhint %}
+
+<details>
+
+<summary>Partial Donut</summary>
+
+```csharp
+var arc = new Arc(20, 4, 2, ConsoleColors.Red)
+{
+    InnerRadius = 6,
+    OuterRadius = 9,
+    AngleStart = 360,
+    AngleEnd = 100,
+};
+TextWriterRaw.WriteRaw(arc.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (189).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Full Donut</summary>
+
+```csharp
+var arc = new Arc(20, 4, 2, ConsoleColors.Red)
+{
+    InnerRadius = 6,
+    OuterRadius = 9,
+    AngleStart = 360,
+    AngleEnd = 100,
+};
+var arc2 = new Arc(20, 4, 2, ConsoleColors.Lime)
+{
+    InnerRadius = 6,
+    OuterRadius = 9,
+    AngleStart = 150,
+    AngleEnd = 360,
+};
+var arc3 = new Arc(20, 4, 2, ConsoleColors.Blue)
+{
+    InnerRadius = 6,
+    OuterRadius = 9,
+    AngleStart = 100,
+    AngleEnd = 150,
+};
+TextWriterRaw.WriteRaw(arc.Render());
+TextWriterRaw.WriteRaw(arc2.Render());
+TextWriterRaw.WriteRaw(arc3.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (190).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Partial Pie</summary>
+
+```csharp
+var arc = new Arc(20, 4, 2, ConsoleColors.Red)
+{
+    InnerRadius = 0,
+    OuterRadius = 9,
+    AngleStart = 170,
+    AngleEnd = 120,
+};
+TextWriterRaw.WriteRaw(arc.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (191).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Full Pie</summary>
+
+```csharp
+var arc = new Arc(20, 4, 2, ConsoleColors.Red)
+{
+    InnerRadius = 0,
+    OuterRadius = 9,
+    AngleStart = 170,
+    AngleEnd = 120,
+};
+var arc2 = new Arc(20, 4, 2, ConsoleColors.Aqua)
+{
+    InnerRadius = 0,
+    OuterRadius = 9,
+    AngleStart = 120,
+    AngleEnd = 170,
+};
+TextWriterRaw.WriteRaw(arc.Render());
+TextWriterRaw.WriteRaw(arc2.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (192).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Elliptical</summary>
+
+```csharp
+var arc = new Arc(20, 4, 2, ConsoleColors.Red)
+{
+	InnerRadius = 0,
+	OuterRadius = 9,
+	RadiusX = 6,
+	RadiusY = 9,
+	AngleStart = 170,
+	AngleEnd = 120,
+};
+var arc2 = new Arc(20, 4, 2, ConsoleColors.Aqua)
+{
+	InnerRadius = 0,
+	OuterRadius = 9,
+	RadiusX = 6,
+	RadiusY = 9,
+	AngleStart = 120,
+	AngleEnd = 170,
+};
+TextWriterRaw.WriteRaw(arc.Render());
+TextWriterRaw.WriteRaw(arc2.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (193).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Ellipsis</mark>
+
+This writer allows you to write an ellipsis directly to the console. It also allows you to either draw just an outline or the whole filled ellipsis.
+
+{% hint style="info" %}
+You can use the following properties to render this shape with rainbow colors:
+
+* `RainbowMode`: Whether to render this shape in a rainbow gradient or not
+* `RainbowSaturation`: Saturation of this gradient (0 to 100, default is 100)
+* `RainbowLighting`: Lighting of this gradient (0 to 100, default is 50)
+{% endhint %}
+
+<details>
+
+<summary>Outline</summary>
+
+```csharp
+var shape = new Ellipsis(20, 15, 2, 1);
+TextWriterRaw.WriteRaw(shape.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (194).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Full</summary>
+
+```csharp
+var shape = new Ellipsis(20, 15, 2, 1, true);
+TextWriterRaw.WriteRaw(shape.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (195).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Parallelogram</mark>
+
+This writer allows you to write a parallelogram to the console directly. You can specify whether to draw just the outline or the whole shape.
+
+<details>
+
+<summary>Outline</summary>
+
+```csharp
+var shape = new Parallelogram(20, 10, 2, 1);
+TextWriterRaw.WriteRaw(shape.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Full</summary>
+
+```csharp
+var shape = new Parallelogram(20, 10, 2, 1, true);
+TextWriterRaw.WriteRaw(shape.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Rectangle</mark>
+
+This writer allows you to write a rectangle to the console directly. You can specify whether to print the whole shape or just the edges.
+
+<details>
+
+<summary>Outline</summary>
+
+```csharp
+var shape = new Rectangle(20, 10, 2, 1);
+TextWriterRaw.WriteRaw(shape.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Full</summary>
+
+```csharp
+var shape = new Rectangle(20, 10, 2, 1, true);
+TextWriterRaw.WriteRaw(shape.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Square</mark>
+
+This shape basically renders a rectangle, but with just the height specified. In the console, the width is multiplied by two due to the space widths taking up only one cell. It basically renders a square.
+
+<details>
+
+<summary>Outline</summary>
+
+```csharp
+var shape = new Square(20, 2, 1);
+TextWriterRaw.WriteRaw(shape.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (136).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Full</summary>
+
+```csharp
+var shape = new Square(20, 2, 1, true);
+TextWriterRaw.WriteRaw(shape.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (137).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Trapezoid</mark>
+
+This renders a trapezoid using a specified height, a top edge width, and a bottom edge width. You can also make it either render just the outline or as a full shape.
+
+<details>
+
+<summary>Outline</summary>
+
+```csharp
+var shape = new Trapezoid(10, 30, 20, 2, 1);
+TextWriterRaw.WriteRaw(shape.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Full</summary>
+
+```csharp
+var shape = new Trapezoid(10, 30, 20, 2, 1, true);
+TextWriterRaw.WriteRaw(shape.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (162).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Triangle</mark>
+
+This renders either an equilateral triangle or an isosceles triangle to the console.
+
+<details>
+
+<summary>Outline</summary>
+
+```csharp
+var shape = new Triangle(30, 20, 2, 1);
+TextWriterRaw.WriteRaw(shape.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (47).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Full</summary>
+
+```csharp
+var shape = new Triangle(30, 20, 2, 1, true);
+TextWriterRaw.WriteRaw(shape.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Line</mark>
+
+This renders either a rough line or a smooth line, and it can either be half-width or full-width.
+
+<details>
+
+<summary>Rough line</summary>
+
+```csharp
+var line = new Line()
+{
+    StartPos = new(2, 2),
+    EndPos = new(10, 5)
+};
+TextWriterRaw.WriteRaw(line.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (173).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Smooth line</summary>
+
+```csharp
+var line = new Line()
+{
+    StartPos = new(2, 2),
+    EndPos = new(10, 5),
+    AntiAlias = true,
+};
+TextWriterRaw.WriteRaw(line.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (172).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+{% endstepper %}
