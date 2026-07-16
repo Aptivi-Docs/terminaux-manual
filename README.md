@@ -14,6 +14,26 @@ Terminaux is a library that contains all the common and the extra console tools 
 Below is the release history of the library:
 
 {% updates format="full" %}
+{% update date="2026-07-16" %}
+## <mark style="color:$primary;">v8.6.0</mark>
+
+<mark style="color:green;">Added horizontal scrolling support</mark>
+
+<mark style="color:green;">Added Prosery, Quote, and Separator writers</mark>
+
+<mark style="color:green;">Added high-density and simple canvases</mark>
+
+<mark style="color:green;">Added input locks</mark>
+
+<mark style="color:yellow;">Improved handling of grapheme clusters</mark>
+
+<mark style="color:yellow;">Improved handling of cell width estimation</mark>
+
+<mark style="color:yellow;">Made several graphical writers accessible to CLI apps</mark>
+
+<mark style="color:yellow;">General improvements and bug fixes</mark>
+{% endupdate %}
+
 {% update date="2026-06-14" %}
 ## <mark style="color:$primary;">v6.1.42.1</mark>
 
