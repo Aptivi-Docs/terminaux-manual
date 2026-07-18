@@ -11,6 +11,7 @@
   * [API v7.0](breaking-changes/api-v7.0.md)
   * [API v8.0](breaking-changes/api-v8.0.md)
 * [Installation and Upgrade](https://app.gitbook.com/s/Id4bob6wnHvpX4zbVVtI/csharp-libraries/installation-and-upgrade)
+* [Building](https://app.gitbook.com/s/Id4bob6wnHvpX4zbVVtI/csharp-libraries/building)
 
 ## Usage
 
