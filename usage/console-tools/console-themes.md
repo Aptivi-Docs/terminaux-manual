@@ -247,6 +247,22 @@ Alternatively, you can use `GetThemeInfo()` to get theme information about a spe
 
 <details>
 
+<summary>Exporting a theme</summary>
+
+You can export a theme to a JSON object using the `ExportToJson()` function:
+
+{% code title="ThemeInfo.cs" lineNumbers="true" %}
+```csharp
+public JObject ExportToJson() { }
+```
+{% endcode %}
+
+This function exports a theme information to a JSON object instance, which can then be saved to a file.
+
+</details>
+
+<details>
+
 <summary>Checking to see if a theme exists</summary>
 
 There is a function that lets you check to see if a theme exists. `IsThemeFound()` is usable for such themes and can be provided a name of the theme.
@@ -334,6 +350,8 @@ Each function takes either a named theme color type or an enumerated type that i
 <summary>Converting colors</summary>
 
 Your theme files can also support any specifier, as long as the specifier is supported by Colorimetry. You can consult the page below:
+
+<a href="https://app.gitbook.com/s/BdESDsiuTO9fbDXLJ8HV/usage/color-sequences/color-model-parsing" class="button primary">Colorimetry manual</a>
 
 </details>
 
