@@ -5,8 +5,8 @@ icon: hand-wave
 
 # Welcome!
 
-{% hint style="warning" %}
-Terminaux 7.x will no longer be maintained after August 5th, 2026. Please upgrade to Terminaux 8.x or higher.
+{% hint style="danger" %}
+Terminaux 7.x is no longer supported as of August 5th, 2026. Please upgrade to Terminaux 8.x or higher.
 
 If you still use old versions of Terminaux in your projects, go to the below links:
 
