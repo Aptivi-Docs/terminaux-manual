@@ -52,16 +52,8 @@ As indicated earlier in the command information page, if you enable the wrapping
 For example, `jsonbeautify` has been defined with the wrappable flag so that you can use the `wrap` command with it.
 
 ```csharp
-{ "jsonbeautify",
-    new CommandInfo("jsonbeautify", /* Localizable */ "Beautifies the JSON file",
-        [
-            new CommandArgumentInfo(
-            [
-                new CommandArgumentPart(true, "jsonfile"),
-                new CommandArgumentPart(true, "output"),
-            ], [], true)
-        ], new JsonBeautifyCommand(), CommandFlags.RedirectionSupported | CommandFlags.Wrappable)
-},
+public override CommandFlags Flags =>
+    CommandFlags.RedirectionSupported | CommandFlags.Wrappable;
 ```
 
 If your entire screen has been filled and the output isn't done yet, you can use the following controls to be able to control the position:

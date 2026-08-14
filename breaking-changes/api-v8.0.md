@@ -339,3 +339,47 @@ The following properties have been removed:
 If you intend to render it somewhere, you'll now have to render it by manually specifying the position. You can do it easily with functions found in `RendererTools`.
 
 </details>
+
+***
+
+## <mark style="color:$primary;">From 8.4.x to 8.7.x</mark>
+
+Between the 8.4.x and 8.7.x version range, we've made the following breaking changes:
+
+<details>
+
+<summary>Changed signature of <code>Execute()</code> for commands</summary>
+
+{% code expandable="true" %}
+```csharp
+public abstract int Execute(CommandParameters parameters, ref string variableValue);
+public virtual int ExecuteDumb(CommandParameters parameters, ref string variableValue);
+public virtual void HelpHelper();
+```
+{% endcode %}
+
+The three functions have been changed so that they hold the instance of the shell that was associated with the command. Some shells have variables that can only be accessible by accessing the shell info. Therefore, you'll need to change the implementation of all commands so that the `shell` argument comes before all other arguments.
+
+</details>
+
+<details>
+
+<summary>Moved <code>CommandInfo</code> properties</summary>
+
+We've moved all `CommandInfo` properties to the base command classes and converted them to read-only abstract and virtual properties that can be overridable from user code. This avoids having to maintain a large list of command info instances in large shells.
+
+As a result, the `CommandInfo` class has been removed from Terminaux.
+
+{% hint style="info" %}
+You'll have to manually override the appropriate properties in the command class and move their own definitions from the `CommandInfo` constructor calls to the correct properties, overriding any remaining properties as needed. Then, change the associated shell info classes so that properties hold the correct return type (`BaseCommand[]` for `Commands` and `BaseCommand` for `NonSlashCommandInfo`). Depending on how large the shell is, this can take from an average of 10 minutes to more than 4 hours to complete.
+{% endhint %}
+
+</details>
+
+<details>
+
+<summary><code>ShellExecuteInfo</code> removed from public API</summary>
+
+We've made `ShellExecuteInfo` invisible to the public API upon further inspection of its purpose. It was only meant for internal use.
+
+</details>

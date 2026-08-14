@@ -51,15 +51,7 @@ We'll explain things one by one. The `Metadata` key consists of some basic infor
 
 The following color categories are supported:
 
-| Category        | Description                                                      |
-| --------------- | ---------------------------------------------------------------- |
-| `Miscellaneous` | Themes that don't fit in the available categories                |
-| `Aesthetic`     | Aesthetically beautiful themes                                   |
-| `Chinese`       | Themes that are based on the Chinese culture                     |
-| `Exciting`      | Themes that make you excited                                     |
-| `Mesmerizing`   | Mesmerizing and relaxing themes                                  |
-| `Standard`      | Standard themes (usually housing the first themes ever released) |
-| `Linux`         | Themes that describe the Linux distro logo colors                |
+<table><thead><tr><th width="140.3333740234375">Category</th><th>Description</th></tr></thead><tbody><tr><td><code>Miscellaneous</code></td><td>Themes that don't fit in the available categories</td></tr><tr><td><code>Aesthetic</code></td><td>Aesthetically beautiful themes</td></tr><tr><td><code>Chinese</code></td><td>Themes that are based on the Chinese culture</td></tr><tr><td><code>Exciting</code></td><td>Themes that make you excited</td></tr><tr><td><code>Mesmerizing</code></td><td>Mesmerizing and relaxing themes</td></tr><tr><td><code>Standard</code></td><td>Standard themes (usually housing the first themes ever released)</td></tr><tr><td><code>Linux</code></td><td>Themes that describe the Linux distro logo colors</td></tr></tbody></table>
 
 What follows the metadata is a list of available color types and their color representations using color formats that Colorimetry supports. Your theme files can also support any specifier, as long as the specifier is supported.
 
@@ -214,6 +206,10 @@ public static void EditTheme(string theme, ThemeInfo themeInfo) { }
 {% endcode %}
 
 This function replaces an existing theme with the new `ThemeInfo` instance. This is useful if you want to save changes to the existing theme or override its colors.
+
+You can also edit the below `ThemeInfo` properties:
+
+<table><thead><tr><th width="180.333251953125">Property</th><th>Description</th></tr></thead><tbody><tr><td><code>Name</code></td><td>Theme name</td></tr><tr><td><code>Description</code></td><td>Theme description</td></tr><tr><td><code>TrueColorRequired</code></td><td>Whether true color is required</td></tr><tr><td><code>IsEvent</code></td><td>Whether this theme celebrates a specific event</td></tr><tr><td><code>StartMonth</code></td><td>The month in which the event starts</td></tr><tr><td><code>StartDay</code></td><td>The day in which the event starts</td></tr><tr><td><code>EndMonth</code></td><td>The month in which the event ends</td></tr><tr><td><code>EndDay</code></td><td>The day in which the event ends</td></tr><tr><td><code>Category</code></td><td>The category in which the theme is categorized</td></tr><tr><td><code>Calendar</code></td><td>The calendar name in which the event is assigned to</td></tr><tr><td><code>UseAccentTypes</code></td><td>Color type list to use accent color</td></tr></tbody></table>
 
 </details>
 

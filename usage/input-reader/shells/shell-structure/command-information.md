@@ -5,38 +5,21 @@ icon: info
 
 # Command Information
 
-The shell provides a class that stores information about a specific command that you've created to make your own rules.
+The shell provides a set of overridable properties in your command class that stores information about a specific command that you've created to make your own rules.
 
 ***
 
 ## <mark style="color:$primary;">Implementation of command information</mark>
 
-To implement your command, you must make a new instance of the command information class that will store general and optional information about your command.
+To implement your command, you must override those properties in your command class that will store general and optional information about your command.
 
 <details>
 
-<summary>Implementing <code>CommandInfo</code></summary>
+<summary>Implementing command information</summary>
 
-Each command you define in your shell must provide a new instance of the `CommandInfo` class holding details about the specified command. The new instance of the class can be made using one of the constructors defined below:
+Each command you define in your shell must override the abstract properties holding details about the specified command. The required and optional properties are:
 
-```csharp
-public CommandInfo(string Command, string HelpDefinition, CommandArgumentInfo[] CommandArgumentInfo, BaseCommand CommandBase, CommandFlags Flags = CommandFlags.None)
-public CommandInfo(string Command, string HelpDefinition, BaseCommand CommandBase, CommandFlags Flags = CommandFlags.None)
-```
-
-where:
-
-| Variable              | Description                                                               |
-| --------------------- | ------------------------------------------------------------------------- |
-| `Command`             | The command                                                               |
-| `HelpDefinition`      | The brief summary of what the command does                                |
-| `CommandArgumentInfo` | Array of argument information about your command (can be omitted)         |
-| `CommandBase`         | An instance of the `BaseCommand` containing command execution information |
-| `CommandFlags`        | All command flags                                                         |
-
-{% hint style="info" %}
-You can omit the array definition of `CommandArgumentInfo` instances to create parameterless commands more easily.
-{% endhint %}
+<table><thead><tr><th width="190.00006103515625">Variable</th><th width="110">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>Command</code></td><td>●</td><td>The command</td></tr><tr><td><code>HelpDefinition</code></td><td>●</td><td>The brief summary of what the command does</td></tr><tr><td><code>CommandArgumentInfo</code></td><td></td><td>Array of argument information about your command</td></tr><tr><td><code>CommandFlags</code></td><td></td><td>All command flags</td></tr></tbody></table>
 
 </details>
 
@@ -63,12 +46,7 @@ public CommandArgumentInfo(CommandArgumentPart[] Arguments, SwitchInfo[] Switche
 
 where:
 
-| Variable         | Description                                           |
-| ---------------- | ----------------------------------------------------- |
-| `Arguments`      | Defines the command arguments                         |
-| `Switches`       | Defines the command switches                          |
-| `AcceptsSet`     | Whether to accept the `-set` switch                   |
-| `infiniteBounds` | Whether to accept infinite number of arguments or not |
+<table><thead><tr><th width="160.3333740234375">Variable</th><th>Description</th></tr></thead><tbody><tr><td><code>Arguments</code></td><td>Defines the command arguments</td></tr><tr><td><code>Switches</code></td><td>Defines the command switches</td></tr><tr><td><code>AcceptsSet</code></td><td>Whether to accept the <code>-set</code> switch</td></tr><tr><td><code>infiniteBounds</code></td><td>Whether to accept infinite number of arguments or not</td></tr></tbody></table>
 
 </details>
 
@@ -84,14 +62,7 @@ public CommandArgumentPart(bool argumentRequired, string argumentExpression, Fun
 
 where:
 
-| Variable             | Description                                                                                                                                                                                                                |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `argumentRequired`   | Is this argument part required?                                                                                                                                                                                            |
-| `argumentExpression` | Command argument expression                                                                                                                                                                                                |
-| `autoCompleter`      | <p>Auto completion function delegate<br></p><ul><li>The first <code>string[]</code> denotes the list of last passed arguments</li><li>The second <code>string[]</code> (output) denotes the suggestions returned</li></ul> |
-| `isNumeric`          | Whether this argument part accepts numeric values only                                                                                                                                                                     |
-| `exactWording`       | If not empty, the user must write one of the words declared in this variable for this argument to be satisfied                                                                                                             |
-| `argumentDesc`       | Argument description that shows up in the help entry                                                                                                                                                                       |
+<table><thead><tr><th width="189.6666259765625">Variable</th><th>Description</th></tr></thead><tbody><tr><td><code>argumentRequired</code></td><td>Is this argument part required?</td></tr><tr><td><code>argumentExpression</code></td><td>Command argument expression</td></tr><tr><td><code>autoCompleter</code></td><td><p>Auto completion function delegate<br></p><ul><li>The first <code>string[]</code> denotes the list of last passed arguments</li><li>The second <code>string[]</code> (output) denotes the suggestions returned</li></ul></td></tr><tr><td><code>isNumeric</code></td><td>Whether this argument part accepts numeric values only</td></tr><tr><td><code>exactWording</code></td><td>If not empty, the user must write one of the words declared in this variable for this argument to be satisfied</td></tr><tr><td><code>argumentDesc</code></td><td>Argument description that shows up in the help entry</td></tr></tbody></table>
 
 In case you want to expressively specify the options without having to use default values for all parameters to set a certain parameter, you can use the `CommandArgumentPartOptions` overload:
 
@@ -101,11 +72,7 @@ public CommandArgumentPart(bool argumentRequired, string argumentExpression, Com
 
 where:
 
-| Variable             | Description                      |
-| -------------------- | -------------------------------- |
-| `argumentRequired`   | Is this argument part required?  |
-| `argumentExpression` | Command argument expression      |
-| `options`            | Options of command argument part |
+<table><thead><tr><th width="191">Variable</th><th>Description</th></tr></thead><tbody><tr><td><code>argumentRequired</code></td><td>Is this argument part required?</td></tr><tr><td><code>argumentExpression</code></td><td>Command argument expression</td></tr><tr><td><code>options</code></td><td>Options of command argument part</td></tr></tbody></table>
 
 </details>
 
@@ -115,21 +82,20 @@ where:
 
 For commands that require more than just simple argument checking as specified in the `CommandArgumentPart` instances, you can use the `ArgChecker` property to set it to a function delegate that checks all the arguments, with the command parameter info as the first argument.
 
-Such functions must return 0 to continue execution. Else, the command execution will not continue and the last error code will be set to what the function returns.
+Such functions must return `0` to continue execution. Else, the command execution will not continue and the last error code will be set to what the function returns.
 
 This is an example for the `alarm` command:
 
-<pre class="language-csharp" data-title="CommandInfo for alarm" data-line-numbers><code class="lang-csharp">new CommandInfo("alarm", /* Localizable */ "Manage your alarms",
+<pre class="language-csharp" data-title="CommandInfo for alarm" data-line-numbers><code class="lang-csharp">[
+    new CommandArgumentInfo(
     [
-        new CommandArgumentInfo(
-        [
-            (...)
-        ])
-        {
-<strong>            ArgChecker = (cp) => AlarmCommand.CheckArgument(cp, "start")
-</strong>        },
         (...)
-    ], new AlarmCommand(), CommandFlags.Strict),
+    ])
+    {
+<strong>        ArgChecker = (cp) => AlarmCommand.CheckArgument(cp, "start")
+</strong>    },
+    (...)
+]
 </code></pre>
 
 {% code title="Alarm command code" lineNumbers="true" %}

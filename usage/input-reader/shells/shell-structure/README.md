@@ -16,10 +16,11 @@ Shells can be built by implementing two different interfaces and base classes. W
 
 The shell handler, `ShellManager`, uses the available shell list, which holds the `BaseShellInfo` abstract class, to manipulate with that shell. That class can be get, depending on the needed type, with the `ShellManager.GetShellInfo()` function in the ︎`Terminaux.Shell.Shells` namespace.
 
-The shell handler also contains two properties:
+The shell handler also contains three properties:
 
 | Property           | Description                                                                            |
 | ------------------ | -------------------------------------------------------------------------------------- |
+| `CurrentShell`     | Returns the instance of the current shell.                                             |
 | `CurrentShellType` | Returns the current shell type, which can be used with the shell management functions. |
 | `LastShellType`    | Returns the last shell type, which is usually the shell that you exited.               |
 
@@ -30,12 +31,6 @@ For `LastShellType`, there are three cases:
 * If there is only one shell in the stack, it returns the current shell as the last one
 * If there are two or more shells in the stack, it returns the last shell type
 {% endhint %}
-
-### <mark style="color:$primary;">Alternate threads for commands</mark>
-
-In cases where shell commands need to summon another command, you can add an alternative thread then execute the appropriate command in said thread.
-
-To add an alternate thread in your command, you can execute `AddAlternateThread()`, then call `GetLine()`. Additionally, you can get how many shells that are currently running using the `ShellCount()` property.
 
 ***
 
@@ -117,23 +112,15 @@ internal class YourShellInfo : BaseShellInfo<YourShell>, IShellInfo
 This is where your commands get together by overriding the `Commands` variable with the new dictionary containing all your commands, like below:
 
 ```csharp
-public override List<CommandInfo> Commands => new()
+public override BaseCommand[] Commands => new()
 {
-    new CommandInfo("adduser", "Adds users",
-        new[] {
-            new CommandArgumentInfo(new[]
-            {
-                new CommandArgumentPart(true, "username"),
-                new CommandArgumentPart(false, "password"),
-                new CommandArgumentPart(false, "confirm"),
-            }, Array.Empty<SwitchInfo>())
-        }, new AddUserCommand(), CommandFlags.Strict),
+    new AddUserCommand(),
     (...)
 };
 ```
 
 {% hint style="info" %}
-If you need to know how to define a command information class, consult [here](command-information.md).
+If you need to know how to define a command class, consult [here](command-information.md).
 {% endhint %}
 
 {% hint style="info" %}
@@ -177,6 +164,10 @@ public override Dictionary<string, PromptPresetBase> ShellPresets => new()
 
 By default, your shells don't accept network connections. To make them accept network connections, you must override the `AcceptsNetworkConnection` so that it holds the value of `true` instead of `false`.
 
+{% hint style="info" %}
+This feature is currently exclusive to Nitrocid.
+{% endhint %}
+
 This causes the network connection selector, especially `OpenConnectionForShell()` which can be invoked in your networked shell launch code in your command class, to be able to acknowledge your shell.
 
 ```csharp
@@ -185,15 +176,19 @@ public override bool AcceptsNetworkConnection => true;
 
 You'll have to adapt your shell to take the first argument, `ShellArgs[0]`, as the network connection instance in your `Shell` instance. For example, we've done this to the FTP shell and shell info instances:
 
-<pre class="language-csharp" data-title="FTPShell.cs" data-line-numbers><code class="lang-csharp">public override void InitializeShell(params object[] ShellArgs)
+{% code title="FTPShell.cs" lineNumbers="true" %}
+```csharp
+public override void InitializeShell(params object[] ShellArgs)
 {
     // Parse shell arguments
-<strong>    NetworkConnection ftpConnection = (NetworkConnection)ShellArgs[0];
-</strong><strong>    FtpClient clientFTP = (FtpClient)ftpConnection.ConnectionInstance;
-</strong>
+    var ftpConnection = (NetworkInstanceConnection<FtpClient>)ShellArgs[0];
+    FtpClient? clientFTP = ftpConnection.ConnectionInstance ??
+        throw new KernelException(KernelExceptionType.FTPShell, LanguageTools.GetLocalized("NKS_SHELLPACKS_COMMON_EXCEPTION_NOCLIENT"));
+
     // Finalize current connection
-    FTPShellCommon.clientConnection = ftpConnection;
-</code></pre>
+    clientConnection = ftpConnection;
+```
+{% endcode %}
 
 <pre class="language-csharp" data-title="FTPShellInfo.cs" data-line-numbers><code class="lang-csharp">internal class FTPShellInfo : BaseShellInfo&#x3C;FTPShell>, IShellInfo
 {
@@ -247,7 +242,7 @@ class YourCommand : BaseCommand, ICommand
 The only function that you need to override is `Execute()`, which you can override like below:
 
 ```csharp
-public override void Execute(CommandParameters parameters, ref string variableValue)
+public override void Execute(IShell? shell, CommandParameters parameters, ref string variableValue)
 ```
 
 ### <mark style="color:$primary;">Additional overrides</mark>
@@ -261,7 +256,7 @@ You can override additional properties available to you below, depending on your
 To support dumb consoles that don't support positioning or complex console functions, you can override `ExecuteDumb()`:
 
 ```csharp
-public override void ExecuteDumb(CommandParameters parameters, ref string variableValue)
+public override void ExecuteDumb(IShell? shell, CommandParameters parameters, ref string variableValue)
 ```
 
 {% hint style="info" %}
@@ -297,10 +292,16 @@ The following wrappers should not be called (explicitly and implicitly) on that 
 You can override the extra help function, `HelpHelper()`, like this:
 
 ```csharp
-public override void HelpHelper()
+public override void HelpHelper(IShell? shell)
 ```
 
 </details>
+
+### <mark style="color:$primary;">Alternate threads for commands</mark>
+
+In cases where shell commands need to summon another command, you can add an alternative thread then execute the appropriate command in said thread.
+
+To add an alternate thread in your command, you can execute `AddAlternateThread()`, then call `GetLine()`. Additionally, you can get how many shells that are currently running using the `ShellCount()` property.
 
 ***
 
@@ -316,13 +317,15 @@ In order to register a command, use one of the below functions:
 
 {% code title="CommandManager.cs" lineNumbers="true" %}
 ```csharp
-public static void RegisterCustomCommand(string ShellType, CommandInfo commandBase) { }
-public static void RegisterCustomCommands(string ShellType, CommandInfo[] commandBases) { }
+public static void RegisterCustomCommand(string ShellType, BaseCommand? commandBase) { }
+public static void RegisterCustomCommands(string ShellType, BaseCommand[] commandBases) { }
 ```
 {% endcode %}
 
 {% hint style="info" %}
 If you've registered your commands correctly, the `help` command list should list your commands that you've registered using one of the `RegisterCustomCommand` functions.
+
+Make sure that the commands are not already registered. If you're unsure, check the output of `IsCommandFound()`. This function can optionally check to see if there is an alias with this name.
 {% endhint %}
 
 </details>
@@ -337,11 +340,15 @@ Similarly, if your application is going to stop, or if a command is to be unregi
 ```csharp
 public static void UnregisterCustomCommand(string ShellType, string commandName) { }
 public static void UnregisterCustomCommands(string ShellType, string[] commandNames) { }
+public static void UnregisterCustomCommand(string ShellType, BaseCommand command) { }
+public static void UnregisterCustomCommands(string ShellType, BaseCommand[] commands) { }
 ```
 {% endcode %}
 
 {% hint style="info" %}
 If you've unregistered your commands correctly, the `help` command list should no longer list them.
+
+Make sure that the commands are already registered. If you're unsure, check the output of `IsCommandFound()`. This function can optionally check to see if there is an alias with this name.
 {% endhint %}
 
 </details>

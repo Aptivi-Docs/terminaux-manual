@@ -14,6 +14,20 @@ Terminaux is a library that contains all the common and the extra console tools 
 Below is the release history of the library:
 
 {% updates format="full" %}
+{% update date="2026-08-20" %}
+## <mark style="color:$primary;">v8.7.0 (coming soon)</mark>
+
+<mark style="color:green;">Added ability to customize themes further</mark>
+
+<mark style="color:green;">Added more shell features, such as getting current shell instance</mark>
+
+<mark style="color:green;">Added color conversion commands from Nitrocid</mark>
+
+<mark style="color:yellow;">Significant improvements to shell command class structure</mark>
+
+<mark style="color:yellow;">General improvements and bug fixes</mark>
+{% endupdate %}
+
 {% update date="2026-07-27" %}
 ## <mark style="color:$primary;">v8.6.1</mark>
 
