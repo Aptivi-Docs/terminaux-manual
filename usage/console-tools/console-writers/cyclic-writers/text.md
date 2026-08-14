@@ -1,0 +1,836 @@
+---
+description: Print some text here!
+icon: text-size
+---
+
+# Text
+
+The following writers write text in different ways to the console.
+
+***
+
+## <mark style="color:$primary;">List of text renderers</mark>
+
+Here are the text renderers that you can use:
+
+{% stepper %}
+{% step %}
+### <mark style="color:$primary;">Aligned Figlet text</mark>
+
+This allows you to write an aligned Figlet text to the console.
+
+<details>
+
+<summary>Normal</summary>
+
+```csharp
+var text = new AlignedFigletText(FigletFonts.GetByName("small"), "Left")
+{
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    }
+};
+var text2 = new AlignedFigletText(FigletFonts.GetByName("small"), "Middle")
+{
+    Settings = new()
+    {
+        Alignment = TextAlignment.Middle
+    }
+};
+var text3 = new AlignedFigletText(FigletFonts.GetByName("small"), "Right")
+{
+    Settings = new()
+    {
+        Alignment = TextAlignment.Right
+    }
+};
+TextWriterRaw.WriteRaw(text.Render());
+TextWriterRaw.WriteRaw(text2.Render());
+TextWriterRaw.WriteRaw(text3.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (148).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Colored</summary>
+
+```csharp
+var text = new AlignedFigletText(FigletFonts.GetByName("small"), "Left")
+{
+    ForegroundColor = ConsoleColors.Red,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    }
+};
+var text2 = new AlignedFigletText(FigletFonts.GetByName("small"), "Middle")
+{
+    ForegroundColor = ConsoleColors.Lime,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Middle
+    }
+};
+var text3 = new AlignedFigletText(FigletFonts.GetByName("small"), "Right")
+{
+    ForegroundColor = ConsoleColors.Blue,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Right
+    }
+};
+TextWriterRaw.WriteRaw(text.Render());
+TextWriterRaw.WriteRaw(text2.Render());
+TextWriterRaw.WriteRaw(text3.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Rainbow</summary>
+
+```csharp
+var text = new AlignedFigletText(FigletFonts.GetByName("small"), "Left")
+{
+    Rainbow = true,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    }
+};
+var text2 = new AlignedFigletText(FigletFonts.GetByName("small"), "Middle")
+{
+    Rainbow = true,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Middle
+    }
+};
+var text3 = new AlignedFigletText(FigletFonts.GetByName("small"), "Right")
+{
+    Rainbow = true,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Right
+    }
+};
+TextWriterRaw.WriteRaw(text.Render());
+TextWriterRaw.WriteRaw(text2.Render());
+TextWriterRaw.WriteRaw(text3.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Aligned Cowsay text</mark>
+
+This allows you to write an aligned Cowsay text to the console.
+
+<details>
+
+<summary>Normal</summary>
+
+```csharp
+var cowsay = new AlignedCowsayText(CowName.Default, "Hello world!")
+{
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    }
+};
+var cowsay2 = new AlignedCowsayText(CowName.Default, "Hello world!")
+{
+    Settings = new()
+    {
+        Alignment = TextAlignment.Middle
+    }
+};
+var cowsay3 = new AlignedCowsayText(CowName.Default, "Hello world!")
+{
+    Settings = new()
+    {
+        Alignment = TextAlignment.Right
+    }
+};
+TextWriterRaw.WriteRaw(cowsay.Render());
+TextWriterRaw.WriteRaw(cowsay2.Render());
+TextWriterRaw.WriteRaw(cowsay3.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Colored</summary>
+
+```csharp
+var cowsay = new AlignedCowsayText(CowName.Default, "Hello world!")
+{
+    ForegroundColor = ConsoleColors.Red,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    }
+};
+var cowsay2 = new AlignedCowsayText(CowName.Default, "Hello world!")
+{
+    ForegroundColor = ConsoleColors.Lime,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Middle
+    }
+};
+var cowsay3 = new AlignedCowsayText(CowName.Default, "Hello world!")
+{
+    ForegroundColor = ConsoleColors.Blue,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Right
+    }
+};
+TextWriterRaw.WriteRaw(cowsay.Render());
+TextWriterRaw.WriteRaw(cowsay2.Render());
+TextWriterRaw.WriteRaw(cowsay3.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Rainbow</summary>
+
+```csharp
+var cowsay = new AlignedCowsayText(CowName.Default, "Hello world!")
+{
+    Rainbow = true,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    }
+};
+var cowsay2 = new AlignedCowsayText(CowName.Default, "Hello world!")
+{
+    Rainbow = true,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Middle
+    }
+};
+var cowsay3 = new AlignedCowsayText(CowName.Default, "Hello world!")
+{
+    Rainbow = true,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Right
+    }
+};
+TextWriterRaw.WriteRaw(cowsay.Render());
+TextWriterRaw.WriteRaw(cowsay2.Render());
+TextWriterRaw.WriteRaw(cowsay3.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Aligned text</mark>
+
+This allows you to write an aligned text to the console.
+
+<details>
+
+<summary>Normal</summary>
+
+```csharp
+var text = new AlignedText("Left")
+{
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    }
+};
+var text2 = new AlignedText("Middle")
+{
+    Settings = new()
+    {
+        Alignment = TextAlignment.Middle
+    }
+};
+var text3 = new AlignedText("Right")
+{
+    Settings = new()
+    {
+        Alignment = TextAlignment.Right
+    }
+};
+TextWriterRaw.WriteRaw(text.Render());
+TextWriterRaw.WriteRaw(text2.Render());
+TextWriterRaw.WriteRaw(text3.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (149).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Colored</summary>
+
+```csharp
+var text = new AlignedText("Left")
+{
+    ForegroundColor = ConsoleColors.Red,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    }
+};
+var text2 = new AlignedText("Middle")
+{
+    ForegroundColor = ConsoleColors.Lime,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Middle
+    }
+};
+var text3 = new AlignedText("Right")
+{
+    ForegroundColor = ConsoleColors.Blue,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Right
+    }
+};
+TextWriterRaw.WriteRaw(text.Render());
+TextWriterRaw.WriteRaw(text2.Render());
+TextWriterRaw.WriteRaw(text3.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Rainbow</summary>
+
+```csharp
+var text = new AlignedText("Left")
+{
+    Rainbow = true,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    }
+};
+var text2 = new AlignedText("Middle")
+{
+    Rainbow = true,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Middle
+    }
+};
+var text3 = new AlignedText("Right")
+{
+    Rainbow = true,
+    Settings = new()
+    {
+        Alignment = TextAlignment.Right
+    }
+};
+TextWriterRaw.WriteRaw(text.Render());
+TextWriterRaw.WriteRaw(text2.Render());
+TextWriterRaw.WriteRaw(text3.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (58).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Animated text</mark>
+
+This allows you to write text with animations using frames to define how the text is going to move.
+
+<details>
+
+<summary>Example</summary>
+
+```csharp
+var animatedText = new AnimatedText()
+{
+    TextFrames =
+    [
+        "H",
+        "He",
+        "Hel",
+        "Hell",
+        "Hello",
+        "Hello ",
+        "Hello W",
+        "Hello Wo",
+        "Hello Wor",
+        "Hello Worl",
+        "Hello World",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World!",
+        "Hello World ",
+        "Hello Worl  ",
+        "Hello Wor   ",
+        "Hello Wo    ",
+        "Hello W     ",
+        "Hello       ",
+        "Hello       ",
+        "Hell        ",
+        "Hel         ",
+        "He          ",
+        "H           ",
+        "            ",
+    ],
+    Left = 4,
+    Top = 2,
+    Width = 18,
+};
+for (int i = 0; i < animatedText.TextFrames.Length; i++)
+{
+    TextWriterRaw.WriteRaw(animatedText.Render());
+    Thread.Sleep(100);
+}
+```
+
+<figure><img src="../../../../.gitbook/assets/animated-text.gif" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Bounded text</mark>
+
+This allows you to write text with boundaries to the console to allow enough information to fit in a specified width and height. This works either according to lines, or according to column and row of the invisible caret.
+
+<details>
+
+<summary>Line-wise</summary>
+
+```csharp
+var text = new BoundedText("This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps.")
+{
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    },
+    Width = 30,
+    Height = 5,
+    Line = 1,
+};
+var text2 = new BoundedText("This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps.")
+{
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    },
+    Width = 30,
+    Height = 5,
+    Left = 40,
+    Line = 2,
+};
+TextWriterRaw.WriteRaw(text.Render());
+TextWriterRaw.WriteRaw(text2.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (150).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Position-wise</summary>
+
+```csharp
+var text = new BoundedText("This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps.")
+{
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    },
+    Width = 30,
+    Height = 5,
+    PositionWise = true,
+    Column = 5,
+    Row = 4,
+};
+var text2 = new BoundedText("This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps. This is a bounded text that wraps.")
+{
+    Settings = new()
+    {
+        Alignment = TextAlignment.Left
+    },
+    Width = 30,
+    Height = 5,
+    Left = 40,
+    PositionWise = true,
+    Column = 5,
+    Row = 5,
+};
+TextWriterRaw.WriteRaw(text.Render());
+TextWriterRaw.WriteRaw(text2.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (151).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Cowsay text</mark>
+
+This allows you to write unaligned Cowsay text to the console.
+
+<details>
+
+<summary>Example</summary>
+
+```csharp
+var cowsay = new CowsayText(CowName.Default, "Hello world!");
+TextWriterRaw.WriteRaw(cowsay.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Figlet text</mark>
+
+This allows you to write unaligned Figlet text to the console.
+
+<details>
+
+<summary>Example</summary>
+
+```csharp
+var text = new FigletText(FigletFonts.GetByName("small"), "Figlet text");
+TextWriterRaw.WriteRaw(text.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (152).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Text marquee</mark>
+
+This allows you to write an animated text marquee to the console.
+
+<details>
+
+<summary>Example</summary>
+
+```csharp
+var stickScreen = new Screen()
+{
+    CycleFrequency = 50,
+};
+var marquee = new TextMarquee(
+    "This is the test text marquee that's adjusted to your console width with the margin of 4 from both the " +
+    "left and the right side, and is intentionally long to make the text scroll just like how music players " +
+    "work.")
+{
+    Width = ConsoleWrapper.WindowWidth - 8,
+};
+try
+{
+    // First, clear the screen
+    ConsoleColoring.LoadBack();
+
+    // Then, show the counter
+    var stickScreenPart = new ScreenPart();
+    stickScreenPart.Position(4, ConsoleWrapper.WindowHeight / 2);
+    stickScreenPart.AddDynamicText(marquee.Render);
+    stickScreen.AddBufferedPart("Test", stickScreenPart);
+    ScreenTools.SetCurrent(stickScreen);
+    ScreenTools.SetCurrentCyclic(stickScreen);
+    ScreenTools.StartCyclicScreen();
+    Input.ReadKey();
+}
+catch (Exception ex)
+{
+    InfoBoxModalColor.WriteInfoBoxModal($"Screen failed to render: {ex.Message}");
+}
+finally
+{
+    ScreenTools.StopCyclicScreen();
+    ScreenTools.UnsetCurrent(stickScreen);
+    ConsoleColoring.LoadBack();
+}
+```
+
+<figure><img src="../../../../.gitbook/assets/1000022817.gif" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Decoration</mark>
+
+This allows you to create decorative renders for your text, but in a standalone form. You can also use this instance with aligned text instances to decorate your text with prefixes and suffixes.
+
+<details>
+
+<summary>Example</summary>
+
+```csharp
+var decoration1 = new Decoration()
+{
+    ForegroundColor = ConsoleColors.Red,
+    Start = "..:: ",
+    End = " ::..",
+};
+var decoration2 = new Decoration()
+{
+    ForegroundColor = ConsoleColors.Lime,
+    Start = "..::",
+    End = "::..",
+};
+var decoration3 = new Decoration()
+{
+    ForegroundColor = ConsoleColors.Blue,
+    Start = "..::",
+    End = "::..",
+};
+TextWriterRaw.WritePlain("Full decoration:  " + decoration1.Render());
+TextWriterRaw.WritePlain("Start decoration: " + decoration2.RenderStart());
+TextWriterRaw.WritePlain("End decoration:   " + decoration3.RenderEnd() + "\n");
+
+var alignedTextUndecorated = new AlignedText("Aligned text")
+{
+    ForegroundColor = ConsoleColors.Yellow,
+    Top = 6,
+    Left = "Aligned text without decoration: ".Length,
+};
+var alignedTextDecorated = new AlignedText("Aligned text")
+{
+    ForegroundColor = ConsoleColors.Yellow,
+    UseColors = true,
+    Top = 7,
+    Left = "Aligned text without decoration: ".Length,
+    Decoration = decoration2,
+};
+TextWriterRaw.WritePlain("Aligned text without decoration: " + alignedTextUndecorated.Render());
+TextWriterRaw.WritePlain("Aligned text with decoration:    " + alignedTextDecorated.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (163).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Syntax text</mark>
+
+You can render a syntax highlighted snippet of code using this renderable.
+
+{% hint style="info" %}
+Please note that you must have the [`highlight`](http://andre-simon.de/zip/download.php) app installed.
+{% endhint %}
+
+<details>
+
+<summary>Example</summary>
+
+```csharp
+var syntax = new SyntaxText()
+{
+    Syntax = "rust",
+    Text =
+        """
+        fn main() {
+            // Comment
+            println!("Hello World!");
+        }
+        """
+};
+TextWriterRaw.WriteRaw(syntax.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (218).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Text path</mark>
+
+You can render the decorated text path with this renderable so that the paths appear more elegant and simplified.
+
+<details>
+
+<summary>Example</summary>
+
+```csharp
+var path1 = new TextPath()
+{
+    PathText = @"C:\WINDOWS\System32\very\long\path\so\that\we\can\read-this.txt",
+    Width = 30,
+};
+var path2 = new TextPath()
+{
+    PathText = @"C:\WINDOWS\System32\taskmgr.exe",
+    ForegroundColor = ConsoleColors.Green,
+    LastPathColor = ConsoleColors.Blue,
+    SeparatorColor = ConsoleColors.Yellow,
+    RootDriveColor = ConsoleColors.Red,
+    UseColors = true,
+    Alignment = TextAlignment.Left,
+    Width = 40,
+};
+var path3 = new TextPath()
+{
+    PathText = @"/etc/grub.d/40_custom",
+    ForegroundColor = ConsoleColors.Green,
+    LastPathColor = ConsoleColors.Blue,
+    SeparatorColor = ConsoleColors.Yellow,
+    RootDriveColor = ConsoleColors.Red,
+    UseColors = true,
+    Alignment = TextAlignment.Middle,
+    Width = 40,
+};
+var path4 = new TextPath()
+{
+    PathText = @"Source/Public/Terminaux",
+    ForegroundColor = ConsoleColors.Green,
+    LastPathColor = ConsoleColors.Blue,
+    SeparatorColor = ConsoleColors.Yellow,
+    RootDriveColor = ConsoleColors.Red,
+    UseColors = true,
+    Alignment = TextAlignment.Right,
+    Width = 40,
+};
+TextWriterRaw.WritePlain(path1.Render());
+TextWriterRaw.WritePlain(path2.Render());
+TextWriterRaw.WritePlain(path3.Render());
+TextWriterRaw.WritePlain(path4.Render());
+```
+
+<figure><img src="../../../../.gitbook/assets/image (217).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+
+{% step %}
+### <mark style="color:$primary;">Prosery and quote</mark>
+
+You can render a quote, a prose, a poetry, or any other text in a "quote block" with padding character from the left, with wrapping support.
+
+<details>
+
+<summary>Example (prosery)</summary>
+
+{% code expandable="true" %}
+```csharp
+var proseryRenderer = new Prosery()
+{
+    Prose =
+        """
+
+
+        Even if obstacles are there,
+        we still go on with prosperity.
+
+
+
+        So we try to get there,
+        to see the world with clarity.
+
+
+        """
+};
+TextWriterRaw.WriteRaw(proseryRenderer.Render() + "\n\n");
+var proseryRenderer2 = new Prosery()
+{
+    Prose =
+        """
+
+
+        Even if obstacles are there,
+        we still go on with prosperity.
+
+
+
+        So we try to get there,
+        to see the world with clarity.
+
+
+        """,
+    WrapLines = true,
+    WrapWidth = 20,
+    EnablePad = false,
+};
+TextWriterRaw.WriteRaw(proseryRenderer2.Render());
+```
+{% endcode %}
+
+<figure><img src="../../../../.gitbook/assets/image (212).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+<details>
+
+<summary>Example (quote)</summary>
+
+{% code expandable="true" %}
+```csharp
+var proseryRenderer = new Quote()
+{
+    QuoteText = "What would life be if we had no courage to attempt anything?",
+    Author = "Vincent van Gogh"
+};
+TextWriterRaw.WriteRaw(proseryRenderer.Render() + "\n\n");
+var proseryRenderer2 = new Quote()
+{
+    QuoteText = "What would life be if we had no courage to attempt anything?",
+    Author = "Vincent van Gogh",
+    WrapLines = true,
+    WrapWidth = 20,
+    EnablePad = false,
+};
+TextWriterRaw.WriteRaw(proseryRenderer2.Render());
+```
+{% endcode %}
+
+<figure><img src="../../../../.gitbook/assets/image (213).png" alt=""><figcaption></figcaption></figure>
+
+</details>
+{% endstep %}
+{% endstepper %}
