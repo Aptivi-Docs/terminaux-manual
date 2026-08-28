@@ -14,8 +14,14 @@ Terminaux is a library that contains all the common and the extra console tools 
 Below is the release history of the library:
 
 {% updates format="full" %}
-{% update date="2026-08-20" %}
-## <mark style="color:$primary;">v8.7.0 (coming soon)</mark>
+{% update date="2026-08-28" %}
+## <mark style="color:$primary;">v8.7.1</mark>
+
+<mark style="color:yellow;">Improved support for .NET Framework</mark>
+{% endupdate %}
+
+{% update date="2026-08-16" %}
+## <mark style="color:$primary;">v8.7.0</mark>
 
 <mark style="color:green;">Added ability to customize themes further</mark>
 
