@@ -383,3 +383,28 @@ You'll have to manually override the appropriate properties in the command class
 We've made `ShellExecuteInfo` invisible to the public API upon further inspection of its purpose. It was only meant for internal use.
 
 </details>
+
+***
+
+## <mark style="color:$primary;">From 8.7.x to 8.8.x</mark>
+
+Between the 8.7.x and 8.8.x version range, we've made the following breaking changes:
+
+<details>
+
+<summary>Removed network-related properties</summary>
+
+{% code expandable="true" %}
+```csharp
+public virtual bool AcceptsNetworkConnection => false;
+public virtual string NetworkConnectionType => "";
+```
+{% endcode %}
+
+As the above two properties weren't used by any of Terminaux's features, and the only thing that seems to use them is Nitrocid, we've decided to remove those properties.
+
+{% hint style="warning" %}
+You'll now have to manage the network connection types yourself.
+{% endhint %}
+
+</details>
